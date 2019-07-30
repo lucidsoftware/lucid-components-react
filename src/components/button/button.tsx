@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { FontSize, FontWeight } from '../theme';
 import { Link } from 'gatsby';
 
 import './button.scss';
@@ -48,8 +47,8 @@ const Button = ({
     };
 
     const styles = {
-        fontSize: `${FontSize.Base}px`,
-        fontWeight: FontWeight.Normal
+        fontSize: `16px`,
+        fontWeight: '400'
     };
 
     if (href) {
@@ -61,7 +60,6 @@ const Button = ({
             disabled={disabled}
             onClick={onClick}
             onMouseOver={onHover}
-            style={styles}
             type={type}
             className={getClasses()}
         >

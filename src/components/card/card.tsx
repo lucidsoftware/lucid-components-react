@@ -12,8 +12,8 @@ const Card = ({ children, isRaised = false, isInteractive = false }: Props) => {
         isInteractive ? 'card--interactive' : ''
         }`;
     return (
-        <div styleName={classes}>
-            <div styleName="card__contents">{children}</div>
+        <div>
+            <div>{children}</div>
         </div>
     );
 };
