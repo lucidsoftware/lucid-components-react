@@ -1,14 +1,20 @@
 import React from 'react';
-import './link.scss';
 
 interface Props {
-    to: string;
-    className?: string;
-    text: string;
+	primary?: boolean,
+	secondary?: boolean,
+	inverse?: boolean,
+	asButton?: boolean
 }
 
-const Link = ({ to, text }: Props) => {
-    return (<a className="link">{text}</a>);
+type Link = Props & React.HTMLProps<HTMLAnchorElement> & React.HTMLAttributes<HTMLAnchorElement>;
+
+const Link = ({ children, primary, secondary, inverse, asButton, ...rest }: Link) => {
+    return (
+		<a {...rest}>
+			{children}
+		</a>
+	);
 };
 
 export default Link;
