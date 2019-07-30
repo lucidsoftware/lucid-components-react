@@ -56,4 +56,30 @@ const theme = {
   borderRadius: 5
 };
 
+export interface ThemeInterface {
+  colors: {
+    [key: string]: string
+  };
+  buttons: any,
+  fonts: {
+    body: string;
+    heading: string;
+    monospace: string;
+  };
+  fontWeights: {
+    body: number;
+    bold: number;
+    bolder: number;
+    heading: number;
+  };
+  lineHeights: {
+    body: number;
+    heading: number;
+  };
+  fontSizes: number[];
+  space: number[];
+  breakpoints: number[];
+  borderRadius: number;
+}
+
 export default theme;
