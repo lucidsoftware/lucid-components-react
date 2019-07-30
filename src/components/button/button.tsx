@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 
+import { withTheme } from 'emotion-theming';
+
 interface Props {
   className?: string;
   id?: string;
@@ -26,7 +28,7 @@ interface Props {
 
 type Button = Props & React.HTMLProps<HTMLButtonElement> & React.HTMLAttributes<HTMLButtonElement>;
 
-const Button = ({
+const Button = withTheme(({
   className="",
   id="",
   children,
@@ -72,6 +74,6 @@ const Button = ({
       {children}
     </button>
   );
-};
+});
 
 export default Button;
