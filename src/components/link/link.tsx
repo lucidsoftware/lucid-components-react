@@ -1,39 +1,62 @@
 /** @jsx jsx */
-import React from 'react';
+import { FC } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 
 interface Props {
+	disabled?: boolean,
 	primary?: boolean,
 	secondary?: boolean,
 	inverse?: boolean,
 	asButton?: boolean,
-	css?: any,
+	underline: 'none' | 'hover' | 'always'
+}
+
+interface ThemeProps {
 	theme: any
 }
 
-type Link = Props & React.HTMLProps<HTMLAnchorElement> & React.HTMLAttributes<HTMLAnchorElement>;
-
-const Link = withTheme(({ children, primary, secondary, inverse, asButton, theme, ...rest }: Link) => {
+const Link: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
+	href,
+	disabled,
+	underline = 'none',
+	children,
+	primary,
+	secondary,
+	inverse,
+	asButton,
+	theme,
+	...rest
+}) => {
 	const linkColor = theme.colors.primary;
 	const linkHoverColor = theme.colors.secondary;
+	const linkDisabledColor = theme.colors.disabled;
+
+	const css = {
+		color: linkColor,
+		textDecoration: underline === 'always' ? 'underline' : 'none',
+		':visited': {
+			color: linkColor
+		},
+		':hover,:focus': {
+			color: linkHoverColor,
+			textDecoration: underline === 'hover' || underline === 'always' ? 'underline' : 'none'
+		},
+		':not([href])': {
+			color: linkDisabledColor,
+			cursor: 'not-allowed'
+		}
+	}
 
 	return (
 		<a
-			css={{
-				color: linkColor,
-				':visited': {
-					color: linkColor
-				},
-				':hover,:focus': {
-					color: linkHoverColor
-				}
-			}}
+			href={disabled ? undefined : href}
+			css={css}
 			{...rest}
 		>
 			{children}
 		</a>
 	);
-});
+};
 
-export default Link;
+export default withTheme(Link);
