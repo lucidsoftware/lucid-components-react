@@ -1,71 +1,77 @@
-import React, { ReactNode } from 'react';
-import { Link } from 'gatsby';
-
-import './button.scss';
+import React, { ReactNode } from "react";
 
 interface Props {
-    primary?: boolean;
-    secondary?: boolean;
-    inverse?: boolean;
+  className?: string;
+  id?: string;
+  children?: ReactNode;
 
-    children?: ReactNode;
+  primary?: boolean;
+  secondary?: boolean;
+  inverse?: boolean;
+  asLink?: boolean;
 
-    disabled?: boolean;
-    className?: string;
+  block?: boolean;
 
-    href?: string;
-    trackingTrigger?: string;
-    type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  hover?: boolean;
+  active?: boolean;
 
-    onClick?: () => void;
-    onHover?: () => void;
-    mouseOver?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+
+
+  onClick?: () => void;
+  onHover?: () => void;
+  mouseOver?: () => void;
 }
 
+type Button = Props & React.HTMLProps<HTMLButtonElement> & React.HTMLAttributes<HTMLButtonElement>;
+
 const Button = ({
-    children,
-    className = '',
-    disabled,
-    href,
-    inverse,
-    onClick,
-    onHover,
-    primary,
-    secondary,
-    type = 'button'
-}: Props) => {
-    const getClasses = () => {
-        let style = 'default';
-        if (primary) {
-            style = 'is-primary';
-        } else if (secondary) {
-            style = 'is-secondary';
-        }
-        return `${className} ${style} ${disabled ? 'is-disabled' : ''} ${
-            inverse ? 'is-inverse' : ''
-            }`;
-    };
+  className="",
+  id="",
+  children,
 
-    const styles = {
-        fontSize: `16px`,
-        fontWeight: '400'
-    };
+  primary,
+  secondary,
+  inverse,
+  asLink,
 
-    if (href) {
-        return <Link to={href}>{children}</Link>;
+  block,
+
+  onClick,
+  onHover,
+
+  disabled,
+  hover,
+  active,
+
+  type = "button",
+  ...rest
+}: Button) => {
+  const getClasses = () => {
+    let emphasis = "default";
+    if (primary) {
+      emphasis = "is-primary";
+    } else if (secondary) {
+      emphasis = "is-secondary";
     }
 
-    return (
-        <button
-            disabled={disabled}
-            onClick={onClick}
-            onMouseOver={onHover}
-            type={type}
-            className={getClasses()}
-        >
-            {children}
-        </button>
-    );
+    return `${className} ${emphasis}${inverse ? '-inverse' : ''}  ${disabled ? 'is-disabled' : ''}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''} ${asLink ? 'is-link' : ''} ${block ? 'block' : ''}`;
+  };
+
+  return (
+    <button
+      {...rest}
+      className={getClasses()}
+      disabled={disabled}
+      onClick={onClick}
+      onMouseOver={onHover}
+      type={type}
+      id={id}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
