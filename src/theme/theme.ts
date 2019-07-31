@@ -8,12 +8,39 @@ const theme = {
     secondaryText: "#3D4752",
     grey: "#EBEBEC",
     white: "#FFF",
+    black: "#000",
     disabled: "#EBEBEC",
     disabledBorder: "#A7A9AC"
   },
   buttons: {
-    primary: {},
-    secondary: {}
+    boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
+    hoverBoxShadow: "none",
+    border: "1px solid #000",
+    transition: 'transform 0.15 ease-out',
+    
+    primary: {
+      color: "#FFF",
+      border: "1px solid #636AFF",
+      backgroundColor: '#636AFF',
+
+      hoverColor: "#4247aa",
+      hoverBackgroundColor: "#B6B9FF",
+      hoverBorder: "1px solid #636AFF",
+
+      activeColor: "#4247aa",
+      activeBackgroundColor: "#B6B9FF",
+      activeBorder: "1px solid #636AFF",
+      activeTransform: 0.95,
+    },
+    secondary: {
+      color: "#636AFF",
+      border: "1px solid #636AFF",
+      backgroundColor: '#FFF',
+      hoverColor: "#4247aa",
+      hoverBackgroundColor: "#B6B9FF",
+      hoverBorder: "1px solid #636AFF",
+      activeTransform: 0.95,
+    }
   },
   fonts: {
     body:

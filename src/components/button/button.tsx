@@ -1,71 +1,135 @@
-import React, { ReactNode } from 'react';
-import { Link } from 'gatsby';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import React, { ReactNode } from "react";
 
-import './button.scss';
+import { withTheme } from 'emotion-theming';
+import { ThemeInterface } from "../../theme/theme";
 
-interface Props {
-    primary?: boolean;
-    secondary?: boolean;
-    inverse?: boolean;
-
-    children?: ReactNode;
-
-    disabled?: boolean;
-    className?: string;
-
-    href?: string;
-    trackingTrigger?: string;
-    type?: 'button' | 'submit' | 'reset';
-
-    onClick?: () => void;
-    onHover?: () => void;
-    mouseOver?: () => void;
+interface Styles {
+  color?: string;
+  backgroundColor?: string;
+  borderColor?: string;
 }
 
+interface Props {
+  className?: string;
+  id?: string;
+  children?: ReactNode;
+
+  primary?: boolean;
+  secondary?: boolean;
+  inverse?: boolean;
+  asLink?: boolean;
+
+  block?: boolean;
+
+  disabled?: boolean;
+  hover?: boolean;
+  active?: boolean;
+
+  type?: 'button' | 'submit' | 'reset';
+
+  css?: any,
+  theme: ThemeInterface
+
+
+  onClick?: () => void;
+  onHover?: () => void;
+  mouseOver?: () => void;
+}
+
+type Button = Props & React.HTMLProps<HTMLButtonElement> & React.HTMLAttributes<HTMLButtonElement>;
+
 const Button = ({
-    children,
-    className = '',
-    disabled,
-    href,
-    inverse,
-    onClick,
-    onHover,
-    primary,
-    secondary,
-    type = 'button'
-}: Props) => {
-    const getClasses = () => {
-        let style = 'default';
-        if (primary) {
-            style = 'is-primary';
-        } else if (secondary) {
-            style = 'is-secondary';
-        }
-        return `${className} ${style} ${disabled ? 'is-disabled' : ''} ${
-            inverse ? 'is-inverse' : ''
-            }`;
-    };
+  className="",
+  id="",
+  children,
 
-    const styles = {
-        fontSize: `16px`,
-        fontWeight: '400'
-    };
+  primary,
+  secondary,
+  inverse,
+  asLink,
 
-    if (href) {
-        return <Link to={href}>{children}</Link>;
+  block,
+
+  onClick,
+  onHover,
+
+  disabled,
+  hover,
+  active,
+
+  theme,
+
+  type = "button",
+  ...rest
+}: Button) => {
+  let color= theme.colors.black;
+  let backgroundColor= theme.colors.white;
+  let border= theme.buttons.border;
+  let boxshadow= theme.buttons.boxShadow;
+  let hoverColor= theme.colors.black;
+  let hoverBackgroundColor= theme.colors.gray;
+  let hoverBorder= theme.colors.black;
+  let hoverBoxShadow = theme.buttons.hoverBoxShadow;
+  let transition = theme.buttons.transition;
+
+  if (primary){
+    color = theme.colors.white;
+    backgroundColor = theme.buttons.primary.backgroundColor;
+    border = theme.buttons.primary.border;
+
+    hoverColor= theme.buttons.primary.hoverColor;
+    hoverBackgroundColor= theme.buttons.primary.hoverBackgroundColor;
+    hoverBorder= theme.buttons.primary.hoverBorder;
+  } else if (secondary) {
+    color = theme.buttons.secondary.color;
+    backgroundColor = theme.buttons.secondary.backgroundColor;
+    border = theme.buttons.secondary.border;
+
+    hoverColor = theme.buttons.primary.hoverColor;
+    hoverBackgroundColor= theme.buttons.primary.hoverBackgroundColor;
+    hoverBorder = theme.buttons.primary.hoverBorder;
+  }
+
+  const css = {
+    padding:  `${theme.space[2]}px ${theme.space[4]}px`,
+    fontSize: `${theme.fontSizes[0]}px`,
+    fontWeight: theme.fontWeights.bolder,
+    borderRadius: `${theme.borderRadius}px`,
+    boxShadow: boxshadow,
+    transition: transition,
+
+    color: color,
+    backgroundColor: backgroundColor,
+    border: border,
+
+    '&:hover': {
+      color: hoverColor,
+      backgroundColor: hoverBackgroundColor,
+      border: hoverBorder,
+      cursor: 'pointer',
+      boxShadow: hoverBoxShadow
     }
+  }
 
-    return (
-        <button
-            disabled={disabled}
-            onClick={onClick}
-            onMouseOver={onHover}
-            type={type}
-            className={getClasses()}
-        >
-            {children}
-        </button>
-    );
+  const getClasses = () => {
+    return `${className}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''}  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;
+  };
+
+  return (
+    <button
+      {...rest}
+      className={getClasses()}
+      onClick={onClick}
+      onMouseOver={onHover}
+      type={type}
+      id={id}
+      css={css}
+    >
+      {children}
+    </button>
+  );
 };
 
-export default Button;
+export default withTheme(Button);
