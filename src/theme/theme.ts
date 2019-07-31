@@ -17,7 +17,7 @@ const theme = {
     hoverBoxShadow: "none",
     border: "1px solid #000",
     transition: 'transform 0.15 ease-out',
-    
+
     primary: {
       color: "#FFF",
       border: "1px solid #636AFF",
@@ -107,6 +107,10 @@ export interface ThemeInterface {
   space: number[];
   breakpoints: number[];
   borderRadius: number;
+}
+
+export interface ThemeProps {
+	theme: ThemeInterface
 }
 
 export default theme;
