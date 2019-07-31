@@ -33,7 +33,7 @@ export const getLinkStyles = (theme: ThemeProps["theme"], variant = '', underlin
 			color: linkHoverColor,
 			textDecoration: linkUnderlineHover
 		},
-		'a:not([href])': {
+		'a&:not([href])': {
 			color: linkDisabledColor,
 			cursor: 'not-allowed'
 		}
