@@ -9,14 +9,14 @@ interface Props {
 	secondary?: boolean,
 	inverse?: boolean,
 	asButton?: boolean,
-	underline: 'none' | 'hover' | 'always'
+	underline?: 'none' | 'hover' | 'always'
 }
 
 interface ThemeProps {
 	theme: any
 }
 
-const Link: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
+const LinkBase: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
 	href,
 	disabled,
 	underline = 'none',
@@ -59,4 +59,5 @@ const Link: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
 	);
 };
 
-export default withTheme(Link);
+const Link = withTheme(LinkBase);
+export default Link;
