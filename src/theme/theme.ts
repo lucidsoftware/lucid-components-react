@@ -42,6 +42,15 @@ const theme = {
       activeTransform: 0.95,
     }
   },
+  card: {
+    raised: {
+      boxShadow: "20px 20px 0 0 rgba(0,0,0,.3)"
+    },
+    interactive: {
+      boxShadow: "0.625rem 0.625rem 0 0 rgba(0,0,0,.2)",
+      boxShadowHover: "1.25rem 1.25rem 0 0 rgba(0,0,0,.3)"
+    },
+  },
   fonts: {
     body:
       "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
@@ -87,7 +96,16 @@ export interface ThemeInterface {
   colors: {
     [key: string]: string
   };
-  buttons: any,
+  buttons: any;
+  card: {
+    raised: {
+      boxShadow: string;
+    },
+    interactive: {
+      boxShadow: string;
+      boxShadowHover: string;
+    },
+  };
   fonts: {
     body: string;
     heading: string;
