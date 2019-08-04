@@ -2,6 +2,15 @@
   "name": "lucid-components-react",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.ts",
+  "module": "dist/index.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbucio/lucid-components-react#feature/export-components"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
