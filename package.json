@@ -2,8 +2,8 @@
   "name": "lucid-components-react",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -12,6 +12,7 @@
     "url": "https://github.com/lbucio/lucid-components-react#feature/export-components"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.5.5",
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@types/jest": "24.0.16",
@@ -22,15 +23,15 @@
     "gatsby": "^2.13.44",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typescript": "3.5.3"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+    "build:lib": "rm -rf dist && NODE_ENV=production babel src/lib/index.tsx --out-dir dist",
+    "build:webpack": "rm -rf dist && NODE_ENV=production webpack --config webpack.config.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +49,12 @@
     ]
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-typescript": "^7.5.5",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }
