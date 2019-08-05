@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 
 import { ThemeProvider } from 'emotion-theming'
-import Card from './components/card/card';
-import Paper from './components/paper/paper';
+import Card from './lib/components/card/card';
+import Paper from './lib/components/paper/paper';
 import theme from './theme/theme';
 
 const App: React.FC = () => {

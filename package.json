@@ -12,7 +12,6 @@
     "url": "https://github.com/lbucio/lucid-components-react#feature/export-components"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.5.5",
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@types/jest": "24.0.16",
@@ -20,18 +19,18 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "emotion-theming": "^10.0.14",
-    "gatsby": "^2.13.44",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "rm -rf dist && NODE_ENV=production babel src/lib/index.tsx --out-dir dist",
-    "build:webpack": "rm -rf dist && NODE_ENV=production webpack --config webpack.config.js"
+    "build:tsc": "rm -rf dist && tsc"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,12 +48,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-typescript": "^7.5.5",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "typescript": "^3.5.3"
   }
 }

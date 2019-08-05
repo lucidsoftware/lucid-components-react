@@ -3,11 +3,11 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "commonjs",
+    "declaration": true,
     "target": "es6",
-    "jsx": "react",
-    "allowJs": true
+    "jsx": "react"
   },
   "include": [
-    "src/lib/index.tsx", "src/lib/components/card/card.tsx"
+    "src/lib/index.ts"
   ]
 }

@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
-import { ThemeInterface } from '../../theme/theme';
+import { ThemeInterface } from '../../../theme/theme';
 
 interface Props {
     children: ReactNode;
