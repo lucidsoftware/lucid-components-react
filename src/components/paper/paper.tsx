@@ -7,13 +7,14 @@ import { withTheme } from 'emotion-theming';
 import { ThemeInterface } from '../../theme/theme';
 
 interface Props {
+    className?: string;
     children: ReactNode;
     isRaised?: boolean;
     as?: 'div' | 'section' | 'article';
     theme: ThemeInterface;
 }
 
-const PaperBase = ({ as = 'div', children, theme, isRaised = false }: Props) => {
+const PaperBase = ({ as = 'div', className, children, theme, isRaised = false }: Props) => {
     let boxShadow = 'box-shadow: none';
     if (isRaised) {
         boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
@@ -35,7 +36,7 @@ const PaperBase = ({ as = 'div', children, theme, isRaised = false }: Props) => 
     `;
 
     return (
-        <PaperContainer>
+        <PaperContainer className={className}>
             <PaperContent>
                 {children}
             </PaperContent>
