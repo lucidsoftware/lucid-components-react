@@ -26,7 +26,7 @@ const PaperBase = ({ as = 'div', children, theme, isRaised = false }: Props) => 
     const PaperContainer = styled(as)`
         display: 'flex';
         padding: 0;
-        background: theme.colors.white;
+        background: ${theme.colors.white};
         flex-direction: 'column';
         border-radius: ${theme.borderRadius}px;
         border: 1px solid ${theme.colors.grey};
