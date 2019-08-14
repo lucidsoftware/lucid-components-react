@@ -10,18 +10,19 @@ interface Props {
     className?: string;
     children: ReactNode;
     isRaised?: boolean;
+    removePadding?: boolean;
     as?: 'div' | 'section' | 'article';
     theme: ThemeInterface;
 }
 
-const PaperBase = ({ as = 'div', className, children, theme, isRaised = false }: Props) => {
+const PaperBase = ({ as = 'div', className, children, removePadding, theme, isRaised = false }: Props) => {
     let boxShadow = 'box-shadow: none';
     if (isRaised) {
         boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
     }
 
     const PaperContent = styled('div')`
-        padding: 2.5em;
+        padding: ${removePadding ? 0 : '2.5em'};
     `;
 
     const PaperContainer = styled(as)`
