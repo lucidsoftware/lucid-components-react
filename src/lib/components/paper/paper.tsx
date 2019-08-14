@@ -20,14 +20,10 @@ const PaperBase = ({ as = 'div', className, children, removePadding, theme, isRa
     if (isRaised) {
         boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
     }
-
-    const PaperContent = styled('div')`
-        padding: ${removePadding ? 0 : '2.5em'};
-    `;
-
+    
     const PaperContainer = styled(as)`
         display: 'flex';
-        padding: 0;
+        padding: ${removePadding ? 0 : '2.5em'};
         background: ${theme.colors.white};
         flex-direction: 'column';
         border-radius: ${theme.borderRadius}px;
@@ -38,9 +34,7 @@ const PaperBase = ({ as = 'div', className, children, removePadding, theme, isRa
 
     return (
         <PaperContainer className={className}>
-            <PaperContent>
-                {children}
-            </PaperContent>
+            {children}
         </PaperContainer>
     );
 };
