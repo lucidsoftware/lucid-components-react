@@ -2,6 +2,7 @@
 import { ReactNode } from 'react';
 import { ThemeInterface } from '../../../theme/theme';
 interface Props {
+    className?: string;
     children: ReactNode;
     isRaised?: boolean;
     as?: 'div' | 'section' | 'article';
