@@ -4,14 +4,13 @@ import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
-import { ThemeInterface } from '../../theme/theme';
 
 interface Props {
     children: ReactNode;
     as?: 'div' | 'section' | 'article';
     isRaised?: boolean;
     isInteractive?: boolean;
-    theme: ThemeInterface;
+    theme: any;
     thumbnail?: string;
     title?: string;
     subtitle?: string;

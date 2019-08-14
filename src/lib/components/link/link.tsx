@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 import { getButtonStyles } from '../button/button';
 
 interface Props {

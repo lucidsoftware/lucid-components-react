@@ -3,8 +3,8 @@ import { jsx } from '@emotion/core';
 import { FC, ReactNode } from "react";
 
 import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../theme/theme';
-import { ThemeInterface } from "../../theme/theme";
+import { ThemeProps } from '../../../theme/theme';
+import { ThemeInterface } from "../../../theme/theme";
 import { getLinkStyles } from '../link/link';
 
 interface Props {
