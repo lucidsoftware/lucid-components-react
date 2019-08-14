@@ -5,7 +5,7 @@ interface Props {
     className?: string;
     children: ReactNode;
     isRaised?: boolean;
-    removePadding?: boolean;
+    noPadding?: boolean;
     as?: 'div' | 'section' | 'article';
     theme: ThemeInterface;
 }

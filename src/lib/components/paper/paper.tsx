@@ -10,24 +10,20 @@ interface Props {
     className?: string;
     children: ReactNode;
     isRaised?: boolean;
-    removePadding?: boolean;
+    noPadding?: boolean;
     as?: 'div' | 'section' | 'article';
     theme: ThemeInterface;
 }
 
-const PaperBase = ({ as = 'div', className, children, removePadding, theme, isRaised = false }: Props) => {
+const PaperBase = ({ as = 'div', className, children, noPadding, theme, isRaised = false }: Props) => {
     let boxShadow = 'box-shadow: none';
     if (isRaised) {
         boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
     }
-
-    const PaperContent = styled('div')`
-        padding: ${removePadding ? 0 : '2.5em'};
-    `;
-
+    
     const PaperContainer = styled(as)`
         display: 'flex';
-        padding: 0;
+        padding: ${noPadding ? 0 : '2.5em'};
         background: ${theme.colors.white};
         flex-direction: 'column';
         border-radius: ${theme.borderRadius}px;
@@ -38,9 +34,7 @@ const PaperBase = ({ as = 'div', className, children, removePadding, theme, isRa
 
     return (
         <PaperContainer className={className}>
-            <PaperContent>
-                {children}
-            </PaperContent>
+            {children}
         </PaperContainer>
     );
 };
