@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-import './icon.scss';
-
 export enum IconType {
     ArrowRight,
     ArrowLeft,
