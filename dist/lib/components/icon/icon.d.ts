@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import './icon.scss';
 export declare enum IconType {
     ArrowRight = 0,
     ArrowLeft = 1,
