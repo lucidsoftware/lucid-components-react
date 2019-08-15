@@ -10,13 +10,17 @@ const PaperBase = ({ as = 'div', className, children, noPadding, theme, isRaised
     }
     const PaperContainer = styled_1.default(as) `
         display: 'flex';
-        padding: ${noPadding ? 0 : '2.5em'};
         background: ${theme.colors.white};
         flex-direction: 'column';
         border-radius: ${theme.borderRadius}px;
         border: 1px solid ${theme.colors.grey};
         text-align: 'left';
-        ${boxShadow}
+        ${boxShadow};
+
+        ${!noPadding &&
+        core_1.css `
+                padding: ${theme.paper.padding};
+        `};
     `;
     return (core_1.jsx(PaperContainer, { className: className }, children));
 };

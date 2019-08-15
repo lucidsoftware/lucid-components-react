@@ -1,28 +1,29 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
 import { jsx, css } from '@emotion/core'
-import styled, { StyledComponent } from '@emotion/styled';
+import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
 
 interface Props {
+    actions?: ReactNode[];
+    as?: 'div' | 'section' | 'article';
     children?: ReactNode;
     className?: string;
-    as?: 'div' | 'section' | 'article';
-    isRaised?: boolean;
+    horizontal?: boolean;
+    href?: string;
     isInteractive?: boolean;
+    isRaised?: boolean;
+    noPadding?: boolean;
+    subtitle?: string;
+    subtitleAbove?: boolean;
     theme: any;
     thumbnail?: string | JSX.Element | ReactNode;
     title?: string;
-    subtitle?: string;
-    subtitleAbove?: boolean;
     titleAs?: 'h1' | 'h2';
-    href?: string;
-    actions?: ReactNode[];
-    horizontal?: boolean;
 }
 
-const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }: Props) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove }: Props) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
 
@@ -68,12 +69,16 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     `;
 
     const CardContent = styled('div')`
-        padding: 2.5em;
         color: ${theme.colors.text};
         display: flex;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
+
+        ${!noPadding &&
+            css`
+                padding: ${theme.card.padding};
+        `};
     `;
 
     const CardChildren = styled('div')`

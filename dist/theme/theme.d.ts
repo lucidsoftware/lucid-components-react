@@ -40,7 +40,11 @@ declare const theme: {
             activeTransform: number;
         };
     };
+    paper: {
+        padding: string;
+    };
     card: {
+        padding: string;
         raised: {
             boxShadow: string;
         };
@@ -74,7 +78,11 @@ export interface ThemeInterface {
         [key: string]: string;
     };
     buttons: any;
+    paper: {
+        padding: string;
+    };
     card: {
+        padding: string;
         raised: {
             boxShadow: string;
         };

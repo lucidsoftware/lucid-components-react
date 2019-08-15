@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
-import { jsx } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
@@ -23,13 +23,17 @@ const PaperBase = ({ as = 'div', className, children, noPadding, theme, isRaised
     
     const PaperContainer = styled(as)`
         display: 'flex';
-        padding: ${noPadding ? 0 : '2.5em'};
         background: ${theme.colors.white};
         flex-direction: 'column';
         border-radius: ${theme.borderRadius}px;
         border: 1px solid ${theme.colors.grey};
         text-align: 'left';
-        ${boxShadow}
+        ${boxShadow};
+
+        ${!noPadding &&
+            css`
+                padding: ${theme.paper.padding};
+        `};
     `;
 
     return (

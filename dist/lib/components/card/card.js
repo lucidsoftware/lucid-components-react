@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
-const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove }) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
     if (isRaised) {
@@ -41,12 +41,16 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
         overflow: hidden;
     `;
     const CardContent = styled_1.default('div') `
-        padding: 2.5em;
         color: ${theme.colors.text};
         display: flex;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
+
+        ${!noPadding &&
+        core_1.css `
+                padding: ${theme.card.padding};
+        `};
     `;
     const CardChildren = styled_1.default('div') `
         margin: 0;

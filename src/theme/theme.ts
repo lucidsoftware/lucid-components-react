@@ -43,7 +43,11 @@ const theme = {
       activeTransform: 0.95,
     }
   },
+  paper: {
+    padding: "2.5rem"
+  },
   card: {
+    padding: "2.5rem",
     raised: {
       boxShadow: "20px 20px 0 0 rgba(0,0,0,.3)"
     },
@@ -98,14 +102,18 @@ export interface ThemeInterface {
     [key: string]: string
   };
   buttons: any;
+  paper: {
+    padding: string;
+  };
   card: {
+    padding: string;
     raised: {
       boxShadow: string;
-    },
+    };
     interactive: {
       boxShadow: string;
       boxShadowHover: string;
-    },
+    }
   };
   fonts: {
     body: string;

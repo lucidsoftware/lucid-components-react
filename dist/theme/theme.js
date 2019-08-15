@@ -42,7 +42,11 @@ const theme = {
             activeTransform: 0.95,
         }
     },
+    paper: {
+        padding: "2.5rem"
+    },
     card: {
+        padding: "2.5rem",
         raised: {
             boxShadow: "20px 20px 0 0 rgba(0,0,0,.3)"
         },

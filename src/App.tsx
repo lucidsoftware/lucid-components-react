@@ -20,6 +20,7 @@ const App: React.FC = () => {
             isInteractive
             horizontal
             href="http://lucidchart.com"
+            noPadding
             >
               Hello
           </Card>

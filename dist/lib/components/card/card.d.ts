@@ -1,20 +1,21 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
 interface Props {
+    actions?: ReactNode[];
+    as?: 'div' | 'section' | 'article';
     children?: ReactNode;
     className?: string;
-    as?: 'div' | 'section' | 'article';
-    isRaised?: boolean;
+    horizontal?: boolean;
+    href?: string;
     isInteractive?: boolean;
+    isRaised?: boolean;
+    noPadding?: boolean;
+    subtitle?: string;
+    subtitleAbove?: boolean;
     theme: any;
     thumbnail?: string | JSX.Element | ReactNode;
     title?: string;
-    subtitle?: string;
-    subtitleAbove?: boolean;
     titleAs?: 'h1' | 'h2';
-    href?: string;
-    actions?: ReactNode[];
-    horizontal?: boolean;
 }
 declare const Card: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props, "theme">>;
 export default Card;
