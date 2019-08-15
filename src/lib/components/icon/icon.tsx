@@ -17,7 +17,8 @@ interface Props {
 const Icon = ({ className, type }: Props) => {
     const iconCss = css({
         height: '100%',
-        width: '100%'
+        width: '100%',
+        position: 'relative'
     });
 
     let icon;
