@@ -7,6 +7,7 @@ import { withTheme } from 'emotion-theming';
 
 interface Props {
     children: ReactNode;
+    className?: string;
     as?: 'div' | 'section' | 'article';
     isRaised?: boolean;
     isInteractive?: boolean;
@@ -21,7 +22,7 @@ interface Props {
     horizontal?: boolean;
 }
 
-const CardBase = ({ as = 'div', children, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }: Props) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }: Props) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
 
@@ -118,7 +119,7 @@ const CardBase = ({ as = 'div', children, horizontal, theme, isRaised = false, i
     }
 
     return (
-        <CardContainer css={cardCss} {...cardContainerProps}>
+        <CardContainer css={cardCss} {...cardContainerProps} className={className}>
             {thumbnail && <CardThumbnail style={{backgroundImage: `url(${thumbnail})` }} /> }
             <CardContent>
                 <div>

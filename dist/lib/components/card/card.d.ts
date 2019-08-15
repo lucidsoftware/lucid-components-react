@@ -2,6 +2,7 @@
 import { ReactNode } from 'react';
 interface Props {
     children: ReactNode;
+    className?: string;
     as?: 'div' | 'section' | 'article';
     isRaised?: boolean;
     isInteractive?: boolean;
