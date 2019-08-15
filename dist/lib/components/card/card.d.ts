@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
 interface Props {
-    children: ReactNode;
+    children?: ReactNode;
     className?: string;
     as?: 'div' | 'section' | 'article';
     isRaised?: boolean;
     isInteractive?: boolean;
     theme: any;
-    thumbnail?: string | JSX.Element;
+    thumbnail?: string | JSX.Element | ReactNode;
     title?: string;
     subtitle?: string;
     subtitleAbove?: boolean;
