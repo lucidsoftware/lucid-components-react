@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const theme = {
     colors: {
+        heading: "#3D4752",
         text: "#3D4752",
         background: "#FFF",
         primary: "#636AFF",

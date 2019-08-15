@@ -82,7 +82,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
 
     const CardTitle = styled(titleAs)`
         margin: 0;
-        color: ${theme.colors.black};
+        color: ${theme.colors.heading};
         font-size: ${theme.fontSizes[1]}px;
         line-height: ${theme.lineHeights.body};
         font-weight: ${theme.fontWeights.bolder};

@@ -1,5 +1,6 @@
 declare const theme: {
     colors: {
+        heading: string;
         text: string;
         background: string;
         primary: string;
