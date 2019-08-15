@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
-const CardBase = ({ as = 'div', children, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, subtitle, subtitleAbove }) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
     if (isRaised) {
@@ -83,7 +83,7 @@ const CardBase = ({ as = 'div', children, horizontal, theme, isRaised = false, i
     if (isInteractive && href) {
         cardContainerProps.href = href;
     }
-    return (core_1.jsx(CardContainer, Object.assign({ css: cardCss }, cardContainerProps),
+    return (core_1.jsx(CardContainer, Object.assign({ css: cardCss }, cardContainerProps, { className: className }),
         thumbnail && core_1.jsx(CardThumbnail, { style: { backgroundImage: `url(${thumbnail})` } }),
         core_1.jsx(CardContent, null,
             core_1.jsx("div", null,
