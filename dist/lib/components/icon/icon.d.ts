@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import './icon.scss';
-declare enum IconType {
+export declare enum IconType {
     ArrowRight = 0,
     ArrowLeft = 1,
     CarotRight = 2,

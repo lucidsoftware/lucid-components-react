@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 
 import './icon.scss';
 
-enum IconType {
+export enum IconType {
     ArrowRight,
     ArrowLeft,
     CarotRight,

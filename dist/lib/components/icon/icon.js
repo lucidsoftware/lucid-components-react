@@ -10,7 +10,7 @@ var IconType;
     IconType[IconType["CarotRight"] = 2] = "CarotRight";
     IconType[IconType["CarotDown"] = 3] = "CarotDown";
     IconType[IconType["Play"] = 4] = "Play";
-})(IconType || (IconType = {}));
+})(IconType = exports.IconType || (exports.IconType = {}));
 const Icon = ({ className, type }) => {
     const iconCss = core_1.css({
         height: '100%',
