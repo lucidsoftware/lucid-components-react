@@ -13,7 +13,8 @@ var IconType;
 const Icon = ({ className, type }) => {
     const iconCss = core_1.css({
         height: '100%',
-        width: '100%'
+        width: '100%',
+        position: 'relative'
     });
     let icon;
     switch (type) {

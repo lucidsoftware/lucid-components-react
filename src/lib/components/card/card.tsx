@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
 import { jsx, css } from '@emotion/core'
-import styled from '@emotion/styled';
+import styled, { StyledComponent } from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
 
@@ -12,7 +12,7 @@ interface Props {
     isRaised?: boolean;
     isInteractive?: boolean;
     theme: any;
-    thumbnail?: string;
+    thumbnail?: string | JSX.Element;
     title?: string;
     subtitle?: string;
     subtitleAbove?: boolean;
@@ -57,7 +57,6 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const cardRenderType = isInteractive ? 'a' : as;
     const CardContainer = styled(cardRenderType)`
         display: flex;
-        height: 100%;
         padding: 0;
         background: ${theme.colors.white};
         flex-direction: ${ horizontal ? 'row' : 'column'};
@@ -78,7 +77,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     `;
 
     const CardChildren = styled('div')`
-        margin: ${theme.space[3]}px 0 0;
+        margin: 0;
     `;
 
     const CardTitle = styled(titleAs)`
@@ -113,19 +112,27 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
         margin-right: ${theme.space[2]}px;
     `;
 
+    const CardSpacer = styled('div')`
+        margin-top: ${theme.space[3]}px;
+    `;
+
     const cardContainerProps: {[key: string]: string | number} = {};
     if (isInteractive && href) {
         cardContainerProps.href = href;
     }
 
+    const isCustomThumbnail = typeof thumbnail !== 'string';
+
     return (
         <CardContainer css={cardCss} {...cardContainerProps} className={className}>
-            {thumbnail && <CardThumbnail style={{backgroundImage: `url(${thumbnail})` }} /> }
+            {thumbnail && !isCustomThumbnail && <CardThumbnail style={{backgroundImage: `url(${thumbnail})` }} /> }
+            {thumbnail && isCustomThumbnail && thumbnail }
             <CardContent>
                 <div>
                     {subtitle && subtitleAbove && <CardSubTitle>{subtitle}</CardSubTitle> }
                     {title && <CardTitle>{title}</CardTitle> }
                     {subtitle && !subtitleAbove && <CardSubTitle>{subtitle}</CardSubTitle> }
+                    { subtitle && !subtitleAbove && children && <CardSpacer />}
                     {children && <CardChildren>{children}</CardChildren> }
                 </div>
                 { actions && <CardActions>
