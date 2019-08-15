@@ -31,7 +31,6 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const cardRenderType = isInteractive ? 'a' : as;
     const CardContainer = styled_1.default(cardRenderType) `
         display: flex;
-        height: 100%;
         padding: 0;
         background: ${theme.colors.white};
         flex-direction: ${horizontal ? 'row' : 'column'};
@@ -50,7 +49,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
         justify-content: space-between;
     `;
     const CardChildren = styled_1.default('div') `
-        margin: ${theme.space[3]}px 0 0;
+        margin: 0;
     `;
     const CardTitle = styled_1.default(titleAs) `
         margin: 0;
@@ -79,17 +78,23 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const CardAction = styled_1.default('div') `
         margin-right: ${theme.space[2]}px;
     `;
+    const CardSpacer = styled_1.default('div') `
+        margin-top: ${theme.space[3]}px;
+    `;
     const cardContainerProps = {};
     if (isInteractive && href) {
         cardContainerProps.href = href;
     }
+    const isCustomThumbnail = typeof thumbnail !== 'string';
     return (core_1.jsx(CardContainer, Object.assign({ css: cardCss }, cardContainerProps, { className: className }),
-        thumbnail && core_1.jsx(CardThumbnail, { style: { backgroundImage: `url(${thumbnail})` } }),
+        thumbnail && !isCustomThumbnail && core_1.jsx(CardThumbnail, { style: { backgroundImage: `url(${thumbnail})` } }),
+        thumbnail && isCustomThumbnail && thumbnail,
         core_1.jsx(CardContent, null,
             core_1.jsx("div", null,
                 subtitle && subtitleAbove && core_1.jsx(CardSubTitle, null, subtitle),
                 title && core_1.jsx(CardTitle, null, title),
                 subtitle && !subtitleAbove && core_1.jsx(CardSubTitle, null, subtitle),
+                subtitle && !subtitleAbove && children && core_1.jsx(CardSpacer, null),
                 children && core_1.jsx(CardChildren, null, children)),
             actions && core_1.jsx(CardActions, null, actions.map(action => {
                 return core_1.jsx(CardAction, null, action);

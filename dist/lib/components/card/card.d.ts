@@ -7,7 +7,7 @@ interface Props {
     isRaised?: boolean;
     isInteractive?: boolean;
     theme: any;
-    thumbnail?: string;
+    thumbnail?: string | JSX.Element;
     title?: string;
     subtitle?: string;
     subtitleAbove?: boolean;
