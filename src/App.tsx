@@ -25,6 +25,26 @@ const App: React.FC = () => {
               Hello
           </Card>
         </div>
+
+        <Card
+          isInteractive
+          href="acsdcasd"
+          className="fun-flowchart-hub__chart"
+          title="entity.title!"
+          subtitle="Subtitle"
+          subtitleAbove
+          onClick={(evt) => {
+            evt.preventDefault();
+            console.log(evt);
+          }}
+          thumbnail={() =>
+            <img
+              className="fun-flowchart-hub__chart-thumb"
+              src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
+              alt="entity.fieldAltText!"
+            />
+          }
+        />
         <br/>
         <br/>
         <div style={{ height: '400px', width: '600px'}}>
