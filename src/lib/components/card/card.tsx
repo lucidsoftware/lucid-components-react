@@ -21,7 +21,7 @@ interface Props {
     title?: string;
     titleAs?: 'h1' | 'h2';
     thumbnail?: () => ReactNode;
-    onClick?: (evt: SyntheticEvent) => void;
+    onClick?: (evt: SyntheticEvent) => {};
 }
 
 const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove, onClick }: Props) => {

@@ -16,7 +16,7 @@ interface Props {
     title?: string;
     titleAs?: 'h1' | 'h2';
     thumbnail?: () => ReactNode;
-    onClick?: (evt: SyntheticEvent) => void;
+    onClick?: (evt: SyntheticEvent) => {};
 }
 declare const Card: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props, "theme">>;
 export default Card;
