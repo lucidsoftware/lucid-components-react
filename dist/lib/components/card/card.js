@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
-const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove }) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove, onClick }) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
     if (isRaised) {
@@ -58,7 +58,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const CardTitle = styled_1.default(titleAs) `
         margin: 0;
         color: ${theme.colors.heading};
-        font-size: ${theme.fontSizes[1]}px;
+        font-size: ${theme.fontSizes[0]}px;
         line-height: ${theme.lineHeights.body};
         font-weight: ${theme.fontWeights.bolder};
     `;
@@ -91,9 +91,9 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
         cardContainerProps.href = href;
     }
     const isCustomThumbnail = typeof thumbnail !== 'string';
-    return (core_1.jsx(CardContainer, Object.assign({ css: cardCss }, cardContainerProps, { className: className }),
+    return (core_1.jsx(CardContainer, Object.assign({ onClick: (evt) => onClick ? onClick(evt) : null, css: cardCss }, cardContainerProps, { className: className }),
         thumbnail && !isCustomThumbnail && core_1.jsx(CardThumbnail, { style: { backgroundImage: `url(${thumbnail})` } }),
-        thumbnail && isCustomThumbnail && thumbnail,
+        thumbnail && isCustomThumbnail && thumbnail(),
         core_1.jsx(CardContent, null,
             core_1.jsx("div", null,
                 subtitle && subtitleAbove && core_1.jsx(CardSubTitle, null, subtitle),

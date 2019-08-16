@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactNode } from 'react';
+import { ReactNode, SyntheticEvent } from 'react';
 interface Props {
     actions?: ReactNode[];
     as?: 'div' | 'section' | 'article';
@@ -13,9 +13,10 @@ interface Props {
     subtitle?: string;
     subtitleAbove?: boolean;
     theme: any;
-    thumbnail?: string | JSX.Element | ReactNode;
     title?: string;
     titleAs?: 'h1' | 'h2';
+    thumbnail?: () => ReactNode;
+    onClick?: (evt: SyntheticEvent) => void;
 }
 declare const Card: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props, "theme">>;
 export default Card;

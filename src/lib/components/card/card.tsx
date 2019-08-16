@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactNode } from 'react';
+import { ReactNode, SyntheticEvent } from 'react';
 import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled';
 
@@ -18,12 +18,13 @@ interface Props {
     subtitle?: string;
     subtitleAbove?: boolean;
     theme: any;
-    thumbnail?: string | JSX.Element | ReactNode;
     title?: string;
     titleAs?: 'h1' | 'h2';
+    thumbnail?: () => ReactNode;
+    onClick?: (evt: SyntheticEvent) => void;
 }
 
-const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove }: Props) => {
+const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove, onClick }: Props) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
 
@@ -88,7 +89,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const CardTitle = styled(titleAs)`
         margin: 0;
         color: ${theme.colors.heading};
-        font-size: ${theme.fontSizes[1]}px;
+        font-size: ${theme.fontSizes[0]}px;
         line-height: ${theme.lineHeights.body};
         font-weight: ${theme.fontWeights.bolder};
     `;
@@ -130,9 +131,12 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const isCustomThumbnail = typeof thumbnail !== 'string';
 
     return (
-        <CardContainer css={cardCss} {...cardContainerProps} className={className}>
+        <CardContainer
+            onClick={(evt: SyntheticEvent) => onClick ? onClick(evt) : null }
+            css={cardCss} {...cardContainerProps}
+            className={className}>
             {thumbnail && !isCustomThumbnail && <CardThumbnail style={{backgroundImage: `url(${thumbnail})` }} /> }
-            {thumbnail && isCustomThumbnail && thumbnail }
+            {thumbnail && isCustomThumbnail && thumbnail() }
             <CardContent>
                 <div>
                     {subtitle && subtitleAbove && <CardSubTitle>{subtitle}</CardSubTitle> }
