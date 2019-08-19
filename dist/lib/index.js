@@ -13,3 +13,5 @@ const link_1 = require("./components/link/link");
 exports.Link = link_1.default;
 const video_1 = require("./components/video/video");
 exports.Video = video_1.default;
+const video_play_button_1 = require("./components/video-play-button/video-play-button");
+exports.VideoPlayButton = video_play_button_1.default;
