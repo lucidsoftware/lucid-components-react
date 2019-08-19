@@ -21,6 +21,7 @@ const VideoPlayButtonBase = ({ className, theme, onClick = () => {} }: Props) =>
         width: 50px;
         padding: 15px;
         border-radius: 50%;
+        border: 0;
         position: relative;
         background: #FFFFFF;
         cursor: pointer;
