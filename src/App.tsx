@@ -4,6 +4,7 @@ import './App.css';
 import { ThemeProvider } from 'emotion-theming'
 import Card from './lib/components/card/card';
 import Paper from './lib/components/paper/paper';
+import Video from './lib/components/video/video';
 import Icon, {IconType} from './lib/components/icon/icon';
 import theme from './theme/theme';
 
@@ -25,6 +26,8 @@ const App: React.FC = () => {
               Hello
           </Card>
         </div>
+
+        <Video url="https://youtu.be/oZLAZGl75bk" placeholder={() => <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />} />
 
         <Icon type={IconType.Checkmark} color="#FF0000" hoverColor="#000000" />
 
