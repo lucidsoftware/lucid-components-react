@@ -4,6 +4,7 @@ import './App.css';
 import { ThemeProvider } from 'emotion-theming'
 import Card from './lib/components/card/card';
 import Paper from './lib/components/paper/paper';
+import Icon, {IconType} from './lib/components/icon/icon';
 import theme from './theme/theme';
 
 const App: React.FC = () => {
@@ -16,7 +17,6 @@ const App: React.FC = () => {
             titleAs="h2"
             subtitle="Subtitle"
             subtitleAbove
-            thumbnail="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
             isInteractive
             horizontal
             href="http://lucidchart.com"
@@ -26,6 +26,8 @@ const App: React.FC = () => {
           </Card>
         </div>
 
+        <Icon type={IconType.Checkmark} color="#FF0000" hoverColor="#000000" />
+
         <Card
           isInteractive
           href="acsdcasd"
@@ -33,10 +35,6 @@ const App: React.FC = () => {
           title="entity.title!"
           subtitle="Subtitle"
           subtitleAbove
-          onClick={(evt) => {
-            evt.preventDefault();
-            console.log(evt);
-          }}
           thumbnail={() =>
             <img
               className="fun-flowchart-hub__chart-thumb"

@@ -1,14 +1,17 @@
 /// <reference types="react" />
 export declare enum IconType {
     ArrowRight = 0,
-    ArrowLeft = 1,
-    CarotRight = 2,
-    CarotDown = 3,
+    CarotRight = 1,
+    CarotDown = 2,
+    Checkmark = 3,
     Play = 4
 }
 interface Props {
     className?: string;
     type: IconType;
+    color?: string;
+    hoverColor?: string;
+    isHover?: boolean;
 }
-declare const Icon: ({ className, type }: Props) => JSX.Element;
+declare const Icon: ({ className, type, color, hoverColor, isHover }: Props) => JSX.Element;
 export default Icon;
