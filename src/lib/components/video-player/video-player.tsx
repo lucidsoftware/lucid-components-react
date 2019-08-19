@@ -58,7 +58,9 @@ const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () =>
         <div className={className} css={videoContainerCss}>
             { overlayVisible && <VideoOverlay>
                 <VideoPlayButton onClick={() => {
-                    setOverlayVisible(false);
+                    if (url) {
+                        setOverlayVisible(false);
+                    }
                     onClick();
                 }} />
             </VideoOverlay> }

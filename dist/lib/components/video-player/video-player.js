@@ -44,7 +44,9 @@ const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () =>
     return (core_1.jsx("div", { className: className, css: videoContainerCss },
         overlayVisible && core_1.jsx(VideoOverlay, null,
             core_1.jsx(video_play_button_1.default, { onClick: () => {
-                    setOverlayVisible(false);
+                    if (url) {
+                        setOverlayVisible(false);
+                    }
                     onClick();
                 } })),
         placeholder && overlayVisible && core_1.jsx(VideoPlaceholder, null, placeholder()),
