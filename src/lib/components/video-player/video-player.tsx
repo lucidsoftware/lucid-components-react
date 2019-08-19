@@ -13,17 +13,21 @@ interface Props {
     className?: string;
     theme: ThemeInterface;
     placeholder?: () => ReactNode;
-    url: string;
+    url?: string;
     playing?: boolean;
+    onClick?: () => void;
+    ratio?: 'square' | 'wide'
 }
 
-const VideoBase = ({ className, url, placeholder, playing }: Props) => {
+const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide' }: Props) => {
     const [overlayVisible, setOverlayVisible] = useState(!playing);
 
     const videoContainerCss = css({
-        display: 'inline-block',
+        display: 'block',
         padding: 0,
-        position: 'relative'
+        width: '100%',
+        position: 'relative',
+        paddingTop: ratio === 'wide' ? '56.25%' : '100%'
     });
     const VideoPlaceholder = styled('div')`
         position: absolute;
@@ -55,15 +59,20 @@ const VideoBase = ({ className, url, placeholder, playing }: Props) => {
             { overlayVisible && <VideoOverlay>
                 <VideoPlayButton onClick={() => {
                     setOverlayVisible(false);
+                    onClick();
                 }} />
             </VideoOverlay> }
             {placeholder && overlayVisible && <VideoPlaceholder>
                 {placeholder()}
             </VideoPlaceholder> }
-            <ReactPlayer url={url} playing={playing || !overlayVisible} />
+            {url && <ReactPlayer css={css({
+                position: 'absolute',
+                left: 0,
+                right: 0
+            })} className="react-player" height="100%" width="100%" url={url} playing={playing || !overlayVisible} />}
         </div>
     );
 };
 
-const Video = withTheme(VideoBase);
-export default Video;
+const VideoPlayer = withTheme(VideoPlayerBase);
+export default VideoPlayer;
