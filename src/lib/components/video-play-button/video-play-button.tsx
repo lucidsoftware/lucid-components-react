@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import Icon, { IconType } from '../icon/icon';
 import { ThemeInterface } from '../../../theme/theme';
+import { FC } from 'react';
 
 interface Props {
     className?: string;
@@ -12,7 +13,7 @@ interface Props {
     theme: ThemeInterface;
 }
 
-const VideoPlayButtonBase = ({ className, theme, onClick = () => {} }: Props) => {
+const VideoPlayButtonBase: FC<Props & JSX.IntrinsicElements['button']> = ({ className, theme, onClick = () => {}, ...rest }) => {
     const PlayButton = styled('button')`
         display: flex;
         justify-content: center;
@@ -36,7 +37,7 @@ const VideoPlayButtonBase = ({ className, theme, onClick = () => {} }: Props) =>
         left: 2px;
     `;
     return (
-        <PlayButton className={className} onClick={() => onClick()}>
+        <PlayButton {...rest} className={className} onClick={() => onClick()}>
             <IconContainer>
                 <Icon type={IconType.Play} color={theme.colors.primary} />
             </IconContainer>
