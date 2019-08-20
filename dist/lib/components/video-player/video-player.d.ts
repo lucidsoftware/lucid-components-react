@@ -8,7 +8,7 @@ interface Props {
     playing?: boolean;
     onClick?: () => void;
     ratio?: 'square' | 'wide';
-    config: any;
+    config?: any;
 }
 declare const VideoPlayer: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props, "theme">>;
 export default VideoPlayer;

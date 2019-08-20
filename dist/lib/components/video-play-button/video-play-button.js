@@ -17,7 +17,7 @@ const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
 const icon_1 = require("../icon/icon");
 const VideoPlayButtonBase = (_a) => {
-    var { className, theme, onClick = () => { } } = _a, rest = __rest(_a, ["className", "theme", "onClick"]);
+    var { className, css, theme, onClick = () => { } } = _a, rest = __rest(_a, ["className", "css", "theme", "onClick"]);
     const PlayButton = styled_1.default('button') `
         display: flex;
         justify-content: center;
@@ -40,7 +40,7 @@ const VideoPlayButtonBase = (_a) => {
         position: relative;
         left: 2px;
     `;
-    return (core_1.jsx(PlayButton, Object.assign({}, rest, { className: className, onClick: () => onClick() }),
+    return (core_1.jsx(PlayButton, Object.assign({ css: css }, rest, { className: className, onClick: () => onClick() }),
         core_1.jsx(IconContainer, null,
             core_1.jsx(icon_1.default, { type: icon_1.IconType.Play, color: theme.colors.primary }))));
 };

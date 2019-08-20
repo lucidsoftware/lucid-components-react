@@ -17,7 +17,7 @@ interface Props {
     playing?: boolean;
     onClick?: () => void;
     ratio?: 'square' | 'wide',
-    config: any;
+    config?: any;
 }
 
 const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide', config }: Props) => {
