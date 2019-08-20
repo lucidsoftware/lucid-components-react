@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled';
-import { useState, ReactNode } from 'react';
-import ReactPlayer from 'react-player'
+import { useState, ReactNode, FC } from 'react';
+import ReactPlayer, { ReactPlayerProps } from 'react-player'
 
 import { withTheme } from 'emotion-theming';
 import { ThemeInterface } from '../../../theme/theme';
@@ -20,7 +20,7 @@ interface Props {
     config?: any;
 }
 
-const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide', config }: Props) => {
+const VideoPlayerBase: FC<ReactPlayerProps & Props> = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide', ...rest }) => {
     const [overlayVisible, setOverlayVisible] = useState(!playing);
 
     const videoContainerCss = css({
@@ -75,7 +75,7 @@ const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () =>
             {placeholder && overlayVisible && <VideoPlaceholder>
                 {placeholder()}
             </VideoPlaceholder> }
-            {url && <ReactPlayer css={reactPlayerCss} config={config} height="100%" width="100%" url={url} playing={playing || !overlayVisible} />}
+            {url && <ReactPlayer {...rest} css={reactPlayerCss} height="100%" width="100%" url={url} playing={playing || !overlayVisible} />}
         </div>
     );
 };
