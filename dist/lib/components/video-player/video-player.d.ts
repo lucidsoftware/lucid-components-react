@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { ReactPlayerProps } from 'react-player';
 import { ThemeInterface } from '../../../theme/theme';
 interface Props {
     className?: string;
@@ -10,5 +11,5 @@ interface Props {
     ratio?: 'square' | 'wide';
     config?: any;
 }
-declare const VideoPlayer: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props, "theme">>;
+declare const VideoPlayer: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<ReactPlayerProps & Props>, "theme">>;
 export default VideoPlayer;
