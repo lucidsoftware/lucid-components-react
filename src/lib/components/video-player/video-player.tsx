@@ -16,10 +16,11 @@ interface Props {
     url?: string;
     playing?: boolean;
     onClick?: () => void;
-    ratio?: 'square' | 'wide'
+    ratio?: 'square' | 'wide',
+    config: any;
 }
 
-const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide' }: Props) => {
+const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () => {}, ratio = 'wide', config }: Props) => {
     const [overlayVisible, setOverlayVisible] = useState(!playing);
 
     const videoContainerCss = css({
@@ -27,7 +28,14 @@ const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () =>
         padding: 0,
         width: '100%',
         position: 'relative',
+        overflow: 'hidden',
         paddingTop: ratio === 'wide' ? '56.25%' : '100%'
+    });
+    const reactPlayerCss = css({
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0
     });
     const VideoPlaceholder = styled('div')`
         position: absolute;
@@ -67,11 +75,7 @@ const VideoPlayerBase = ({ className, url, placeholder, playing, onClick = () =>
             {placeholder && overlayVisible && <VideoPlaceholder>
                 {placeholder()}
             </VideoPlaceholder> }
-            {url && <ReactPlayer css={css({
-                position: 'absolute',
-                left: 0,
-                right: 0
-            })} className="react-player" height="100%" width="100%" url={url} playing={playing || !overlayVisible} />}
+            {url && <ReactPlayer css={reactPlayerCss} config={config} height="100%" width="100%" url={url} playing={playing || !overlayVisible} />}
         </div>
     );
 };
