@@ -9,20 +9,25 @@ interface Props {
     underline?: 'none' | 'hover' | 'always';
     css?: any;
 }
-export declare const getLinkStyles: (theme: import("../../../theme/theme").ThemeInterface, variant?: string, underline?: string) => {
-    color: string;
+export declare enum LinkVariant {
+    Default = "default",
+    Primary = "primary",
+    Secondary = "secondary"
+}
+export declare const getLinkStyles: (theme: import("../../../theme/theme").ThemeInterface, variant?: LinkVariant, underline?: string, inverse?: boolean) => {
+    color: any;
     border: string;
     textDecoration: string;
     cursor: string;
     ':visited': {
-        color: string;
+        color: any;
     };
     ':hover,:focus': {
-        color: string;
+        color: any;
         textDecoration: string;
     };
     'a&:not([href])': {
-        color: string;
+        color: any;
         cursor: string;
     };
 };

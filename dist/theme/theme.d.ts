@@ -13,6 +13,44 @@ declare const theme: {
         disabled: string;
         disabledBorder: string;
     };
+    links: {
+        default: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        primary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        secondary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+    };
     buttons: {
         boxShadow: string;
         hoverBoxShadow: string;
@@ -77,6 +115,7 @@ export interface ThemeInterface {
     colors: {
         [key: string]: string;
     };
+    links: any;
     buttons: any;
     paper: {
         padding: string;
