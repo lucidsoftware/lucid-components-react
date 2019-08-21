@@ -40,9 +40,9 @@ exports.getLinkStyles = (theme, variant = '', underline = 'none') => {
     return css;
 };
 const LinkBase = (_a) => {
-    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, theme } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "theme"]);
+    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, theme, css } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "theme", "css"]);
     let variant = '';
-    let css = {};
+    let baseCss = {};
     if (primary) {
         variant = 'primary';
     }
@@ -53,12 +53,13 @@ const LinkBase = (_a) => {
         variant = 'inverse';
     }
     if (asButton) {
-        css = button_1.getButtonStyles(theme, variant);
+        baseCss = button_1.getButtonStyles(theme, variant);
     }
     else {
-        css = exports.getLinkStyles(theme, variant, underline);
+        baseCss = exports.getLinkStyles(theme, variant, underline);
     }
-    return (core_1.jsx("a", Object.assign({ href: disabled ? undefined : href, css: css }, rest), children));
+    baseCss = Object.assign({}, baseCss, css);
+    return (core_1.jsx("a", Object.assign({}, rest, { href: disabled ? undefined : href, css: baseCss }), children));
 };
 const Link = emotion_theming_1.withTheme(LinkBase);
 exports.default = Link;

@@ -11,7 +11,8 @@ interface Props {
 	secondary?: boolean,
 	inverse?: boolean,
 	asButton?: boolean,
-	underline?: 'none' | 'hover' | 'always'
+	underline?: 'none' | 'hover' | 'always',
+	css?: any;
 }
 
 export const getLinkStyles = (theme: ThemeProps["theme"], variant = '', underline = 'none') => {
@@ -42,7 +43,7 @@ export const getLinkStyles = (theme: ThemeProps["theme"], variant = '', underlin
 	return css;
 }
 
-const LinkBase: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
+const LinkBase: FC<ThemeProps & JSX.IntrinsicElements['a'] & Props> = ({
 	href,
 	disabled,
 	underline = 'none',
@@ -52,10 +53,11 @@ const LinkBase: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
 	inverse,
 	asButton,
 	theme,
+	css,
 	...rest
 }) => {
 	let variant = '';
-	let css = {};
+	let baseCss = {};
 	if (primary) {
 		variant = 'primary';
 	} else if (secondary) {
@@ -65,16 +67,17 @@ const LinkBase: FC<Props & ThemeProps & JSX.IntrinsicElements['a']> = ({
 	}
 
 	if (asButton) {
-		css = getButtonStyles(theme, variant);
+		baseCss = getButtonStyles(theme, variant);
 	} else {
-		css = getLinkStyles(theme, variant, underline);
+		baseCss = getLinkStyles(theme, variant, underline);
 	}
+	baseCss = {...baseCss, ...css};
 
 	return (
 		<a
-			href={disabled ? undefined : href}
-			css={css}
 			{...rest}
+			href={disabled ? undefined : href}
+			css={baseCss}
 		>
 			{children}
 		</a>
