@@ -67,15 +67,12 @@ exports.getButtonStyles = (theme, variant = '') => {
 };
 const ButtonBase = (_a) => {
     var { className = "", id = "", children, primary, secondary, inverse, asLink, block, onClick, onHover, disabled, hover, active, theme, type = "button" } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
-    let variant = '';
+    let variant;
     if (primary) {
-        variant = 'primary';
+        variant = link_1.LinkVariant.Primary;
     }
     else if (secondary) {
-        variant = 'secondary';
-    }
-    else if (inverse) {
-        variant = 'inverse';
+        variant = link_1.LinkVariant.Secondary;
     }
     let css = {};
     if (asLink) {

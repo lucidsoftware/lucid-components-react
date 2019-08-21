@@ -1,45 +1,87 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const primary = "#636AFF";
+const white = "#FFFFFF";
+const black = "#FFFFFF";
+const blueSteel = "#3D4752";
 const theme = {
     colors: {
-        heading: "#3D4752",
-        text: "#3D4752",
-        background: "#FFF",
-        primary: "#636AFF",
-        primaryText: "#636AFF",
-        secondary: "#3D4752",
-        secondaryText: "#3D4752",
+        heading: blueSteel,
+        text: blueSteel,
+        background: white,
+        primary,
+        primaryText: primary,
+        secondary: blueSteel,
+        secondaryText: blueSteel,
         grey: "#EBEBEC",
-        white: "#FFF",
-        black: "#000",
+        white,
+        black,
         disabled: "#EBEBEC",
         disabledBorder: "#A7A9AC"
     },
+    links: {
+        default: {
+            default: {
+                color: blueSteel,
+                hover: blueSteel,
+                disabled: blueSteel
+            },
+            inverse: {
+                color: white,
+                hover: white,
+                disabled: white
+            }
+        },
+        primary: {
+            default: {
+                color: primary,
+                hover: primary,
+                disabled: primary
+            },
+            inverse: {
+                color: white,
+                hover: white,
+                disabled: white
+            }
+        },
+        secondary: {
+            default: {
+                color: primary,
+                hover: primary,
+                disabled: primary
+            },
+            inverse: {
+                color: white,
+                hover: white,
+                disabled: white
+            }
+        }
+    },
     buttons: {
-        boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
+        boxShadow: "2px 2px 0 0 rgba(0, 0, 0, .2)",
         hoverBoxShadow: "none",
         border: "1px solid #000",
-        transition: 'transform 0.15 ease-out',
+        transition: "transform 0.15 ease-out",
         primary: {
             color: "#FFF",
             border: "1px solid #636AFF",
-            backgroundColor: '#636AFF',
+            backgroundColor: "#636AFF",
             hoverColor: "#4247aa",
             hoverBackgroundColor: "#B6B9FF",
             hoverBorder: "1px solid #636AFF",
             activeColor: "#4247aa",
             activeBackgroundColor: "#B6B9FF",
             activeBorder: "1px solid #636AFF",
-            activeTransform: 0.95,
+            activeTransform: 0.95
         },
         secondary: {
             color: "#636AFF",
             border: "1px solid #636AFF",
-            backgroundColor: '#FFF',
+            backgroundColor: "#FFF",
             hoverColor: "#4247aa",
             hoverBackgroundColor: "#B6B9FF",
             hoverBorder: "1px solid #636AFF",
-            activeTransform: 0.95,
+            activeTransform: 0.95
         }
     },
     paper: {
@@ -53,7 +95,7 @@ const theme = {
         interactive: {
             boxShadow: "0.625rem 0.625rem 0 0 rgba(0,0,0,.2)",
             boxShadowHover: "1.25rem 1.25rem 0 0 rgba(0,0,0,.3)"
-        },
+        }
     },
     fonts: {
         body: "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",

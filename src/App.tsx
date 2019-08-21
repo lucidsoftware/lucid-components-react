@@ -29,7 +29,7 @@ const App: React.FC = () => {
           </Card>
         </div>
 
-        <Link underline="always" href="lucidchart.com" css={{color: 'red'}}>Test Link</Link>
+        <Link primary underline="hover" href="lucidchart.com">Test Link</Link>
 
         <VideoPlayer ratio="wide" url="baz" placeholder={() => <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />} />
         <VideoPlayButton aria-label="Hello" />

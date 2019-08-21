@@ -5,7 +5,7 @@ import { FC, ReactNode } from "react";
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { ThemeInterface } from "../../../theme/theme";
-import { getLinkStyles } from '../link/link';
+import { getLinkStyles, LinkVariant } from '../link/link';
 
 interface Props {
   className?: string;
@@ -116,13 +116,11 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
   type = "button",
   ...rest
 }) => {
-	let variant = '';
+	let variant;
 	if (primary) {
-		variant = 'primary';
+		variant = LinkVariant.Primary;
 	} else if (secondary) {
-		variant = 'secondary';
-	} else if (inverse) {
-		variant = 'inverse';
+		variant = LinkVariant.Secondary;
 	}
 
 
