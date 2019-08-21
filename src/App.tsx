@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { ThemeProvider } from 'emotion-theming'
+import Link from './lib/components/link/link';
 import Card from './lib/components/card/card';
 import Paper from './lib/components/paper/paper';
 import VideoPlayer from './lib/components/video-player/video-player';
@@ -27,6 +28,8 @@ const App: React.FC = () => {
               Hello
           </Card>
         </div>
+
+        <Link underline="always" href="lucidchart.com" css={{color: 'red'}}>Test Link</Link>
 
         <VideoPlayer ratio="wide" url="baz" placeholder={() => <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />} />
         <VideoPlayButton aria-label="Hello" />
