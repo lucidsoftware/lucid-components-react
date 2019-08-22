@@ -29,11 +29,12 @@ const App: React.FC = () => {
           </Card>
         </div>
 
-        <Link primary underline="hover" href="lucidchart.com">Test Link</Link>
+        <Link underline="hover" href="lucidchart.com">Test Link <Icon type={IconType.ArrowRight} /></Link>
+        <p>Hello <Icon color="#F00" hoverColor="#0F0" type={IconType.Checkmark} flip="vertical" /></p>
 
         <VideoPlayer ratio="wide" url="baz" placeholder={() => <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />} />
         <VideoPlayButton aria-label="Hello" />
-        <Icon type={IconType.Checkmark} color="#FF0000" hoverColor="#000000" />
+        <Icon type={IconType.Checkmark} color="#FF0000" hoverColor="#000000" sizing="responsive" />
 
         <Card
           isInteractive
