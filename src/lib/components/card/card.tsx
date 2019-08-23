@@ -38,6 +38,7 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
             transition: `box-shadow .3s ease, border-color .3s ease, transform .15s ease-out`,
             cursor: 'pointer',
             '&:hover, &:focus': {
+                textDecoration: 'none',
                 boxShadow: theme.card.interactive.boxShadowHover,
                 borderColor: theme.colors.primary
             },

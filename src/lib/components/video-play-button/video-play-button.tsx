@@ -40,7 +40,7 @@ const VideoPlayButtonBase: FC<ThemeProps & JSX.IntrinsicElements['button'] & Pro
     return (
         <PlayButton css={css} {...rest} className={className} onClick={() => onClick()}>
             <IconContainer>
-                <Icon type={IconType.Play} color={theme.colors.primary} />
+                <Icon type={IconType.Play} color={theme.colors.primary} sizing="responsive" />
             </IconContainer>
         </PlayButton>
     );
