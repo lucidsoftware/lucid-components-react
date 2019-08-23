@@ -42,7 +42,7 @@ const VideoPlayButtonBase = (_a) => {
     `;
     return (core_1.jsx(PlayButton, Object.assign({ css: css }, rest, { className: className, onClick: () => onClick() }),
         core_1.jsx(IconContainer, null,
-            core_1.jsx(icon_1.default, { type: icon_1.IconType.Play, color: theme.colors.primary }))));
+            core_1.jsx(icon_1.default, { type: icon_1.IconType.Play, color: theme.colors.primary, sizing: "responsive" }))));
 };
 const VideoPlayButton = emotion_theming_1.withTheme(VideoPlayButtonBase);
 exports.default = VideoPlayButton;
