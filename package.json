@@ -48,5 +48,8 @@
     "typescript": "^3.5.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "emotion-theming": "^10.0.14"
   }
 }
