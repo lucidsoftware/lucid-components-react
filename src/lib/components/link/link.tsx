@@ -29,10 +29,10 @@ export const getLinkStyles = (theme: ThemeProps["theme"], variant: LinkVariant =
 
 	const linkType = inverse ? 'inverse' : 'default';
 	let { color, hover, disabled } = theme.links[variant][linkType];
-	console.log(variant, color, hover, disabled);
 
 	const css = {
 		color,
+		fontSize: `${theme.buttons.fontSize}`,
 		border: 'none',
 		textDecoration: linkUnderline,
 		cursor: 'pointer',

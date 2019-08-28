@@ -25,9 +25,9 @@ exports.getLinkStyles = (theme, variant = LinkVariant.Default, underline = 'none
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';
     let { color, hover, disabled } = theme.links[variant][linkType];
-    console.log(variant, color, hover, disabled);
     const css = {
         color,
+        fontSize: `${theme.buttons.fontSize}`,
         border: 'none',
         textDecoration: linkUnderline,
         cursor: 'pointer',

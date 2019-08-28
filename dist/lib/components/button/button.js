@@ -21,7 +21,7 @@ exports.getButtonStyles = (theme, variant = '') => {
     let border = theme.buttons.border;
     let boxShadow = theme.buttons.boxShadow;
     let hoverColor = theme.colors.black;
-    let hoverBackgroundColor = theme.colors.gray;
+    let hoverBackgroundColor = theme.colors.grey;
     let hoverBorder = theme.buttons.border;
     let hoverBoxShadow = theme.buttons.hoverBoxShadow;
     let transition = theme.buttons.transition;

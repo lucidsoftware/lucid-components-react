@@ -52,6 +52,7 @@ declare const theme: {
         };
     };
     buttons: {
+        fontSize: string;
         boxShadow: string;
         hoverBoxShadow: string;
         border: string;
@@ -111,45 +112,7 @@ declare const theme: {
     breakpoints: number[];
     borderRadius: number;
 };
-export interface ThemeInterface {
-    colors: {
-        [key: string]: string;
-    };
-    links: any;
-    buttons: any;
-    paper: {
-        padding: string;
-    };
-    card: {
-        padding: string;
-        raised: {
-            boxShadow: string;
-        };
-        interactive: {
-            boxShadow: string;
-            boxShadowHover: string;
-        };
-    };
-    fonts: {
-        body: string;
-        heading: string;
-        monospace: string;
-    };
-    fontWeights: {
-        body: number;
-        bold: number;
-        bolder: number;
-        heading: number;
-    };
-    lineHeights: {
-        body: number;
-        heading: number;
-    };
-    fontSizes: number[];
-    space: number[];
-    breakpoints: number[];
-    borderRadius: number;
-}
+export declare type ThemeInterface = typeof theme;
 export interface ThemeProps {
     theme: ThemeInterface;
 }
