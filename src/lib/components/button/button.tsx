@@ -5,7 +5,7 @@ import { FC, ReactNode } from "react";
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { ThemeInterface } from "../../../theme/theme";
-import { getLinkStyles, LinkVariant } from '../link/link';
+import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
 interface Props {
   className?: string;
@@ -16,6 +16,7 @@ interface Props {
   secondary?: boolean;
   inverse?: boolean;
   asLink?: boolean;
+  underline?: UnderlineType;
 
   block?: boolean;
 
@@ -101,6 +102,7 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
   secondary,
   inverse,
   asLink,
+  underline,
 
   block,
 
@@ -127,7 +129,13 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
 	let css = {};
 
 	if (asLink) {
-		css = getLinkStyles(theme, variant);
+    css = getLinkStyles(theme, variant, underline);
+    css = {
+      ...css,
+      border: 0,
+      backgroundColor: 'transparent',
+      padding: 'initial'
+    };
 	} else {
 		css = getButtonStyles(theme, variant);
 	}

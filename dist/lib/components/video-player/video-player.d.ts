@@ -1,3 +1,4 @@
+/// <reference types="@emotion/core" />
 import { ReactNode } from 'react';
 import { ReactPlayerProps } from 'react-player';
 import { ThemeInterface } from '../../../theme/theme';

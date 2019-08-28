@@ -5,13 +5,15 @@ import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { getButtonStyles } from '../button/button';
 
+export type UnderlineType = 'none' | 'hover' | 'always';
+
 interface Props {
 	disabled?: boolean,
 	primary?: boolean,
 	secondary?: boolean,
 	inverse?: boolean,
 	asButton?: boolean,
-	underline?: 'none' | 'hover' | 'always',
+	underline?: UnderlineType,
 	css?: any;
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "lucid-components-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
@@ -50,6 +50,6 @@
     "react-dom": "^16.8.6"
   },
   "peerDependencies": {
-    "emotion-theming": "^10.0.14"
+    "emotion-theming": "~10.0"
   }
 }

@@ -1,4 +1,5 @@
 /// <reference types="react" />
+/// <reference types="@emotion/core" />
 import { ThemeInterface, ThemeProps } from '../../../theme/theme';
 interface Props {
     className?: string;

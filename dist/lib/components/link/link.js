@@ -61,7 +61,7 @@ const LinkBase = (_a) => {
     else {
         baseCss = exports.getLinkStyles(theme, variant, underline, inverse);
     }
-    baseCss = Object.assign({}, baseCss, css);
+    baseCss = Object.assign(Object.assign({}, baseCss), css);
     return (core_1.jsx("a", Object.assign({}, rest, { href: disabled ? undefined : href, css: baseCss }), children));
 };
 const Link = emotion_theming_1.withTheme(LinkBase);

@@ -34,7 +34,7 @@ const Icon = ({ className, type, color, hoverColor, sizing = 'auto', flip }) => 
     const isResponsiveSizing = sizing === 'responsive';
     const verticalAlign = isResponsiveSizing ? { verticalAlign: '-.125em' } : {};
     const transform = getFlip(flip);
-    const iconCss = core_1.css(Object.assign({}, verticalAlign, { display: 'inline-block', height: isResponsiveSizing ? '100%' : '1em', width: isResponsiveSizing ? '100%' : '1em', position: 'relative' }, transform, { 'path': {
+    const iconCss = core_1.css(Object.assign(Object.assign(Object.assign(Object.assign({}, verticalAlign), { display: 'inline-block', height: isResponsiveSizing ? '100%' : '1em', width: isResponsiveSizing ? '100%' : '1em', position: 'relative' }), transform), { 'path': {
             fill: color ? color : `currentColor`
         }, '&:hover path': {
             fill: hoverColor ? hoverColor : ''
