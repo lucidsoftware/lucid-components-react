@@ -1,3 +1,4 @@
+/// <reference types="@emotion/core" />
 /** @jsx jsx */
 import { ReactNode } from 'react';
 import { ThemeInterface } from '../../../theme/theme';

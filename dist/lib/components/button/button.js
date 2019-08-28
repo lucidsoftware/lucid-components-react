@@ -66,7 +66,7 @@ exports.getButtonStyles = (theme, variant = '') => {
     return css;
 };
 const ButtonBase = (_a) => {
-    var { className = "", id = "", children, primary, secondary, inverse, asLink, block, onClick, onHover, disabled, hover, active, theme, type = "button" } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
+    var { className = "", id = "", children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, theme, type = "button" } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
     let variant;
     if (primary) {
         variant = link_1.LinkVariant.Primary;
@@ -76,7 +76,8 @@ const ButtonBase = (_a) => {
     }
     let css = {};
     if (asLink) {
-        css = link_1.getLinkStyles(theme, variant);
+        css = link_1.getLinkStyles(theme, variant, underline);
+        css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
     }
     else {
         css = exports.getButtonStyles(theme, variant);

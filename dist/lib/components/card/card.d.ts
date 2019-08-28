@@ -1,3 +1,4 @@
+/// <reference types="@emotion/core" />
 /** @jsx jsx */
 import { ReactNode, SyntheticEvent } from 'react';
 interface Props {
