@@ -57,6 +57,7 @@ const theme = {
     }
   },
   buttons: {
+    fontSize: "1em",
     boxShadow: "2px 2px 0 0 rgba(0, 0, 0, .2)",
     hoverBoxShadow: "none",
     border: "1px solid #000",
@@ -140,45 +141,7 @@ const theme = {
   borderRadius: 5
 };
 
-export interface ThemeInterface {
-  colors: {
-    [key: string]: string;
-  };
-  links: any;
-  buttons: any;
-  paper: {
-    padding: string;
-  };
-  card: {
-    padding: string;
-    raised: {
-      boxShadow: string;
-    };
-    interactive: {
-      boxShadow: string;
-      boxShadowHover: string;
-    };
-  };
-  fonts: {
-    body: string;
-    heading: string;
-    monospace: string;
-  };
-  fontWeights: {
-    body: number;
-    bold: number;
-    bolder: number;
-    heading: number;
-  };
-  lineHeights: {
-    body: number;
-    heading: number;
-  };
-  fontSizes: number[];
-  space: number[];
-  breakpoints: number[];
-  borderRadius: number;
-}
+export type ThemeInterface = typeof theme;
 
 export interface ThemeProps {
 	theme: ThemeInterface

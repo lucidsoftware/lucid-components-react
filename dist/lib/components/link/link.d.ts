@@ -16,20 +16,134 @@ export declare enum LinkVariant {
     Primary = "primary",
     Secondary = "secondary"
 }
-export declare const getLinkStyles: (theme: import("../../../theme/theme").ThemeInterface, variant?: LinkVariant, underline?: string, inverse?: boolean) => {
-    color: any;
+export declare const getLinkStyles: (theme: {
+    colors: {
+        heading: string;
+        text: string;
+        background: string;
+        primary: string;
+        primaryText: string;
+        secondary: string;
+        secondaryText: string;
+        grey: string;
+        white: string;
+        black: string;
+        disabled: string;
+        disabledBorder: string;
+    };
+    links: {
+        default: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        primary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        secondary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+    };
+    buttons: {
+        fontSize: string;
+        boxShadow: string;
+        hoverBoxShadow: string;
+        border: string;
+        transition: string;
+        primary: {
+            color: string;
+            border: string;
+            backgroundColor: string;
+            hoverColor: string;
+            hoverBackgroundColor: string;
+            hoverBorder: string;
+            activeColor: string;
+            activeBackgroundColor: string;
+            activeBorder: string;
+            activeTransform: number;
+        };
+        secondary: {
+            color: string;
+            border: string;
+            backgroundColor: string;
+            hoverColor: string;
+            hoverBackgroundColor: string;
+            hoverBorder: string;
+            activeTransform: number;
+        };
+    };
+    paper: {
+        padding: string;
+    };
+    card: {
+        padding: string;
+        raised: {
+            boxShadow: string;
+        };
+        interactive: {
+            boxShadow: string;
+            boxShadowHover: string;
+        };
+    };
+    fonts: {
+        body: string;
+        heading: string;
+        monospace: string;
+    };
+    fontWeights: {
+        body: number;
+        bold: number;
+        bolder: number;
+        heading: number;
+    };
+    lineHeights: {
+        body: number;
+        heading: number;
+    };
+    fontSizes: number[];
+    space: number[];
+    breakpoints: number[];
+    borderRadius: number;
+}, variant?: LinkVariant, underline?: string, inverse?: boolean) => {
+    color: string;
+    fontSize: string;
     border: string;
     textDecoration: string;
     cursor: string;
     ':visited': {
-        color: any;
+        color: string;
     };
     ':hover,:focus': {
-        color: any;
+        color: string;
         textDecoration: string;
     };
     'a&:not([href])': {
-        color: any;
+        color: string;
         cursor: string;
     };
 };

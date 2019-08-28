@@ -9,6 +9,7 @@ import VideoPlayer from './lib/components/video-player/video-player';
 import Icon, {IconType} from './lib/components/icon/icon';
 import theme from './theme/theme';
 import VideoPlayButton from './lib/components/video-play-button/video-play-button';
+import Button from './lib/components/button/button';
 
 const App: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const App: React.FC = () => {
         <VideoPlayer ratio="wide" url="baz" placeholder={() => <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />} />
         <VideoPlayButton aria-label="Hello" />
         <Icon type={IconType.Checkmark} color="#FF0000" hoverColor="#000000" sizing="responsive" />
-
+        <Button asLink>Hello</Button>
         <Card
           isInteractive
           href="acsdcasd"
