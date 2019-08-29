@@ -5,16 +5,15 @@ import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import { ThemeInterface } from '../../../theme/theme';
 
-// type Seperator = 'string' | ReactNode;
-
 interface Props {
     className?: string;
-    seperator?: ReactNode;
+    inverse?: boolean;
     items: ReactNode[];
+    seperator?: ReactNode;
     theme: ThemeInterface;
 }
 
-const BreadcrumbBase: FC<Props> = ({ className, seperator, items, theme }) => {
+const BreadcrumbBase: FC<Props> = ({ className, inverse, items, seperator, theme }) => {
     const BreadcrumbSeperator = styled('span')`
         font-size: 1em;
         margin: ${theme.breadcrumb.margin};
@@ -27,7 +26,7 @@ const BreadcrumbBase: FC<Props> = ({ className, seperator, items, theme }) => {
         display: inline-block;
     `;
     const Breadcrumb = styled('ul')`
-        color: ${theme.breadcrumb.color};
+        color: ${inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color};
         margin: 0;
         padding: 0;
     `;

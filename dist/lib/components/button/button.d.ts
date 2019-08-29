@@ -40,6 +40,7 @@ export declare const getButtonStyles: (theme: {
     };
     breadcrumb: {
         color: string;
+        inverseColor: string;
         margin: string;
         crumbOpacity: number;
     };

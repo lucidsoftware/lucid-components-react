@@ -21,6 +21,7 @@ const theme = {
     },
     breadcrumb: {
         color: blueSteel,
+        inverseColor: white,
         margin: '0 6px',
         crumbOpacity: .45
     },

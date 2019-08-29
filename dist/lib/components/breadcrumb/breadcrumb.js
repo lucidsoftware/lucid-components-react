@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
-const BreadcrumbBase = ({ className, seperator, items, theme }) => {
+const BreadcrumbBase = ({ className, inverse, items, seperator, theme }) => {
     const BreadcrumbSeperator = styled_1.default('span') `
         font-size: 1em;
         margin: ${theme.breadcrumb.margin};
@@ -17,7 +17,7 @@ const BreadcrumbBase = ({ className, seperator, items, theme }) => {
         display: inline-block;
     `;
     const Breadcrumb = styled_1.default('ul') `
-        color: ${theme.breadcrumb.color};
+        color: ${inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color};
         margin: 0;
         padding: 0;
     `;
