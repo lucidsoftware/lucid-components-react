@@ -10,11 +10,13 @@ import Icon, {IconType} from './lib/components/icon/icon';
 import theme from './theme/theme';
 import VideoPlayButton from './lib/components/video-play-button/video-play-button';
 import Button from './lib/components/button/button';
+import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
 
 const App: React.FC = () => {
   return (
     <div className="App" style={{padding: '2rem'}}>
       <ThemeProvider theme={theme}>
+        <Breadcrumb items={[<Link primary href="/test">Hello</Link>, <Link primary href="/test">Hello</Link>, <Link primary href="/test">Hello</Link>, <span>Test</span>]} />
         <div style={{ height: '400px', width: '500px'}}>
           <Card
             title="Card Title"

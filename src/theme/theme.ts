@@ -18,6 +18,11 @@ const theme = {
     disabled: "#EBEBEC",
     disabledBorder: "#A7A9AC"
   },
+  breadcrumb: {
+    color: blueSteel,
+    margin: '0 6px',
+    crumbOpacity: .45
+  },
   links: {
     default: {
       default: {

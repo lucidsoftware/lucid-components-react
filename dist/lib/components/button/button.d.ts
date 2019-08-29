@@ -38,6 +38,11 @@ export declare const getButtonStyles: (theme: {
         disabled: string;
         disabledBorder: string;
     };
+    breadcrumb: {
+        color: string;
+        margin: string;
+        crumbOpacity: number;
+    };
     links: {
         default: {
             default: {
