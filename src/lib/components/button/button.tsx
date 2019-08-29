@@ -129,7 +129,7 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
 	let css = {};
 
 	if (asLink) {
-    css = getLinkStyles(theme, variant, underline);
+    css = getLinkStyles(theme, variant, 'none', inverse);
     css = {
       ...css,
       border: 0,
