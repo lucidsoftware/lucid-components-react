@@ -81,12 +81,13 @@ export const getButtonStyles = (theme: ThemeInterface, variant = '') => {
 			color
 		},
 
-    '&:hover': {
+    ':hover,:focus': {
       color: hoverColor,
       backgroundColor: hoverBackgroundColor,
       border: hoverBorder,
       cursor: 'pointer',
-      boxShadow: hoverBoxShadow
+      boxShadow: hoverBoxShadow,
+      textDecoration: 'none',
     }
 	}
 
@@ -129,7 +130,7 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
 	let css = {};
 
 	if (asLink) {
-    css = getLinkStyles(theme, variant, 'none', inverse);
+    css = getLinkStyles(theme, variant, underline, inverse);
     css = {
       ...css,
       border: 0,

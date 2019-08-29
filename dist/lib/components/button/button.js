@@ -55,12 +55,13 @@ exports.getButtonStyles = (theme, variant = '') => {
         '&:visited': {
             color
         },
-        '&:hover': {
+        ':hover,:focus': {
             color: hoverColor,
             backgroundColor: hoverBackgroundColor,
             border: hoverBorder,
             cursor: 'pointer',
-            boxShadow: hoverBoxShadow
+            boxShadow: hoverBoxShadow,
+            textDecoration: 'none',
         }
     };
     return css;
@@ -76,7 +77,7 @@ const ButtonBase = (_a) => {
     }
     let css = {};
     if (asLink) {
-        css = link_1.getLinkStyles(theme, variant, 'none', inverse);
+        css = link_1.getLinkStyles(theme, variant, underline, inverse);
         css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
     }
     else {
