@@ -143,6 +143,7 @@ export declare const getButtonStyles: (theme: {
     breakpoints: number[];
     borderRadius: number;
 }, variant?: string) => {
+    display: string;
     padding: string;
     fontSize: string;
     fontWeight: number;

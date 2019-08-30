@@ -27,6 +27,7 @@ const VideoPlayerBase = (_a) => {
         width: '100%',
         position: 'relative',
         overflow: 'hidden',
+        borderRadius: '5px',
         paddingTop: ratio === 'wide' ? '56.25%' : '100%'
     });
     const reactPlayerCss = core_1.css({
@@ -54,7 +55,7 @@ const VideoPlayerBase = (_a) => {
         left: 0;
         bottom: 0;
         right: 0;
-        background: rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .35);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -62,7 +63,7 @@ const VideoPlayerBase = (_a) => {
     `;
     return (core_1.jsx("div", { className: className, css: videoContainerCss },
         overlayVisible && core_1.jsx(VideoOverlay, null,
-            core_1.jsx(video_play_button_1.default, { onClick: () => {
+            core_1.jsx(video_play_button_1.default, { size: "lg", onClick: () => {
                     if (url) {
                         setOverlayVisible(false);
                     }

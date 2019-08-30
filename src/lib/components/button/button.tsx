@@ -65,6 +65,7 @@ export const getButtonStyles = (theme: ThemeInterface, variant = '') => {
   }
 
 	const css = {
+    display: 'inline-block',
     padding:  `${theme.space[2]}px ${theme.space[4]}px`,
     fontSize: `${theme.fontSizes[0]}px`,
     fontWeight: theme.fontWeights.bolder,
