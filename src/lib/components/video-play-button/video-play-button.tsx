@@ -7,7 +7,7 @@ import Icon, { IconType } from '../icon/icon';
 import { ThemeInterface, ThemeProps } from '../../../theme/theme';
 import { FC } from 'react';
 
-type Sizing = 'lg' | 'reg';
+type Sizing = 'lg' | 'reg' | 'sm';
 interface Props {
     className?: string;
     onClick?: () => void;
@@ -17,9 +17,21 @@ interface Props {
 }
 
 const VideoPlayButtonBase: FC<ThemeProps & JSX.IntrinsicElements['button'] & Props> = ({ className, css, size = 'reg', theme, onClick = () => {}, ...rest }) => {
-    const sizePx = size === 'reg' ? '50px' : '80px';
-    const sizePadding = size === 'reg' ? '15px' : '24px';
-    const sizePosition = size === 'reg' ? '2px' : '4px';
+    let sizePx = '50px';
+    let sizePadding = '15px';
+    let sizePositionHorz = '2px';
+    let sizePositionVert = '0';
+
+    if (size === 'lg') {
+        sizePx = '80px';
+        sizePadding = '24px';
+        sizePositionHorz = '5px';
+        sizePositionVert = '-1px';
+    } else if (size === 'sm') {
+        sizePx = '40px';
+        sizePadding = '12px';
+        sizePositionHorz = '3px';
+    }
 
     const PlayButton = styled('button')`
         display: flex;
@@ -41,7 +53,8 @@ const VideoPlayButtonBase: FC<ThemeProps & JSX.IntrinsicElements['button'] & Pro
     `;
     const IconContainer = styled('div')`
         position: relative;
-        left: ${sizePosition};
+        left: ${sizePositionHorz};
+        top: ${sizePositionVert};
     `;
     return (
         <PlayButton css={css} {...rest} className={className} onClick={() => onClick()}>

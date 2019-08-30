@@ -1,7 +1,7 @@
 /// <reference types="react" />
 /// <reference types="@emotion/core" />
 import { ThemeInterface, ThemeProps } from '../../../theme/theme';
-declare type Sizing = 'lg' | 'reg';
+declare type Sizing = 'lg' | 'reg' | 'sm';
 interface Props {
     className?: string;
     onClick?: () => void;
