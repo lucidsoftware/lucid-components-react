@@ -18,9 +18,21 @@ const emotion_theming_1 = require("emotion-theming");
 const icon_1 = require("../icon/icon");
 const VideoPlayButtonBase = (_a) => {
     var { className, css, size = 'reg', theme, onClick = () => { } } = _a, rest = __rest(_a, ["className", "css", "size", "theme", "onClick"]);
-    const sizePx = size === 'reg' ? '50px' : '80px';
-    const sizePadding = size === 'reg' ? '15px' : '24px';
-    const sizePosition = size === 'reg' ? '2px' : '4px';
+    let sizePx = '50px';
+    let sizePadding = '15px';
+    let sizePositionHorz = '2px';
+    let sizePositionVert = '0';
+    if (size === 'lg') {
+        sizePx = '80px';
+        sizePadding = '24px';
+        sizePositionHorz = '5px';
+        sizePositionVert = '-1px';
+    }
+    else if (size === 'sm') {
+        sizePx = '40px';
+        sizePadding = '12px';
+        sizePositionHorz = '3px';
+    }
     const PlayButton = styled_1.default('button') `
         display: flex;
         justify-content: center;
@@ -41,7 +53,8 @@ const VideoPlayButtonBase = (_a) => {
     `;
     const IconContainer = styled_1.default('div') `
         position: relative;
-        left: ${sizePosition};
+        left: ${sizePositionHorz};
+        top: ${sizePositionVert};
     `;
     return (core_1.jsx(PlayButton, Object.assign({ css: css }, rest, { className: className, onClick: () => onClick() }),
         core_1.jsx(IconContainer, null,
