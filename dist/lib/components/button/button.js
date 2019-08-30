@@ -42,6 +42,7 @@ exports.getButtonStyles = (theme, variant = '') => {
         hoverBorder = theme.buttons.primary.hoverBorder;
     }
     const css = {
+        display: 'inline-block',
         padding: `${theme.space[2]}px ${theme.space[4]}px`,
         fontSize: `${theme.fontSizes[0]}px`,
         fontWeight: theme.fontWeights.bolder,

@@ -29,6 +29,7 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props> = ({ className, url, placeho
         width: '100%',
         position: 'relative',
         overflow: 'hidden',
+        borderRadius: '5px',
         paddingTop: ratio === 'wide' ? '56.25%' : '100%'
     });
     const reactPlayerCss = css({
@@ -56,7 +57,7 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props> = ({ className, url, placeho
         left: 0;
         bottom: 0;
         right: 0;
-        background: rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .35);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,7 +66,7 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props> = ({ className, url, placeho
     return (
         <div className={className} css={videoContainerCss}>
             { overlayVisible && <VideoOverlay>
-                <VideoPlayButton onClick={() => {
+                <VideoPlayButton size="lg" onClick={() => {
                     if (url) {
                         setOverlayVisible(false);
                     }
