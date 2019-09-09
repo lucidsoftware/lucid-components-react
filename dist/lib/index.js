@@ -17,3 +17,5 @@ const video_player_1 = require("./components/video-player/video-player");
 exports.VideoPlayer = video_player_1.default;
 const video_play_button_1 = require("./components/video-play-button/video-play-button");
 exports.VideoPlayButton = video_play_button_1.default;
+const helpers = { getLinkStyles: link_1.getLinkStyles, getButtonStyles: button_1.getButtonStyles };
+exports.helpers = helpers;
