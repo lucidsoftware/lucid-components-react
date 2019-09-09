@@ -43,11 +43,10 @@ export const getLinkStyles = ({
 
   const linkType = inverse ? 'inverse' : 'default';
   const { color, hover, disabled } = theme.links[variant][linkType];
-  const display = block ? 'block' : '';
 
   const css = {
     color,
-    display,
+    display: block ? 'block' : 'inline-block',
     fontSize: `${theme.buttons.fontSize}`,
     border: 'none',
     textDecoration: linkUnderline,
