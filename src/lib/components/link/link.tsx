@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps, ThemeInterface } from '../../../theme/theme';
 import { getButtonStyles } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
@@ -31,9 +31,9 @@ export const getLinkStyles = ({
   underline = 'none',
   variant = LinkVariant.Default
 }: {
-  block: boolean;
-  inverse: boolean;
-  theme: ThemeProps['theme'];
+  block?: boolean;
+  inverse?: boolean;
+  theme: ThemeInterface;
   underline: string;
   variant: LinkVariant;
 }) => {
