@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const primary = "#636AFF";
-const white = "#FFFFFF";
-const black = "#FFFFFF";
-const blueSteel = "#3D4752";
+const primary = '#636AFF';
+const white = '#FFFFFF';
+const black = '#FFFFFF';
+const blueSteel = '#3D4752';
 const theme = {
     colors: {
         heading: blueSteel,
@@ -13,17 +13,17 @@ const theme = {
         primaryText: primary,
         secondary: blueSteel,
         secondaryText: blueSteel,
-        grey: "#EBEBEC",
+        grey: '#EBEBEC',
         white,
         black,
-        disabled: "#EBEBEC",
-        disabledBorder: "#A7A9AC"
+        disabled: '#EBEBEC',
+        disabledBorder: '#A7A9AC'
     },
     breadcrumb: {
         color: blueSteel,
         inverseColor: white,
         margin: '0 6px',
-        crumbOpacity: .45
+        crumbOpacity: 0.45
     },
     links: {
         default: {
@@ -64,50 +64,51 @@ const theme = {
         }
     },
     buttons: {
-        fontSize: "1em",
-        boxShadow: "2px 2px 0 0 rgba(0, 0, 0, .2)",
-        hoverBoxShadow: "none",
-        border: "1px solid #000",
-        transition: "transform 0.15 ease-out",
+        fontSize: '1em',
+        lineHeight: '1',
+        boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
+        hoverBoxShadow: 'none',
+        border: '1px solid #000',
+        transition: 'transform 0.15 ease-out',
         primary: {
-            color: "#FFF",
-            border: "1px solid #636AFF",
-            backgroundColor: "#636AFF",
-            hoverColor: "#4247aa",
-            hoverBackgroundColor: "#B6B9FF",
-            hoverBorder: "1px solid #636AFF",
-            activeColor: "#4247aa",
-            activeBackgroundColor: "#B6B9FF",
-            activeBorder: "1px solid #636AFF",
+            color: '#FFF',
+            border: '1px solid #636AFF',
+            backgroundColor: '#636AFF',
+            hoverColor: '#4247aa',
+            hoverBackgroundColor: '#B6B9FF',
+            hoverBorder: '1px solid #636AFF',
+            activeColor: '#4247aa',
+            activeBackgroundColor: '#B6B9FF',
+            activeBorder: '1px solid #636AFF',
             activeTransform: 0.95
         },
         secondary: {
-            color: "#636AFF",
-            border: "1px solid #636AFF",
-            backgroundColor: "#FFF",
-            hoverColor: "#4247aa",
-            hoverBackgroundColor: "#B6B9FF",
-            hoverBorder: "1px solid #636AFF",
+            color: '#636AFF',
+            border: '1px solid #636AFF',
+            backgroundColor: '#FFF',
+            hoverColor: '#4247aa',
+            hoverBackgroundColor: '#B6B9FF',
+            hoverBorder: '1px solid #636AFF',
             activeTransform: 0.95
         }
     },
     paper: {
-        padding: "2.5rem"
+        padding: '40px'
     },
     card: {
-        padding: "2.5rem",
+        padding: '40px',
         raised: {
-            boxShadow: "20px 20px 0 0 rgba(0,0,0,.3)"
+            boxShadow: '20px 20px 0 0 rgba(0,0,0,.3)'
         },
         interactive: {
-            boxShadow: "0.625rem 0.625rem 0 0 rgba(0,0,0,.2)",
-            boxShadowHover: "1.25rem 1.25rem 0 0 rgba(0,0,0,.3)"
+            boxShadow: '10px 10px 0 0 rgba(0,0,0,.2)',
+            boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
         }
     },
     fonts: {
-        body: "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
-        heading: "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
-        monospace: "monospace"
+        body: 'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
+        heading: 'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
+        monospace: 'monospace'
     },
     fontWeights: {
         body: 400,

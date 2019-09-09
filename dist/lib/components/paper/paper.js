@@ -9,20 +9,20 @@ const PaperBase = ({ as = 'div', className, children, noPadding, theme, isRaised
         boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
     }
     const PaperContainer = styled_1.default(as) `
-        display: 'flex';
-        background: ${theme.colors.white};
-        flex-direction: 'column';
-        border-radius: ${theme.borderRadius}px;
-        border: 1px solid ${theme.colors.grey};
-        text-align: 'left';
-        ${boxShadow};
+    display: 'flex';
+    background: ${theme.colors.white};
+    flex-direction: 'column';
+    border-radius: ${theme.borderRadius}px;
+    border: 1px solid ${theme.colors.grey};
+    text-align: 'left';
+    ${boxShadow};
 
-        ${!noPadding &&
+    ${!noPadding &&
         core_1.css `
-                padding: ${theme.paper.padding};
-        `};
-    `;
-    return (core_1.jsx(PaperContainer, { className: className }, children));
+        padding: ${theme.paper.padding};
+      `};
+  `;
+    return core_1.jsx(PaperContainer, { className: className }, children);
 };
 const Paper = emotion_theming_1.withTheme(PaperBase);
 exports.default = Paper;

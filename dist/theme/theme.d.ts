@@ -59,6 +59,7 @@ declare const theme: {
     };
     buttons: {
         fontSize: string;
+        lineHeight: string;
         boxShadow: string;
         hoverBoxShadow: string;
         border: string;
