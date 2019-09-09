@@ -35,7 +35,15 @@ interface Props {
   mouseOver?: () => void;
 }
 
-export const getButtonStyles = (theme: ThemeInterface, variant = '') => {
+export const getButtonStyles = ({
+  theme,
+  variant = '',
+  block
+}: {
+  theme: ThemeInterface,
+  variant: string,
+  block: boolean
+}) => {
 	let color= theme.colors.black;
   let backgroundColor= theme.colors.white;
   let border= theme.buttons.border;
@@ -69,6 +77,7 @@ export const getButtonStyles = (theme: ThemeInterface, variant = '') => {
     padding:  `${theme.space[2]}px ${theme.space[4]}px`,
     fontSize: `${theme.fontSizes[0]}px`,
     fontWeight: theme.fontWeights.bolder,
+    lineHeight: theme.buttons.lineHeight,
     borderRadius: `${theme.borderRadius}px`,
     boxShadow,
 		transition,
@@ -131,7 +140,7 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
 	let css = {};
 
 	if (asLink) {
-    css = getLinkStyles(theme, variant, underline, inverse);
+    css = getLinkStyles({theme, variant, underline, inverse});
     css = {
       ...css,
       border: 0,
@@ -139,7 +148,7 @@ const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
       padding: 'initial'
     };
 	} else {
-		css = getButtonStyles(theme, variant);
+		css = getButtonStyles({theme, variant});
 	}
 
   const getClasses = () => {

@@ -13,6 +13,7 @@ interface Props {
 	secondary?: boolean,
 	inverse?: boolean,
 	asButton?: boolean,
+	block?: boolean,
 	underline?: UnderlineType,
 	css?: any;
 }
@@ -23,15 +24,30 @@ export enum LinkVariant {
 	Secondary = 'secondary'
 }
 
-export const getLinkStyles = (theme: ThemeProps["theme"], variant: LinkVariant = LinkVariant.Default, underline = 'none', inverse = false) => {
+export const getLinkStyles = (
+	{
+		block,
+		inverse = false,
+		theme,
+		underline = 'none',
+		variant = LinkVariant.Default,
+	} : {
+		block: boolean
+		inverse: boolean,
+		theme: ThemeProps["theme"],
+		underline: string,
+		variant: LinkVariant,
+}) => {
 	const linkUnderline = underline === 'always' ? 'underline' : 'none';
 	const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
 
 	const linkType = inverse ? 'inverse' : 'default';
 	let { color, hover, disabled } = theme.links[variant][linkType];
+	const display = block ? 'block' : '';
 
 	const css = {
 		color,
+		display: display,
 		fontSize: `${theme.buttons.fontSize}`,
 		border: 'none',
 		textDecoration: linkUnderline,
@@ -61,6 +77,7 @@ const LinkBase: FC<ThemeProps & JSX.IntrinsicElements['a'] & Props> = ({
 	secondary,
 	inverse,
 	asButton,
+	block,
 	theme,
 	css,
 	...rest
@@ -74,9 +91,9 @@ const LinkBase: FC<ThemeProps & JSX.IntrinsicElements['a'] & Props> = ({
 	}
 
 	if (asButton) {
-		baseCss = getButtonStyles(theme, variant);
+		baseCss = getButtonStyles({theme, variant, block});
 	} else {
-		baseCss = getLinkStyles(theme, variant, underline, inverse);
+		baseCss = getLinkStyles({theme, variant, underline, inverse, block});
 	}
 	baseCss = {...baseCss, ...css};
 
