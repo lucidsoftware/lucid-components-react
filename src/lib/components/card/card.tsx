@@ -171,8 +171,10 @@ const CardBase = ({
         </div>
         {actions && (
           <CardActions>
-            {actions.map(action => {
-              return <CardAction>{action}</CardAction>;
+            {actions.map((action, index) => {
+              return (
+                <CardAction key={`card-action-${index}`}>{action}</CardAction>
+              );
             })}
           </CardActions>
         )}
