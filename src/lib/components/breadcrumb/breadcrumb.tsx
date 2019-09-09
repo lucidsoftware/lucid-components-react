@@ -24,6 +24,9 @@ const BreadcrumbBase: FC<Props> = ({ className, inverse, items, seperator, theme
         list-style-type: none;
         opacity: ${theme.breadcrumb.crumbOpacity};
         display: inline-block;
+        &:hover {
+            opacity: 1;
+        }
     `;
     const Breadcrumb = styled('ul')`
         color: ${inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color};
