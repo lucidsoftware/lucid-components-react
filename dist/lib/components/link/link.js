@@ -20,19 +20,20 @@ var LinkVariant;
     LinkVariant["Primary"] = "primary";
     LinkVariant["Secondary"] = "secondary";
 })(LinkVariant = exports.LinkVariant || (exports.LinkVariant = {}));
-exports.getLinkStyles = (theme, variant = LinkVariant.Default, underline = 'none', inverse = false) => {
+exports.getLinkStyles = ({ block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
     const linkUnderline = underline === 'always' ? 'underline' : 'none';
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';
-    let { color, hover, disabled } = theme.links[variant][linkType];
+    const { color, hover, disabled } = theme.links[variant][linkType];
     const css = {
         color,
+        display: block ? 'block' : 'inline-block',
         fontSize: `${theme.buttons.fontSize}`,
         border: 'none',
         textDecoration: linkUnderline,
         cursor: 'pointer',
         ':visited': {
-            color: color
+            color
         },
         ':hover,:focus': {
             color: hover,
@@ -46,7 +47,7 @@ exports.getLinkStyles = (theme, variant = LinkVariant.Default, underline = 'none
     return css;
 };
 const LinkBase = (_a) => {
-    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, theme, css } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "theme", "css"]);
+    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, block, theme, css } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "block", "theme", "css"]);
     let variant;
     let baseCss = {};
     if (primary) {
@@ -56,10 +57,10 @@ const LinkBase = (_a) => {
         variant = LinkVariant.Secondary;
     }
     if (asButton) {
-        baseCss = button_1.getButtonStyles(theme, variant);
+        baseCss = button_1.getButtonStyles({ theme, variant, block });
     }
     else {
-        baseCss = exports.getLinkStyles(theme, variant, underline, inverse);
+        baseCss = exports.getLinkStyles({ theme, variant, underline, inverse, block });
     }
     baseCss = Object.assign(Object.assign({}, baseCss), css);
     return (core_1.jsx("a", Object.assign({}, rest, { href: disabled ? undefined : href, css: baseCss }), children));

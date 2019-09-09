@@ -15,16 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
-exports.getButtonStyles = (theme, variant = '') => {
+exports.getButtonStyles = ({ theme, variant = '', block }) => {
     let color = theme.colors.black;
     let backgroundColor = theme.colors.white;
     let border = theme.buttons.border;
-    let boxShadow = theme.buttons.boxShadow;
+    const boxShadow = theme.buttons.boxShadow;
     let hoverColor = theme.colors.black;
     let hoverBackgroundColor = theme.colors.grey;
     let hoverBorder = theme.buttons.border;
-    let hoverBoxShadow = theme.buttons.hoverBoxShadow;
-    let transition = theme.buttons.transition;
+    const hoverBoxShadow = theme.buttons.hoverBoxShadow;
+    const transition = theme.buttons.transition;
     if (variant === 'primary') {
         color = theme.colors.white;
         backgroundColor = theme.buttons.primary.backgroundColor;
@@ -42,10 +42,11 @@ exports.getButtonStyles = (theme, variant = '') => {
         hoverBorder = theme.buttons.primary.hoverBorder;
     }
     const css = {
-        display: 'inline-block',
+        display: block ? 'block' : 'inline-block',
         padding: `${theme.space[2]}px ${theme.space[4]}px`,
         fontSize: `${theme.fontSizes[0]}px`,
         fontWeight: theme.fontWeights.bolder,
+        lineHeight: theme.buttons.lineHeight,
         borderRadius: `${theme.borderRadius}px`,
         boxShadow,
         transition,
@@ -62,13 +63,13 @@ exports.getButtonStyles = (theme, variant = '') => {
             border: hoverBorder,
             cursor: 'pointer',
             boxShadow: hoverBoxShadow,
-            textDecoration: 'none',
+            textDecoration: 'none'
         }
     };
     return css;
 };
 const ButtonBase = (_a) => {
-    var { className = "", id = "", children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, theme, type = "button" } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
+    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
     let variant;
     if (primary) {
         variant = link_1.LinkVariant.Primary;
@@ -78,11 +79,11 @@ const ButtonBase = (_a) => {
     }
     let css = {};
     if (asLink) {
-        css = link_1.getLinkStyles(theme, variant, underline, inverse);
+        css = link_1.getLinkStyles({ theme, variant, underline, inverse, block });
         css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
     }
     else {
-        css = exports.getButtonStyles(theme, variant);
+        css = exports.getButtonStyles({ theme, variant, block });
     }
     const getClasses = () => {
         return `${className}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''}  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;

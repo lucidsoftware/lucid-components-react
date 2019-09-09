@@ -34,28 +34,28 @@ const VideoPlayButtonBase = (_a) => {
         sizePositionHorz = '3px';
     }
     const PlayButton = styled_1.default('button') `
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: ${sizePx};
-        width: ${sizePx};
-        padding: ${sizePadding};
-        border-radius: 50%;
-        border: 0;
-        position: relative;
-        background: #FFFFFF;
-        cursor: pointer;
-        box-shadow: 0 2px 4px 2px rgba(0,0,0,.2);
-        transition: transform .15s ease-out;
-        &:hover {
-            transform: scale(1.1);
-        }
-    `;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: ${sizePx};
+    width: ${sizePx};
+    padding: ${sizePadding};
+    border-radius: 50%;
+    border: 0;
+    position: relative;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  `;
     const IconContainer = styled_1.default('div') `
-        position: relative;
-        left: ${sizePositionHorz};
-        top: ${sizePositionVert};
-    `;
+    position: relative;
+    left: ${sizePositionHorz};
+    top: ${sizePositionVert};
+  `;
     return (core_1.jsx(PlayButton, Object.assign({ css: css }, rest, { className: className, onClick: () => onClick() }),
         core_1.jsx(IconContainer, null,
             core_1.jsx(icon_1.default, { type: icon_1.IconType.Play, color: theme.colors.primary, sizing: "responsive" }))));
