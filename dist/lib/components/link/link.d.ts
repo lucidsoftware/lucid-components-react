@@ -18,8 +18,8 @@ export declare enum LinkVariant {
     Secondary = "secondary"
 }
 export declare const getLinkStyles: ({ block, inverse, theme, underline, variant }: {
-    block: boolean;
-    inverse: boolean;
+    block?: boolean;
+    inverse?: boolean;
     theme: {
         colors: {
             heading: string;
