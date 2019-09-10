@@ -11,11 +11,30 @@ import theme from './theme/theme';
 import VideoPlayButton from './lib/components/video-play-button/video-play-button';
 import Button from './lib/components/button/button';
 import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
+import Navbar from './lib/components/navbar/navbar';
 
 const App: React.FC = () => {
   return (
-    <div className="App" style={{padding: '2rem'}}>
+    <div className="App" style={{padding: '0 2rem'}}>
       <ThemeProvider theme={theme}>
+				<Navbar collapseAt='1000px' sticky>
+					<Navbar.Brand href="https://www.google.com">
+						<img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg" alt="Logo" style={{width: '200px'}} />
+					</Navbar.Brand>
+					<Navbar.Toggle>Menu</Navbar.Toggle>
+					<Navbar.Container>
+						<Navbar.Link primary href="https://www.google.com">Yo</Navbar.Link>
+						<Navbar.Link asButton primary>Hello</Navbar.Link>
+						<Navbar.Button secondary>Yo</Navbar.Button>
+						<Navbar.Text>I am just some text</Navbar.Text>
+						<Navbar.Dropdown title="A Dropdown">
+							<Navbar.Link href="https://www.microsoft.com">Some valid link</Navbar.Link>
+							<Navbar.Link>An invalid link</Navbar.Link>
+							<Navbar.Link primary href="https://www.microsoft.com">Some 3rd link</Navbar.Link>
+							<Navbar.Link href="https://www.microsoft.com">Some 4th link</Navbar.Link>
+						</Navbar.Dropdown>
+					</Navbar.Container>
+				</Navbar>
         <Breadcrumb items={[<Link primary href="/test">Hello</Link>, <Link primary href="/test">Hello</Link>, <Link primary href="/test">Hello</Link>, <span>Test</span>]} />
         <div style={{ height: '400px', width: '500px'}}>
           <Card

@@ -18,6 +18,23 @@ const theme = {
     disabled: '#EBEBEC',
     disabledBorder: '#A7A9AC'
   },
+  navbar: {
+    minHeight: '40px',
+    maxWidth: '1200px',
+    logoHeight: '25px',
+    itemSpacing: '1rem',
+    padding: '10px',
+    borderColor: 'lightgrey',
+    borderWidth: '2px',
+    dropdown: {
+      padding: '.5rem 1.5rem',
+      mobilePadding: '1rem',
+      background: '#FFF',
+      backgroundHover: '#DDD',
+      border: `1px solid ${blueSteel}`,
+      borderRadius: '3px'
+    }
+  },
   breadcrumb: {
     color: blueSteel,
     inverseColor: white,

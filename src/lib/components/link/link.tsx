@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FC } from 'react';
+import { FC, HTMLProps } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps, ThemeInterface } from '../../../theme/theme';
@@ -17,6 +17,8 @@ interface Props {
   underline?: UnderlineType;
   css?: any;
 }
+
+export type LinkProps = ThemeProps & HTMLProps<HTMLAnchorElement> & Props;
 
 export enum LinkVariant {
   Default = 'default',
@@ -67,7 +69,7 @@ export const getLinkStyles = ({
   return css;
 };
 
-const LinkBase: FC<ThemeProps & JSX.IntrinsicElements['a'] & Props> = ({
+const LinkBase: FC<LinkProps> = ({
   href,
   disabled,
   underline = 'none',

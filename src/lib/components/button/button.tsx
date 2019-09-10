@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, HTMLProps } from 'react';
 
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
@@ -33,6 +33,8 @@ interface Props {
   onHover?: () => void;
   mouseOver?: () => void;
 }
+
+export type ButtonProps = Props & ThemeProps & HTMLProps<HTMLButtonElement>;
 
 export const getButtonStyles = ({
   theme,
@@ -103,7 +105,7 @@ export const getButtonStyles = ({
   return css;
 };
 
-const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
+const ButtonBase: FC<ButtonProps> = ({
   className = '',
   id = '',
   children,
