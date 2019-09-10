@@ -7,7 +7,7 @@ import { getButtonStyles } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
 
-interface Props {
+export interface CoreLinkProps {
   disabled?: boolean;
   primary?: boolean;
   secondary?: boolean;
@@ -18,7 +18,9 @@ interface Props {
   css?: any;
 }
 
-export type LinkProps = ThemeProps & HTMLProps<HTMLAnchorElement> & Props;
+export type LinkProps = ThemeProps &
+  HTMLProps<HTMLAnchorElement> &
+  CoreLinkProps;
 
 export enum LinkVariant {
   Default = 'default',

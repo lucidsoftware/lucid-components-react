@@ -7,7 +7,7 @@ import { ThemeProps } from '../../../theme/theme';
 import { ThemeInterface } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
-interface Props {
+export interface CoreButtonProps {
   className?: string;
   id?: string;
   children?: ReactNode;
@@ -34,7 +34,9 @@ interface Props {
   mouseOver?: () => void;
 }
 
-export type ButtonProps = Props & ThemeProps & HTMLProps<HTMLButtonElement>;
+export type ButtonProps = CoreButtonProps &
+  ThemeProps &
+  HTMLProps<HTMLButtonElement>;
 
 export const getButtonStyles = ({
   theme,
@@ -130,7 +132,7 @@ const ButtonBase: FC<ButtonProps> = ({
   type = 'button',
   ...rest
 }) => {
-  let variant;
+  let variant = null;
   if (primary) {
     variant = LinkVariant.Primary;
   } else if (secondary) {

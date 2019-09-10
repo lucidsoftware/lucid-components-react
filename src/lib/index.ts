@@ -4,6 +4,7 @@ import Button, { getButtonStyles } from './components/button/button';
 import Breadcrumb from './components/breadcrumb/breadcrumb';
 import Icon, { IconType } from './components/icon/icon';
 import Link, { getLinkStyles } from './components/link/link';
+import Navbar from './components/navbar/navbar';
 import VideoPlayer from './components/video-player/video-player';
 import VideoPlayButton from './components/video-play-button/video-play-button';
 import { ThemeInterface } from '../theme/theme';
@@ -17,6 +18,7 @@ export {
   Icon,
   IconType,
   Link,
+  Navbar,
   Paper,
   ThemeInterface,
   VideoPlayButton,
