@@ -17,7 +17,7 @@ const App: React.FC = () => {
   return (
     <div className="App" style={{ padding: '0 2rem' }}>
       <ThemeProvider theme={theme}>
-        <Navbar collapseAt="1000px" sticky>
+        <Navbar sticky>
           <Navbar.Brand href="https://www.google.com">
             <img
               src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
