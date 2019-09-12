@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { forwardRef, FC, HTMLProps, useContext } from 'react';
+import { forwardRef, HTMLAttributes, useContext } from 'react';
 import { jsx, css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import styled from '@emotion/styled';
@@ -10,35 +10,31 @@ export interface NavbarContainerProps {
   background?: string;
 }
 
-const NavbarLink: FC<
-  NavbarContainerProps & ThemeProps & HTMLProps<HTMLDivElement>
-> = forwardRef(({ theme, children, ...rest }, ref) => {
-  const { collapseAt, isExpanded } = useContext(NavbarContext);
+const NavbarLink = forwardRef<
+  HTMLDivElement,
+  NavbarContainerProps & ThemeProps & HTMLAttributes<HTMLDivElement>
+>(({ theme, children, ...rest }, ref) => {
+  const { expanded } = useContext(NavbarContext);
   const StyledContainer = styled.div({
     display: 'flex',
-    '& > *': {
-      '&:first-child': {
-        marginLeft: 0
-      },
-      '&:last-child': {
-        marginRight: 0
-      }
-    },
-    [`@media (max-width: ${collapseAt})`]: {
+    marginLeft: `-${theme.navbar.itemSpacing}`,
+    marginRight: `-${theme.navbar.itemSpacing}`,
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
       display: 'none',
       flex: '0 1 100%'
     }
   });
 
-  const expanded = css({
-    [`@media (max-width: ${collapseAt})`]: {
+  const expandedStyles = css({
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+      position: 'relative',
       display: 'flex',
       flexDirection: 'column'
     }
   });
 
   return (
-    <StyledContainer css={isExpanded ? expanded : ''} ref={ref} {...rest}>
+    <StyledContainer css={expanded ? expandedStyles : ''} ref={ref} {...rest}>
       {children}
     </StyledContainer>
   );

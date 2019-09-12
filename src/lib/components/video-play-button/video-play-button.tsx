@@ -4,21 +4,29 @@ import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
 import Icon, { IconType } from '../icon/icon';
-import { ThemeInterface, ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 import { FC } from 'react';
 
 type Sizing = 'lg' | 'reg' | 'sm';
 interface Props {
   className?: string;
   onClick?: () => void;
-  theme: ThemeInterface;
   size?: Sizing;
   css?: any;
 }
 
 const VideoPlayButtonBase: FC<
   ThemeProps & JSX.IntrinsicElements['button'] & Props
-> = ({ className, css, size = 'reg', theme, onClick = () => {}, ...rest }) => {
+> = ({
+  className,
+  css,
+  size = 'reg',
+  theme,
+  onClick = () => {
+    return;
+  },
+  ...rest
+}) => {
   let sizePx = '50px';
   let sizePadding = '15px';
   let sizePositionHorz = '2px';

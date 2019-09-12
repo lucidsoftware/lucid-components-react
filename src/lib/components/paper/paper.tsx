@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
-import { ThemeInterface } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 
 interface Props {
   className?: string;
@@ -12,7 +12,6 @@ interface Props {
   isRaised?: boolean;
   noPadding?: boolean;
   as?: 'div' | 'section' | 'article';
-  theme: ThemeInterface;
 }
 
 const PaperBase = ({
@@ -22,7 +21,7 @@ const PaperBase = ({
   noPadding,
   theme,
   isRaised = false
-}: Props) => {
+}: Props & ThemeProps) => {
   let boxShadow = 'box-shadow: none';
   if (isRaised) {
     boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;

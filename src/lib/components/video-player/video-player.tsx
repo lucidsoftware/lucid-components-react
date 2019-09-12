@@ -5,13 +5,12 @@ import { useState, ReactNode, FC } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 
 import { withTheme } from 'emotion-theming';
-import { ThemeInterface } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 
 import VideoPlayButton from '../video-play-button/video-play-button';
 
 interface Props {
   className?: string;
-  theme: ThemeInterface;
   placeholder?: () => ReactNode;
   url?: string;
   playing?: boolean;
@@ -20,12 +19,14 @@ interface Props {
   config?: any;
 }
 
-const VideoPlayerBase: FC<ReactPlayerProps & Props> = ({
+const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
   className,
   url,
   placeholder,
   playing,
-  onClick = () => {},
+  onClick = () => {
+    return;
+  },
   ratio = 'wide',
   theme,
   ...rest

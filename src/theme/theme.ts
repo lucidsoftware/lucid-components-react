@@ -19,6 +19,8 @@ const theme = {
     disabledBorder: '#A7A9AC'
   },
   navbar: {
+    background: '#FFF',
+    collapseAt: '1000px',
     minHeight: '40px',
     maxWidth: '1200px',
     logoHeight: '25px',
@@ -165,10 +167,8 @@ const theme = {
   borderRadius: 5
 };
 
-export type ThemeInterface = typeof theme;
-
 export interface ThemeProps {
-  theme: ThemeInterface;
+  theme: typeof theme;
 }
 
 export default theme;

@@ -1,34 +1,30 @@
 /** @jsx jsx */
-import {
-  forwardRef,
-  FC,
-  HTMLProps,
-  useState,
-  useContext,
-  SyntheticEvent
-} from 'react';
+import { forwardRef, HTMLProps, useState, SyntheticEvent } from 'react';
 import { css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import styled from '@emotion/styled';
 
-import { navbarItemStyles, NavbarContext } from './navbar';
+import { navbarItemStyles, navbarItemCollapsed } from './navbar';
+import Button from '../button/button';
 import { ThemeProps } from '../../../theme/theme';
 
 export interface NavbarDropdownProps {
   title: string;
+  asLink?: boolean;
 }
 
-const NavbarDropdown: FC<
+const NavbarDropdown = forwardRef<
+  HTMLDivElement,
   NavbarDropdownProps & ThemeProps & HTMLProps<HTMLDivElement>
-> = forwardRef(({ theme, title, children, ...rest }, ref) => {
-  const [isOpen, setIsOpen] = useState(false);
+>(({ theme, title, asLink, children, ...rest }, ref) => {
+  const [isOpen, setIsOpen] = useState(true);
   const [displayLeft, setDisplayLeft] = useState(true);
-  const { collapseAt } = useContext(NavbarContext);
   let timer: NodeJS.Timeout;
 
   const handleMouseOver = (evt: SyntheticEvent) => {
-    const threshold = 200;
     setIsOpen(true);
+
+    const threshold = 400;
     const rect = evt.currentTarget.getBoundingClientRect() as DOMRect;
     const diff = document.body.offsetWidth - rect.x;
 
@@ -49,16 +45,13 @@ const NavbarDropdown: FC<
     visibility: 'visible'
   });
 
-  const StyledDropdown = styled.div(navbarItemStyles, {
+  const dropdownStyles = css(navbarItemStyles({ theme }), {
     position: 'relative',
     '&:hover': {
       cursor: 'pointer'
     },
-    [`@media (max-width: ${collapseAt})`]: {
-      marginLeft: 0,
-      marginRight: 0,
-      width: '100%',
-      padding: '1rem'
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+      ...navbarItemCollapsed({ theme })
     }
   });
 
@@ -69,44 +62,53 @@ const NavbarDropdown: FC<
     visibility: 'hidden',
     position: 'absolute',
     background: dropdownTheme.background,
-    top: '150%',
-    right: displayLeft ? 'unset' : '0',
+    top: asLink ? '150%' : '110%',
+    right: displayLeft ? '' : '0',
+    left: displayLeft ? '0' : '',
     textAlign: 'left',
-    whiteSpace: 'nowrap',
     flexWrap: 'wrap',
+    minWidth: '225px',
+    maxWidth: '300px',
     border: dropdownTheme.border,
     borderRadius: dropdownTheme.borderRadius,
     zIndex: 2000,
-    a: {
+    '> *, > a': {
       position: 'relative',
       display: 'block',
       flex: '1 1 100%',
+      width: 'max-content',
       margin: 0,
       padding: dropdownTheme.padding,
       '&:hover': {
         background: dropdownTheme.backgroundHover
       }
     },
-    [`@media (max-width: ${collapseAt})`]: {
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
       top: '100%',
-      a: {
+      '> *, > a': {
         padding: dropdownTheme.mobilePadding
       }
     }
   });
 
   return (
-    <StyledDropdown
+    <div
+      css={dropdownStyles}
+      role="navigation"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseOver}
+      onBlur={handleMouseLeave}
       ref={ref}
       {...rest}
     >
-      <button onFocus={handleMouseOver}>{title}</button>
+      <Button primary asLink={asLink} onFocus={handleMouseOver}>
+        {title}
+      </Button>
       <StyledDropdownContainer css={isOpen ? visible : []}>
         {children}
       </StyledDropdownContainer>
-    </StyledDropdown>
+    </div>
   );
 });
 

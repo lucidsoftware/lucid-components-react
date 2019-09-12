@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { FC, HTMLProps } from 'react';
+import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import { ThemeProps, ThemeInterface } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 import { getButtonStyles } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
@@ -19,7 +19,8 @@ export interface CoreLinkProps {
 }
 
 export type LinkProps = ThemeProps &
-  HTMLProps<HTMLAnchorElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement> &
+  RefAttributes<HTMLAnchorElement> &
   CoreLinkProps;
 
 export enum LinkVariant {
@@ -37,10 +38,9 @@ export const getLinkStyles = ({
 }: {
   block?: boolean;
   inverse?: boolean;
-  theme: ThemeInterface;
-  underline: string;
-  variant: LinkVariant;
-}) => {
+  underline?: string;
+  variant?: LinkVariant;
+} & ThemeProps) => {
   const linkUnderline = underline === 'always' ? 'underline' : 'none';
   const linkUnderlineHover =
     underline === 'hover' || underline === 'always' ? 'underline' : 'none';

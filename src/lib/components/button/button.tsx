@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, ReactNode, HTMLProps } from 'react';
+import { FC, ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
 
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
-import { ThemeInterface } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
 export interface CoreButtonProps {
@@ -24,10 +23,7 @@ export interface CoreButtonProps {
   hover?: boolean;
   active?: boolean;
 
-  type?: 'button' | 'submit' | 'reset';
-
   css?: any;
-  theme: ThemeInterface;
 
   onClick?: () => void;
   onHover?: () => void;
@@ -36,17 +32,17 @@ export interface CoreButtonProps {
 
 export type ButtonProps = CoreButtonProps &
   ThemeProps &
-  HTMLProps<HTMLButtonElement>;
+  RefAttributes<HTMLButtonElement> &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const getButtonStyles = ({
   theme,
   variant = '',
   block
 }: {
-  theme: ThemeInterface;
-  variant: string;
+  variant?: string;
   block?: boolean;
-}) => {
+} & ThemeProps) => {
   let color = theme.colors.black;
   let backgroundColor = theme.colors.white;
   let border = theme.buttons.border;
@@ -132,7 +128,7 @@ const ButtonBase: FC<ButtonProps> = ({
   type = 'button',
   ...rest
 }) => {
-  let variant = null;
+  let variant;
   if (primary) {
     variant = LinkVariant.Primary;
   } else if (secondary) {

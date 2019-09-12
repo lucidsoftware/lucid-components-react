@@ -19,7 +19,9 @@ const react_player_1 = require("react-player");
 const emotion_theming_1 = require("emotion-theming");
 const video_play_button_1 = require("../video-play-button/video-play-button");
 const VideoPlayerBase = (_a) => {
-    var { className, url, placeholder, playing, onClick = () => { }, ratio = 'wide', theme } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio", "theme"]);
+    var { className, url, placeholder, playing, onClick = () => {
+        return;
+    }, ratio = 'wide', theme } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio", "theme"]);
     const [overlayVisible, setOverlayVisible] = react_1.useState(!playing);
     const videoContainerCss = core_1.css({
         display: 'block',
