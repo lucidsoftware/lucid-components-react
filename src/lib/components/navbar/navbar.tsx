@@ -1,18 +1,11 @@
 /** @jsx jsx */
-import {
-  ReactNode,
-  forwardRef,
-  createContext,
-  useState,
-  useEffect
-} from 'react';
+import { ReactNode, forwardRef, createContext, useState } from 'react';
 import { Global, css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
+import Button from '../button/button';
 import { ThemeProps } from '../../../theme/theme';
-import NavbarLink from './navbar-link';
-import NavbarText from './navbar-text';
-import NavbarButton from './navbar-button';
+import NavbarItem from './navbar-item';
 import NavbarBrand from './navbar-brand';
 import NavbarDropdown from './navbar-dropdown';
 import NavbarContainer from './navbar-container';
@@ -27,12 +20,6 @@ interface Props {
   background?: string;
   children?: ReactNode;
 }
-
-export const navbarItemStyles = (props: any) => ({
-  flex: '0 1 auto',
-  margin: `auto ${props.theme.navbar.itemSpacing}`,
-  alignSelf: 'flex-start'
-});
 
 export const navbarItemCollapsed = (props: any) => ({
   margin: '.75rem 1rem'
@@ -57,7 +44,7 @@ const NavbarWrapper = styled.nav(({ theme }: any) => ({
 }));
 
 const NavbarContents = styled.div(({ theme }: any) => ({
-  display: 'block',
+  display: 'flex',
   maxWidth: theme.navbar.maxWidth,
   minHeight: theme.navbar.minHeight,
   margin: '0 auto',
@@ -108,6 +95,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
       position: 'absolute',
       top: 0,
       left: '-9999px',
+      zIndex: 9000,
 
       ':active, :focus': {
         left: 0
@@ -147,9 +135,9 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
         )}
         <NavbarContext.Provider value={context}>
           <NavbarContents>
-            <NavbarButton primary css={navbarSkipStyles} onClick={skipHandler}>
+            <Button primary css={navbarSkipStyles} onClick={skipHandler}>
               {skipText}
-            </NavbarButton>
+            </Button>
             <NavbarChildren>{children}</NavbarChildren>
           </NavbarContents>
         </NavbarContext.Provider>
@@ -160,11 +148,9 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
 
 const Navbar = Object.assign(withTheme(NavbarComp), {
   Brand: NavbarBrand,
-  Button: NavbarButton,
   Container: NavbarContainer,
   Dropdown: NavbarDropdown,
-  Link: NavbarLink,
-  Text: NavbarText,
+  Item: NavbarItem,
   Toggle: NavbarToggle
 });
 

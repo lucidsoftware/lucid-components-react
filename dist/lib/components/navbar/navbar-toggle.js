@@ -15,20 +15,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("@emotion/styled");
 const navbar_1 = require("./navbar");
 const NavbarToggle = react_1.forwardRef((_a, ref) => {
     var { theme, children } = _a, rest = __rest(_a, ["theme", "children"]);
     const { toggleExpanded } = react_1.useContext(navbar_1.NavbarContext);
-    const StyledToggle = styled_1.default.button(navbar_1.navbarItemStyles, {
+    const toggleStyles = core_1.css({
         display: 'none',
         background: 'transparent',
         border: 0,
         fontSize: 'inherit',
+        minHeight: theme.navbar.minHeight,
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
             display: 'block'
         }
     });
-    return (core_1.jsx(StyledToggle, Object.assign({ ref: ref }, rest, { onClick: toggleExpanded }), children));
+    return (core_1.jsx("button", Object.assign({ css: toggleStyles, ref: ref }, rest, { onClick: toggleExpanded }), children));
 });
 exports.default = emotion_theming_1.withTheme(NavbarToggle);

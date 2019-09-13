@@ -1,22 +1,26 @@
 /** @jsx jsx */
-import { forwardRef, HTMLProps, useState, SyntheticEvent } from 'react';
+import {
+  forwardRef,
+  HTMLProps,
+  useState,
+  SyntheticEvent,
+  ReactNode
+} from 'react';
 import { css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import styled from '@emotion/styled';
-
-import { navbarItemStyles, navbarItemCollapsed } from './navbar';
-import Button from '../button/button';
 import { ThemeProps } from '../../../theme/theme';
 
 export interface NavbarDropdownProps {
-  title: string;
-  asLink?: boolean;
+  toggle: (
+    toggleHandler: (evt: SyntheticEvent<Element, Event>) => void
+  ) => void;
 }
 
 const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & ThemeProps & HTMLProps<HTMLDivElement>
->(({ theme, title, asLink, children, ...rest }, ref) => {
+>(({ toggle, theme, children, ...rest }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   let timer: NodeJS.Timeout;
@@ -26,8 +30,7 @@ const NavbarDropdown = forwardRef<
 
     const threshold = 400;
     const rect = evt.currentTarget.getBoundingClientRect() as DOMRect;
-    const diff = document.body.offsetWidth - rect.x;
-
+    const diff = document.body.offsetWidth - rect.left;
     if (diff < threshold && displayLeft !== false) {
       setDisplayLeft(false);
     } else if (diff >= threshold && displayLeft !== true) {
@@ -45,13 +48,10 @@ const NavbarDropdown = forwardRef<
     visibility: 'visible'
   });
 
-  const dropdownStyles = css(navbarItemStyles({ theme }), {
+  const dropdownStyles = css({
     position: 'relative',
     '&:hover': {
       cursor: 'pointer'
-    },
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      ...navbarItemCollapsed({ theme })
     }
   });
 
@@ -62,7 +62,7 @@ const NavbarDropdown = forwardRef<
     visibility: 'hidden',
     position: 'absolute',
     background: dropdownTheme.background,
-    top: asLink ? '150%' : '110%',
+    top: '110%',
     right: displayLeft ? '' : '0',
     left: displayLeft ? '0' : '',
     textAlign: 'left',
@@ -102,9 +102,7 @@ const NavbarDropdown = forwardRef<
       ref={ref}
       {...rest}
     >
-      <Button primary asLink={asLink} onFocus={handleMouseOver}>
-        {title}
-      </Button>
+      {toggle(handleMouseOver)}
       <StyledDropdownContainer css={isOpen ? visible : []}>
         {children}
       </StyledDropdownContainer>

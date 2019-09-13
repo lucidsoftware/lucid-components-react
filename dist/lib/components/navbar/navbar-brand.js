@@ -15,8 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("@emotion/styled");
-const navbar_link_1 = require("./navbar-link");
 const NavbarBrand = react_1.forwardRef((_a, ref) => {
     var { theme } = _a, props = __rest(_a, ["theme"]);
     const styles = core_1.css({
@@ -30,17 +28,6 @@ const NavbarBrand = react_1.forwardRef((_a, ref) => {
             padding: 0
         }
     });
-    let StyledComponent;
-    if (props.href) {
-        StyledComponent = styled_1.default(navbar_link_1.default) `
-      ${styles}
-    `;
-    }
-    else {
-        StyledComponent = styled_1.default('span') `
-      ${styles}
-    `;
-    }
-    return core_1.jsx(StyledComponent, Object.assign({ ref: ref }, props));
+    return core_1.jsx("div", Object.assign({ css: styles, ref: ref }, props));
 });
 exports.default = emotion_theming_1.withTheme(NavbarBrand);
