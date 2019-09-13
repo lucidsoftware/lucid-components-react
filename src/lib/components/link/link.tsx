@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { FC } from 'react';
+import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import { ThemeProps, ThemeInterface } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 import { getButtonStyles } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
 
-interface Props {
+export interface CoreLinkProps {
   disabled?: boolean;
   primary?: boolean;
   secondary?: boolean;
@@ -17,6 +17,11 @@ interface Props {
   underline?: UnderlineType;
   css?: any;
 }
+
+export type LinkProps = ThemeProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> &
+  RefAttributes<HTMLAnchorElement> &
+  CoreLinkProps;
 
 export enum LinkVariant {
   Default = 'default',
@@ -33,10 +38,9 @@ export const getLinkStyles = ({
 }: {
   block?: boolean;
   inverse?: boolean;
-  theme: ThemeInterface;
-  underline: string;
-  variant: LinkVariant;
-}) => {
+  underline?: string;
+  variant?: LinkVariant;
+} & ThemeProps) => {
   const linkUnderline = underline === 'always' ? 'underline' : 'none';
   const linkUnderlineHover =
     underline === 'hover' || underline === 'always' ? 'underline' : 'none';
@@ -67,7 +71,7 @@ export const getLinkStyles = ({
   return css;
 };
 
-const LinkBase: FC<ThemeProps & JSX.IntrinsicElements['a'] & Props> = ({
+const LinkBase: FC<LinkProps> = ({
   href,
   disabled,
   underline = 'none',

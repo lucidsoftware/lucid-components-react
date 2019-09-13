@@ -13,6 +13,25 @@ declare const theme: {
         disabled: string;
         disabledBorder: string;
     };
+    navbar: {
+        background: string;
+        collapseAt: string;
+        minHeight: string;
+        maxWidth: string;
+        logoHeight: string;
+        itemSpacing: string;
+        padding: string;
+        borderColor: string;
+        borderWidth: string;
+        dropdown: {
+            padding: string;
+            mobilePadding: string;
+            background: string;
+            backgroundHover: string;
+            border: string;
+            borderRadius: string;
+        };
+    };
     breadcrumb: {
         color: string;
         inverseColor: string;
@@ -119,8 +138,7 @@ declare const theme: {
     breakpoints: number[];
     borderRadius: number;
 };
-export declare type ThemeInterface = typeof theme;
 export interface ThemeProps {
-    theme: ThemeInterface;
+    theme: typeof theme;
 }
 export default theme;

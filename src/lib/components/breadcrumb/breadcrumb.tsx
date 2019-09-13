@@ -3,17 +3,16 @@ import { jsx } from '@emotion/core';
 import { FC, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
-import { ThemeInterface } from '../../../theme/theme';
+import { ThemeProps } from '../../../theme/theme';
 
 interface Props {
   className?: string;
   inverse?: boolean;
   items: ReactNode[];
   seperator?: ReactNode;
-  theme: ThemeInterface;
 }
 
-const BreadcrumbBase: FC<Props> = ({
+const BreadcrumbBase: FC<Props & ThemeProps> = ({
   className,
   inverse,
   items,

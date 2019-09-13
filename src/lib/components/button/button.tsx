@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
 
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
-import { ThemeInterface } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
-interface Props {
+export interface CoreButtonProps {
   className?: string;
   id?: string;
   children?: ReactNode;
@@ -24,25 +23,26 @@ interface Props {
   hover?: boolean;
   active?: boolean;
 
-  type?: 'button' | 'submit' | 'reset';
-
   css?: any;
-  theme: ThemeInterface;
 
   onClick?: () => void;
   onHover?: () => void;
   mouseOver?: () => void;
 }
 
+export type ButtonProps = CoreButtonProps &
+  ThemeProps &
+  RefAttributes<HTMLButtonElement> &
+  ButtonHTMLAttributes<HTMLButtonElement>;
+
 export const getButtonStyles = ({
   theme,
   variant = '',
   block
 }: {
-  theme: ThemeInterface;
-  variant: string;
+  variant?: string;
   block?: boolean;
-}) => {
+} & ThemeProps) => {
   let color = theme.colors.black;
   let backgroundColor = theme.colors.white;
   let border = theme.buttons.border;
@@ -103,7 +103,7 @@ export const getButtonStyles = ({
   return css;
 };
 
-const ButtonBase: FC<Props & ThemeProps & JSX.IntrinsicElements['button']> = ({
+const ButtonBase: FC<ButtonProps> = ({
   className = '',
   id = '',
   children,

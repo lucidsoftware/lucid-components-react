@@ -17,7 +17,9 @@ const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
 const icon_1 = require("../icon/icon");
 const VideoPlayButtonBase = (_a) => {
-    var { className, css, size = 'reg', theme, onClick = () => { } } = _a, rest = __rest(_a, ["className", "css", "size", "theme", "onClick"]);
+    var { className, css, size = 'reg', theme, onClick = () => {
+        return;
+    } } = _a, rest = __rest(_a, ["className", "css", "size", "theme", "onClick"]);
     let sizePx = '50px';
     let sizePadding = '15px';
     let sizePositionHorz = '2px';
