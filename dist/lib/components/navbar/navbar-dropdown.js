@@ -20,7 +20,7 @@ const navbar_1 = require("./navbar");
 const button_1 = require("../button/button");
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     var { theme, title, asLink, children } = _a, rest = __rest(_a, ["theme", "title", "asLink", "children"]);
-    const [isOpen, setIsOpen] = react_1.useState(true);
+    const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     let timer;
     const handleMouseOver = (evt) => {

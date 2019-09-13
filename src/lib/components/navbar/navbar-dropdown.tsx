@@ -17,7 +17,7 @@ const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & ThemeProps & HTMLProps<HTMLDivElement>
 >(({ theme, title, asLink, children, ...rest }, ref) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   let timer: NodeJS.Timeout;
 
