@@ -15,15 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("@emotion/styled");
 const navbar_1 = require("./navbar");
 const NavbarLink = react_1.forwardRef((_a, ref) => {
     var { theme, children } = _a, rest = __rest(_a, ["theme", "children"]);
     const { expanded } = react_1.useContext(navbar_1.NavbarContext);
-    const StyledContainer = styled_1.default.div({
+    const containerStyles = core_1.css({
         display: 'flex',
-        marginLeft: `-${theme.navbar.itemSpacing}`,
-        marginRight: `-${theme.navbar.itemSpacing}`,
+        margin: `auto -${theme.navbar.itemSpacing}`,
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
             display: 'none',
             flex: '0 1 100%'
@@ -36,6 +34,6 @@ const NavbarLink = react_1.forwardRef((_a, ref) => {
             flexDirection: 'column'
         }
     });
-    return (core_1.jsx(StyledContainer, Object.assign({ css: expanded ? expandedStyles : '', ref: ref }, rest), children));
+    return (core_1.jsx("ol", Object.assign({ css: [containerStyles, expanded ? expandedStyles : ''], ref: ref }, rest), children));
 });
 exports.default = emotion_theming_1.withTheme(NavbarLink);

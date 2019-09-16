@@ -16,10 +16,8 @@ const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
 const styled_1 = require("@emotion/styled");
-const navbar_1 = require("./navbar");
-const button_1 = require("../button/button");
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { theme, title, asLink, children } = _a, rest = __rest(_a, ["theme", "title", "asLink", "children"]);
+    var { toggle, theme, children } = _a, rest = __rest(_a, ["toggle", "theme", "children"]);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     let timer;
@@ -27,7 +25,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         setIsOpen(true);
         const threshold = 400;
         const rect = evt.currentTarget.getBoundingClientRect();
-        const diff = document.body.offsetWidth - rect.x;
+        const diff = document.body.offsetWidth - rect.left;
         if (diff < threshold && displayLeft !== false) {
             setDisplayLeft(false);
         }
@@ -42,12 +40,11 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     const visible = core_1.css({
         visibility: 'visible'
     });
-    const dropdownStyles = core_1.css(navbar_1.navbarItemStyles({ theme }), {
+    const dropdownStyles = core_1.css({
         position: 'relative',
         '&:hover': {
             cursor: 'pointer'
-        },
-        [`@media (max-width: ${theme.navbar.collapseAt})`]: Object.assign({}, navbar_1.navbarItemCollapsed({ theme }))
+        }
     });
     const dropdownTheme = theme.navbar.dropdown;
     const StyledDropdownContainer = styled_1.default.div({
@@ -55,7 +52,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         visibility: 'hidden',
         position: 'absolute',
         background: dropdownTheme.background,
-        top: asLink ? '150%' : '110%',
+        top: '110%',
         right: displayLeft ? '' : '0',
         left: displayLeft ? '0' : '',
         textAlign: 'left',
@@ -84,7 +81,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         }
     });
     return (core_1.jsx("div", Object.assign({ css: dropdownStyles, role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }, rest),
-        core_1.jsx(button_1.default, { primary: true, asLink: asLink, onFocus: handleMouseOver }, title),
+        toggle(handleMouseOver),
         core_1.jsx(StyledDropdownContainer, { css: isOpen ? visible : [] }, children)));
 });
 exports.default = emotion_theming_1.withTheme(NavbarDropdown);

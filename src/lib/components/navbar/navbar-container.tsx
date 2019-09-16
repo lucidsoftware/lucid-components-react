@@ -2,8 +2,8 @@
 import { forwardRef, HTMLAttributes, useContext } from 'react';
 import { jsx, css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import styled from '@emotion/styled';
 import { ThemeProps } from '../../../theme/theme';
+import NavbarItem from './navbar-item';
 import { NavbarContext } from './navbar';
 
 export interface NavbarContainerProps {
@@ -11,14 +11,14 @@ export interface NavbarContainerProps {
 }
 
 const NavbarLink = forwardRef<
-  HTMLDivElement,
-  NavbarContainerProps & ThemeProps & HTMLAttributes<HTMLDivElement>
+  HTMLOListElement,
+  NavbarContainerProps & ThemeProps & HTMLAttributes<HTMLOListElement>
 >(({ theme, children, ...rest }, ref) => {
   const { expanded } = useContext(NavbarContext);
-  const StyledContainer = styled.div({
+  const containerStyles = css({
     display: 'flex',
-    marginLeft: `-${theme.navbar.itemSpacing}`,
-    marginRight: `-${theme.navbar.itemSpacing}`,
+    margin: `auto -${theme.navbar.itemSpacing}`,
+
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
       display: 'none',
       flex: '0 1 100%'
@@ -34,9 +34,13 @@ const NavbarLink = forwardRef<
   });
 
   return (
-    <StyledContainer css={expanded ? expandedStyles : ''} ref={ref} {...rest}>
+    <ol
+      css={[containerStyles, expanded ? expandedStyles : '']}
+      ref={ref}
+      {...rest}
+    >
       {children}
-    </StyledContainer>
+    </ol>
   );
 });
 

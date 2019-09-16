@@ -4,19 +4,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
-const navbar_link_1 = require("./navbar-link");
-const navbar_text_1 = require("./navbar-text");
-const navbar_button_1 = require("./navbar-button");
+const button_1 = require("../button/button");
+const navbar_item_1 = require("./navbar-item");
 const navbar_brand_1 = require("./navbar-brand");
 const navbar_dropdown_1 = require("./navbar-dropdown");
 const navbar_container_1 = require("./navbar-container");
 const navbar_toggle_1 = require("./navbar-toggle");
 const emotion_theming_1 = require("emotion-theming");
-exports.navbarItemStyles = (props) => ({
-    flex: '0 1 auto',
-    margin: `auto ${props.theme.navbar.itemSpacing}`,
-    alignSelf: 'flex-start'
-});
 exports.navbarItemCollapsed = (props) => ({
     margin: '.75rem 1rem'
 });
@@ -37,7 +31,7 @@ const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
     textAlign: 'left'
 }));
 const NavbarContents = styled_1.default.div(({ theme }) => ({
-    display: 'block',
+    display: 'flex',
     maxWidth: theme.navbar.maxWidth,
     minHeight: theme.navbar.minHeight,
     margin: '0 auto',
@@ -74,6 +68,7 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
         position: 'absolute',
         top: 0,
         left: '-9999px',
+        zIndex: 9000,
         ':active, :focus': {
             left: 0
         }
@@ -100,16 +95,14 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
             } })),
         core_1.jsx(exports.NavbarContext.Provider, { value: context },
             core_1.jsx(NavbarContents, null,
-                core_1.jsx(navbar_button_1.default, { primary: true, css: navbarSkipStyles, onClick: skipHandler }, skipText),
+                core_1.jsx(button_1.default, { primary: true, css: navbarSkipStyles, onClick: skipHandler }, skipText),
                 core_1.jsx(NavbarChildren, null, children)))));
 });
 const Navbar = Object.assign(emotion_theming_1.withTheme(NavbarComp), {
     Brand: navbar_brand_1.default,
-    Button: navbar_button_1.default,
     Container: navbar_container_1.default,
     Dropdown: navbar_dropdown_1.default,
-    Link: navbar_link_1.default,
-    Text: navbar_text_1.default,
+    Item: navbar_item_1.default,
     Toggle: navbar_toggle_1.default
 });
 exports.default = Navbar;
