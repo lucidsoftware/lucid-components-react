@@ -119,6 +119,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
 
     const isIE11 =
       navigator &&
+      navigator !== undefined &&
       navigator.userAgent &&
       navigator.userAgent.indexOf('Trident/') !== -1;
 
