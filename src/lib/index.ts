@@ -3,12 +3,10 @@ import Paper from './components/paper/paper';
 import Button, { getButtonStyles } from './components/button/button';
 import Breadcrumb from './components/breadcrumb/breadcrumb';
 import Icon, { IconType } from './components/icon/icon';
-import Link, { getLinkStyles } from './components/link/link';
+import Link, { getLinkStyles, LinkVariant } from './components/link/link';
 import Navbar from './components/navbar/navbar';
 import VideoPlayer from './components/video-player/video-player';
 import VideoPlayButton from './components/video-play-button/video-play-button';
-
-const helpers = { getLinkStyles, getButtonStyles };
 
 export {
   Breadcrumb,
@@ -21,5 +19,7 @@ export {
   Paper,
   VideoPlayButton,
   VideoPlayer,
-  helpers
+  getLinkStyles,
+  getButtonStyles,
+  LinkVariant
 };
