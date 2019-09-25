@@ -14,10 +14,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -26,8 +22,6 @@ module.exports = {
   },
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "dist/lib"),
-    library: "",
-    libraryTarget: "commonjs"
+    path: path.resolve(__dirname, "dist/lib")
   }
 };
