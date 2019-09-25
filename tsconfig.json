@@ -22,7 +22,7 @@
     "noEmit": true
   },
   "include": [
-    "src/lib/index.ts"
+    "src/lib/"
 	],
 	"exclude": [
     "node_modules",
