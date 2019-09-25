@@ -37,6 +37,7 @@ declare const helpers: {
         block?: boolean;
     } & import("../theme/theme").ThemeProps) => {
         display: string;
+        textAlign: string;
         padding: string;
         fontSize: string;
         fontWeight: number;
