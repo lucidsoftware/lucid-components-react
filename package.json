@@ -1,6 +1,6 @@
 {
   "name": "lucid-components-react",
-  "version": "0.6.1",
+  "version": "0.6.5",
   "private": true,
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-components": "rm -rf dist && webpack --config webpack.config.js"
+    "build-components": "rm -rf dist && tsc -p src/lib/"
   },
   "eslintConfig": {
     "extends": "react-app"
