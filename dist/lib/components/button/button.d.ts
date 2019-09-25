@@ -26,6 +26,7 @@ export declare const getButtonStyles: ({ theme, variant, block }: {
     block?: boolean;
 } & ThemeProps) => {
     display: string;
+    textAlign: string;
     padding: string;
     fontSize: string;
     fontWeight: number;
