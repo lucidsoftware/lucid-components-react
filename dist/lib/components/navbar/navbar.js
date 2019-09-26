@@ -84,7 +84,7 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
         expanded,
         toggleExpanded: () => setExpanded(!expanded)
     };
-    const isIE11 = navigator &&
+    const isIE11 = typeof navigator !== 'undefined' &&
         navigator.userAgent &&
         navigator.userAgent.indexOf('Trident/') !== -1;
     return (core_1.jsx(NavbarWrapper, { css: navbarWrapperStyles, ref: ref },

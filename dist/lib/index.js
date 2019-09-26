@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+require("@emotion/core");
 const card_1 = require("./components/card/card");
 exports.Card = card_1.default;
 const paper_1 = require("./components/paper/paper");

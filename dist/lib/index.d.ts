@@ -1,3 +1,4 @@
+import '@emotion/core';
 import Card from './components/card/card';
 import Paper from './components/paper/paper';
 import Button, { getButtonStyles } from './components/button/button';
