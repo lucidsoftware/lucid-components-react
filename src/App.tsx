@@ -78,20 +78,7 @@ const App: React.FC = () => {
           ]}
         />
         <h1>Some Header</h1>
-        <div style={{ height: '400px', width: '500px' }}>
-          <Card
-            title="Card Title"
-            titleAs="h2"
-            subtitle="Subtitle"
-            subtitleAbove
-            isInteractive
-            horizontal
-            href="http://lucidchart.com"
-            noPadding
-          >
-            Hello
-          </Card>
-        </div>
+
         <Link underline="hover" href="lucidchart.com">
           Test Link <Icon type={IconType.ArrowRight} />
         </Link>
@@ -120,33 +107,29 @@ const App: React.FC = () => {
           sizing="responsive"
         />
         <Button asLink>Hello</Button>
-        <Card
-          isInteractive
-          href="acsdcasd"
-          className="fun-flowchart-hub__chart"
-          title="entity.title!"
-          subtitle="Subtitle"
-          subtitleAbove
-          thumbnail={() => (
-            <img
-              className="fun-flowchart-hub__chart-thumb"
-              src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
-              alt="entity.fieldAltText!"
-            />
-          )}
-        />
-        <br />
-        <br />
+
         <div style={{ height: '400px', width: '600px' }}>
-          <Card
-            title="Card Title"
-            titleAs="h2"
-            subtitle="Subtitle"
-            thumbnail="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
-            isRaised
-            actions={[<a href="#">Link</a>, <a href="#">Link</a>]}
-          ></Card>
+          <Card isInteractive>
+            <Link href="http://lucidchart.com">
+              <Card.Image>
+                <img
+                  alt="Image"
+                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
+                />
+              </Card.Image>
+              <Card.Content>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Subtitle>Card Subtitle</Card.Subtitle>
+                <Card.Actions>
+                  <Card.Action>
+                    <a href="#">Link</a>
+                  </Card.Action>
+                </Card.Actions>
+              </Card.Content>
+            </Link>
+          </Card>
         </div>
+
         <br />
         <br />
         <Paper as="article" isRaised>

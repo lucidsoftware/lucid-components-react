@@ -1,4 +1,9 @@
-declare const theme: {
+/// <reference types="react" />
+/// <reference types="@emotion/core" />
+export interface CardContentProps {
+    noPadding?: boolean;
+}
+declare const CardContent: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, CardContentProps, {
     colors: {
         heading: string;
         text: string;
@@ -137,9 +142,5 @@ declare const theme: {
     space: number[];
     breakpoints: number[];
     borderRadius: number;
-};
-declare type Theme = typeof theme;
-export interface ThemeProps {
-    theme: Theme;
-}
-export default theme;
+}>;
+export default CardContent;

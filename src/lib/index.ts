@@ -7,7 +7,6 @@ import Link, { getLinkStyles, LinkVariant } from './components/link/link';
 import Navbar from './components/navbar/navbar';
 import VideoPlayer from './components/video-player/video-player';
 import VideoPlayButton from './components/video-play-button/video-play-button';
-import { ThemeProps } from '../theme/theme';
 
 export {
   Breadcrumb,
@@ -22,6 +21,5 @@ export {
   VideoPlayer,
   getLinkStyles,
   getButtonStyles,
-  LinkVariant,
-  ThemeProps
+  LinkVariant
 };

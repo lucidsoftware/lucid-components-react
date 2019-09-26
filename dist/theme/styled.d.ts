@@ -1,4 +1,5 @@
-declare const theme: {
+import { CreateStyled } from '@emotion/styled';
+declare const _default: CreateStyled<{
     colors: {
         heading: string;
         text: string;
@@ -137,9 +138,5 @@ declare const theme: {
     space: number[];
     breakpoints: number[];
     borderRadius: number;
-};
-declare type Theme = typeof theme;
-export interface ThemeProps {
-    theme: Theme;
-}
-export default theme;
+}>;
+export default _default;
