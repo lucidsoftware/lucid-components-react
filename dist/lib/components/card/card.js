@@ -1,9 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @jsx jsx */
+const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
+const card_action_1 = require("./card-action");
+const card_actions_1 = require("./card-actions");
+const card_content_1 = require("./card-content");
+const card_image_1 = require("./card-image");
+const card_title_1 = require("./card-title");
+const card_subtitle_1 = require("./card-subtitle");
 const emotion_theming_1 = require("emotion-theming");
-const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false, thumbnail, title, titleAs = 'h2', href, actions, noPadding, subtitle, subtitleAbove, onClick }) => {
+const CardBase = react_1.forwardRef(({ as = 'div', children, className, horizontal, theme, isRaised = false, isInteractive = false }, ref) => {
     let boxShadow = 'none';
     let isInteractiveProps = {};
     if (isRaised) {
@@ -31,80 +39,27 @@ const CardBase = ({ as = 'div', children, className, horizontal, theme, isRaised
     const cardCss = core_1.css(Object.assign({ boxShadow }, isInteractiveProps));
     const cardRenderType = isInteractive ? 'a' : as;
     const CardContainer = styled_1.default(cardRenderType) `
-    display: flex;
-    padding: 0;
-    background: ${theme.colors.white};
-    flex-direction: ${horizontal ? 'row' : 'column'};
-    border-radius: ${theme.borderRadius}px;
-    border: 1px solid ${theme.colors.grey};
-    text-align: left;
-    text-decoration: none;
-    overflow: hidden;
-  `;
-    const CardContent = styled_1.default('div') `
-    color: ${theme.colors.text};
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-
-    ${!noPadding &&
-        core_1.css `
-        padding: ${theme.card.padding};
-      `};
-  `;
-    const CardChildren = styled_1.default('div') `
-    margin: 0;
-  `;
-    const CardTitle = styled_1.default(titleAs) `
-    margin: 0;
-    color: ${theme.colors.heading};
-    font-size: ${theme.fontSizes[0]}px;
-    line-height: ${theme.lineHeights.body};
-    font-weight: ${theme.fontWeights.bolder};
-  `;
-    const CardSubTitle = styled_1.default('div') `
-    display: block;
-    margin: 0 0 ${theme.space[2]}px;
-    font-size: ${theme.fontSizes[0]}px;
-    line-height: ${theme.lineHeights.body};
-    font-weight: ${theme.fontWeights.body};
-    color: #939ea9;
-  `;
-    const CardThumbnail = styled_1.default('div') `
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
-    flex: 1 1 auto;
-  `;
-    const CardActions = styled_1.default('div') `
-    display: flex;
-    margin-top: ${theme.space[3]}px;
-  `;
-    const CardAction = styled_1.default('div') `
-    margin-right: ${theme.space[2]}px;
-  `;
-    const CardSpacer = styled_1.default('div') `
-    margin-top: ${theme.space[3]}px;
-  `;
-    const cardContainerProps = {};
-    if (isInteractive && href) {
-        cardContainerProps.href = href;
-    }
-    const isCustomThumbnail = typeof thumbnail !== 'string';
-    return (core_1.jsx(CardContainer, Object.assign({ onClick: (evt) => (onClick ? onClick(evt) : null), css: cardCss }, cardContainerProps, { className: className }),
-        thumbnail && !isCustomThumbnail && (core_1.jsx(CardThumbnail, { style: { backgroundImage: `url(${thumbnail})` } })),
-        thumbnail && isCustomThumbnail && thumbnail(),
-        core_1.jsx(CardContent, null,
-            core_1.jsx("div", null,
-                subtitle && subtitleAbove && core_1.jsx(CardSubTitle, null, subtitle),
-                title && core_1.jsx(CardTitle, null, title),
-                subtitle && !subtitleAbove && (core_1.jsx(CardSubTitle, null, subtitle)),
-                subtitle && !subtitleAbove && children && core_1.jsx(CardSpacer, null),
-                children && core_1.jsx(CardChildren, null, children)),
-            actions && (core_1.jsx(CardActions, null, actions.map((action, index) => {
-                return (core_1.jsx(CardAction, { key: `card-action-${index}` }, action));
-            }))))));
-};
-const Card = emotion_theming_1.withTheme(CardBase);
+      display: flex;
+      padding: 0;
+      background: ${theme.colors.white};
+      flex-direction: ${horizontal ? 'row' : 'column'};
+      border-radius: ${theme.borderRadius}px;
+      border: 1px solid ${theme.colors.grey};
+      text-align: left;
+      text-decoration: none;
+      overflow: hidden;
+    `;
+    // const CardSpacer = styled('div')`
+    //   margin-top: ${theme.space[3]}px;
+    // `;
+    return (core_1.jsx(CardContainer, { css: cardCss, className: className, ref: ref }, children));
+});
+const Card = Object.assign(emotion_theming_1.withTheme(CardBase), {
+    Action: card_action_1.default,
+    Actions: card_actions_1.default,
+    Content: card_content_1.default,
+    Image: card_image_1.default,
+    Title: card_title_1.default,
+    Subtitle: card_subtitle_1.default
+});
 exports.default = Card;

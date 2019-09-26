@@ -167,8 +167,9 @@ const theme = {
   borderRadius: 5
 };
 
+type Theme = typeof theme;
 export interface ThemeProps {
-  theme: typeof theme;
+  theme: Theme;
 }
 
 export default theme;
