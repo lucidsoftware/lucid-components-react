@@ -68,8 +68,7 @@ const CardBase = forwardRef<HTMLDivElement, Props & ThemeProps>(
       ...isInteractiveProps
     });
 
-    const cardRenderType = isInteractive ? 'a' : as;
-    const CardContainer = styled(cardRenderType)`
+    const CardContainer = styled(as)`
       display: flex;
       padding: 0;
       background: ${theme.colors.white};
@@ -80,10 +79,6 @@ const CardBase = forwardRef<HTMLDivElement, Props & ThemeProps>(
       text-decoration: none;
       overflow: hidden;
     `;
-
-    // const CardSpacer = styled('div')`
-    //   margin-top: ${theme.space[3]}px;
-    // `;
 
     return (
       <CardContainer css={cardCss} className={className} ref={ref}>
