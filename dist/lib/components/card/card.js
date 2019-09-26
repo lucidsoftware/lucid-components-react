@@ -37,8 +37,7 @@ const CardBase = react_1.forwardRef(({ as = 'div', children, className, horizont
         };
     }
     const cardCss = core_1.css(Object.assign({ boxShadow }, isInteractiveProps));
-    const cardRenderType = isInteractive ? 'a' : as;
-    const CardContainer = styled_1.default(cardRenderType) `
+    const CardContainer = styled_1.default(as) `
       display: flex;
       padding: 0;
       background: ${theme.colors.white};
@@ -49,9 +48,6 @@ const CardBase = react_1.forwardRef(({ as = 'div', children, className, horizont
       text-decoration: none;
       overflow: hidden;
     `;
-    // const CardSpacer = styled('div')`
-    //   margin-top: ${theme.space[3]}px;
-    // `;
     return (core_1.jsx(CardContainer, { css: cardCss, className: className, ref: ref }, children));
 });
 const Card = Object.assign(emotion_theming_1.withTheme(CardBase), {
