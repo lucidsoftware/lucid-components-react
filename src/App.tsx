@@ -108,7 +108,7 @@ const App: React.FC = () => {
         />
         <Button asLink>Hello</Button>
         <br />
-        <Button primary iconPosition="after" iconType={IconType.RSS}>
+        <Button primary iconPosition="before" iconType={IconType.RSS}>
           Button with icon
         </Button>
         <br />
