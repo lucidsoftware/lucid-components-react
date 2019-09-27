@@ -149,15 +149,7 @@ const Icon = ({
       break;
     case IconType.RSS:
       icon = (
-        <svg
-          version="1.1"
-          id="Layer_1"
-          x="0px"
-          y="0px"
-          width="100%"
-          height="100%"
-          viewBox="0 0 770.2 768.3"
-        >
+        <svg version="1.1" width="100%" height="100%" viewBox="0 0 770.2 768.3">
           <g>
             <path
               fill={color}
