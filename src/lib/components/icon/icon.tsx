@@ -6,7 +6,8 @@ export enum IconType {
   CarotRight,
   CarotDown,
   Checkmark,
-  Play
+  Play,
+  RSS
 }
 
 type Flip = 'vertical' | 'horizontal' | 'both';
@@ -143,6 +144,21 @@ const Icon = ({
               fillRule="nonzero"
             />
           </g>
+        </svg>
+      );
+      break;
+    case IconType.RSS:
+      icon = (
+        <svg width="100%" height="100%" viewBox="0 0 40 40" version="1.1">
+          <circle cx="12" cy="28" r="3" fill="white" />
+          <path
+            d="M23.9924 31H19.6209C19.2022 22.6222 12.3248 20.4251 9 20.3737V16C10.9087 16 15.2802 16.1848 19.7748 20.5277C23.3706 24.0021 24.0848 28.9569 23.9924 31Z"
+            fill="white"
+          />
+          <path
+            d="M32 31H27.3501C27.0692 18.2624 16.209 12.2849 9 12.6291V8.0286C11.2469 7.84082 19.3083 8.40415 25.54 15.0702C31.6255 21.5798 32 28.7467 32 31Z"
+            fill="white"
+          />
         </svg>
       );
       break;
