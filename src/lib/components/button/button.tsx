@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC, ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
+import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
+import Icon, { IconType } from '../icon/icon';
+
+export type IconPosition = 'before' | 'after';
 
 export interface CoreButtonProps {
   className?: string;
@@ -25,6 +29,9 @@ export interface CoreButtonProps {
 
   css?: any;
 
+  iconType?: IconType;
+  iconPosition?: IconPosition;
+
   onClick?: () => void;
   onHover?: () => void;
   mouseOver?: () => void;
@@ -35,6 +42,8 @@ export type ButtonProps = CoreButtonProps &
   RefAttributes<HTMLButtonElement> &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
+let color = '';
+
 export const getButtonStyles = ({
   theme,
   variant = '',
@@ -43,7 +52,7 @@ export const getButtonStyles = ({
   variant?: string;
   block?: boolean;
 } & ThemeProps) => {
-  let color = theme.colors.black;
+  color = theme.colors.black;
   let backgroundColor = theme.colors.white;
   let border = theme.buttons.border;
   const boxShadow = theme.buttons.boxShadow;
@@ -124,6 +133,9 @@ const ButtonBase: FC<ButtonProps> = ({
   hover,
   active,
 
+  iconType,
+  iconPosition,
+
   theme,
 
   type = 'button',
@@ -156,6 +168,24 @@ const ButtonBase: FC<ButtonProps> = ({
     }  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;
   };
 
+  let iconPadding = '0';
+
+  if (iconPosition === 'before') {
+    iconPadding = '0 9px 0 0';
+  } else if (iconPosition === 'after') {
+    iconPadding = '0 0 0 9px';
+  }
+
+  const IconContainer = styled('span')`
+    position: relative;
+    left: 2px;
+    top: 0;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin: ${iconPadding};
+  `;
+
   return (
     <button
       {...rest}
@@ -166,7 +196,17 @@ const ButtonBase: FC<ButtonProps> = ({
       id={id}
       css={css}
     >
+      {iconPosition === 'before' && iconType && (
+        <IconContainer>
+          <Icon type={iconType} color={color} sizing="responsive" />
+        </IconContainer>
+      )}
       {children}
+      {iconPosition === 'after' && iconType && (
+        <IconContainer>
+          <Icon type={iconType} color={color} sizing="responsive" />
+        </IconContainer>
+      )}
     </button>
   );
 };
