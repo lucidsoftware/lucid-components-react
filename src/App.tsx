@@ -107,7 +107,13 @@ const App: React.FC = () => {
           sizing="responsive"
         />
         <Button asLink>Hello</Button>
-
+        <br />
+        <Button primary iconPosition="after" iconType={IconType.CarotRight}>
+          Button with icon
+        </Button>
+        <br />
+        <br />
+        <br />
         <div style={{ height: '400px', width: '600px' }}>
           <Card isInteractive>
             <Link href="http://lucidchart.com">
