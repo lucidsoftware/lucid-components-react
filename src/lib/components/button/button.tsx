@@ -168,6 +168,14 @@ const ButtonBase: FC<ButtonProps> = ({
     }  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;
   };
 
+  let iconPadding = '0';
+
+  if (iconPosition === 'before') {
+    iconPadding = '0 9px 0 0';
+  } else if (iconPosition === 'after') {
+    iconPadding = '0 0 0 9px';
+  }
+
   const IconContainer = styled('span')`
     position: relative;
     left: 2px;
@@ -175,7 +183,7 @@ const ButtonBase: FC<ButtonProps> = ({
     display: inline-block;
     height: 18px;
     width: 18px;
-    margin: 0 9px;
+    margin: ${iconPadding};
   `;
 
   return (
