@@ -15,26 +15,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("@emotion/styled");
-const StyledItem = styled_1.default.li({
-    flex: '0 1 auto',
-    alignSelf: 'flex-start'
-});
-const NavbarItem = react_1.forwardRef((_a, ref) => {
+const navbar_1 = require("./navbar");
+const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
     var { theme, children } = _a, rest = __rest(_a, ["theme", "children"]);
-    const itemStyles = core_1.css({
-        listStyle: 'none',
-        flex: '0 1 auto',
-        margin: `auto ${theme.navbar.itemSpacing}`,
-        alignSelf: 'flex-start',
+    const { expanded } = react_1.useContext(navbar_1.NavbarContext);
+    const containerStyles = core_1.css({
+        display: 'flex',
+        margin: `auto -${theme.navbar.itemSpacing}`,
+        padding: 0,
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-            margin: '.75rem 1rem',
-            width: '100% !important',
-            '> a, > button': {
-                width: '100% !important'
-            }
+            display: 'none',
+            flex: '0 1 100%'
         }
     });
-    return (core_1.jsx(StyledItem, Object.assign({ css: itemStyles, ref: ref }, rest), children));
+    const expandedStyles = core_1.css({
+        [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column'
+        }
+    });
+    return (core_1.jsx("ol", Object.assign({ css: [containerStyles, expanded ? expandedStyles : ''], ref: ref }, rest), children));
 });
-exports.default = emotion_theming_1.withTheme(NavbarItem);
+exports.default = emotion_theming_1.withTheme(NavbarInnerContainer);

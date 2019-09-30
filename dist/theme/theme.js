@@ -23,12 +23,12 @@ const theme = {
         background: '#FFF',
         collapseAt: '1000px',
         minHeight: '40px',
-        maxWidth: '1200px',
         logoHeight: '25px',
         itemSpacing: '1rem',
         padding: '10px',
         borderColor: 'lightgrey',
         borderWidth: '2px',
+        borderOffset: '-10px',
         dropdown: {
             padding: '.5rem 1.5rem',
             mobilePadding: '1rem',

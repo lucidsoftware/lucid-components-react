@@ -4,7 +4,8 @@ export declare enum IconType {
     CarotRight = 1,
     CarotDown = 2,
     Checkmark = 3,
-    Play = 4
+    Play = 4,
+    RSS = 5
 }
 declare type Flip = 'vertical' | 'horizontal' | 'both';
 declare type Sizing = 'auto' | 'responsive';

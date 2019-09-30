@@ -35,7 +35,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         clearTimeout(timer);
     };
     const handleMouseLeave = () => {
-        timer = setTimeout(() => setIsOpen(false), 1000);
+        timer = setTimeout(() => setIsOpen(false), 200);
     };
     const visible = core_1.css({
         visibility: 'visible'
@@ -44,6 +44,11 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         position: 'relative',
         '&:hover': {
             cursor: 'pointer'
+        },
+        [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+            '> *, > a, > button': {
+                width: '100%'
+            }
         }
     });
     const dropdownTheme = theme.navbar.dropdown;
@@ -75,8 +80,16 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         },
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
             top: '100%',
+            visibility: 'visible',
+            maxWidth: '100%',
+            paddingLeft: '.5rem',
+            position: 'relative',
+            border: 'none',
             '> *, > a': {
-                padding: dropdownTheme.mobilePadding
+                padding: dropdownTheme.mobilePadding,
+                '&:hover': {
+                    background: 'transparent'
+                }
             }
         }
     });

@@ -41,7 +41,7 @@ const NavbarDropdown = forwardRef<
   };
 
   const handleMouseLeave = () => {
-    timer = setTimeout(() => setIsOpen(false), 1000);
+    timer = setTimeout(() => setIsOpen(false), 200);
   };
 
   const visible = css({
@@ -52,6 +52,11 @@ const NavbarDropdown = forwardRef<
     position: 'relative',
     '&:hover': {
       cursor: 'pointer'
+    },
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+      '> *, > a, > button': {
+        width: '100%'
+      }
     }
   });
 
@@ -85,8 +90,16 @@ const NavbarDropdown = forwardRef<
     },
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
       top: '100%',
+      visibility: 'visible',
+      maxWidth: '100%',
+      paddingLeft: '.5rem',
+      position: 'relative',
+      border: 'none',
       '> *, > a': {
-        padding: dropdownTheme.mobilePadding
+        padding: dropdownTheme.mobilePadding,
+        '&:hover': {
+          background: 'transparent'
+        }
       }
     }
   });

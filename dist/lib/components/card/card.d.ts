@@ -31,12 +31,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;
@@ -171,12 +171,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;
@@ -311,12 +311,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;
@@ -451,12 +451,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;
@@ -591,12 +591,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;
@@ -731,12 +731,12 @@ declare const Card: import("react").FunctionComponent<import("emotion-theming/ty
             background: string;
             collapseAt: string;
             minHeight: string;
-            maxWidth: string;
             logoHeight: string;
             itemSpacing: string;
             padding: string;
             borderColor: string;
             borderWidth: string;
+            borderOffset: string;
             dropdown: {
                 padding: string;
                 mobilePadding: string;

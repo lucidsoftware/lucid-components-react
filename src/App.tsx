@@ -18,49 +18,52 @@ const App: React.FC = () => {
     <div className="App" style={{ padding: '0 2rem' }}>
       <ThemeProvider theme={theme}>
         <Navbar sticky>
-          <Navbar.Brand>
-            <Link href="https://www.google.com">
-              <img
-                src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
-                alt="Logo"
-                style={{ width: '200px' }}
-              />
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle>Menu</Navbar.Toggle>
-          <Navbar.Container>
-            <Navbar.Item>
-              <Link primary href="https://www.google.com">
-                Yo
+          <Navbar.Container className="nav-container">
+            <Navbar.Brand>
+              <Link href="https://www.google.com">
+                <img
+                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
+                  alt="Logo"
+                  style={{ width: '200px' }}
+                />
               </Link>
-            </Navbar.Item>
-            <Navbar.Item>
-              <Link asButton primary>
-                Hello
-              </Link>
-            </Navbar.Item>
-            <Navbar.Item>
-              <Button secondary>Yo</Button>
-            </Navbar.Item>
-            <Navbar.Item>I am just some text</Navbar.Item>
-            <Navbar.Item>
-              <Navbar.Dropdown
-                toggle={toggleHandler => (
-                  <Button primary onMouseOver={toggleHandler}>
-                    A Dropdown
-                  </Button>
-                )}
-              >
-                <Link href="https://www.microsoft.com">Some valid link</Link>
-                <Link>An invalid link</Link>
-                <Link primary href="https://www.microsoft.com">
-                  Some 3rd link with an absurdly long name for reals
+            </Navbar.Brand>
+            <Navbar.Toggle>Menu</Navbar.Toggle>
+            <Navbar.InnerContainer>
+              <Navbar.Item>
+                <Link primary href="https://www.google.com">
+                  Yo
                 </Link>
-                <Link href="https://www.microsoft.com">
-                  Some 4th link with long name
+              </Navbar.Item>
+              <Navbar.Item>
+                <Link asButton primary>
+                  Hello
                 </Link>
-              </Navbar.Dropdown>
-            </Navbar.Item>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Button secondary>Yo</Button>
+              </Navbar.Item>
+              <Navbar.Item>I am just some text</Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Dropdown
+                  toggle={toggleHandler => (
+                    <Button primary onMouseOver={toggleHandler}>
+                      A Dropdown
+                    </Button>
+                  )}
+                >
+                  <Link href="https://www.microsoft.com">Some valid link</Link>
+                  <Link>An invalid link</Link>
+                  <Link primary href="https://www.microsoft.com">
+                    Some 3rd link with an absurdly long name for reals
+                  </Link>
+                  <Link href="https://www.microsoft.com">
+                    Some 4th link with long name
+                  </Link>
+                </Navbar.Dropdown>
+              </Navbar.Item>
+            </Navbar.InnerContainer>
+            <Navbar.Border />
           </Navbar.Container>
         </Navbar>
         <Breadcrumb
