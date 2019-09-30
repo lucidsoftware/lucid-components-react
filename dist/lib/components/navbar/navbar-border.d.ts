@@ -1,5 +1,9 @@
-import { CreateStyled } from '@emotion/styled';
-declare const _default: CreateStyled<{
+/// <reference types="react" />
+/// <reference types="@emotion/core" />
+export interface NavbarBorderProps {
+    isHidden?: boolean;
+}
+declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, NavbarBorderProps, {
     colors: {
         heading: string;
         text: string;
@@ -139,4 +143,4 @@ declare const _default: CreateStyled<{
     breakpoints: number[];
     borderRadius: number;
 }>;
-export default _default;
+export default NavbarBorder;

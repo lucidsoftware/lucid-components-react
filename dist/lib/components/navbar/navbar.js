@@ -4,13 +4,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const styled_1 = require("@emotion/styled");
+const emotion_theming_1 = require("emotion-theming");
 const button_1 = require("../button/button");
 const navbar_item_1 = require("./navbar-item");
 const navbar_brand_1 = require("./navbar-brand");
+const navbar_border_1 = require("./navbar-border");
 const navbar_dropdown_1 = require("./navbar-dropdown");
 const navbar_container_1 = require("./navbar-container");
+const navbar_inner_container_1 = require("./navbar-inner-container");
 const navbar_toggle_1 = require("./navbar-toggle");
-const emotion_theming_1 = require("emotion-theming");
 exports.navbarItemCollapsed = (props) => ({
     margin: '.75rem 1rem'
 });
@@ -28,24 +30,13 @@ const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
     left: 0,
     right: 0,
     padding: `${theme.navbar.padding} 0`,
+    minHeight: theme.navbar.minHeight,
     textAlign: 'left'
 }));
 const NavbarContents = styled_1.default.div(({ theme }) => ({
     display: 'flex',
-    maxWidth: theme.navbar.maxWidth,
-    minHeight: theme.navbar.minHeight,
     margin: '0 auto',
-    position: 'relative',
-    ':after': {
-        flexBasis: '100%',
-        content: '""',
-        position: 'absolute',
-        bottom: `-${theme.navbar.padding}`,
-        left: 0,
-        height: theme.navbar.borderWidth,
-        width: '100%',
-        backgroundColor: theme.navbar.borderColor
-    }
+    position: 'relative'
 }));
 const NavbarChildren = styled_1.default.div({
     display: 'flex',
@@ -95,11 +86,13 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
             } })),
         core_1.jsx(exports.NavbarContext.Provider, { value: context },
             core_1.jsx(NavbarContents, null,
-                core_1.jsx(button_1.default, { primary: true, css: navbarSkipStyles, onClick: skipHandler }, skipText),
-                core_1.jsx(NavbarChildren, null, children)))));
+                core_1.jsx(button_1.default, { primary: true, css: navbarSkipStyles, onClick: skipHandler }, skipText)),
+            core_1.jsx(NavbarChildren, null, children))));
 });
 const Navbar = Object.assign(emotion_theming_1.withTheme(NavbarComp), {
     Brand: navbar_brand_1.default,
+    Border: navbar_border_1.default,
+    InnerContainer: navbar_inner_container_1.default,
     Container: navbar_container_1.default,
     Dropdown: navbar_dropdown_1.default,
     Item: navbar_item_1.default,

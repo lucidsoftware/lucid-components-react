@@ -19,12 +19,12 @@ declare const CardImage: import("@emotion/styled-base").StyledComponent<import("
         background: string;
         collapseAt: string;
         minHeight: string;
-        maxWidth: string;
         logoHeight: string;
         itemSpacing: string;
         padding: string;
         borderColor: string;
         borderWidth: string;
+        borderOffset: string;
         dropdown: {
             padding: string;
             mobilePadding: string;
