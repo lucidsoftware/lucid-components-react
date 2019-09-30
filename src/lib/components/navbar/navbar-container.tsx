@@ -1,47 +1,31 @@
 /** @jsx jsx */
-import { forwardRef, HTMLAttributes, useContext } from 'react';
-import { jsx, css } from '@emotion/core';
+import { forwardRef } from 'react';
+import { css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
+
 import { ThemeProps } from '../../../theme/theme';
-import NavbarItem from './navbar-item';
-import { NavbarContext } from './navbar';
 
 export interface NavbarContainerProps {
-  background?: string;
+  className?: string;
 }
 
-const NavbarLink = forwardRef<
-  HTMLOListElement,
-  NavbarContainerProps & ThemeProps & HTMLAttributes<HTMLOListElement>
->(({ theme, children, ...rest }, ref) => {
-  const { expanded } = useContext(NavbarContext);
-  const containerStyles = css({
+const NavbarContainer = forwardRef<
+  HTMLDivElement,
+  NavbarContainerProps & ThemeProps
+>(({ className, children, theme, ...rest }, ref) => {
+  const styles = css({
     display: 'flex',
-    margin: `auto -${theme.navbar.itemSpacing}`,
-
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      display: 'none',
-      flex: '0 1 100%'
-    }
-  });
-
-  const expandedStyles = css({
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      position: 'relative',
-      display: 'flex',
-      flexDirection: 'column'
-    }
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    margin: '0 auto',
+    position: 'relative'
   });
 
   return (
-    <ol
-      css={[containerStyles, expanded ? expandedStyles : '']}
-      ref={ref}
-      {...rest}
-    >
+    <div {...rest} className={className} css={styles} ref={ref}>
       {children}
-    </ol>
+    </div>
   );
 });
 
-export default withTheme(NavbarLink);
+export default withTheme(NavbarContainer);

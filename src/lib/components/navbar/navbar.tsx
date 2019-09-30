@@ -2,15 +2,17 @@
 import { ReactNode, forwardRef, createContext, useState } from 'react';
 import { Global, css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
+import { withTheme } from 'emotion-theming';
+import { ThemeProps } from '../../../theme/theme';
 
 import Button from '../button/button';
-import { ThemeProps } from '../../../theme/theme';
 import NavbarItem from './navbar-item';
 import NavbarBrand from './navbar-brand';
+import NavbarBorder from './navbar-border';
 import NavbarDropdown from './navbar-dropdown';
 import NavbarContainer from './navbar-container';
+import NavbarInnerContainer from './navbar-inner-container';
 import NavbarToggle from './navbar-toggle';
-import { withTheme } from 'emotion-theming';
 
 interface Props {
   as?: 'nav' | 'header' | 'div';
@@ -40,25 +42,14 @@ const NavbarWrapper = styled.nav(({ theme }: any) => ({
   left: 0,
   right: 0,
   padding: `${theme.navbar.padding} 0`,
+  minHeight: theme.navbar.minHeight,
   textAlign: 'left'
 }));
 
 const NavbarContents = styled.div(({ theme }: any) => ({
   display: 'flex',
-  maxWidth: theme.navbar.maxWidth,
-  minHeight: theme.navbar.minHeight,
   margin: '0 auto',
-  position: 'relative',
-  ':after': {
-    flexBasis: '100%',
-    content: '""',
-    position: 'absolute',
-    bottom: `-${theme.navbar.padding}`,
-    left: 0,
-    height: theme.navbar.borderWidth,
-    width: '100%',
-    backgroundColor: theme.navbar.borderColor
-  }
+  position: 'relative'
 }));
 
 const NavbarChildren = styled.div({
@@ -138,8 +129,8 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
             <Button primary css={navbarSkipStyles} onClick={skipHandler}>
               {skipText}
             </Button>
-            <NavbarChildren>{children}</NavbarChildren>
           </NavbarContents>
+          <NavbarChildren>{children}</NavbarChildren>
         </NavbarContext.Provider>
       </NavbarWrapper>
     );
@@ -148,6 +139,8 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
 
 const Navbar = Object.assign(withTheme(NavbarComp), {
   Brand: NavbarBrand,
+  Border: NavbarBorder,
+  InnerContainer: NavbarInnerContainer,
   Container: NavbarContainer,
   Dropdown: NavbarDropdown,
   Item: NavbarItem,
