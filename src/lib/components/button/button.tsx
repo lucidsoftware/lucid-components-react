@@ -82,7 +82,7 @@ export const getButtonStyles = ({
 
   const css = {
     display: block ? 'block' : 'inline-block',
-    width: block ? '100%' : 'inherit',
+    width: block ? '100%' : 'auto',
     textAlign: block ? 'center' : '',
     padding: `${theme.space[2]}px ${theme.space[4]}px`,
     fontSize: `${theme.fontSizes[0]}px`,
