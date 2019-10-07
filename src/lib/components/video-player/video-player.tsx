@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useState, ReactNode, FC } from 'react';
+import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 
 import { withTheme } from 'emotion-theming';
@@ -32,6 +32,10 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
   ...rest
 }) => {
   const [overlayVisible, setOverlayVisible] = useState(!playing);
+
+  useEffect(() => {
+    setOverlayVisible(!playing);
+  }, [playing]);
 
   const videoContainerCss = css({
     display: 'block',
