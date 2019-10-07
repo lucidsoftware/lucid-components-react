@@ -23,6 +23,9 @@ const VideoPlayerBase = (_a) => {
         return;
     }, ratio = 'wide', theme } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio", "theme"]);
     const [overlayVisible, setOverlayVisible] = react_1.useState(!playing);
+    react_1.useEffect(() => {
+        setOverlayVisible(!playing);
+    }, [playing]);
     const videoContainerCss = core_1.css({
         display: 'block',
         padding: 0,
