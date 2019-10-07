@@ -111,10 +111,6 @@ const App: React.FC = () => {
         />
         <Button asLink>Hello</Button>
         <br />
-        <Button primary iconPosition="after" iconType={IconType.RSS}>
-          Button with icon
-        </Button>
-        <br />
         <br />
         <br />
         <div style={{ height: '400px', width: '600px' }}>
