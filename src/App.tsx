@@ -42,7 +42,7 @@ const App: React.FC = () => {
                 </Link>
               </Navbar.Item>
               <Navbar.Item>
-                <Button secondary onClick={() => setPlaying(true)}>
+                <Button secondary onClick={() => setPlaying(!playing)}>
                   Play Video
                 </Button>
               </Navbar.Item>
