@@ -104,7 +104,7 @@ const App: React.FC = () => {
           placeholder={() => (
             <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />
           )}
-          playing={playing}
+          // playing={playing}
         />
         <VideoPlayButton aria-label="Hello" />
         <Icon

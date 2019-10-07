@@ -31,10 +31,15 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
   theme,
   ...rest
 }) => {
+  const [initialized, setInitialized] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(!playing);
 
   useEffect(() => {
-    setOverlayVisible(!playing);
+    if (!initialized) {
+      setInitialized(true);
+    } else {
+      setOverlayVisible(false);
+    }
   }, [playing]);
 
   const videoContainerCss = css({
@@ -77,6 +82,9 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
     align-items: center;
     z-index: 2;
   `;
+
+  const playingState =
+    typeof playing === 'undefined' ? !overlayVisible : playing;
   return (
     <div className={className} css={videoContainerCss}>
       {overlayVisible && (
@@ -102,7 +110,7 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
           height="100%"
           width="100%"
           url={url}
-          playing={playing || !overlayVisible}
+          playing={playingState}
         />
       )}
     </div>
