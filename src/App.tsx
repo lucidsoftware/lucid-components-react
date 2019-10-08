@@ -63,7 +63,7 @@ const App: React.FC = () => {
                   <Link href="https://www.microsoft.com">
                     Some 4th link with long name
                   </Link>
-                  <p>Some text</p>
+                  <p>Some Label</p>
                   <Link href="https://www.microsoft.com">
                     Some 4th link with long name
                   </Link>
@@ -108,7 +108,7 @@ const App: React.FC = () => {
           placeholder={() => (
             <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />
           )}
-          // playing={playing}
+          playing={playing}
         />
         <VideoPlayButton aria-label="Hello" />
         <Icon
@@ -125,7 +125,7 @@ const App: React.FC = () => {
         <br />
         <br />
         <br />
-        <div style={{ height: '400px', width: '600px' }}>
+        <div>
           <Card isInteractive>
             <Link href="http://lucidchart.com">
               <Card.Image>

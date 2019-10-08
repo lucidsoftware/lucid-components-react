@@ -103,8 +103,13 @@ const NavbarDropdown = forwardRef<
       paddingLeft: '.5rem',
       position: 'relative',
       border: 'none',
+      '> li, > p': {
+        padding: dropdownTheme.mobilePadding,
+        width: 'auto'
+      },
       '> a, > button': {
         padding: dropdownTheme.mobilePadding,
+        width: 'auto',
         '&:hover': {
           background: 'transparent'
         }
