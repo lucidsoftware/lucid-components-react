@@ -18,7 +18,7 @@ const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
 const icon_1 = require("../icon/icon");
 let color = '';
-exports.getButtonStyles = ({ theme, variant = '', block }) => {
+exports.getButtonStyles = ({ theme, variant = '', block, active }) => {
     color = theme.colors.black;
     let backgroundColor = theme.colors.white;
     let border = theme.buttons.border;
@@ -44,7 +44,15 @@ exports.getButtonStyles = ({ theme, variant = '', block }) => {
         hoverBackgroundColor = theme.buttons.primary.hoverBackgroundColor;
         hoverBorder = theme.buttons.primary.hoverBorder;
     }
-    const css = {
+    const hoverCss = {
+        color: hoverColor,
+        backgroundColor: hoverBackgroundColor,
+        border: hoverBorder,
+        cursor: 'pointer',
+        boxShadow: hoverBoxShadow,
+        textDecoration: 'none'
+    };
+    let css = {
         display: block ? 'block' : 'inline-block',
         width: block ? '100%' : 'auto',
         textAlign: block ? 'center' : '',
@@ -62,15 +70,11 @@ exports.getButtonStyles = ({ theme, variant = '', block }) => {
         '&:visited': {
             color
         },
-        ':hover,:focus': {
-            color: hoverColor,
-            backgroundColor: hoverBackgroundColor,
-            border: hoverBorder,
-            cursor: 'pointer',
-            boxShadow: hoverBoxShadow,
-            textDecoration: 'none'
-        }
+        ':hover,:focus': hoverCss
     };
+    if (active) {
+        css = Object.assign(Object.assign({}, css), hoverCss);
+    }
     return css;
 };
 const ButtonBase = (_a) => {
@@ -84,11 +88,11 @@ const ButtonBase = (_a) => {
     }
     let css = {};
     if (asLink) {
-        css = link_1.getLinkStyles({ theme, variant, underline, inverse, block });
+        css = link_1.getLinkStyles({ theme, variant, underline, inverse, block, active });
         css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
     }
     else {
-        css = exports.getButtonStyles({ theme, variant, block });
+        css = exports.getButtonStyles({ theme, variant, block, active });
     }
     const getClasses = () => {
         return `${className}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''}  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;

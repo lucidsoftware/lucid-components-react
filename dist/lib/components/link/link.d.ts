@@ -4,6 +4,7 @@ import { RefAttributes, AnchorHTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 export declare type UnderlineType = 'none' | 'hover' | 'always';
 export interface CoreLinkProps {
+    active?: boolean;
     disabled?: boolean;
     primary?: boolean;
     secondary?: boolean;
@@ -19,7 +20,8 @@ export declare enum LinkVariant {
     Primary = "primary",
     Secondary = "secondary"
 }
-export declare const getLinkStyles: ({ block, inverse, theme, underline, variant }: {
+export declare const getLinkStyles: ({ active, block, inverse, theme, underline, variant }: {
+    active?: boolean;
     block?: boolean;
     inverse?: boolean;
     underline?: string;
@@ -27,7 +29,6 @@ export declare const getLinkStyles: ({ block, inverse, theme, underline, variant
 } & ThemeProps) => {
     color: string;
     display: string;
-    fontSize: string;
     border: string;
     textDecoration: string;
     cursor: string;
