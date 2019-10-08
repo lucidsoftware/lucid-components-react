@@ -24,10 +24,10 @@ const NavbarItem = forwardRef<HTMLLIElement, ThemeProps>(
       alignSelf: 'flex-start',
 
       [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-        margin: '.75rem 1rem',
-        width: '100% !important',
+        margin: `.75rem 0`,
+        width: '100%',
         '> a, > button': {
-          width: '100% !important'
+          width: '100%'
         }
       }
     });
