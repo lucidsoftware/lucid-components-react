@@ -63,6 +63,10 @@ const App: React.FC = () => {
                   <Link href="https://www.microsoft.com">
                     Some 4th link with long name
                   </Link>
+                  <p>Some text</p>
+                  <Link href="https://www.microsoft.com">
+                    Some 4th link with long name
+                  </Link>
                 </Navbar.Dropdown>
               </Navbar.Item>
             </Navbar.InnerContainer>

@@ -77,7 +77,15 @@ const NavbarDropdown = forwardRef<
     border: dropdownTheme.border,
     borderRadius: dropdownTheme.borderRadius,
     zIndex: 2000,
-    '> *, > a': {
+    '> li, > p': {
+      position: 'relative',
+      display: 'block',
+      flex: '1 1 100%',
+      width: 'max-content',
+      margin: 0,
+      padding: dropdownTheme.padding
+    },
+    '> a, > button': {
       position: 'relative',
       display: 'block',
       flex: '1 1 100%',
@@ -95,7 +103,7 @@ const NavbarDropdown = forwardRef<
       paddingLeft: '.5rem',
       position: 'relative',
       border: 'none',
-      '> *, > a': {
+      '> a, > button': {
         padding: dropdownTheme.mobilePadding,
         '&:hover': {
           background: 'transparent'
