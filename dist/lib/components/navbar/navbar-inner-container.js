@@ -21,7 +21,7 @@ const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
     const { expanded } = react_1.useContext(navbar_1.NavbarContext);
     const containerStyles = core_1.css({
         display: 'flex',
-        margin: 'auto',
+        margin: `auto -${theme.navbar.itemSpacing}`,
         padding: 0,
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
             display: 'none',
@@ -29,7 +29,8 @@ const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
             overflowY: 'scroll',
             overflowX: 'hidden',
             maxHeight: 'calc(100vh - 60px)',
-            padding: '0 5px'
+            padding: '0 5px',
+            margin: 'auto 0'
         }
     });
     const expandedStyles = core_1.css({
