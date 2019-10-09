@@ -170,9 +170,9 @@ const Icon = ({
   }
 
   return (
-    <div css={iconCss} className={className}>
+    <span css={iconCss} className={className}>
       {icon}
-    </div>
+    </span>
   );
 };
 

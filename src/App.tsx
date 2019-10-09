@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import { ThemeProvider } from 'emotion-theming';
@@ -14,6 +14,7 @@ import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
 import Navbar from './lib/components/navbar/navbar';
 
 const App: React.FC = () => {
+  const [playing, setPlaying] = useState(false);
   return (
     <div className="App" style={{ padding: '0 2rem' }}>
       <ThemeProvider theme={theme}>
@@ -41,7 +42,9 @@ const App: React.FC = () => {
                 </Link>
               </Navbar.Item>
               <Navbar.Item>
-                <Button secondary>Yo</Button>
+                <Button secondary onClick={() => setPlaying(!playing)}>
+                  Play Video
+                </Button>
               </Navbar.Item>
               <Navbar.Item>I am just some text</Navbar.Item>
               <Navbar.Item>
@@ -57,6 +60,10 @@ const App: React.FC = () => {
                   <Link primary href="https://www.microsoft.com">
                     Some 3rd link with an absurdly long name for reals
                   </Link>
+                  <Link href="https://www.microsoft.com">
+                    Some 4th link with long name
+                  </Link>
+                  <p>Some Label</p>
                   <Link href="https://www.microsoft.com">
                     Some 4th link with long name
                   </Link>
@@ -97,10 +104,11 @@ const App: React.FC = () => {
 
         <VideoPlayer
           ratio="wide"
-          url="baz"
+          url="https://www.youtube.com/watch?v=G8KpPw303PY"
           placeholder={() => (
             <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png" />
           )}
+          playing={playing}
         />
         <VideoPlayButton aria-label="Hello" />
         <Icon
@@ -113,7 +121,7 @@ const App: React.FC = () => {
         <br />
         <br />
         <br />
-        <div style={{ height: '400px', width: '600px' }}>
+        <div>
           <Card isInteractive>
             <Link href="http://lucidchart.com">
               <Card.Image>

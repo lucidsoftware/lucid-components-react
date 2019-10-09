@@ -31,7 +31,7 @@ const theme = {
         borderOffset: '-10px',
         dropdown: {
             padding: '.5rem 1.5rem',
-            mobilePadding: '1rem',
+            mobilePadding: '.5rem',
             background: '#FFF',
             backgroundHover: '#DDD',
             border: `1px solid ${blueSteel}`,

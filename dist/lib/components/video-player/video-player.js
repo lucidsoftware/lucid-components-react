@@ -22,7 +22,16 @@ const VideoPlayerBase = (_a) => {
     var { className, url, placeholder, playing, onClick = () => {
         return;
     }, ratio = 'wide', theme } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio", "theme"]);
+    const [initialized, setInitialized] = react_1.useState(false);
     const [overlayVisible, setOverlayVisible] = react_1.useState(!playing);
+    react_1.useEffect(() => {
+        if (!initialized) {
+            setInitialized(true);
+        }
+        else {
+            setOverlayVisible(false);
+        }
+    }, [playing]);
     const videoContainerCss = core_1.css({
         display: 'block',
         padding: 0,
@@ -63,6 +72,7 @@ const VideoPlayerBase = (_a) => {
     align-items: center;
     z-index: 2;
   `;
+    const playingState = typeof playing === 'undefined' ? !overlayVisible : playing;
     return (core_1.jsx("div", { className: className, css: videoContainerCss },
         overlayVisible && (core_1.jsx(VideoOverlay, null,
             core_1.jsx(video_play_button_1.default, { size: "lg", onClick: () => {
@@ -72,7 +82,7 @@ const VideoPlayerBase = (_a) => {
                     onClick();
                 } }))),
         placeholder && overlayVisible && (core_1.jsx(VideoPlaceholder, null, placeholder())),
-        url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", width: "100%", url: url, playing: playing || !overlayVisible })))));
+        url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", width: "100%", url: url, playing: playingState })))));
 };
 const VideoPlayer = emotion_theming_1.withTheme(VideoPlayerBase);
 exports.default = VideoPlayer;

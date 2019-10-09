@@ -80,6 +80,6 @@ const Icon = ({ className, type, color, hoverColor, sizing = 'auto', flip }) => 
             icon = core_1.jsx("svg", null);
             break;
     }
-    return (core_1.jsx("div", { css: iconCss, className: className }, icon));
+    return (core_1.jsx("span", { css: iconCss, className: className }, icon));
 };
 exports.default = Icon;

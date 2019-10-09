@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useState, ReactNode, FC } from 'react';
+import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 
 import { withTheme } from 'emotion-theming';
@@ -31,7 +31,16 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
   theme,
   ...rest
 }) => {
+  const [initialized, setInitialized] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(!playing);
+
+  useEffect(() => {
+    if (!initialized) {
+      setInitialized(true);
+    } else {
+      setOverlayVisible(false);
+    }
+  }, [playing]);
 
   const videoContainerCss = css({
     display: 'block',
@@ -73,6 +82,9 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
     align-items: center;
     z-index: 2;
   `;
+
+  const playingState =
+    typeof playing === 'undefined' ? !overlayVisible : playing;
   return (
     <div className={className} css={videoContainerCss}>
       {overlayVisible && (
@@ -98,7 +110,7 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
           height="100%"
           width="100%"
           url={url}
-          playing={playing || !overlayVisible}
+          playing={playingState}
         />
       )}
     </div>

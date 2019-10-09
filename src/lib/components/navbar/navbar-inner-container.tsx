@@ -16,12 +16,16 @@ const NavbarInnerContainer = forwardRef<
   const { expanded } = useContext(NavbarContext);
   const containerStyles = css({
     display: 'flex',
-    margin: `auto -${theme.navbar.itemSpacing}`,
+    margin: 'auto',
     padding: 0,
 
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
       display: 'none',
-      flex: '0 1 100%'
+      flex: '0 1 100%',
+      overflowY: 'scroll',
+      overflowX: 'hidden',
+      maxHeight: 'calc(100vh - 60px)',
+      padding: '0 5px'
     }
   });
 
