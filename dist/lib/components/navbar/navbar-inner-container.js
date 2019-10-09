@@ -21,7 +21,7 @@ const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
     const { expanded } = react_1.useContext(navbar_1.NavbarContext);
     const containerStyles = core_1.css({
         display: 'flex',
-        margin: 'auto',
+        margin: 'auto 0',
         padding: 0,
         [`@media (max-width: ${theme.navbar.collapseAt})`]: {
             display: 'none',

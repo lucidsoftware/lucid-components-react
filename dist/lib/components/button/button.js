@@ -13,10 +13,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
-const styled_1 = require("@emotion/styled");
 const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
-const icon_1 = require("../icon/icon");
 let color = '';
 exports.getButtonStyles = ({ theme, variant = '', block }) => {
     color = theme.colors.black;
@@ -74,7 +72,7 @@ exports.getButtonStyles = ({ theme, variant = '', block }) => {
     return css;
 };
 const ButtonBase = (_a) => {
-    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, iconType, iconPosition, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "iconType", "iconPosition", "theme", "type"]);
+    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
     let variant;
     if (primary) {
         variant = link_1.LinkVariant.Primary;
@@ -93,28 +91,7 @@ const ButtonBase = (_a) => {
     const getClasses = () => {
         return `${className}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''}  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;
     };
-    let iconPadding = '0';
-    if (iconPosition === 'before') {
-        iconPadding = '0 9px 0 0';
-    }
-    else if (iconPosition === 'after') {
-        iconPadding = '0 0 0 9px';
-    }
-    const IconContainer = styled_1.default('span') `
-    position: relative;
-    left: 2px;
-    top: 0;
-    display: inline-block;
-    height: 18px;
-    width: 18px;
-    margin: ${iconPadding};
-  `;
-    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), onClick: onClick, onMouseOver: onHover, type: type, id: id, css: css }),
-        iconPosition === 'before' && iconType && (core_1.jsx(IconContainer, null,
-            core_1.jsx(icon_1.default, { type: iconType, color: color, sizing: "responsive" }))),
-        children,
-        iconPosition === 'after' && iconType && (core_1.jsx(IconContainer, null,
-            core_1.jsx(icon_1.default, { type: iconType, color: color, sizing: "responsive" })))));
+    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), onClick: onClick, onMouseOver: onHover, type: type, id: id, css: css }), children));
 };
 const Button = emotion_theming_1.withTheme(ButtonBase);
 exports.default = Button;
