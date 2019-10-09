@@ -16,7 +16,7 @@ const NavbarInnerContainer = forwardRef<
   const { expanded } = useContext(NavbarContext);
   const containerStyles = css({
     display: 'flex',
-    margin: 'auto 0',
+    margin: `auto -${theme.navbar.itemSpacing}`,
     padding: 0,
 
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
@@ -25,7 +25,8 @@ const NavbarInnerContainer = forwardRef<
       overflowY: 'scroll',
       overflowX: 'hidden',
       maxHeight: 'calc(100vh - 60px)',
-      padding: '0 5px'
+      padding: '0 5px',
+      margin: 'auto 0'
     }
   });
 
