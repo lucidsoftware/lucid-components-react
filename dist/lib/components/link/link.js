@@ -33,6 +33,7 @@ exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'n
         color,
         display: block ? 'block' : 'inline-block',
         border: 'none',
+        fontSize: 'inherit',
         textDecoration: linkUnderline,
         cursor: 'pointer',
         ':visited': {
