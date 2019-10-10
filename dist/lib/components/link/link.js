@@ -20,34 +20,37 @@ var LinkVariant;
     LinkVariant["Primary"] = "primary";
     LinkVariant["Secondary"] = "secondary";
 })(LinkVariant = exports.LinkVariant || (exports.LinkVariant = {}));
-exports.getLinkStyles = ({ block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
+exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
     const linkUnderline = underline === 'always' ? 'underline' : 'none';
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';
     const { color, hover, disabled } = theme.links[variant][linkType];
-    const css = {
+    const hoverCss = {
+        color: hover,
+        textDecoration: linkUnderlineHover
+    };
+    let css = {
         color,
         display: block ? 'block' : 'inline-block',
-        fontSize: `${theme.buttons.fontSize}`,
         border: 'none',
         textDecoration: linkUnderline,
         cursor: 'pointer',
         ':visited': {
             color
         },
-        ':hover,:focus': {
-            color: hover,
-            textDecoration: linkUnderlineHover
-        },
+        ':hover,:focus': hoverCss,
         'a&:not([href])': {
             color: disabled,
             cursor: 'not-allowed'
         }
     };
+    if (active) {
+        css = Object.assign(Object.assign({}, css), hoverCss);
+    }
     return css;
 };
 const LinkBase = (_a) => {
-    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, block, theme, css } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "block", "theme", "css"]);
+    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, block, theme, css, active } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "block", "theme", "css", "active"]);
     let variant;
     let baseCss = {};
     if (primary) {
@@ -57,13 +60,19 @@ const LinkBase = (_a) => {
         variant = LinkVariant.Secondary;
     }
     if (asButton) {
-        baseCss = button_1.getButtonStyles({ theme, variant, block });
+        baseCss = button_1.getButtonStyles({ theme, variant, block, active });
     }
     else {
-        baseCss = exports.getLinkStyles({ theme, variant, underline, inverse, block });
+        baseCss = exports.getLinkStyles({
+            theme,
+            variant,
+            underline,
+            inverse,
+            block,
+            active
+        });
     }
-    baseCss = Object.assign(Object.assign({}, baseCss), css);
-    return (core_1.jsx("a", Object.assign({}, rest, { href: disabled ? undefined : href, css: baseCss }), children));
+    return (core_1.jsx("a", Object.assign({}, rest, { href: disabled ? undefined : href, css: [baseCss, css] }), children));
 };
 const Link = emotion_theming_1.withTheme(LinkBase);
 exports.default = Link;

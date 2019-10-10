@@ -8,6 +8,7 @@ import { getButtonStyles } from '../button/button';
 export type UnderlineType = 'none' | 'hover' | 'always';
 
 export interface CoreLinkProps {
+  active?: boolean;
   disabled?: boolean;
   primary?: boolean;
   secondary?: boolean;
@@ -30,12 +31,14 @@ export enum LinkVariant {
 }
 
 export const getLinkStyles = ({
+  active,
   block,
   inverse = false,
   theme,
   underline = 'none',
   variant = LinkVariant.Default
 }: {
+  active?: boolean;
   block?: boolean;
   inverse?: boolean;
   underline?: string;
@@ -48,25 +51,30 @@ export const getLinkStyles = ({
   const linkType = inverse ? 'inverse' : 'default';
   const { color, hover, disabled } = theme.links[variant][linkType];
 
-  const css = {
+  const hoverCss = {
+    color: hover,
+    textDecoration: linkUnderlineHover
+  };
+
+  let css = {
     color,
     display: block ? 'block' : 'inline-block',
-    fontSize: `${theme.buttons.fontSize}`,
     border: 'none',
     textDecoration: linkUnderline,
     cursor: 'pointer',
     ':visited': {
       color
     },
-    ':hover,:focus': {
-      color: hover,
-      textDecoration: linkUnderlineHover
-    },
+    ':hover,:focus': hoverCss,
     'a&:not([href])': {
       color: disabled,
       cursor: 'not-allowed'
     }
   };
+
+  if (active) {
+    css = { ...css, ...hoverCss };
+  }
 
   return css;
 };
@@ -83,6 +91,7 @@ const LinkBase: FC<LinkProps> = ({
   block,
   theme,
   css,
+  active,
   ...rest
 }) => {
   let variant;
@@ -94,14 +103,20 @@ const LinkBase: FC<LinkProps> = ({
   }
 
   if (asButton) {
-    baseCss = getButtonStyles({ theme, variant, block });
+    baseCss = getButtonStyles({ theme, variant, block, active });
   } else {
-    baseCss = getLinkStyles({ theme, variant, underline, inverse, block });
+    baseCss = getLinkStyles({
+      theme,
+      variant,
+      underline,
+      inverse,
+      block,
+      active
+    });
   }
-  baseCss = { ...baseCss, ...css };
 
   return (
-    <a {...rest} href={disabled ? undefined : href} css={baseCss}>
+    <a {...rest} href={disabled ? undefined : href} css={[baseCss, css]}>
       {children}
     </a>
   );

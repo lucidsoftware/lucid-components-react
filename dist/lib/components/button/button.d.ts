@@ -21,9 +21,10 @@ export interface CoreButtonProps {
     mouseOver?: () => void;
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
-export declare const getButtonStyles: ({ theme, variant, block }: {
+export declare const getButtonStyles: ({ theme, variant, block, active }: {
     variant?: string;
     block?: boolean;
+    active?: boolean;
 } & ThemeProps) => {
     display: string;
     width: string;

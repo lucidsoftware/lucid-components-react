@@ -41,10 +41,12 @@ let color = '';
 export const getButtonStyles = ({
   theme,
   variant = '',
-  block
+  block,
+  active
 }: {
   variant?: string;
   block?: boolean;
+  active?: boolean;
 } & ThemeProps) => {
   color = theme.colors.black;
   let backgroundColor = theme.colors.white;
@@ -74,7 +76,16 @@ export const getButtonStyles = ({
     hoverBorder = theme.buttons.primary.hoverBorder;
   }
 
-  const css = {
+  const hoverCss = {
+    color: hoverColor,
+    backgroundColor: hoverBackgroundColor,
+    border: hoverBorder,
+    cursor: 'pointer',
+    boxShadow: hoverBoxShadow,
+    textDecoration: 'none'
+  };
+
+  let css = {
     display: block ? 'block' : 'inline-block',
     width: block ? '100%' : 'auto',
     textAlign: block ? 'center' : '',
@@ -95,15 +106,12 @@ export const getButtonStyles = ({
       color
     },
 
-    ':hover,:focus': {
-      color: hoverColor,
-      backgroundColor: hoverBackgroundColor,
-      border: hoverBorder,
-      cursor: 'pointer',
-      boxShadow: hoverBoxShadow,
-      textDecoration: 'none'
-    }
+    ':hover,:focus': hoverCss
   };
+
+  if (active) {
+    css = { ...css, ...hoverCss };
+  }
 
   return css;
 };
@@ -143,7 +151,7 @@ const ButtonBase: FC<ButtonProps> = ({
   let css = {};
 
   if (asLink) {
-    css = getLinkStyles({ theme, variant, underline, inverse, block });
+    css = getLinkStyles({ theme, variant, underline, inverse, block, active });
     css = {
       ...css,
       border: 0,
@@ -151,7 +159,7 @@ const ButtonBase: FC<ButtonProps> = ({
       padding: 'initial'
     };
   } else {
-    css = getButtonStyles({ theme, variant, block });
+    css = getButtonStyles({ theme, variant, block, active });
   }
 
   const getClasses = () => {

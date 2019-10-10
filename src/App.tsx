@@ -37,6 +37,11 @@ const App: React.FC = () => {
                 </Link>
               </Navbar.Item>
               <Navbar.Item>
+                <Button primary active>
+                  Active Button
+                </Button>
+              </Navbar.Item>
+              <Navbar.Item>
                 <Link asButton primary>
                   Hello
                 </Link>
@@ -78,8 +83,8 @@ const App: React.FC = () => {
             <Link primary href="/test">
               Hello
             </Link>,
-            <Link primary href="/test">
-              Hello
+            <Link primary active href="/test">
+              Hello (Active)
             </Link>,
             <Link primary href="/test">
               Hello
@@ -91,6 +96,9 @@ const App: React.FC = () => {
 
         <Link underline="hover" href="lucidchart.com">
           Test Link <Icon type={IconType.ArrowRight} />
+        </Link>
+        <Link primary underline="hover" active href="lucidchart.com">
+          Active Link
         </Link>
         <p>
           Hello{' '}
