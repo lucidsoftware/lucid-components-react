@@ -39,6 +39,9 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
     ':hover,:focus': {
         color: string;
         textDecoration: string;
+        ':visited': {
+            color: string;
+        };
     };
     'a&:not([href])': {
         color: string;

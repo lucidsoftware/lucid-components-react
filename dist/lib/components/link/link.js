@@ -27,7 +27,10 @@ exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'n
     const { color, hover, disabled } = theme.links[variant][linkType];
     const hoverCss = {
         color: hover,
-        textDecoration: linkUnderlineHover
+        textDecoration: linkUnderlineHover,
+        ':visited': {
+            color: hover
+        }
     };
     let css = {
         color,

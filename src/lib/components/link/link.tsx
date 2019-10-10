@@ -53,7 +53,10 @@ export const getLinkStyles = ({
 
   const hoverCss = {
     color: hover,
-    textDecoration: linkUnderlineHover
+    textDecoration: linkUnderlineHover,
+    ':visited': {
+      color: hover
+    }
   };
 
   let css = {
