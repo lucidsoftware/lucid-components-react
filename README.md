@@ -36,4 +36,15 @@ You will also see any lint errors in the console.
 
 Runs the components thru the TypeScript compiler and exports them.
 
+## Create a release
+- Update package.json version
+- `npm run build-components`
+- Commit new build files
+- Create a PR and merge
+- [Draft a new release](https://github.com/lbucio/lucid-components-react/releases)
+  - Create a tag version matching package.json version targeting master branch
+- Use a descriptive and concise release title
+- List all changes and fixes in the release description
+- Follow [Semantic Versioning](https://semver.org/)
+
 ## Learn More
