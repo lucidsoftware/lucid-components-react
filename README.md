@@ -47,4 +47,12 @@ Runs the components thru the TypeScript compiler and exports them.
 - List all changes and fixes in the release description
 - Follow [Semantic Versioning](https://semver.org/)
 
+## Using a dev release
+If you are wanting to test changes before creating an official release, you can update the package.json in the repo consuming the component library to use your branch.
+- Change from using a tag (v1.0.0) to use your branch name.
+- Update your packages and it will pull in your changes.
+- Make sure to run `npm run build-components` first and then push your branch up.
+
+`lbucio/lucid-components-react.git#branch-name`
+
 ## Learn More
