@@ -16,6 +16,7 @@ const NavbarInnerContainer = forwardRef<
   const { expanded } = useContext(NavbarContext);
   const containerStyles = css({
     display: 'flex',
+    order: 2,
     margin: `auto -${theme.navbar.itemSpacing}`,
     padding: 0,
 

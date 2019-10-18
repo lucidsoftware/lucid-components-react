@@ -6,6 +6,7 @@ export interface NavbarBorderProps {
 
 const NavbarBorder = styled('div')<NavbarBorderProps>({}, props => ({
   flexBasis: '100%',
+  order: 0,
   position: 'absolute',
   bottom: props.theme.navbar.borderOffset,
   left: 0,
