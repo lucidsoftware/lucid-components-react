@@ -54,7 +54,7 @@ exports.getButtonStyles = ({ theme, variant = '', block, active }) => {
         display: block ? 'block' : 'inline-block',
         width: block ? '100%' : 'auto',
         textAlign: block ? 'center' : '',
-        padding: `${theme.space[2]}px ${theme.space[4]}px`,
+        padding: `${theme.space[2]}px ${theme.space[3]}px`,
         fontSize: `${theme.fontSizes[0]}px`,
         fontWeight: theme.fontWeights.bolder,
         lineHeight: theme.buttons.lineHeight,
