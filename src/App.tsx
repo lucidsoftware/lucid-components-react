@@ -100,6 +100,10 @@ const App: React.FC = () => {
         <Link primary underline="hover" active href="lucidchart.com">
           Active Link
         </Link>
+        <Link primary asButton to="/">
+          <Icon type={IconType.RSS} />
+          &nbsp; RSS
+        </Link>
         <p>
           Hello{' '}
           <Icon
