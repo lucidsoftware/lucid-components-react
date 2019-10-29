@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { RefAttributes, AnchorHTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
+import { ButtonSize } from '../button/button';
 export declare type UnderlineType = 'none' | 'hover' | 'always';
 export interface CoreLinkProps {
     active?: boolean;
@@ -11,6 +12,7 @@ export interface CoreLinkProps {
     inverse?: boolean;
     asButton?: boolean;
     block?: boolean;
+    buttonSize?: ButtonSize;
     underline?: UnderlineType;
     css?: any;
 }

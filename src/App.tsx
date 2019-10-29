@@ -114,6 +114,22 @@ const App: React.FC = () => {
           />
         </p>
 
+        <p>
+          <Button size="small" primary>
+            Small Button
+          </Button>
+        </p>
+        <p>
+          <Button size="regular" primary>
+            Regular Button
+          </Button>
+        </p>
+        <p>
+          <Button size="large" primary>
+            Large Button
+          </Button>
+        </p>
+
         <VideoPlayer
           ratio="wide"
           url="https://www.youtube.com/watch?v=G8KpPw303PY"

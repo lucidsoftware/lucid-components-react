@@ -7,6 +7,8 @@ import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
+export type ButtonSize = 'small' | 'regular' | 'large';
+
 export interface CoreButtonProps {
   className?: string;
   id?: string;
@@ -19,6 +21,7 @@ export interface CoreButtonProps {
   underline?: UnderlineType;
 
   block?: boolean;
+  size?: ButtonSize;
 
   disabled?: boolean;
   hover?: boolean;
@@ -41,11 +44,13 @@ let color = '';
 export const getButtonStyles = ({
   theme,
   variant = '',
+  size = 'regular',
   block,
   active
 }: {
   variant?: string;
   block?: boolean;
+  size?: ButtonSize;
   active?: boolean;
 } & ThemeProps) => {
   color = theme.colors.black;
@@ -85,11 +90,13 @@ export const getButtonStyles = ({
     textDecoration: 'none'
   };
 
+  const { padding } = theme.buttons.sizes[size];
+
   let css = {
     display: block ? 'block' : 'inline-block',
     width: block ? '100%' : 'auto',
     textAlign: block ? 'center' : '',
-    padding: `${theme.space[2]}px ${theme.space[4]}px`,
+    padding,
     fontSize: `${theme.fontSizes[0]}px`,
     fontWeight: theme.fontWeights.bolder,
     lineHeight: theme.buttons.lineHeight,
@@ -128,6 +135,7 @@ const ButtonBase: FC<ButtonProps> = ({
   underline,
 
   block,
+  size = 'regular',
 
   onClick,
   onHover,
@@ -159,7 +167,7 @@ const ButtonBase: FC<ButtonProps> = ({
       padding: 'initial'
     };
   } else {
-    css = getButtonStyles({ theme, variant, block, active });
+    css = getButtonStyles({ theme, variant, block, active, size });
   }
 
   const getClasses = () => {

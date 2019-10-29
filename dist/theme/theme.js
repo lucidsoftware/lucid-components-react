@@ -89,6 +89,17 @@ const theme = {
         hoverBoxShadow: 'none',
         border: '1px solid #000',
         transition: 'transform 0.15 ease-out',
+        sizes: {
+            small: {
+                padding: '6px 24px'
+            },
+            regular: {
+                padding: '10px 24px'
+            },
+            large: {
+                padding: '14px 24px'
+            }
+        },
         primary: {
             color: '#FFF',
             border: '1px solid #636AFF',

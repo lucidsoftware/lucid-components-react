@@ -54,7 +54,7 @@ exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'n
     return css;
 };
 const LinkBase = (_a) => {
-    var { href, disabled, underline = 'none', children, primary, secondary, inverse, asButton, block, theme, css, active } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "primary", "secondary", "inverse", "asButton", "block", "theme", "css", "active"]);
+    var { href, disabled, underline = 'none', children, buttonSize = 'regular', primary, secondary, inverse, asButton, block, theme, css, active } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "buttonSize", "primary", "secondary", "inverse", "asButton", "block", "theme", "css", "active"]);
     let variant;
     let baseCss = {};
     if (primary) {
@@ -64,7 +64,13 @@ const LinkBase = (_a) => {
         variant = LinkVariant.Secondary;
     }
     if (asButton) {
-        baseCss = button_1.getButtonStyles({ theme, variant, block, active });
+        baseCss = button_1.getButtonStyles({
+            theme,
+            variant,
+            block,
+            active,
+            size: buttonSize
+        });
     }
     else {
         baseCss = exports.getLinkStyles({
