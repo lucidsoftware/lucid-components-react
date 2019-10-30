@@ -2,6 +2,7 @@
 import { ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 import { UnderlineType } from '../link/link';
+export declare type ButtonSize = 'small' | 'regular' | 'large';
 export interface CoreButtonProps {
     className?: string;
     id?: string;
@@ -12,6 +13,7 @@ export interface CoreButtonProps {
     asLink?: boolean;
     underline?: UnderlineType;
     block?: boolean;
+    size?: ButtonSize;
     disabled?: boolean;
     hover?: boolean;
     active?: boolean;
@@ -21,9 +23,10 @@ export interface CoreButtonProps {
     mouseOver?: () => void;
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
-export declare const getButtonStyles: ({ theme, variant, block, active }: {
+export declare const getButtonStyles: ({ theme, variant, size, block, active }: {
     variant?: string;
     block?: boolean;
+    size?: ButtonSize;
     active?: boolean;
 } & ThemeProps) => {
     display: string;

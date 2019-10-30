@@ -3,7 +3,7 @@ import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
-import { getButtonStyles } from '../button/button';
+import { getButtonStyles, ButtonSize } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
 
@@ -15,6 +15,7 @@ export interface CoreLinkProps {
   inverse?: boolean;
   asButton?: boolean;
   block?: boolean;
+  buttonSize?: ButtonSize;
   underline?: UnderlineType;
   css?: any;
 }
@@ -88,6 +89,7 @@ const LinkBase: FC<LinkProps> = ({
   disabled,
   underline = 'none',
   children,
+  buttonSize = 'regular',
   primary,
   secondary,
   inverse,
@@ -107,7 +109,13 @@ const LinkBase: FC<LinkProps> = ({
   }
 
   if (asButton) {
-    baseCss = getButtonStyles({ theme, variant, block, active });
+    baseCss = getButtonStyles({
+      theme,
+      variant,
+      block,
+      active,
+      size: buttonSize
+    });
   } else {
     baseCss = getLinkStyles({
       theme,

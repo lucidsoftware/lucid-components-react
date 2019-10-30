@@ -16,7 +16,7 @@ const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
 let color = '';
-exports.getButtonStyles = ({ theme, variant = '', block, active }) => {
+exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, active }) => {
     color = theme.colors.black;
     let backgroundColor = theme.colors.white;
     let border = theme.buttons.border;
@@ -50,11 +50,12 @@ exports.getButtonStyles = ({ theme, variant = '', block, active }) => {
         boxShadow: hoverBoxShadow,
         textDecoration: 'none'
     };
+    const { padding } = theme.buttons.sizes[size];
     let css = {
         display: block ? 'block' : 'inline-block',
         width: block ? '100%' : 'auto',
         textAlign: block ? 'center' : '',
-        padding: `${theme.space[2]}px ${theme.space[4]}px`,
+        padding,
         fontSize: `${theme.fontSizes[0]}px`,
         fontWeight: theme.fontWeights.bolder,
         lineHeight: theme.buttons.lineHeight,
@@ -76,7 +77,7 @@ exports.getButtonStyles = ({ theme, variant = '', block, active }) => {
     return css;
 };
 const ButtonBase = (_a) => {
-    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, onClick, onHover, disabled, hover, active, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
+    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, size = 'regular', onClick, onHover, disabled, hover, active, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "size", "onClick", "onHover", "disabled", "hover", "active", "theme", "type"]);
     let variant;
     if (primary) {
         variant = link_1.LinkVariant.Primary;
@@ -90,7 +91,7 @@ const ButtonBase = (_a) => {
         css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
     }
     else {
-        css = exports.getButtonStyles({ theme, variant, block, active });
+        css = exports.getButtonStyles({ theme, variant, block, active, size });
     }
     const getClasses = () => {
         return `${className}  ${hover ? 'is-hover' : ''} ${active ? 'is-active' : ''}  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;

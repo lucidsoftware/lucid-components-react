@@ -88,6 +88,17 @@ declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<impor
         hoverBoxShadow: string;
         border: string;
         transition: string;
+        sizes: {
+            small: {
+                padding: string;
+            };
+            regular: {
+                padding: string;
+            };
+            large: {
+                padding: string;
+            };
+        };
         primary: {
             color: string;
             border: string;

@@ -104,6 +104,17 @@ declare const Navbar: import("react").FunctionComponent<import("emotion-theming/
             hoverBoxShadow: string;
             border: string;
             transition: string;
+            sizes: {
+                small: {
+                    padding: string;
+                };
+                regular: {
+                    padding: string;
+                };
+                large: {
+                    padding: string;
+                };
+            };
             primary: {
                 color: string;
                 border: string;
