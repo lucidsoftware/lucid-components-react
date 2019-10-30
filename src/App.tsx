@@ -100,7 +100,7 @@ const App: React.FC = () => {
         <Link primary underline="hover" active href="lucidchart.com">
           Active Link
         </Link>
-        <Link primary asButton to="/">
+        <Link primary asButton href="/">
           <Icon type={IconType.RSS} />
           &nbsp; RSS
         </Link>
@@ -128,6 +128,12 @@ const App: React.FC = () => {
           <Button size="large" primary>
             Large Button
           </Button>
+        </p>
+
+        <p>
+          <Link asButton buttonSize="large" primary>
+            Large Button
+          </Link>
         </p>
 
         <VideoPlayer
