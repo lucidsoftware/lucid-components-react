@@ -11,6 +11,15 @@ import Paper from './components/paper/paper';
 import VideoPlayer from './components/video-player/video-player';
 import VideoPlayButton from './components/video-play-button/video-play-button';
 
+import Input from './components/input/input';
+
+import {
+  InputValidator,
+  InputDefaultValidator,
+  InputPasswordValidator,
+  InputEmailValidator
+} from './components/input/input-validators';
+
 export {
   Accordion,
   Breadcrumb,
@@ -20,6 +29,11 @@ export {
   getButtonStyles,
   Icon,
   IconType,
+  Input,
+  // InputValidator,
+  InputEmailValidator,
+  InputDefaultValidator,
+  InputPasswordValidator,
   Link,
   LinkVariant,
   Navbar,

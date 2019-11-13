@@ -1,0 +1,155 @@
+$padding-field-horizontal: .75rem;
+$color-placeholder: #F2F2F2;
+// $color-placeholder: map-get($lc-gray, 'shade-3');
+
+
+.input {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    // animation: error-shake .15s ease-out;
+  }
+
+  &__error {
+    // color: map-get($lc-salmon, 'shade-3');
+    font-size: .75em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(-100%);
+  }
+
+  &__hint {
+    color: #FFF;
+    font-size: .75em;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .85);
+    padding: .35rem;
+    bottom: -.15rem;
+    transform: translateY(100%);
+    border-radius: 4px;
+  }
+
+  &__label {
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    text-align: left;
+
+    &--screen-reader {
+      border: 0;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: inset(50%);
+      height: 1px;
+      margin: -1px;
+      width: 1px;
+      overflow: hidden;
+      position: absolute !important;
+      word-wrap: normal !important;
+    }
+
+    &--floating {
+      position: absolute;
+      line-height: 1;
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: $padding-field-horizontal;
+      right: 1px;
+      margin: auto;
+      height: 1em;
+      transition: transform .15s ease-out;
+      color: $color-placeholder;
+      will-change: transform;
+      user-select: none;
+      pointer-events: none;
+      transform-origin: 0 0;
+    }
+
+    &--float {
+      transform: translateY(calc(-55%)) scale(.75);
+      transition: transform .15s ease-in color .15s ease-in;
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    padding: .3375rem $padding-field-horizontal;
+    height: 50px;
+    font-size: 1em;
+    // color: map-get($lc-blue-steel, 'primary');
+    outline: none;
+    // border: 1px solid map-get($lc-gray, 'shade-3');
+    background-color: #FFF;
+    border-radius: 5px;
+
+    &:hover {
+      // border-color: map-get($lc-blue-steel, 'tint-2');
+    }
+
+    &:focus {
+      // border-color: map-get($lc-indigo, 'primary');
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 1000px #FFF inset !important;
+    }
+
+    &--error {
+      // border-color: map-get($lc-salmon, 'shade-3');
+      // background-color: map-get($lc-salmon, 'tint-3');
+
+      &:hover {
+        border-color: #F00;
+      }
+
+      &:focus {
+        border-color: #F00;
+      }
+    }
+  }
+
+  &__field:focus + &__label--float {
+    // color: map-get($lc-indigo, 'primary');
+  }
+
+  &--has-floating-label {
+    .input {
+      &__field {
+        // transition: padding .05s ease-in;
+
+        &--float {
+          transition: padding .05s ease-out;
+          padding-top: 1.2em;
+        }
+      }
+    }
+  }
+}
+
+@keyframes error-shake {
+  25% {
+    transform: translateX(-10);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(5);
+  }
+}
