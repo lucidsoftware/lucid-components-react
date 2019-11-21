@@ -88,7 +88,7 @@ const ButtonBase = (_a) => {
     let css = {};
     if (asLink) {
         css = link_1.getLinkStyles({ theme, variant, underline, inverse, block, active });
-        css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 'initial' });
+        css = Object.assign(Object.assign({}, css), { border: 0, backgroundColor: 'transparent', padding: 0 });
     }
     else {
         css = exports.getButtonStyles({ theme, variant, block, active, size });

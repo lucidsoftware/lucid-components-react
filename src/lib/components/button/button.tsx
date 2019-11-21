@@ -164,7 +164,7 @@ const ButtonBase: FC<ButtonProps> = ({
       ...css,
       border: 0,
       backgroundColor: 'transparent',
-      padding: 'initial'
+      padding: 0
     };
   } else {
     css = getButtonStyles({ theme, variant, block, active, size });
