@@ -30,7 +30,7 @@ const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
             overflowY: 'scroll',
             overflowX: 'hidden',
             maxHeight: 'calc(100vh - 60px)',
-            padding: '0 5px 40px 5px',
+            padding: '0 5px 80px 5px',
             margin: 'auto 0'
         }
     });
