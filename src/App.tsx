@@ -77,6 +77,28 @@ const App: React.FC = () => {
                   </Link>
                 </Navbar.Dropdown>
               </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Dropdown
+                  toggle={toggleHandler => (
+                    <Button primary onMouseOver={toggleHandler}>
+                      A Second Dropdown
+                    </Button>
+                  )}
+                >
+                  <Link href="https://www.microsoft.com">Some valid link</Link>
+                  <Link>An invalid link</Link>
+                  <Link primary href="https://www.microsoft.com">
+                    Some 3rd link with an absurdly long name for reals
+                  </Link>
+                  <Link href="https://www.microsoft.com">
+                    Some 4th link with long name
+                  </Link>
+                  <p>Some Label</p>
+                  <Link href="https://www.microsoft.com">
+                    Some 4th link with long name
+                  </Link>
+                </Navbar.Dropdown>
+              </Navbar.Item>
             </Navbar.InnerContainer>
             <Navbar.Border />
           </Navbar.Container>

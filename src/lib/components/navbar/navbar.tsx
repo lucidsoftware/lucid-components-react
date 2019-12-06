@@ -1,7 +1,14 @@
 /** @jsx jsx */
-import { ReactNode, forwardRef, createContext, useState } from 'react';
+import {
+  ReactNode,
+  forwardRef,
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction
+} from 'react';
 import { Global, css, jsx } from '@emotion/core';
-import styled from '@emotion/styled';
+import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 
@@ -23,18 +30,15 @@ interface Props {
   children?: ReactNode;
 }
 
-export const navbarItemCollapsed = (props: any) => ({
-  margin: '.75rem 1rem'
-});
-
 export const NavbarContext = createContext({
   expanded: false,
   toggleExpanded: () => {
     return;
-  }
+  },
+  setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined
 });
 
-const NavbarWrapper = styled.nav(({ theme }: any) => ({
+const NavbarWrapper = styled.nav(({ theme }) => ({
   display: 'block',
   background: theme.navbar.background,
   zIndex: 1000,
@@ -46,11 +50,11 @@ const NavbarWrapper = styled.nav(({ theme }: any) => ({
   textAlign: 'left'
 }));
 
-const NavbarContents = styled.div(({ theme }: any) => ({
+const NavbarContents = styled.div({
   display: 'flex',
   margin: '0 auto',
   position: 'relative'
-}));
+});
 
 const NavbarChildren = styled.div({
   display: 'flex',
@@ -72,6 +76,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
     },
     ref
   ) => {
+    const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<Dispatch<SetStateAction<boolean>>[]>([]);
     const [expanded, setExpanded] = useState(false);
     const navbarWrapperStyles = [
       css({
@@ -104,6 +109,15 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
     };
 
     const context = {
+      setActiveDropdownSetIsOpen: ([dropdownSetIsOpen]: any) => {
+        if (!activeDropdownSetIsOpen) {
+          setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
+        }
+        else if (activeDropdownSetIsOpen !== dropdownSetIsOpen) {
+          activeDropdownSetIsOpen(false);
+          setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
+        }
+      },
       expanded,
       toggleExpanded: () => setExpanded(!expanded)
     };

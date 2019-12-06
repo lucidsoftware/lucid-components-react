@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
-const styled_1 = require("@emotion/styled");
+const styled_1 = require("../../../theme/styled");
 const emotion_theming_1 = require("emotion-theming");
 const button_1 = require("../button/button");
 const navbar_item_1 = require("./navbar-item");
@@ -13,14 +13,12 @@ const navbar_dropdown_1 = require("./navbar-dropdown");
 const navbar_container_1 = require("./navbar-container");
 const navbar_inner_container_1 = require("./navbar-inner-container");
 const navbar_toggle_1 = require("./navbar-toggle");
-exports.navbarItemCollapsed = (props) => ({
-    margin: '.75rem 1rem'
-});
 exports.NavbarContext = react_1.createContext({
     expanded: false,
     toggleExpanded: () => {
         return;
-    }
+    },
+    setActiveDropdownSetIsOpen: (activeDropdown) => undefined
 });
 const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
     display: 'block',
@@ -33,11 +31,11 @@ const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
     minHeight: theme.navbar.minHeight,
     textAlign: 'left'
 }));
-const NavbarContents = styled_1.default.div(({ theme }) => ({
+const NavbarContents = styled_1.default.div({
     display: 'flex',
     margin: '0 auto',
     position: 'relative'
-}));
+});
 const NavbarChildren = styled_1.default.div({
     display: 'flex',
     position: 'relative',
@@ -46,6 +44,7 @@ const NavbarChildren = styled_1.default.div({
     width: '100%'
 });
 const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content', sticky = false, stickyCollapsed = false, theme, children }, ref) => {
+    const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = react_1.useState([]);
     const [expanded, setExpanded] = react_1.useState(false);
     const navbarWrapperStyles = [
         core_1.css({
@@ -72,6 +71,15 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
         }
     };
     const context = {
+        setActiveDropdownSetIsOpen: ([dropdownSetIsOpen]) => {
+            if (!activeDropdownSetIsOpen) {
+                setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
+            }
+            else if (activeDropdownSetIsOpen !== dropdownSetIsOpen) {
+                activeDropdownSetIsOpen(false);
+                setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
+            }
+        },
         expanded,
         toggleExpanded: () => setExpanded(!expanded)
     };

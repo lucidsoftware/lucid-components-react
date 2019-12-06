@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = require("../../../theme/styled");
-const NavbarBorder = styled_1.default('div')({}, props => ({
+const NavbarBorder = styled_1.default.div({}, props => ({
     flexBasis: '100%',
     order: 0,
     position: 'absolute',

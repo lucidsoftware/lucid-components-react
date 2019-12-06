@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("@emotion/styled");
+const styled_1 = require("../../../theme/styled");
 const StyledItem = styled_1.default.li({
     flex: '0 1 auto',
     alignSelf: 'flex-start'
