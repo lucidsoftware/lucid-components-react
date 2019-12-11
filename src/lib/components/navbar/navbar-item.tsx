@@ -2,8 +2,8 @@
 import { forwardRef } from 'react';
 import { css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import styled from '@emotion/styled';
 
+import styled from '../../../theme/styled';
 import { ThemeProps } from '../../../theme/theme';
 
 export interface NavbarLinkProps {

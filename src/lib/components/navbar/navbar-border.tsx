@@ -4,7 +4,7 @@ export interface NavbarBorderProps {
   isHidden?: boolean;
 }
 
-const NavbarBorder = styled('div')<NavbarBorderProps>({}, props => ({
+const NavbarBorder = styled.div<NavbarBorderProps>({}, props => ({
   flexBasis: '100%',
   order: 0,
   position: 'absolute',
