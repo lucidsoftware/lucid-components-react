@@ -5,6 +5,59 @@ const blueSteel = '#3D4752';
 const indigo = '#636AFF';
 
 const theme = {
+  colors: {
+    heading: blueSteel,
+    text: blueSteel,
+    background: white,
+    primary,
+    primaryText: primary,
+    secondary: blueSteel,
+    secondaryText: blueSteel,
+    grey: '#EBEBEC',
+    white,
+    black,
+    disabled: '#EBEBEC',
+    disabledBorder: '#A7A9AC'
+  },
+  navbar: {
+    background: '#FFF',
+    collapseAt: '1000px',
+    minHeight: '40px',
+    logoHeight: '25px',
+    itemSpacing: '1rem',
+    padding: '10px',
+    borderColor: 'lightgrey',
+    borderWidth: '2px',
+    borderOffset: '-10px',
+    dropdown: {
+      padding: '.5rem 1.5rem',
+      mobilePadding: '.5rem',
+      background: '#FFF',
+      backgroundHover: '#DDD',
+      border: `1px solid ${blueSteel}`,
+      borderRadius: '3px'
+    }
+  },
+  forms: {
+    select: {
+      backgroundColor: '#FFF',
+      border: '1px solid #a7a9ac',
+      borderRadius: '5px',
+      color: white,
+      floatingLabel: {
+        paddingTop: '1.2em'
+      },
+      focus: {
+        borderColor: '#636aff',
+        labelColor: '#636aff'
+      },
+      fontSize: '1em',
+      fontSizeSmall: '.75em',
+      height: '50px',
+      outline: 'none',
+      padding: '.3375rem .75rem'
+    }
+  },
   accordion: {
     header: {
       default: {
@@ -101,20 +154,6 @@ const theme = {
       boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
     }
   },
-  colors: {
-    heading: blueSteel,
-    text: blueSteel,
-    background: white,
-    primary,
-    primaryText: primary,
-    secondary: blueSteel,
-    secondaryText: blueSteel,
-    grey: '#EBEBEC',
-    white,
-    black,
-    disabled: '#EBEBEC',
-    disabledBorder: '#A7A9AC'
-  },
   fonts: {
     body:
       'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
@@ -187,25 +226,6 @@ const theme = {
         hover: white,
         disabled: white
       }
-    }
-  },
-  navbar: {
-    background: '#FFF',
-    collapseAt: '1000px',
-    minHeight: '40px',
-    logoHeight: '25px',
-    itemSpacing: '1rem',
-    padding: '10px',
-    borderColor: 'lightgrey',
-    borderWidth: '2px',
-    borderOffset: '-10px',
-    dropdown: {
-      padding: '.5rem 1.5rem',
-      mobilePadding: '.5rem',
-      background: '#FFF',
-      backgroundHover: '#DDD',
-      border: `1px solid ${blueSteel}`,
-      borderRadius: '3px'
     }
   },
   paper: {
