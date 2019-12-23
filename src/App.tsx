@@ -181,7 +181,7 @@ const App: React.FC = () => {
         <br />
         <br />
         <div>
-          <Card isInteractive>
+          <Card isInteractive as="section" horizontal>
             <Link href="http://lucidchart.com">
               <Card.Image>
                 <img
