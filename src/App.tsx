@@ -15,6 +15,7 @@ import VideoPlayButton from './lib/components/video-play-button/video-play-butto
 import Button from './lib/components/button/button';
 import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
 import Navbar from './lib/components/navbar/navbar';
+import Spacer from './lib/components/spacer/spacer';
 
 const App: React.FC = () => {
   const [playing, setPlaying] = useState(false);
@@ -143,6 +144,7 @@ const App: React.FC = () => {
             <Navbar.Border />
           </Navbar.Container>
         </Navbar>
+        <Spacer size={8} className="Emilie is dope"/>
         <Breadcrumb
           items={[
             <Link primary href="/test">
