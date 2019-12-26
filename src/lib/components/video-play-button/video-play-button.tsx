@@ -2,29 +2,47 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { withTheme } from 'emotion-theming';
 import Icon, { IconType } from '../icon/icon';
-import { ThemeProps } from '../../../theme/theme';
 import { FC } from 'react';
+import { useTheme } from 'emotion-theming';
 
 type Sizing = 'lg' | 'reg' | 'sm';
 interface Props {
-  className?: string;
-  onClick?: () => void;
   size?: Sizing;
-  css?: any;
 }
 
-const VideoPlayButtonBase: FC<
-  ThemeProps & JSX.IntrinsicElements['button'] & Props
-> = ({
-  className,
-  css,
+const PlayButton = styled.button<{ sizePx: string; sizePadding: string }>(
+  ({ sizePx, sizePadding }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: sizePx,
+    width: sizePx,
+    padding: sizePadding,
+    borderRadius: '50%',
+    border: 0,
+    position: 'relative',
+    background: '#ffffff',
+    cursor: 'pointer',
+    boxShadow: '0 2px 4px 2px rgba(0, 0, 0, 0.2)',
+    transition: 'transform 0.15s ease-out',
+    ['&:hover']: {
+      transform: 'scale(1.1)'
+    }
+  })
+);
+
+const IconContainer = styled.div<{
+  sizePositionHorz: string;
+  sizePositionVert: string;
+}>(({ sizePositionHorz, sizePositionVert }) => ({
+  position: 'relative',
+  left: sizePositionHorz,
+  top: sizePositionVert
+}));
+
+const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
   size = 'reg',
-  theme,
-  onClick = () => {
-    return;
-  },
   ...rest
 }) => {
   let sizePx = '50px';
@@ -43,37 +61,14 @@ const VideoPlayButtonBase: FC<
     sizePositionHorz = '3px';
   }
 
-  const PlayButton = styled('button')`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: ${sizePx};
-    width: ${sizePx};
-    padding: ${sizePadding};
-    border-radius: 50%;
-    border: 0;
-    position: relative;
-    background: #ffffff;
-    cursor: pointer;
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-    transition: transform 0.15s ease-out;
-    &:hover {
-      transform: scale(1.1);
-    }
-  `;
-  const IconContainer = styled('div')`
-    position: relative;
-    left: ${sizePositionHorz};
-    top: ${sizePositionVert};
-  `;
+  const theme = useTheme<any>();
+
   return (
-    <PlayButton
-      css={css}
-      {...rest}
-      className={className}
-      onClick={() => onClick()}
-    >
-      <IconContainer>
+    <PlayButton sizePx={sizePx} sizePadding={sizePadding} {...rest}>
+      <IconContainer
+        sizePositionHorz={sizePositionHorz}
+        sizePositionVert={sizePositionVert}
+      >
         <Icon
           type={IconType.Play}
           color={theme.colors.primary}
@@ -84,5 +79,4 @@ const VideoPlayButtonBase: FC<
   );
 };
 
-const VideoPlayButton = withTheme(VideoPlayButtonBase);
 export default VideoPlayButton;

@@ -1,7 +1,5 @@
-/// <reference types="@emotion/core" />
 /** @jsx jsx */
 import { ReactNode } from 'react';
-import { ThemeProps } from '../../../theme/theme';
 interface Props {
     className?: string;
     children: ReactNode;
@@ -9,5 +7,5 @@ interface Props {
     noPadding?: boolean;
     as?: 'div' | 'section' | 'article';
 }
-declare const Paper: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<Props & ThemeProps, "theme">>;
+declare const Paper: ({ children, ...rest }: Props) => JSX.Element;
 export default Paper;

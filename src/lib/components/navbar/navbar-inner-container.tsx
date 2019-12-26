@@ -4,17 +4,14 @@ import { jsx, css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { NavbarContext } from './navbar';
+import styled from '../../../theme/styled';
 
 export interface NavbarInnerContainerProps {
   background?: string;
 }
 
-const NavbarInnerContainer = forwardRef<
-  HTMLOListElement,
-  NavbarInnerContainerProps & ThemeProps & HTMLAttributes<HTMLOListElement>
->(({ theme, children, ...rest }, ref) => {
-  const { expanded } = useContext(NavbarContext);
-  const containerStyles = css({
+const NavbarInnerContainerList = styled.ol<{ expanded: boolean }>(
+  ({ theme, expanded }) => ({
     display: 'flex',
     order: 2,
     margin: `auto -${theme.navbar.itemSpacing}`,
@@ -27,27 +24,28 @@ const NavbarInnerContainer = forwardRef<
       overflowX: 'hidden',
       maxHeight: 'calc(100vh - 60px)',
       padding: '0 5px 80px 5px',
-      margin: 'auto 0'
-    }
-  });
+      margin: 'auto 0',
 
-  const expandedStyles = css({
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      position: 'relative',
-      display: 'flex',
-      flexDirection: 'column'
+      ...(expanded && {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column'
+      })
     }
-  });
+  })
+);
+
+const NavbarInnerContainer = forwardRef<
+  HTMLOListElement,
+  NavbarInnerContainerProps & HTMLAttributes<HTMLOListElement>
+>(({ children, ...rest }, ref) => {
+  const { expanded } = useContext(NavbarContext);
 
   return (
-    <ol
-      css={[containerStyles, expanded ? expandedStyles : '']}
-      ref={ref}
-      {...rest}
-    >
+    <NavbarInnerContainerList ref={ref} expanded={expanded} {...rest}>
       {children}
-    </ol>
+    </NavbarInnerContainerList>
   );
 });
 
-export default withTheme(NavbarInnerContainer);
+export default NavbarInnerContainer;
