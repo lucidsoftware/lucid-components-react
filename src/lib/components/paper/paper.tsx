@@ -1,10 +1,8 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
-import { jsx, css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { jsx } from '@emotion/core';
 
-import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
+import styled from '../../../theme/styled';
 
 interface Props {
   className?: string;
@@ -14,36 +12,21 @@ interface Props {
   as?: 'div' | 'section' | 'article';
 }
 
-const PaperBase = ({
-  as = 'div',
-  className,
-  children,
-  noPadding,
-  theme,
-  isRaised = false
-}: Props & ThemeProps) => {
-  let boxShadow = 'box-shadow: none';
-  if (isRaised) {
-    boxShadow = `box-shadow: 20px 20px 0 0 rgba(0,0,0,.3)`;
-  }
+const PaperContainer = styled.div<Props>(({ theme, isRaised, noPadding }) => ({
+  display: 'flex',
+  background: theme.colors.white,
+  flexDirection: 'column',
+  borderRadius: `${theme.borderRadius}px`,
+  border: `1px solid ${theme.colors.grey}`,
+  textAlign: 'left',
+  boxShadow: isRaised ? '20px 20px 0 0 rgba(0,0,0,.3)' : 'none',
+  ...(!noPadding && {
+    padding: theme.paper.padding
+  })
+}));
 
-  const PaperContainer = styled(as)`
-    display: 'flex';
-    background: ${theme.colors.white};
-    flex-direction: 'column';
-    border-radius: ${theme.borderRadius}px;
-    border: 1px solid ${theme.colors.grey};
-    text-align: 'left';
-    ${boxShadow};
-
-    ${!noPadding &&
-      css`
-        padding: ${theme.paper.padding};
-      `};
-  `;
-
-  return <PaperContainer className={className}>{children}</PaperContainer>;
+const Paper = ({ children, ...rest }: Props) => {
+  return <PaperContainer {...rest}>{children}</PaperContainer>;
 };
 
-const Paper = withTheme(PaperBase);
 export default Paper;

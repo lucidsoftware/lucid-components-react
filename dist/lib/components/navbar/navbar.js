@@ -4,7 +4,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const styled_1 = require("../../../theme/styled");
-const emotion_theming_1 = require("emotion-theming");
 const button_1 = require("../button/button");
 const navbar_item_1 = require("./navbar-item");
 const navbar_brand_1 = require("./navbar-brand");
@@ -20,7 +19,7 @@ exports.NavbarContext = react_1.createContext({
     },
     setActiveDropdownSetIsOpen: (activeDropdown) => undefined
 });
-const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
+const NavbarWrapper = styled_1.default.nav(({ theme, sticky, stickyCollapsed }) => ({
     display: 'block',
     background: theme.navbar.background,
     zIndex: 1000,
@@ -29,7 +28,11 @@ const NavbarWrapper = styled_1.default.nav(({ theme }) => ({
     right: 0,
     padding: `${theme.navbar.padding} 0`,
     minHeight: theme.navbar.minHeight,
-    textAlign: 'left'
+    textAlign: 'left',
+    position: sticky ? ['fixed', 'sticky'] : 'relative',
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+        position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
+    }
 }));
 const NavbarContents = styled_1.default.div({
     display: 'flex',
@@ -43,26 +46,18 @@ const NavbarChildren = styled_1.default.div({
     justifyContent: 'space-between',
     width: '100%'
 });
-const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content', sticky = false, stickyCollapsed = false, theme, children }, ref) => {
+const NavbarSkip = styled_1.default(button_1.default)({
+    position: 'absolute',
+    top: 0,
+    left: '-9999px',
+    zIndex: 9000,
+    ':active, :focus': {
+        left: 0
+    }
+});
+const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content', sticky = false, stickyCollapsed = false, children }, ref) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = react_1.useState([]);
     const [expanded, setExpanded] = react_1.useState(false);
-    const navbarWrapperStyles = [
-        core_1.css({
-            position: sticky ? ['fixed', 'sticky'] : 'relative',
-            [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-                position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
-            }
-        })
-    ];
-    const navbarSkipStyles = core_1.css({
-        position: 'absolute',
-        top: 0,
-        left: '-9999px',
-        zIndex: 9000,
-        ':active, :focus': {
-            left: 0
-        }
-    });
     const skipHandler = () => {
         const firstHeader = document.querySelectorAll('h1, h2, h3, h4, h5, h6')[0];
         if (firstHeader) {
@@ -86,7 +81,7 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
     const isIE11 = typeof navigator !== 'undefined' &&
         navigator.userAgent &&
         navigator.userAgent.indexOf('Trident/') !== -1;
-    return (core_1.jsx(NavbarWrapper, { css: navbarWrapperStyles, ref: ref },
+    return (core_1.jsx(NavbarWrapper, { ref: ref, sticky: sticky, stickyCollapsed: stickyCollapsed },
         sticky && isIE11 && (core_1.jsx(core_1.Global, { styles: {
                 body: {
                     marginTop: '60px'
@@ -94,10 +89,10 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
             } })),
         core_1.jsx(exports.NavbarContext.Provider, { value: context },
             core_1.jsx(NavbarContents, null,
-                core_1.jsx(button_1.default, { primary: true, css: navbarSkipStyles, onClick: skipHandler }, skipText)),
+                core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
             core_1.jsx(NavbarChildren, null, children))));
 });
-const Navbar = Object.assign(emotion_theming_1.withTheme(NavbarComp), {
+const Navbar = Object.assign(NavbarComp, {
     Brand: navbar_brand_1.default,
     Border: navbar_border_1.default,
     InnerContainer: navbar_inner_container_1.default,

@@ -14,12 +14,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
-const emotion_theming_1 = require("emotion-theming");
 const styled_1 = require("../../../theme/styled");
 const navbar_1 = require("./navbar");
-const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { collapseAt, dropdown: { background, border, borderRadius, padding, backgroundHover, mobilePadding } } } }) => ({
+const DropdownWrapper = styled_1.default.div(({ theme }) => ({
+    position: 'relative',
+    '&:hover': {
+        cursor: 'pointer'
+    },
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+        '> *, > a, > button': {
+            width: '100%'
+        }
+    }
+}));
+const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { collapseAt, dropdown: { background, border, borderRadius, padding, backgroundHover, mobilePadding } } }, displayLeft, isOpen }) => ({
     display: 'flex',
-    visibility: 'hidden',
+    visibility: isOpen ? 'visible' : 'hidden',
     position: 'absolute',
     background,
     top: '110%',
@@ -36,7 +46,7 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
         flex: '1 1 100%',
         width: 'max-content',
         margin: 0,
-        padding,
+        padding
     },
     '> a, > button': {
         position: 'relative',
@@ -49,6 +59,8 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
             background: backgroundHover
         }
     },
+    right: displayLeft ? '' : '0',
+    left: displayLeft ? '0' : '',
     [`@media (max-width: ${collapseAt})`]: {
         top: '100%',
         visibility: 'visible',
@@ -71,7 +83,7 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
 }));
 const DROPDOWN_SAFETY_TIMER = 225;
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { toggle, theme, children } = _a, rest = __rest(_a, ["toggle", "theme", "children"]);
+    var { toggle, children } = _a, rest = __rest(_a, ["toggle", "children"]);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
@@ -90,29 +102,11 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         }
         clearTimeout(timer);
     };
-    const positioning = core_1.css({
-        right: displayLeft ? '' : '0',
-        left: displayLeft ? '0' : '',
-    });
     const handleMouseLeave = () => {
         timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
     };
-    const visible = core_1.css({
-        visibility: 'visible'
-    });
-    const dropdownStyles = core_1.css({
-        position: 'relative',
-        '&:hover': {
-            cursor: 'pointer'
-        },
-        [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-            '> *, > a, > button': {
-                width: '100%'
-            }
-        }
-    });
-    return (core_1.jsx("div", Object.assign({ css: dropdownStyles, role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }, rest),
+    return (core_1.jsx(DropdownWrapper, Object.assign({ role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }, rest),
         toggle(handleMouseOver),
-        core_1.jsx(StyledDropdownContainer, { css: [positioning, isOpen && visible] }, children)));
+        core_1.jsx(StyledDropdownContainer, { displayLeft: displayLeft, isOpen: isOpen }, children)));
 });
-exports.default = emotion_theming_1.withTheme(NavbarDropdown);
+exports.default = NavbarDropdown;

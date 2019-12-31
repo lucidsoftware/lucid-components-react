@@ -4,16 +4,16 @@ export interface NavbarBorderProps {
   isHidden?: boolean;
 }
 
-const NavbarBorder = styled.div<NavbarBorderProps>({}, props => ({
+const NavbarBorder = styled.div<NavbarBorderProps>(({ theme, isHidden }) => ({
   flexBasis: '100%',
   order: 0,
   position: 'absolute',
-  bottom: props.theme.navbar.borderOffset,
+  bottom: theme.navbar.borderOffset,
   left: 0,
-  height: props.theme.navbar.borderWidth,
+  height: theme.navbar.borderWidth,
   width: '100%',
-  backgroundColor: props.theme.navbar.borderColor,
-  visibility: props.isHidden ? 'hidden' : 'visible'
+  backgroundColor: theme.navbar.borderColor,
+  visibility: isHidden ? 'hidden' : 'visible'
 }));
 
 export default NavbarBorder;

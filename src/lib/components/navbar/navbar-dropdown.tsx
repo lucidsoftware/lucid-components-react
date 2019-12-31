@@ -6,11 +6,9 @@ import {
   SyntheticEvent,
   useContext
 } from 'react';
-import { css, jsx } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
+import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
-import { ThemeProps } from '../../../theme/theme';
 import { NavbarContext } from './navbar';
 
 export interface NavbarDropdownProps {
@@ -19,7 +17,22 @@ export interface NavbarDropdownProps {
   ) => void;
 }
 
-const StyledDropdownContainer = styled.div(
+const DropdownWrapper = styled.div(({ theme }) => ({
+  position: 'relative',
+  '&:hover': {
+    cursor: 'pointer'
+  },
+  [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+    '> *, > a, > button': {
+      width: '100%'
+    }
+  }
+}));
+
+const StyledDropdownContainer = styled.div<{
+  displayLeft: boolean;
+  isOpen: boolean;
+}>(
   ({
     theme: {
       navbar: {
@@ -33,10 +46,12 @@ const StyledDropdownContainer = styled.div(
           mobilePadding
         }
       }
-    }
+    },
+    displayLeft,
+    isOpen
   }) => ({
     display: 'flex',
-    visibility: 'hidden',
+    visibility: isOpen ? 'visible' : 'hidden',
     position: 'absolute',
     background,
     top: '110%',
@@ -53,7 +68,7 @@ const StyledDropdownContainer = styled.div(
       flex: '1 1 100%',
       width: 'max-content',
       margin: 0,
-      padding,
+      padding
     },
     '> a, > button': {
       position: 'relative',
@@ -66,6 +81,10 @@ const StyledDropdownContainer = styled.div(
         background: backgroundHover
       }
     },
+
+    right: displayLeft ? '' : '0',
+    left: displayLeft ? '0' : '',
+
     [`@media (max-width: ${collapseAt})`]: {
       top: '100%',
       visibility: 'visible',
@@ -92,8 +111,8 @@ const DROPDOWN_SAFETY_TIMER = 225;
 
 const NavbarDropdown = forwardRef<
   HTMLDivElement,
-  NavbarDropdownProps & ThemeProps & HTMLProps<HTMLDivElement>
->(({ toggle, theme, children, ...rest }, ref) => {
+  NavbarDropdownProps & HTMLProps<HTMLDivElement>
+>(({ toggle, children, ...rest }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
@@ -115,34 +134,12 @@ const NavbarDropdown = forwardRef<
     clearTimeout(timer);
   };
 
-  const positioning = css({
-    right: displayLeft ? '' : '0',
-    left: displayLeft ? '0' : '',
-  });
-
   const handleMouseLeave = () => {
     timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
   };
 
-  const visible = css({
-    visibility: 'visible'
-  });
-
-  const dropdownStyles = css({
-    position: 'relative',
-    '&:hover': {
-      cursor: 'pointer'
-    },
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      '> *, > a, > button': {
-        width: '100%'
-      }
-    }
-  });
-
   return (
-    <div
-      css={dropdownStyles}
+    <DropdownWrapper
       role="navigation"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
@@ -152,11 +149,11 @@ const NavbarDropdown = forwardRef<
       {...rest}
     >
       {toggle(handleMouseOver)}
-      <StyledDropdownContainer css={[positioning, isOpen && visible]}>
+      <StyledDropdownContainer displayLeft={displayLeft} isOpen={isOpen}>
         {children}
       </StyledDropdownContainer>
-    </div>
+    </DropdownWrapper>
   );
 });
 
-export default withTheme(NavbarDropdown);
+export default NavbarDropdown;

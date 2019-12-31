@@ -1,32 +1,33 @@
 /** @jsx jsx */
 import { forwardRef, HTMLAttributes, useContext } from 'react';
-import { css, jsx } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
+import { jsx } from '@emotion/core';
 
 import { ThemeProps } from '../../../theme/theme';
 import { NavbarContext } from './navbar';
+import styled from '../../../theme/styled';
+
+const NavbarToggleButton = styled.button(({ theme }) => ({
+  display: 'none',
+  background: 'transparent',
+  border: 0,
+  fontSize: 'inherit',
+  minHeight: theme.navbar.minHeight,
+  [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+    display: 'block'
+  }
+}));
 
 const NavbarToggle = forwardRef<
   HTMLButtonElement,
-  ThemeProps & HTMLAttributes<HTMLButtonElement>
->(({ theme, children, ...rest }, ref) => {
+  HTMLAttributes<HTMLButtonElement>
+>(({ children, ...rest }, ref) => {
   const { toggleExpanded } = useContext(NavbarContext);
-  const toggleStyles = css({
-    display: 'none',
-    background: 'transparent',
-    border: 0,
-    fontSize: 'inherit',
-    minHeight: theme.navbar.minHeight,
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      display: 'block'
-    }
-  });
 
   return (
-    <button css={toggleStyles} ref={ref} {...rest} onClick={toggleExpanded}>
+    <NavbarToggleButton ref={ref} {...rest} onClick={toggleExpanded}>
       {children}
-    </button>
+    </NavbarToggleButton>
   );
 });
 
-export default withTheme(NavbarToggle);
+export default NavbarToggle;

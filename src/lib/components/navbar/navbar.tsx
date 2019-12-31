@@ -9,7 +9,6 @@ import {
 } from 'react';
 import { Global, css, jsx } from '@emotion/core';
 import styled from '../../../theme/styled';
-import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 
 import Button from '../button/button';
@@ -38,17 +37,23 @@ export const NavbarContext = createContext({
   setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined
 });
 
-const NavbarWrapper = styled.nav(({ theme }) => ({
-  display: 'block',
-  background: theme.navbar.background,
-  zIndex: 1000,
-  top: 0,
-  left: 0,
-  right: 0,
-  padding: `${theme.navbar.padding} 0`,
-  minHeight: theme.navbar.minHeight,
-  textAlign: 'left'
-}));
+const NavbarWrapper = styled.nav<Props>(
+  ({ theme, sticky, stickyCollapsed }) => ({
+    display: 'block',
+    background: theme.navbar.background,
+    zIndex: 1000,
+    top: 0,
+    left: 0,
+    right: 0,
+    padding: `${theme.navbar.padding} 0`,
+    minHeight: theme.navbar.minHeight,
+    textAlign: 'left',
+    position: sticky ? ['fixed', 'sticky'] : 'relative',
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+      position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
+    }
+  })
+);
 
 const NavbarContents = styled.div({
   display: 'flex',
@@ -64,39 +69,32 @@ const NavbarChildren = styled.div({
   width: '100%'
 });
 
-const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
+const NavbarSkip = styled(Button)({
+  position: 'absolute',
+  top: 0,
+  left: '-9999px',
+  zIndex: 9000,
+
+  ':active, :focus': {
+    left: 0
+  }
+});
+
+const NavbarComp = forwardRef<HTMLDivElement, Props>(
   (
     {
       as = 'nav',
       skipText = 'Skip to Content',
       sticky = false,
       stickyCollapsed = false,
-      theme,
       children
     },
     ref
   ) => {
-    const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<Dispatch<SetStateAction<boolean>>[]>([]);
+    const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<
+      Array<Dispatch<SetStateAction<boolean>>>
+    >([]);
     const [expanded, setExpanded] = useState(false);
-    const navbarWrapperStyles = [
-      css({
-        position: sticky ? ['fixed', 'sticky'] : 'relative',
-        [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-          position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
-        }
-      })
-    ];
-
-    const navbarSkipStyles = css({
-      position: 'absolute',
-      top: 0,
-      left: '-9999px',
-      zIndex: 9000,
-
-      ':active, :focus': {
-        left: 0
-      }
-    });
 
     const skipHandler = () => {
       const firstHeader = document.querySelectorAll(
@@ -112,8 +110,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
       setActiveDropdownSetIsOpen: ([dropdownSetIsOpen]: any) => {
         if (!activeDropdownSetIsOpen) {
           setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
-        }
-        else if (activeDropdownSetIsOpen !== dropdownSetIsOpen) {
+        } else if (activeDropdownSetIsOpen !== dropdownSetIsOpen) {
           activeDropdownSetIsOpen(false);
           setActiveDropdownSetIsOpen([dropdownSetIsOpen]);
         }
@@ -128,7 +125,11 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
       navigator.userAgent.indexOf('Trident/') !== -1;
 
     return (
-      <NavbarWrapper css={navbarWrapperStyles} ref={ref}>
+      <NavbarWrapper
+        ref={ref}
+        sticky={sticky}
+        stickyCollapsed={stickyCollapsed}
+      >
         {sticky && isIE11 && (
           <Global
             styles={{
@@ -140,9 +141,9 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
         )}
         <NavbarContext.Provider value={context}>
           <NavbarContents>
-            <Button primary css={navbarSkipStyles} onClick={skipHandler}>
+            <NavbarSkip primary onClick={skipHandler}>
               {skipText}
-            </Button>
+            </NavbarSkip>
           </NavbarContents>
           <NavbarChildren>{children}</NavbarChildren>
         </NavbarContext.Provider>
@@ -151,7 +152,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props & ThemeProps>(
   }
 );
 
-const Navbar = Object.assign(withTheme(NavbarComp), {
+const Navbar = Object.assign(NavbarComp, {
   Brand: NavbarBrand,
   Border: NavbarBorder,
   InnerContainer: NavbarInnerContainer,
