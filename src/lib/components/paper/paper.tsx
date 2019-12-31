@@ -13,9 +13,8 @@ interface Props {
 }
 
 const PaperContainer = styled.div<Props>(({ theme, isRaised, noPadding }) => ({
-  display: 'flex',
+  display: 'block',
   background: theme.colors.white,
-  flexDirection: 'column',
   borderRadius: `${theme.borderRadius}px`,
   border: `1px solid ${theme.colors.grey}`,
   textAlign: 'left',
