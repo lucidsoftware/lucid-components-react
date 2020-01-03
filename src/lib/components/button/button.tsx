@@ -76,9 +76,9 @@ export const getButtonStyles = ({
     backgroundColor = theme.buttons.secondary.backgroundColor;
     border = theme.buttons.secondary.border;
 
-    hoverColor = theme.buttons.primary.hoverColor;
-    hoverBackgroundColor = theme.buttons.primary.hoverBackgroundColor;
-    hoverBorder = theme.buttons.primary.hoverBorder;
+    hoverColor = theme.buttons.secondary.hoverColor;
+    hoverBackgroundColor = theme.buttons.secondary.hoverBackgroundColor;
+    hoverBorder = theme.buttons.secondary.hoverBorder;
   }
 
   const hoverCss = {
