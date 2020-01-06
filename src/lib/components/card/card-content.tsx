@@ -1,5 +1,4 @@
 import styled from '../../../theme/styled';
-import { withTheme } from 'emotion-theming';
 
 export interface CardContentProps {
   noPadding?: boolean;

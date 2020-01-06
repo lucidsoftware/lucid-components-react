@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC, ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
-import styled from '@emotion/styled';
 
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';

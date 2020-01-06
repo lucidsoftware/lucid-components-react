@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { forwardRef, HTMLAttributes, useContext } from 'react';
-import { jsx, css } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
+import { jsx } from '@emotion/core';
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
 

@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import styled from '@emotion/styled';
 
 import Icon, { IconType } from '../icon/icon';
 import { FC } from 'react';
 import { useTheme } from 'emotion-theming';
+import styled from '../../../theme/styled';
 
 type Sizing = 'lg' | 'reg' | 'sm';
 interface Props {
@@ -26,7 +26,7 @@ const PlayButton = styled.button<{ sizePx: string; sizePadding: string }>(
     cursor: 'pointer',
     boxShadow: '0 2px 4px 2px rgba(0, 0, 0, 0.2)',
     transition: 'transform 0.15s ease-out',
-    ['&:hover']: {
+    '&:hover': {
       transform: 'scale(1.1)'
     }
   })

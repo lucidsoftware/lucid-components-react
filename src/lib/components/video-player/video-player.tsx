@@ -1,13 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 
-import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
-
 import VideoPlayButton from '../video-play-button/video-play-button';
+import styled from '../../../theme/styled';
 
 const VideoPlaceholder = styled('div')`
   position: absolute;
@@ -45,7 +42,7 @@ interface Props {
   config?: any;
 }
 
-const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
+const VideoPlayer: FC<ReactPlayerProps & Props> = ({
   className,
   url,
   placeholder,
@@ -54,7 +51,6 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
     return;
   },
   ratio = 'wide',
-  theme,
   ...rest
 }) => {
   const [overlayVisible, setOverlayVisible] = useState(!playing);
@@ -117,5 +113,4 @@ const VideoPlayerBase: FC<ReactPlayerProps & Props & ThemeProps> = ({
   );
 };
 
-const VideoPlayer = withTheme(VideoPlayerBase);
 export default VideoPlayer;
