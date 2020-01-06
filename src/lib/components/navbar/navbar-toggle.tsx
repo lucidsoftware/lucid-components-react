@@ -2,7 +2,6 @@
 import { forwardRef, HTMLAttributes, useContext } from 'react';
 import { jsx } from '@emotion/core';
 
-import { ThemeProps } from '../../../theme/theme';
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
 

@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC, ReactNode } from 'react';
-import styled from '@emotion/styled';
-import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
+import styled from '../../../theme/styled';
 
 interface Props {
   className?: string;
@@ -12,37 +10,40 @@ interface Props {
   seperator?: ReactNode;
 }
 
-const BreadcrumbBase: FC<Props & ThemeProps> = ({
-  className,
-  inverse,
-  items,
-  seperator,
-  theme
-}) => {
-  const BreadcrumbSeperator = styled('span')`
-    font-size: 1em;
-    margin: ${theme.breadcrumb.margin};
-  `;
-  const BreadcrumbWrapper = styled('li')`
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    opacity: ${theme.breadcrumb.crumbOpacity};
-    display: inline-block;
-    &:hover {
-      opacity: 1;
+const BreadcrumbWrapper = styled.li(
+  {
+    padding: 0,
+    margin: 0,
+    listStyleType: 'none',
+    display: 'inline-block',
+    '&:hover': {
+      opacity: 1
     }
-  `;
-  const BreadcrumbContent = styled('ul')`
-    color: ${inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color};
-    margin: 0;
-    padding: 0;
-  `;
+  },
+  ({ theme: { breadcrumb } }) => ({
+    opacity: breadcrumb.crumbOpacity
+  })
+);
 
-  if (!seperator) {
-    seperator = <BreadcrumbSeperator>/</BreadcrumbSeperator>;
-  }
+const BreadcrumbSeparator = styled.span(({ theme }) => ({
+  fontSize: '1em',
+  margin: theme.breadcrumb.margin
+}));
 
+const BreadcrumbContent = styled.ul<{ inverse: boolean }>(
+  ({ theme, inverse }) => ({
+    color: inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color,
+    margin: 0,
+    padding: 0
+  })
+);
+
+const Breadcrumb: FC<Props> = ({
+  className,
+  inverse = false,
+  items,
+  seperator = <BreadcrumbSeparator>/</BreadcrumbSeparator>
+}) => {
   const getCrumbs = () => {
     const crumbs: ReactNode[] = [];
     for (let index = 0; index < items.length; index++) {
@@ -59,10 +60,9 @@ const BreadcrumbBase: FC<Props & ThemeProps> = ({
 
   return (
     <nav className={className} aria-label="breadcrumbs">
-      <BreadcrumbContent>{getCrumbs()}</BreadcrumbContent>
+      <BreadcrumbContent inverse={inverse}>{getCrumbs()}</BreadcrumbContent>
     </nav>
   );
 };
 
-const Breadcrumb = withTheme(BreadcrumbBase);
 export default Breadcrumb;

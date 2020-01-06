@@ -13,9 +13,9 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
-const styled_1 = require("@emotion/styled");
 const icon_1 = require("../icon/icon");
 const emotion_theming_1 = require("emotion-theming");
+const styled_1 = require("../../../theme/styled");
 const PlayButton = styled_1.default.button(({ sizePx, sizePadding }) => ({
     display: 'flex',
     justifyContent: 'center',
@@ -30,7 +30,7 @@ const PlayButton = styled_1.default.button(({ sizePx, sizePadding }) => ({
     cursor: 'pointer',
     boxShadow: '0 2px 4px 2px rgba(0, 0, 0, 0.2)',
     transition: 'transform 0.15s ease-out',
-    ['&:hover']: {
+    '&:hover': {
         transform: 'scale(1.1)'
     }
 }));

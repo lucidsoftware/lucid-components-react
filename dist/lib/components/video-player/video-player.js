@@ -13,11 +13,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
-const styled_1 = require("@emotion/styled");
 const react_1 = require("react");
 const react_player_1 = require("react-player");
-const emotion_theming_1 = require("emotion-theming");
 const video_play_button_1 = require("../video-play-button/video-play-button");
+const styled_1 = require("../../../theme/styled");
 const VideoPlaceholder = styled_1.default('div') `
   position: absolute;
   top: 0;
@@ -43,10 +42,10 @@ const VideoOverlay = styled_1.default('div') `
   align-items: center;
   z-index: 2;
 `;
-const VideoPlayerBase = (_a) => {
+const VideoPlayer = (_a) => {
     var { className, url, placeholder, playing, onClick = () => {
         return;
-    }, ratio = 'wide', theme } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio", "theme"]);
+    }, ratio = 'wide' } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio"]);
     const [overlayVisible, setOverlayVisible] = react_1.useState(!playing);
     const [isPlaying, setIsPlaying] = react_1.useState(playing);
     react_1.useEffect(() => {
@@ -82,5 +81,4 @@ const VideoPlayerBase = (_a) => {
         placeholder && overlayVisible && (core_1.jsx(VideoPlaceholder, null, placeholder())),
         url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", width: "100%", url: url, playing: isPlaying })))));
 };
-const VideoPlayer = emotion_theming_1.withTheme(VideoPlayerBase);
 exports.default = VideoPlayer;

@@ -7,9 +7,8 @@ import {
   Dispatch,
   SetStateAction
 } from 'react';
-import { Global, css, jsx } from '@emotion/core';
+import { Global, jsx } from '@emotion/core';
 import styled from '../../../theme/styled';
-import { ThemeProps } from '../../../theme/theme';
 
 import Button from '../button/button';
 import NavbarItem from './navbar-item';
