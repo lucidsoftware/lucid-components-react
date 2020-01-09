@@ -10,10 +10,13 @@ Generic, themeable react components.
 
 | Component                                  | Description                                                      |
 | ------------------------------------------ | ---------------------------------------------------------------- |
+| Accordian  |                        |
 | Button  |                        |
 | Card  |                        |
 | Icon  |                        |
+| Input  |                        |
 | Link  |                        |
+| Navbar  |                        |
 | Paper  |                        |
 | Video Player  |                        |
 | Video Play Button  |                        |
