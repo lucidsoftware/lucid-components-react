@@ -1,42 +1,26 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-
-import { forwardRef, useEffect, useState, useContext } from 'react';
-
+import { forwardRef, useContext } from 'react';
 import { ThemeProps } from '../../../theme/theme';
+import { withTheme } from 'emotion-theming';
 
+import { AccordionItemPanel } from 'react-accessible-accordion';
+import { getContentStyles, AccordionProps } from './accordion.styles';
 import { AccordionContext } from './accordion';
-import { AccordionItemContext } from './accordion-item';
 
-import { AccordionItemProps, AccordionContentStyle } from './accordion.styles';
-
-const AccordionContent = forwardRef<
+const AccordionContentBase = forwardRef<
   HTMLDivElement,
-  ThemeProps & AccordionItemProps
->(({ theme, children, ...rest }, ref) => {
-  const [accordionContentId, setAccordionContentId] = useState(0);
-  const { getAccordionContentId, expanded } = useContext(AccordionItemContext);
+  ThemeProps & AccordionProps
+>(({ theme, isInverted, children, ...rest }, ref) => {
   const { invertStyles } = useContext(AccordionContext);
-
-  useEffect(() => {
-    const id = getAccordionContentId();
-    setAccordionContentId(id);
-  }, []);
+  const baseCss = getContentStyles({ inverse: invertStyles, theme });
 
   return (
-    <AccordionContentStyle
-      ref={ref}
-      active={expanded}
-      aria-hidden={!expanded}
-      id={`accordion-section-${accordionContentId}`}
-      role="region"
-      aria-labelledby={`accordion-${accordionContentId}`}
-      {...rest}
-      isInverted={invertStyles}
-    >
+    <AccordionItemPanel css={baseCss} {...rest}>
       {children}
-    </AccordionContentStyle>
+    </AccordionItemPanel>
   );
 });
 
+const AccordionContent = withTheme(AccordionContentBase);
 export default AccordionContent;

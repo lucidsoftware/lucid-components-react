@@ -45,6 +45,7 @@ export const getLinkStyles = ({
   underline?: string;
   variant?: LinkVariant;
 } & ThemeProps) => {
+  console.log('link', theme);
   const linkUnderline = underline === 'always' ? 'underline' : 'none';
   const linkUnderlineHover =
     underline === 'hover' || underline === 'always' ? 'underline' : 'none';

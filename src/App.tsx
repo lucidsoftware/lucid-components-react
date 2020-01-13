@@ -164,15 +164,19 @@ const App: React.FC = () => {
           <h2>Forms</h2>
         </div>
         <div className="row">
-          <Accordion>
+          <Accordion isInverted>
             <Accordion.Item>
-              <Accordion.Header><h1>Gotta catch'em all</h1></Accordion.Header>
+              <Accordion.Header>
+                <h1>Gotta catch'em all</h1>
+              </Accordion.Header>
               <Accordion.Content>
                 <p>hi check it</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item>
-              <Accordion.Header><h1>Sample header 2</h1></Accordion.Header>
+              <Accordion.Header>
+                <h1>Sample header 2</h1>
+              </Accordion.Header>
               <Accordion.Content>
                 <p>hi check it 2</p>
               </Accordion.Content>

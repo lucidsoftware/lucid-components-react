@@ -1,4 +1,3 @@
-import { css } from '@emotion/core';
 import styled from '../../../theme/styled';
 
 import { ThemeProps } from '../../../theme/theme';
@@ -8,151 +7,98 @@ export interface AccordionProps {
   isInverted?: boolean;
 }
 
-export interface AccordionItemProps extends AccordionProps {
-  active?: boolean;
-}
+export const AccordionWrapper = styled('div')``;
 
-const WrapperBaseStyles = () =>
-  css({
+export const getWrapperStyles = ({
+  inverse = false,
+  theme
+}: { inverse?: boolean } & ThemeProps) => {
+  const headerType = inverse ? 'inverse' : 'default';
+  const css = {
     display: 'flex',
-    flexDirection: 'column'
-  });
+    flexDirection: 'column' as 'column',
+    backgroundColor: theme.accordion.header[headerType].backgroundColor
+  };
 
-export const AccordionWrapper = styled('div')`
-  ${WrapperBaseStyles}
-`;
+  return css;
+};
 
-const ItemBaseStyles = () =>
-  css({
+export const getHeaderContainerStyles = () => {
+  const css = {
+    flex: '0 1 100%',
+    maxWidth: '100%'
+  };
+
+  return css;
+};
+
+export const getHeaderStyles = ({
+  inverse = false,
+  theme
+}: {
+  inverse?: boolean;
+} & ThemeProps) => {
+  const headerType = inverse ? 'inverse' : 'default';
+  const css = {
     flex: '0 1 100%',
     maxWidth: '100%',
-    flexWrap: 'wrap',
+    backgroundColor: theme.accordion.header[headerType].backgroundColor,
+    color: theme.accordion.header[headerType].color,
+    border: 'none',
+    borderBottom: theme.accordion.header[headerType].bottomBorder,
+    cursor: 'pointer',
+    padding: theme.accordion.header[headerType].padding,
+    display: 'flex',
+    alignItems: 'center',
+    transition: 'background-color 0.6s ease',
+
+    ':focus': {
+      backgroundColor: theme.accordion.header[headerType].activeBackgroundColor,
+      borderBottom: theme.accordion.header[headerType].interactiveBorder
+    },
+
+    ':hover': {
+      backgroundColor: theme.accordion.header[headerType].activeBackgroundColor,
+      borderBottom: theme.accordion.header[headerType].interactiveBorder
+    },
+
+    '&[aria-expanded="true"]': {
+      backgroundColor: theme.accordion.header[headerType].activeBackgroundColor,
+      borderBottom: theme.accordion.header[headerType].interactiveBorder
+    }
+  };
+
+  return css;
+};
+
+export const getContentStyles = ({
+  inverse = false,
+  theme
+}: {
+  inverse?: boolean;
+} & ThemeProps) => {
+  const contentType = inverse ? 'inverse' : 'default';
+  const css = {
+    flex: '0 1 100%',
+    maxWidth: '100%',
+    backgroundColor: theme.accordion.content[contentType].backgroundColor,
+    padding: theme.accordion.content[contentType].padding,
+    borderBottom: theme.accordion.content[contentType].bottomBorder,
+    color: theme.accordion.content[contentType].color,
+    overflow: 'hidden',
+    transition: 'max-height 0.6s ease'
+  };
+
+  return css;
+};
+
+export const getItemStyles = () => {
+  const css = {
+    flex: '0 1 100%',
+    maxWidth: '100%',
+    flexWrap: 'wrap' as 'wrap',
     display: 'flex'
-  });
+  };
 
-export const AccordionItemContainer = styled('li')`
-  ${ItemBaseStyles}
-`;
-
-const AccordionChildrenStyles = () =>
-  css({
-    display: 'flex',
-    position: 'relative',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: '0px'
-  });
-
-export const AccordionChildren = styled('ul')<AccordionProps>`
-  ${AccordionChildrenStyles}
-`;
-
-const AccordionHeaderStyles = (props: ThemeProps) =>
-  css({
-    flex: '0 1 100%',
-    maxWidth: '100%',
-    backgroundColor: props.theme.accordion.header.default.backgroundColor,
-    color: props.theme.accordion.header.default.color,
-    border: 'none',
-    borderBottom: props.theme.accordion.header.default.bottomBorder,
-    cursor: 'pointer',
-    padding: props.theme.accordion.header.default.padding,
-    display: 'flex',
-    alignItems: 'center',
-    transition: 'background-color 0.6s ease',
-
-    ':focus': {
-      backgroundColor:
-        props.theme.accordion.header.default.activeBackgroundColor,
-      borderBottom: props.theme.accordion.header.default.interactiveBorder
-    },
-
-    ':hover': {
-      backgroundColor:
-        props.theme.accordion.header.default.activeBackgroundColor,
-      borderBottom: props.theme.accordion.header.default.interactiveBorder
-    }
-  });
-
-const AccordionHeaderInverseStyles = (props: ThemeProps) =>
-  css({
-    flex: '0 1 100%',
-    maxWidth: '100%',
-    backgroundColor: props.theme.accordion.header.inverse.backgroundColor,
-    color: props.theme.accordion.header.inverse.color,
-    border: 'none',
-    borderBottom: props.theme.accordion.header.inverse.bottomBorder,
-    cursor: 'pointer',
-    padding: props.theme.accordion.header.inverse.padding,
-    display: 'flex',
-    alignItems: 'center',
-    transition: 'background-color 0.6s ease',
-
-    ':focus': {
-      backgroundColor:
-        props.theme.accordion.header.inverse.activeBackgroundColor,
-      borderBottom: props.theme.accordion.header.inverse.interactiveBorder
-    },
-    ':hover': {
-      backgroundColor:
-        props.theme.accordion.header.inverse.activeBackgroundColor,
-      borderBottom: props.theme.accordion.header.inverse.interactiveBorder
-    }
-  });
-
-export const AccordionHeaderStyle = styled('button')<AccordionProps>`
-  ${AccordionHeaderStyles}
-  ${props => (props.isInverted ? AccordionHeaderInverseStyles : '')}
-`;
-
-const AccordionContentStyles = (props: ThemeProps) =>
-  css({
-    flex: '0 1 100%',
-    maxWidth: '100%',
-    backgroundColor: props.theme.accordion.content.default.backgroundColor,
-    padding: props.theme.accordion.content.default.padding,
-    borderBottom: props.theme.accordion.content.default.bottomBorder,
-    color: props.theme.accordion.content.default.color,
-    overflow: 'hidden',
-    transition: 'max-height 0.6s ease',
-    textAlign: 'left'
-  });
-
-const AccordionContentInverseStyles = (props: ThemeProps) =>
-  css({
-    flex: '0 1 100%',
-    maxWidth: '100%',
-    backgroundColor: props.theme.accordion.content.inverse.backgroundColor,
-    color: props.theme.accordion.content.inverse.color,
-    padding: props.theme.accordion.content.inverse.padding,
-    borderBottom: props.theme.accordion.content.inverse.bottomBorder,
-    overflow: 'hidden',
-    transition: 'height 0.6s ease',
-    height: 'auto'
-  });
-
-const AccordionContentClosedStyles = (props: ThemeProps) =>
-  css({
-    height: '0px',
-    maxHeight: '0px',
-    padding: '0px',
-    backgroundColor: props.theme.accordion.content.default.backgroundColor,
-    borderBottom: '0'
-  });
-
-export const AccordionContentStyle = styled('div')<AccordionItemProps>`
-  ${AccordionContentStyles}
-  ${props => (props.isInverted ? AccordionContentInverseStyles : '')}
-  ${props => (!props.active ? AccordionContentClosedStyles : '')}
-`;
-
-const AccordionIconContainerStyles = () =>
-  css({
-    marginLeft: 'auto',
-    transition: 'transform 0.6s ease'
-  });
-
-export const AccordionIconContainer = styled('div')`
-  ${AccordionIconContainerStyles}
-`;
+  return css;
+};

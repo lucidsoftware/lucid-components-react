@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
+
 import {
   useState,
   createContext,
@@ -10,16 +11,17 @@ import {
   useEffect
 } from 'react';
 
-import AccordionItem from './accordion-item';
-import AccordionHeader from './accordion-header';
-import AccordionContent from './accordion-content';
+import { Accordion as ReactAccordion } from 'react-accessible-accordion';
 
 import {
   AccordionWrapper,
-  AccordionChildren,
-  AccordionIconContainer,
-  AccordionProps
+  AccordionProps,
+  getWrapperStyles
 } from './accordion.styles';
+
+import AccordionItem from './accordion-item';
+import AccordionHeader from './accordion-header';
+import AccordionContent from './accordion-content';
 
 interface Props {
   children?: ReactNode;
@@ -32,7 +34,7 @@ export const AccordionContext = createContext({
 const AccordionBase = forwardRef<
   HTMLDivElement,
   Props & ThemeProps & AccordionProps
->(({ isInverted, children }, ref) => {
+>(({ isInverted, children, theme, ...rest }, ref) => {
   const [invertStyles, setInvertStyles] = useState(false);
 
   const context = {
@@ -45,10 +47,12 @@ const AccordionBase = forwardRef<
     }
   }, []);
 
+  const baseCss = getWrapperStyles({ inverse: invertStyles, theme });
+
   return (
-    <AccordionWrapper ref={ref}>
+    <AccordionWrapper ref={ref} css={baseCss}>
       <AccordionContext.Provider value={context}>
-        <AccordionChildren>{children}</AccordionChildren>
+        <ReactAccordion>{children}</ReactAccordion>
       </AccordionContext.Provider>
     </AccordionWrapper>
   );
@@ -56,11 +60,9 @@ const AccordionBase = forwardRef<
 
 const Accordion = Object.assign(withTheme(AccordionBase), {
   Wrapper: AccordionWrapper,
-  Children: AccordionChildren,
   Item: AccordionItem,
   Header: AccordionHeader,
-  Content: AccordionContent,
-  Icon: AccordionIconContainer
+  Content: AccordionContent
 });
 
 export default Accordion;

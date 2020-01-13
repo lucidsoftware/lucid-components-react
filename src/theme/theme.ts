@@ -17,7 +17,7 @@ const theme = {
         interactiveBorder: `1px solid ${indigo}`
       },
       inverse: {
-        backgroundColor: 'transparent',
+        backgroundColor: '#4247aa',
         activeBackgroundColor: '#323580',
         color: white,
         padding: '16px 8px',

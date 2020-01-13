@@ -1,55 +1,25 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { forwardRef, useState, createContext } from 'react';
+import { forwardRef } from 'react';
 import { ThemeProps } from '../../../theme/theme';
-import { AccordionItemContainer, AccordionProps } from './accordion.styles';
+import { withTheme } from 'emotion-theming';
+import { AccordionProps } from './accordion.styles';
+import { AccordionItem as ReactAccordionItem } from 'react-accessible-accordion';
 
-let accordionHeaderId = 0;
-let accordionCounterId = 0;
+import { getItemStyles } from './accordion.styles';
 
-export const AccordionItemContext = createContext({
-  expanded: false,
-  toggleExpanded: () => {
-    return;
-  },
-  getAccordionHeaderId: () => {
-    return accordionHeaderId;
-  },
-  getAccordionContentId: () => {
-    return accordionCounterId;
-  }
+const AccordionItemBase = forwardRef<
+  HTMLLIElement,
+  ThemeProps & AccordionProps
+>(({ theme, children, ...rest }) => {
+  const baseCss = getItemStyles();
+
+  return (
+    <ReactAccordionItem {...rest} css={baseCss}>
+      {children}
+    </ReactAccordionItem>
+  );
 });
 
-const AccordionItem = forwardRef<HTMLLIElement, ThemeProps & AccordionProps>(
-  ({ theme, children, ...rest }, ref) => {
-    const [expanded, setExpanded] = useState(false);
-    const context = {
-      expanded,
-      toggleExpanded: () => {
-        setExpanded(!expanded);
-      },
-      getAccordionHeaderId: () => {
-        accordionHeaderId += 1;
-        return accordionHeaderId;
-      },
-      getAccordionContentId: () => {
-        accordionCounterId += 1;
-        return accordionCounterId;
-      }
-    };
-
-    return (
-      <AccordionItemContainer
-        aria-label="Accordion Control Group"
-        ref={ref}
-        {...rest}
-      >
-        <AccordionItemContext.Provider value={context}>
-          {children}
-        </AccordionItemContext.Provider>
-      </AccordionItemContainer>
-    );
-  }
-);
-
+const AccordionItem = withTheme(AccordionItemBase);
 export default AccordionItem;
