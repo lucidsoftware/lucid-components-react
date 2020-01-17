@@ -120,10 +120,10 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         if (diff < dropdownRect.width) {
             setDisplayLeft(false);
         }
-        else if (diff < threshold && displayLeft !== false) {
+        else if (diff < threshold && displayLeft) {
             setDisplayLeft(false);
         }
-        else if (diff >= threshold && displayLeft !== true) {
+        else if (diff >= threshold && !displayLeft) {
             setDisplayLeft(true);
         }
         clearTimeout(timer);
@@ -131,7 +131,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     const handleMouseLeave = () => {
         timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({ role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }, rest),
+    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
         toggle(handleMouseOver),
         core_1.jsx(StyledDropdownContainer, { ref: dropdownRef, displayLeft: displayLeft, isOpen: isOpen, flexWrap: flexWrap, maxWidth: maxWidth }, children)));
 });

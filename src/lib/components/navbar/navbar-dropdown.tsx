@@ -166,9 +166,9 @@ const NavbarDropdown = forwardRef<
       const diff = document.body.offsetWidth - rect.left;
       if (diff < dropdownRect.width) {
         setDisplayLeft(false);
-      } else if (diff < threshold && displayLeft !== false) {
+      } else if (diff < threshold && displayLeft) {
         setDisplayLeft(false);
-      } else if (diff >= threshold && displayLeft !== true) {
+      } else if (diff >= threshold && !displayLeft) {
         setDisplayLeft(true);
       }
 
@@ -181,13 +181,13 @@ const NavbarDropdown = forwardRef<
 
     return (
       <DropdownWrapper
+        {...rest}
         role="navigation"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
         onFocus={handleMouseOver}
         onBlur={handleMouseLeave}
         ref={ref}
-        {...rest}
       >
         {toggle(handleMouseOver)}
         <StyledDropdownContainer
