@@ -33,6 +33,7 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
     display: string;
     border: string;
     fontSize: string;
+    textAlign: string;
     textDecoration: string;
     cursor: string;
     ':visited': {

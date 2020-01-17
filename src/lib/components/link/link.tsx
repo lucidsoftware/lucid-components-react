@@ -65,6 +65,7 @@ export const getLinkStyles = ({
     display: block ? 'block' : 'inline-block',
     border: 'none',
     fontSize: 'inherit',
+    textAlign: 'left',
     textDecoration: linkUnderline,
     cursor: 'pointer',
     ':visited': {

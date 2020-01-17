@@ -12,6 +12,7 @@ const navbar_dropdown_1 = require("./navbar-dropdown");
 const navbar_container_1 = require("./navbar-container");
 const navbar_inner_container_1 = require("./navbar-inner-container");
 const navbar_toggle_1 = require("./navbar-toggle");
+const navbar_dropdown_group_1 = require("./navbar-dropdown-group");
 exports.NavbarContext = react_1.createContext({
     expanded: false,
     toggleExpanded: () => {
@@ -98,6 +99,7 @@ const Navbar = Object.assign(NavbarComp, {
     InnerContainer: navbar_inner_container_1.default,
     Container: navbar_container_1.default,
     Dropdown: navbar_dropdown_1.default,
+    DropdownGroup: navbar_dropdown_group_1.default,
     Item: navbar_item_1.default,
     Toggle: navbar_toggle_1.default
 });

@@ -27,7 +27,10 @@ const NavbarInnerContainerList = styled.ol<{ expanded: boolean }>(
       ...(expanded && {
         position: 'relative',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        border: theme.navbar.dropdown.border,
+        borderRadius: theme.navbar.dropdown.borderRadius,
+        padding: '0 0 3rem'
       })
     }
   })

@@ -7,10 +7,15 @@ const NavbarItem = styled_1.default.li(({ theme }) => ({
     listStyle: 'none',
     margin: `auto ${theme.navbar.itemSpacing}`,
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-        margin: `.75rem 0`,
+        margin: 0,
+        borderTop: `1px solid ${theme.navbar.borderColor}`,
+        padding: '1rem 2rem',
         width: '100%',
-        '> a, > button': {
+        'a, button': {
             width: '100%'
+        },
+        '> button, > a': {
+            padding: theme.navbar.dropdown.mobilePadding
         }
     }
 }));

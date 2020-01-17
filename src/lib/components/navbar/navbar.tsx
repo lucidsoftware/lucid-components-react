@@ -18,6 +18,7 @@ import NavbarDropdown from './navbar-dropdown';
 import NavbarContainer from './navbar-container';
 import NavbarInnerContainer from './navbar-inner-container';
 import NavbarToggle from './navbar-toggle';
+import NavbarDropdownGroup from './navbar-dropdown-group';
 
 interface Props {
   as?: 'nav' | 'header' | 'div';
@@ -157,6 +158,7 @@ const Navbar = Object.assign(NavbarComp, {
   InnerContainer: NavbarInnerContainer,
   Container: NavbarContainer,
   Dropdown: NavbarDropdown,
+  DropdownGroup: NavbarDropdownGroup,
   Item: NavbarItem,
   Toggle: NavbarToggle
 });
