@@ -32,11 +32,9 @@ const App: React.FC = () => {
             <Navbar.Toggle>Menu</Navbar.Toggle>
             <Navbar.InnerContainer>
               <Navbar.Item>
-                <Link primary href="https://www.google.com">
+                <Link asButton primary href="https://www.google.com">
                   Yo
                 </Link>
-              </Navbar.Item>
-              <Navbar.Item>
                 <Button primary active>
                   Active Button
                 </Button>
@@ -79,13 +77,14 @@ const App: React.FC = () => {
               </Navbar.Item>
               <Navbar.Item>
                 <Navbar.Dropdown
+                  style={{ position: 'static' }}
                   toggle={toggleHandler => (
-                    <Button primary onMouseOver={toggleHandler}>
+                    <Button asLink onMouseOver={toggleHandler}>
                       A Second Dropdown
                     </Button>
                   )}
-                  complexChildren
                   maxWidth="1000px"
+                  flexWrap="nowrap"
                 >
                   <div style={{ width: '50%' }}>
                     <p>Hello</p>

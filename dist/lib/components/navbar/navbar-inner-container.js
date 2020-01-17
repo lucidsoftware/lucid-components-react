@@ -24,7 +24,10 @@ const NavbarInnerContainerList = styled_1.default.ol(({ theme, expanded }) => ({
     [`@media (max-width: ${theme.navbar.collapseAt})`]: Object.assign({ display: 'none', flex: '0 1 100%', overflowY: 'scroll', overflowX: 'hidden', maxHeight: 'calc(100vh - 60px)', padding: '0 5px 80px 5px', margin: 'auto 0' }, (expanded && {
         position: 'relative',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        border: theme.navbar.dropdown.border,
+        borderRadius: theme.navbar.dropdown.borderRadius,
+        padding: '0 0 3rem'
     }))
 }));
 const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {

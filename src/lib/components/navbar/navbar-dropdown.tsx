@@ -5,40 +5,47 @@ import {
   useState,
   SyntheticEvent,
   useContext,
-  ReactNode
+  ReactNode,
+  useRef
 } from 'react';
 import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
 import { NavbarContext } from './navbar';
-import { ThemeProps } from '../../../theme/theme';
 
 export interface NavbarDropdownProps {
   toggle: (
     toggleHandler: (evt: SyntheticEvent<Element, Event>) => void
   ) => ReactNode;
-  complexChildren?: boolean;
   maxWidth?: string;
+  flexWrap?: 'wrap' | 'nowrap';
 }
 
-const DropdownWrapper = styled.div<{
-  complexChildren: boolean;
-}>(({ theme, complexChildren }) => ({
-  position: complexChildren ? 'static' : 'relative',
+const DropdownWrapper = styled.div(({ theme }) => ({
+  position: 'relative',
   '&:hover': {
     cursor: 'pointer'
   },
   [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-    '> *, > a, > button': {
-      width: '100%'
+    '> a, > button': {
+      width: '100%',
+      padding: theme.navbar.dropdown.mobilePadding,
+
+      '&::after': {
+        content: '":"'
+      }
+    },
+
+    '> button.isLink': {
+      paddingBottom: '1rem'
     }
   }
 }));
 
 const StyledDropdownContainer = styled.div<{
   displayLeft: boolean;
+  flexWrap: 'wrap' | 'nowrap';
   isOpen: boolean;
-  complexChildren: boolean;
   maxWidth: string;
 }>(
   ({
@@ -56,8 +63,8 @@ const StyledDropdownContainer = styled.div<{
       }
     },
     displayLeft,
-    complexChildren,
     maxWidth,
+    flexWrap,
     isOpen
   }) => ({
     display: 'flex',
@@ -66,7 +73,7 @@ const StyledDropdownContainer = styled.div<{
     background,
     top: '110%',
     textAlign: 'left',
-    flexWrap: complexChildren ? 'nowrap' : 'wrap',
+    flexWrap,
     minWidth: '225px',
     maxWidth,
     border,
@@ -95,11 +102,20 @@ const StyledDropdownContainer = styled.div<{
     right: displayLeft ? '' : '0',
     left: displayLeft ? '0' : '',
 
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '-20px',
+      height: '20px'
+    },
+
     [`@media (max-width: ${collapseAt})`]: {
       top: '100%',
       visibility: 'visible',
       maxWidth: '100%',
-      paddingLeft: '.5rem',
+      padding: 0,
       position: 'relative',
       border: 'none',
       flexWrap: 'wrap',
@@ -113,16 +129,11 @@ const StyledDropdownContainer = styled.div<{
         '&:hover': {
           background: 'transparent'
         }
-      }
-    },
+      },
 
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      top: '-5px',
-      height: '10px'
+      '&::before': {
+        display: 'none'
+      }
     }
   })
 );
@@ -134,9 +145,10 @@ const NavbarDropdown = forwardRef<
   NavbarDropdownProps & HTMLProps<HTMLDivElement>
 >(
   (
-    { toggle, complexChildren = false, maxWidth = '300px', children, ...rest },
+    { toggle, maxWidth = '300px', flexWrap = 'wrap', children, ...rest },
     ref
   ) => {
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [displayLeft, setDisplayLeft] = useState(true);
     const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
@@ -148,15 +160,16 @@ const NavbarDropdown = forwardRef<
 
       const threshold = 400;
       const rect = evt.currentTarget.getBoundingClientRect() as DOMRect;
+      const dropdownRect = dropdownRef.current
+        ? (dropdownRef.current.getBoundingClientRect() as DOMRect)
+        : { width: 0 };
       const diff = document.body.offsetWidth - rect.left;
-      if (complexChildren) {
+      if (diff < dropdownRect.width) {
         setDisplayLeft(false);
-      } else {
-        if (diff < threshold && displayLeft !== false) {
-          setDisplayLeft(false);
-        } else if (diff >= threshold && displayLeft !== true) {
-          setDisplayLeft(true);
-        }
+      } else if (diff < threshold && displayLeft !== false) {
+        setDisplayLeft(false);
+      } else if (diff >= threshold && displayLeft !== true) {
+        setDisplayLeft(true);
       }
 
       clearTimeout(timer);
@@ -168,7 +181,6 @@ const NavbarDropdown = forwardRef<
 
     return (
       <DropdownWrapper
-        complexChildren={complexChildren}
         role="navigation"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
@@ -179,9 +191,10 @@ const NavbarDropdown = forwardRef<
       >
         {toggle(handleMouseOver)}
         <StyledDropdownContainer
+          ref={dropdownRef}
           displayLeft={displayLeft}
           isOpen={isOpen}
-          complexChildren={complexChildren}
+          flexWrap={flexWrap}
           maxWidth={maxWidth}
         >
           {children}

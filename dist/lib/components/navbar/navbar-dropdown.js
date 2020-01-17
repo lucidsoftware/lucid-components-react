@@ -22,25 +22,32 @@ const DropdownWrapper = styled_1.default.div(({ theme }) => ({
         cursor: 'pointer'
     },
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-        '> *, > a, > button': {
-            width: '100%'
+        '> a, > button': {
+            width: '100%',
+            padding: theme.navbar.dropdown.mobilePadding,
+            '&::after': {
+                content: '":"'
+            }
+        },
+        '> button.isLink': {
+            paddingBottom: '1rem'
         }
     }
 }));
-const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { collapseAt, dropdown: { background, border, borderRadius, padding, backgroundHover, mobilePadding } } }, displayLeft, isOpen }) => ({
+const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { collapseAt, dropdown: { background, border, borderRadius, padding, backgroundHover, mobilePadding } } }, displayLeft, maxWidth, flexWrap, isOpen }) => ({
     display: 'flex',
     visibility: isOpen ? 'visible' : 'hidden',
     position: 'absolute',
     background,
     top: '110%',
     textAlign: 'left',
-    flexWrap: 'wrap',
+    flexWrap,
     minWidth: '225px',
-    maxWidth: '300px',
+    maxWidth,
     border,
     borderRadius,
     zIndex: 2000,
-    '> li, > p': {
+    'li, p': {
         position: 'relative',
         display: 'block',
         flex: '1 1 100%',
@@ -48,7 +55,7 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
         margin: 0,
         padding
     },
-    '> a, > button': {
+    'a, button': {
         position: 'relative',
         display: 'block',
         flex: '1 1 100%',
@@ -61,29 +68,42 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
     },
     right: displayLeft ? '' : '0',
     left: displayLeft ? '0' : '',
+    '&::before': {
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: '-20px',
+        height: '20px'
+    },
     [`@media (max-width: ${collapseAt})`]: {
         top: '100%',
         visibility: 'visible',
         maxWidth: '100%',
-        paddingLeft: '.5rem',
+        padding: 0,
         position: 'relative',
         border: 'none',
-        '> li, > p': {
+        flexWrap: 'wrap',
+        'li, p': {
             padding: mobilePadding,
             width: 'auto'
         },
-        '> a, > button': {
+        'a, button': {
             padding: mobilePadding,
             width: 'auto',
             '&:hover': {
                 background: 'transparent'
             }
+        },
+        '&::before': {
+            display: 'none'
         }
     }
 }));
 const DROPDOWN_SAFETY_TIMER = 225;
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { toggle, children } = _a, rest = __rest(_a, ["toggle", "children"]);
+    var { toggle, maxWidth = '300px', flexWrap = 'wrap', children } = _a, rest = __rest(_a, ["toggle", "maxWidth", "flexWrap", "children"]);
+    const dropdownRef = react_1.useRef(null);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
@@ -93,8 +113,14 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         setActiveDropdownSetIsOpen([setIsOpen]);
         const threshold = 400;
         const rect = evt.currentTarget.getBoundingClientRect();
+        const dropdownRect = dropdownRef.current
+            ? dropdownRef.current.getBoundingClientRect()
+            : { width: 0 };
         const diff = document.body.offsetWidth - rect.left;
-        if (diff < threshold && displayLeft !== false) {
+        if (diff < dropdownRect.width) {
+            setDisplayLeft(false);
+        }
+        else if (diff < threshold && displayLeft !== false) {
             setDisplayLeft(false);
         }
         else if (diff >= threshold && displayLeft !== true) {
@@ -107,6 +133,6 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     };
     return (core_1.jsx(DropdownWrapper, Object.assign({ role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }, rest),
         toggle(handleMouseOver),
-        core_1.jsx(StyledDropdownContainer, { displayLeft: displayLeft, isOpen: isOpen }, children)));
+        core_1.jsx(StyledDropdownContainer, { ref: dropdownRef, displayLeft: displayLeft, isOpen: isOpen, flexWrap: flexWrap, maxWidth: maxWidth }, children)));
 });
 exports.default = NavbarDropdown;
