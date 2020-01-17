@@ -84,19 +84,39 @@ const App: React.FC = () => {
                       A Second Dropdown
                     </Button>
                   )}
+                  complexChildren
+                  maxWidth="1000px"
                 >
-                  <Link href="https://www.microsoft.com">Some valid link</Link>
-                  <Link>An invalid link</Link>
-                  <Link primary href="https://www.microsoft.com">
-                    Some 3rd link with an absurdly long name for reals
-                  </Link>
-                  <Link href="https://www.microsoft.com">
-                    Some 4th link with long name
-                  </Link>
-                  <p>Some Label</p>
-                  <Link href="https://www.microsoft.com">
-                    Some 4th link with long name
-                  </Link>
+                  <div style={{ width: '50%' }}>
+                    <p>Hello</p>
+                  </div>
+                  <Navbar.DropdownGroup>
+                    <p>Some Header</p>
+                    <Link href="https://www.microsoft.com">
+                      Some valid link
+                    </Link>
+                    <Link href="https://www.microsoft.com">
+                      Some valid link
+                    </Link>
+                    <Link href="https://www.microsoft.com">
+                      Some valid link
+                    </Link>
+                  </Navbar.DropdownGroup>
+
+                  <Navbar.DropdownGroup>
+                    <p>Another Header</p>
+                    <Link>An invalid link</Link>
+                    <Link primary href="https://www.microsoft.com">
+                      Some 3rd link with an absurdly long name for reals
+                    </Link>
+                    <Link href="https://www.microsoft.com">
+                      Some 4th link with long name
+                    </Link>
+                    <p>Some Label</p>
+                    <Link href="https://www.microsoft.com">
+                      Some 4th link with long name
+                    </Link>
+                  </Navbar.DropdownGroup>
                 </Navbar.Dropdown>
               </Navbar.Item>
             </Navbar.InnerContainer>

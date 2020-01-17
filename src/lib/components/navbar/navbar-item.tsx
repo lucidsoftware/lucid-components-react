@@ -9,7 +9,7 @@ const NavbarItem = styled.li(({ theme }) => ({
   [`@media (max-width: ${theme.navbar.collapseAt})`]: {
     margin: `.75rem 0`,
     width: '100%',
-    '> a, > button': {
+    'a, button': {
       width: '100%'
     }
   }
