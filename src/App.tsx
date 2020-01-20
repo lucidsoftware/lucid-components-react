@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+/** @jsx jsx */
+
+import { useState } from 'react';
 import './App.css';
+import { jsx } from '@emotion/core';
 
 import { ThemeProvider } from 'emotion-theming';
 import Link from './lib/components/link/link';
@@ -61,49 +64,10 @@ const App: React.FC = () => {
                     </Button>
                   )}
                 >
-                  <Link href="https://www.microsoft.com">Some valid link</Link>
-                  <Link>An invalid link</Link>
-                  <Link primary href="https://www.microsoft.com">
-                    Some 3rd link with an absurdly long name for reals
-                  </Link>
-                  <Link href="https://www.microsoft.com">
-                    Some 4th link with long name
-                  </Link>
-                  <p>Some Label</p>
-                  <Link href="https://www.microsoft.com">
-                    Some 4th link with long name
-                  </Link>
-                </Navbar.Dropdown>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Navbar.Dropdown
-                  style={{ position: 'static' }}
-                  toggle={toggleHandler => (
-                    <Button asLink onMouseOver={toggleHandler}>
-                      A Second Dropdown
-                    </Button>
-                  )}
-                  maxWidth="1000px"
-                  flexWrap="nowrap"
-                >
-                  <div style={{ width: '50%' }}>
-                    <p>Hello</p>
-                  </div>
-                  <Navbar.DropdownGroup>
-                    <p>Some Header</p>
+                  <Navbar.DropdownContainer>
                     <Link href="https://www.microsoft.com">
                       Some valid link
                     </Link>
-                    <Link href="https://www.microsoft.com">
-                      Some valid link
-                    </Link>
-                    <Link href="https://www.microsoft.com">
-                      Some valid link
-                    </Link>
-                  </Navbar.DropdownGroup>
-
-                  <Navbar.DropdownGroup>
-                    <p>Another Header</p>
                     <Link>An invalid link</Link>
                     <Link primary href="https://www.microsoft.com">
                       Some 3rd link with an absurdly long name for reals
@@ -115,7 +79,66 @@ const App: React.FC = () => {
                     <Link href="https://www.microsoft.com">
                       Some 4th link with long name
                     </Link>
-                  </Navbar.DropdownGroup>
+                  </Navbar.DropdownContainer>
+                </Navbar.Dropdown>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Dropdown
+                  style={{ position: 'static' }}
+                  toggle={toggleHandler => (
+                    <Button asLink onMouseOver={toggleHandler}>
+                      A Second Dropdown
+                    </Button>
+                  )}
+                >
+                  <Navbar.DropdownContainer
+                    css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
+                  >
+                    <div style={{ width: '50%' }}>
+                      <p>Hello</p>
+                      <span
+                        css={{
+                          display: 'inline-block',
+                          width: 'auto',
+                          padding: '0',
+                          marginBottom: '.5rem',
+                          fontWeight: 600
+                        }}
+                      >
+                        Howdy
+                      </span>
+                    </div>
+                    <Navbar.DropdownGroup>
+                      <p>Some Header</p>
+                      <Link
+                        css={{ display: 'flex', width: '20px' }}
+                        href="https://www.microsoft.com"
+                      >
+                        Some valid link
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some valid link
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some valid link
+                      </Link>
+                    </Navbar.DropdownGroup>
+
+                    <Navbar.DropdownGroup>
+                      <p>Another Header</p>
+                      <Link>An invalid link</Link>
+                      <Link primary href="https://www.microsoft.com">
+                        Some 3rd link with an absurdly long name for reals
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some 4th link with long name
+                      </Link>
+                      <p>Some Label</p>
+                      <Link href="https://www.microsoft.com">
+                        Some 4th link with long name
+                      </Link>
+                    </Navbar.DropdownGroup>
+                  </Navbar.DropdownContainer>
                 </Navbar.Dropdown>
               </Navbar.Item>
             </Navbar.InnerContainer>
