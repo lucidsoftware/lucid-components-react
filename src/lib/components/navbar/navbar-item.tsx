@@ -16,8 +16,18 @@ const NavbarItem = styled.li(({ theme }) => ({
       padding: theme.navbar.dropdown.mobilePadding
     },
 
+    a: {
+      paddingLeft: 0,
+      paddingRight: 0
+    },
+
+    'a.is-button': {
+      padding: theme.navbar.dropdown.mobilePadding
+    },
+
     'button.is-link': {
-      padding: 0
+      paddingLeft: 0,
+      paddingRight: 0
     }
   }
 }));

@@ -35,7 +35,7 @@ const App: React.FC = () => {
             <Navbar.Toggle>Menu</Navbar.Toggle>
             <Navbar.InnerContainer>
               <Navbar.Item>
-                <Link asButton primary href="https://www.google.com">
+                <Link className="cool" asButton primary href="https://www.google.com">
                   Yo
                 </Link>
                 <Button primary active>
@@ -43,9 +43,7 @@ const App: React.FC = () => {
                 </Button>
               </Navbar.Item>
               <Navbar.Item>
-                <Link asButton primary>
-                  Hello
-                </Link>
+                <Link primary>Hello</Link>
               </Navbar.Item>
               <Navbar.Item>
                 <Button asLink>Im a button link</Button>

@@ -43,7 +43,6 @@ const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & HTMLProps<HTMLDivElement>
 >(({ toggle, children, ...rest }, ref) => {
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
@@ -55,13 +54,8 @@ const NavbarDropdown = forwardRef<
 
     const threshold = 400;
     const rect = evt.currentTarget.getBoundingClientRect() as DOMRect;
-    const dropdownRect = dropdownRef.current
-      ? (dropdownRef.current.getBoundingClientRect() as DOMRect)
-      : { width: 0 };
     const diff = document.body.offsetWidth - rect.left;
-    if (diff < dropdownRect.width) {
-      setDisplayLeft(false);
-    } else if (diff < threshold && displayLeft) {
+    if (diff < threshold && displayLeft) {
       setDisplayLeft(false);
     } else if (diff >= threshold && !displayLeft) {
       setDisplayLeft(true);

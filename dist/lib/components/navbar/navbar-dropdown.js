@@ -33,7 +33,6 @@ exports.NavbarDropdownContext = react_1.createContext({
 });
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     var { toggle, children } = _a, rest = __rest(_a, ["toggle", "children"]);
-    const dropdownRef = react_1.useRef(null);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
@@ -43,14 +42,8 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         setActiveDropdownSetIsOpen([setIsOpen]);
         const threshold = 400;
         const rect = evt.currentTarget.getBoundingClientRect();
-        const dropdownRect = dropdownRef.current
-            ? dropdownRef.current.getBoundingClientRect()
-            : { width: 0 };
         const diff = document.body.offsetWidth - rect.left;
-        if (diff < dropdownRect.width) {
-            setDisplayLeft(false);
-        }
-        else if (diff < threshold && displayLeft) {
+        if (diff < threshold && displayLeft) {
             setDisplayLeft(false);
         }
         else if (diff >= threshold && !displayLeft) {
