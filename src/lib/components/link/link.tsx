@@ -98,6 +98,7 @@ const LinkBase: FC<LinkProps> = ({
   block,
   theme,
   css,
+  className = '',
   active,
   ...rest
 }) => {
@@ -129,7 +130,12 @@ const LinkBase: FC<LinkProps> = ({
   }
 
   return (
-    <a {...rest} href={disabled ? undefined : href} css={[baseCss, css]}>
+    <a
+      {...rest}
+      className={`${className}${asButton ? ' is-button' : ''}`}
+      href={disabled ? undefined : href}
+      css={[baseCss, css]}
+    >
       {children}
     </a>
   );

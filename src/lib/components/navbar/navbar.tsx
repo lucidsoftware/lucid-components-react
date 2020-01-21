@@ -15,6 +15,7 @@ import NavbarItem from './navbar-item';
 import NavbarBrand from './navbar-brand';
 import NavbarBorder from './navbar-border';
 import NavbarDropdown from './navbar-dropdown';
+import NavbarDropdownContainer from './navbar-dropdown-container';
 import NavbarContainer from './navbar-container';
 import NavbarInnerContainer from './navbar-inner-container';
 import NavbarToggle from './navbar-toggle';
@@ -158,6 +159,7 @@ const Navbar = Object.assign(NavbarComp, {
   InnerContainer: NavbarInnerContainer,
   Container: NavbarContainer,
   Dropdown: NavbarDropdown,
+  DropdownContainer: NavbarDropdownContainer,
   DropdownGroup: NavbarDropdownGroup,
   Item: NavbarItem,
   Toggle: NavbarToggle

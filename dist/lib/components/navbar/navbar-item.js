@@ -11,11 +11,19 @@ const NavbarItem = styled_1.default.li(({ theme }) => ({
         borderTop: `1px solid ${theme.navbar.borderColor}`,
         padding: '1rem 2rem',
         width: '100%',
-        'a, button': {
-            width: '100%'
-        },
-        '> button, > a': {
+        'button, a': {
             padding: theme.navbar.dropdown.mobilePadding
+        },
+        a: {
+            paddingLeft: 0,
+            paddingRight: 0
+        },
+        'a.is-button': {
+            padding: theme.navbar.dropdown.mobilePadding
+        },
+        'button.is-link': {
+            paddingLeft: 0,
+            paddingRight: 0
         }
     }
 }));

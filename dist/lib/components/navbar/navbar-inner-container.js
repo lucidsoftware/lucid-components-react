@@ -23,8 +23,7 @@ const NavbarInnerContainerList = styled_1.default.ol(({ theme, expanded }) => ({
     padding: 0,
     [`@media (max-width: ${theme.navbar.collapseAt})`]: Object.assign({ display: 'none', flex: '0 1 100%', overflowY: 'scroll', overflowX: 'hidden', maxHeight: 'calc(100vh - 60px)', padding: '0 5px 80px 5px', margin: 'auto 0' }, (expanded && {
         position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
+        display: 'block',
         border: theme.navbar.dropdown.border,
         borderRadius: theme.navbar.dropdown.borderRadius,
         padding: '0 0 3rem'
