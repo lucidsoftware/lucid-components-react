@@ -35,6 +35,7 @@ const StyledDropdownContainer = styled.div<{
     textAlign: 'left',
     minWidth: '225px',
     maxWidth: '300px',
+    width: '100%',
     border,
     borderRadius,
     zIndex: 2000,

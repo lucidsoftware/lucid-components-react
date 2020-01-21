@@ -26,6 +26,7 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
     textAlign: 'left',
     minWidth: '225px',
     maxWidth: '300px',
+    width: '100%',
     border,
     borderRadius,
     zIndex: 2000,
