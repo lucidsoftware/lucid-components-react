@@ -12,12 +12,14 @@
     "url": "https://github.com/lbucio/lucid-components-react"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.17",
-    "@emotion/styled": "^10.0.17",
-    "emotion-theming": "^10.0.19",
     "react-accessible-accordion": "^3.0.1",
-    "react-app-polyfill": "^1.0.2",
-    "react-player": "^1.14.2"
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "@mdx-js/react": "^1.5.3",
+    "emotion-theming": "^10.0.27",
+    "react-app-polyfill": "^1.0.5",
+    "react-player": "^1.14.2",
+    "theme-ui": "^0.2.52"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,29 +45,37 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@types/jest": "^24.0.16",
-    "@types/node": "^12.6.8",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.3",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-emotion": "^10.0.19",
-    "prettier": "^1.18.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/theme-ui": "^0.2.6",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "babel-plugin-emotion": "^10.0.27",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-emotion": "^10.0.27",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-scripts": "3.0.1",
+    "styled-system": "^5.1.4",
     "ts-loader": "^6.2.1",
-    "tslint": "^5.20.0",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",
-    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-plugin-prettier": "^2.1.0",
     "tslint-react": "^4.1.0",
-    "tslint-react-a11y": "^1.0.0",
-    "typescript": "^3.6.4",
-    "webpack-cli": "^3.3.9"
+    "tslint-react-a11y": "^1.1.0",
+    "typescript": "^3.7.4",
+    "webpack-cli": "^3.3.10"
   },
   "peerDependencies": {
-    "emotion-theming": "~10.0"
+    "emotion-theming": "~10.0.27",
+    "theme-ui": "^0.2.52"
   }
 }
