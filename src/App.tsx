@@ -144,7 +144,7 @@ const App: React.FC = () => {
             <Navbar.Border />
           </Navbar.Container>
         </Navbar>
-        <Spacer size={8} className="Emilie is dope"/>
+        <Spacer size={2} className=""/>
         <Breadcrumb
           items={[
             <Link primary href="/test">

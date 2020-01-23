@@ -15,5 +15,5 @@ const SpacerBaseStyles = (props: ThemeProps) =>
 
 export const SpacerItem = styled('div')<SpacerProps>`
   ${SpacerBaseStyles};
-  padding: ${props => props.theme.spacer[props.size]}px;
+  padding: ${props => props.theme.space[props.size]}px;
 `;
