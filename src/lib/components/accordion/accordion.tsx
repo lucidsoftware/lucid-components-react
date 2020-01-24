@@ -52,7 +52,7 @@ const AccordionBase = forwardRef<
   return (
     <AccordionWrapper ref={ref} css={baseCss}>
       <AccordionContext.Provider value={context}>
-        <ReactAccordion>{children}</ReactAccordion>
+        <ReactAccordion {...rest}>{children}</ReactAccordion>
       </AccordionContext.Provider>
     </AccordionWrapper>
   );

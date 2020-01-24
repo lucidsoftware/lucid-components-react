@@ -164,7 +164,7 @@ const App: React.FC = () => {
           <h2>Forms</h2>
         </div>
         <div className="row">
-          <Accordion isInverted>
+          <Accordion isInverted allowZeroExpanded>
             <Accordion.Item>
               <Accordion.Header>
                 <h1>Gotta catch'em all</h1>
