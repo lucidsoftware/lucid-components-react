@@ -4,7 +4,7 @@ const styled_1 = require("../../../theme/styled");
 const CardContent = styled_1.default('div')({}, props => ({
     color: props.theme.colors.text,
     display: 'flex',
-    flex: 1,
+    flex: '1 1 auto',
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: `${props.noPadding ? 0 : props.theme.card.padding}`
