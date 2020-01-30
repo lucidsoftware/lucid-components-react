@@ -1,6 +1,7 @@
 import '@emotion/core';
 import Card from './components/card/card';
 import Paper from './components/paper/paper';
+import Spacer from './components/spacer/spacer';
 import Button, { getButtonStyles } from './components/button/button';
 import Breadcrumb from './components/breadcrumb/breadcrumb';
 import Icon, { IconType } from './components/icon/icon';
@@ -18,6 +19,7 @@ export {
   Link,
   Navbar,
   Paper,
+  Spacer,
   VideoPlayButton,
   VideoPlayer,
   getLinkStyles,
