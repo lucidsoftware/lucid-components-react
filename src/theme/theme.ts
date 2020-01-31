@@ -141,11 +141,6 @@ const theme = {
     64,
     72
   ],
-<<<<<<< HEAD
-  space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 104],
-  breakpoints: [320, 500, 768, 900, 1024, 1220, 1440],
-  borderRadius: 5
-=======
   fontWeights: {
     body: 400,
     bold: 500,
@@ -217,7 +212,6 @@ const theme = {
     padding: '40px'
   },
   space: [0, 4, 8, 16, 24, 32, 64, 128, 256, 512]
->>>>>>> just the  accordion
 };
 
 type Theme = typeof theme;

@@ -1,12 +1,6 @@
 import '@emotion/core';
-<<<<<<< HEAD
-import Card from './components/card/card';
-import Paper from './components/paper/paper';
 import Spacer from './components/spacer/spacer';
-import Button, { getButtonStyles } from './components/button/button';
-=======
 import Accordion from './components/accordion/accordion';
->>>>>>> just the  accordion
 import Breadcrumb from './components/breadcrumb/breadcrumb';
 import Button, { getButtonStyles } from './components/button/button';
 import Card from './components/card/card';
