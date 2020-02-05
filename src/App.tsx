@@ -17,6 +17,7 @@ import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
 import Navbar from './lib/components/navbar/navbar';
 import Spacer from './lib/components/spacer/spacer';
 import Accordion from './lib/components/accordion/accordion';
+import SelectForm from './lib/components/select/select-form';
 
 const App: React.FC = () => {
   const [playing, setPlaying] = useState(false);
@@ -146,6 +147,9 @@ const App: React.FC = () => {
           </Navbar.Container>
         </Navbar>
         <Spacer size={2} className=""/>
+        <div className="row">
+          <SelectForm />
+        </div>
         <Breadcrumb
           items={[
             <Link primary href="/test" key="1">
