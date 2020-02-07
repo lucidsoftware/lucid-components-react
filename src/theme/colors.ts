@@ -4,7 +4,7 @@ export const accent = '#636AFF';
 export const muted = '#636AFF';
 
 export const white = '#FFFFFF';
-export const black = '#FFFFFF';
+export const black = '#111111';
 export const grey = '#EBEBEC';
 export const lightGrey = '#A7A9AC';
 

@@ -1,15 +1,22 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React, { ReactNode } from 'react';
 import styled from '../../../theme/styled';
-// import { forwardRef, HTMLProps, FC } from 'react';
+import { VariantProps } from '../../../types';
 
-import { typography, space, color, variant } from 'styled-system';
+import {
+  typography,
+  space,
+  color,
+  variant,
+  TypographyProps,
+  SpaceProps,
+  ColorProps
+} from 'styled-system';
 
-// type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-interface Props {
-  as?: string;
-  children: JSX.Element | string;
+interface Props extends ColorProps, SpaceProps, TypographyProps, VariantProps {
+  as?: HeadingType;
+  children: ReactNode;
 }
 
 const HeadingBase = styled('h1')(
@@ -26,7 +33,7 @@ const HeadingBase = styled('h1')(
         fontWeight: 'heading'
       },
       subheading: {
-        color: 'primary',
+        color: 'grey',
         lineHeight: 'heading',
         fontWeight: 'heading'
       }
@@ -34,29 +41,8 @@ const HeadingBase = styled('h1')(
   })
 );
 
-const Heading = styled(({ as, ...rest }) => <HeadingBase as={as} {...rest} />)<{
-  active: boolean;
-}>({
-  color: 'red'
-});
-
-// const Heading = forwardRef<
-//   HTMLHeadingElement,
-//   Props & HTMLProps<HTMLHeadingElement>
-// >(({ as, children, ...rest }: Props, ref) => (
-//   <HeadingBase
-//     {...rest}
-//     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-//     // @ts-ignore
-//     as={as}
-//     mt={2}
-//     mb={4}
-//     ref={ref}
-//   >
-//     {children}
-//   </HeadingBase>
-// ));
-
-// Heading.displayName = 'Heading';
+const Heading = styled(({ as, ...rest }) => <HeadingBase as={as} {...rest} />)<
+  Props
+>();
 
 export default Heading;
