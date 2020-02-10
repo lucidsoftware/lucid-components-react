@@ -1,23 +1,24 @@
-const primary = '#636AFF';
-const white = '#FFFFFF';
-const black = '#FFFFFF';
-const blueSteel = '#3D4752';
-const indigo = '#636AFF';
+import * as colors from './colors';
+import { base } from './base';
 
 const theme = {
+  ...base,
   colors: {
-    heading: blueSteel,
-    text: blueSteel,
-    background: white,
-    primary,
-    primaryText: primary,
-    secondary: blueSteel,
-    secondaryText: blueSteel,
-    grey: '#EBEBEC',
-    white,
-    black,
-    disabled: '#EBEBEC',
-    disabledBorder: '#A7A9AC'
+    text: colors.blueSteel,
+    background: colors.white,
+    heading: colors.blueSteel,
+
+    primary: colors.primary,
+    secondary: colors.blueSteel,
+    accent: colors.accent,
+    muted: colors.muted,
+
+    grey: colors.grey,
+    white: colors.white,
+    black: colors.black,
+
+    disabled: colors.grey,
+    disabledBorder: colors.lightGrey
   },
   navbar: {
     background: '#FFF',
@@ -34,8 +35,46 @@ const theme = {
       mobilePadding: '.5rem',
       background: '#FFF',
       backgroundHover: '#DDD',
-      border: `1px solid ${blueSteel}`,
+      border: `1px solid ${colors.blueSteel}`,
       borderRadius: '3px'
+    }
+  },
+  accordion: {
+    header: {
+      default: {
+        backgroundColor: 'transparent',
+        activeBackgroundColor: 'transparent',
+        color: colors.blueSteel,
+        padding: '16px 8px',
+        margin: '16px',
+        bottomBorder: `1px solid #D4D5D7`,
+        interactiveBorder: `1px solid ${colors.primary}`
+      },
+      inverse: {
+        backgroundColor: '#4247aa',
+        activeBackgroundColor: '#323580',
+        color: colors.white,
+        padding: '16px 8px',
+        margin: '16px',
+        bottomBorder: `1px solid #5358D5`,
+        interactiveBorder: `1px solid #FFFFFF`
+      }
+    },
+    content: {
+      default: {
+        backgroundColor: '#F2F2F2',
+        color: colors.blueSteel,
+        padding: '16px 8px',
+        margin: '16px',
+        bottomBorder: `1px solid ${colors.primary}`
+      },
+      inverse: {
+        backgroundColor: '#323580',
+        color: colors.white,
+        padding: '16px 8px',
+        margin: '16px',
+        bottomBorder: `1px solid ${colors.primary}`
+      }
     }
   },
   forms: {
@@ -43,7 +82,7 @@ const theme = {
       backgroundColor: '#FFF',
       border: '1px solid #a7a9ac',
       borderRadius: '5px',
-      color: white,
+      color: colors.white,
       floatingLabel: {
         paddingTop: '1.2em'
       },
@@ -58,52 +97,12 @@ const theme = {
       padding: '.3375rem .75rem'
     }
   },
-  accordion: {
-    header: {
-      default: {
-        backgroundColor: 'transparent',
-        activeBackgroundColor: 'transparent',
-        color: blueSteel,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid #D4D5D7`,
-        interactiveBorder: `1px solid ${indigo}`
-      },
-      inverse: {
-        backgroundColor: '#4247aa',
-        activeBackgroundColor: '#323580',
-        color: white,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid #5358D5`,
-        interactiveBorder: `1px solid #FFFFFF`
-      }
-    },
-    content: {
-      default: {
-        backgroundColor: '#F2F2F2',
-        color: blueSteel,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid ${indigo}`
-      },
-      inverse: {
-        backgroundColor: '#323580',
-        color: white,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid ${indigo}`
-      }
-    }
-  },
-  borderRadius: 5,
   breadcrumb: {
-    color: blueSteel,
-    inverseColor: white,
+    color: colors.blueSteel,
+    inverseColor: colors.white,
     margin: '0 6px',
     crumbOpacity: 0.45
   },
-  breakpoints: [320, 500, 768, 900, 1024, 1220, 1440],
   buttons: {
     fontSize: '1em',
     lineHeight: '1',
@@ -154,84 +153,67 @@ const theme = {
       boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
     }
   },
-  fonts: {
-    body:
-      'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
-    heading:
-      'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
-    monospace: 'monospace'
-  },
-  fontSizes: [
-    18,
-    19,
-    21,
-    22,
-    24,
-    26,
-    28,
-    32,
-    36,
-    40,
-    46,
-    53,
-    56,
-    66,
-    48,
-    64,
-    72
-  ],
-  fontWeights: {
-    body: 400,
-    bold: 500,
-    bolder: 600,
-    heading: 700
-  },
-  lineHeights: {
-    body: 1.35,
-    heading: 1.125
-  },
   links: {
     default: {
       default: {
-        color: blueSteel,
-        hover: blueSteel,
-        disabled: blueSteel
+        color: colors.blueSteel,
+        hover: colors.blueSteel,
+        disabled: colors.blueSteel
       },
       inverse: {
-        color: white,
-        hover: white,
-        disabled: white
+        color: colors.white,
+        hover: colors.white,
+        disabled: colors.white
       }
     },
     primary: {
       default: {
-        color: primary,
-        hover: primary,
-        disabled: primary
+        color: colors.primary,
+        hover: colors.primary,
+        disabled: colors.primary
       },
       inverse: {
-        color: white,
-        hover: white,
-        disabled: white
+        color: colors.white,
+        hover: colors.white,
+        disabled: colors.white
       }
     },
     secondary: {
       default: {
-        color: primary,
-        hover: primary,
-        disabled: primary
+        color: colors.primary,
+        hover: colors.primary,
+        disabled: colors.primary
       },
       inverse: {
-        color: white,
-        hover: white,
-        disabled: white
+        color: colors.white,
+        hover: colors.white,
+        disabled: colors.white
       }
     }
   },
   paper: {
-    padding: '40px'
+    padding: '40px',
+    default: {
+      background: 'white',
+      borderRadius: '5px',
+      border: '1px solid lightgrey',
+      boxShadow: '10px 10px 0 0 rgba(0, 0, 0, .3)'
+    },
+    raised: {
+      background: 'white',
+      borderRadius: '5px',
+      border: '1px solid lightgrey',
+      boxShadow: '20px 20px 0 0 rgba(0, 0, 0, .3)'
+    }
   },
-  space: [0, 4, 8, 16, 24, 32, 64, 128, 256, 512]
+  headings: {
+    heading: {
+      color: 'heading'
+    },
+    subheading: {
+      color: '#555555'
+    }
+  }
 };
 
 type Theme = typeof theme;

@@ -1,20 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-
 import styled from '../../../theme/styled';
+import { layout, LayoutProps, space, SpaceProps } from 'styled-system';
 
-export interface Props {
-  className?: string;
-  size: number;
-}
+interface Props extends LayoutProps, SpaceProps {}
 
-const Spacer = styled.div<Props>(
-  {
-    width: '100%'
-  },
-  props => ({
-    padding: `${props.theme.space[props.size]}px`
-  })
-);
+const Spacer = styled.div<Props>(layout, space, {
+  width: '100%'
+});
 
 export default Spacer;

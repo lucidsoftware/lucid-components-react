@@ -1,275 +1,158 @@
-/** @jsx jsx */
-
-import { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { jsx } from '@emotion/core';
 
 import { ThemeProvider } from 'emotion-theming';
-import Link from './lib/components/link/link';
-import Card from './lib/components/card/card';
-import Paper from './lib/components/paper/paper';
-import VideoPlayer from './lib/components/video-player/video-player';
-import Icon, { IconType } from './lib/components/icon/icon';
 import theme from './theme/theme';
-import VideoPlayButton from './lib/components/video-play-button/video-play-button';
-import Button from './lib/components/button/button';
-import Breadcrumb from './lib/components/breadcrumb/breadcrumb';
-import Navbar from './lib/components/navbar/navbar';
+
+import Box from './lib/components/box/box';
+import Heading from './lib/components/heading/heading';
 import Spacer from './lib/components/spacer/spacer';
-import Accordion from './lib/components/accordion/accordion';
-import SelectForm from './lib/components/select/select-form';
 
 const App: React.FC = () => {
-  const [playing, setPlaying] = useState(false);
   return (
-    <div className="App" style={{ padding: '0 2rem' }}>
+    <div className="App">
       <ThemeProvider theme={theme}>
-        <Navbar sticky>
-          <Navbar.Container className="nav-container">
-            <Navbar.Brand>
-              <Link href="https://www.google.com">
-                <img
-                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
-                  alt="Logo"
-                  style={{ width: '200px' }}
-                />
-              </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle>Menu</Navbar.Toggle>
-            <Navbar.InnerContainer>
-              <Navbar.Item>
-                <Link className="cool" asButton primary href="https://www.google.com">
-                  Yo
-                </Link>
-                <Button primary active>
-                  Active Button
-                </Button>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Link primary>Hello</Link>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Button asLink>Im a button link</Button>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Button secondary onClick={() => setPlaying(!playing)}>
-                  Play Video
-                </Button>
-              </Navbar.Item>
-              <Navbar.Item>I am just some text</Navbar.Item>
-              <Navbar.Item>
-                <Navbar.Dropdown
-                  toggle={toggleHandler => (
-                    <Button primary onMouseOver={toggleHandler}>
-                      A Dropdown
-                    </Button>
-                  )}
-                >
-                  <Navbar.DropdownContainer>
-                    <Link href="https://www.microsoft.com">
-                      Some valid link
-                    </Link>
-                    <Link>An invalid link</Link>
-                    <Link primary href="https://www.microsoft.com">
-                      Some 3rd link with an absurdly long name for reals
-                    </Link>
-                    <Link href="https://www.microsoft.com">
-                      Some 4th link with long name
-                    </Link>
-                    <p>Some Label</p>
-                    <Link href="https://www.microsoft.com">
-                      Some 4th link with long name
-                    </Link>
-                  </Navbar.DropdownContainer>
-                </Navbar.Dropdown>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Navbar.Dropdown
-                  style={{ position: 'static' }}
-                  toggle={toggleHandler => (
-                    <Button asLink onMouseOver={toggleHandler}>
-                      A Second Dropdown
-                    </Button>
-                  )}
-                >
-                  <Navbar.DropdownContainer
-                    css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
-                  >
-                    <div style={{ width: '50%' }}>
-                      <p>Hello</p>
-                      <span
-                        css={{
-                          display: 'inline-block',
-                          width: 'auto',
-                          padding: '0',
-                          marginBottom: '.5rem',
-                          fontWeight: 600
-                        }}
-                      >
-                        Howdy
-                      </span>
-                    </div>
-                    <Navbar.DropdownGroup>
-                      <p>Some Header</p>
-                      <Link
-                        css={{ display: 'flex', width: '20px' }}
-                        href="https://www.microsoft.com"
-                      >
-                        Some valid link
-                      </Link>
-                      <Link href="https://www.microsoft.com">
-                        Some valid link
-                      </Link>
-                      <Link href="https://www.microsoft.com">
-                        Some valid link
-                      </Link>
-                    </Navbar.DropdownGroup>
+        <Box maxWidth={['100%', null, null, '1000px']} margin="auto">
+          <Box display="flex" flexDirection="column" bg="white" py={6}>
+            <Heading
+              as="h1"
+              mx={0}
+              my={4}
+              variant="primary"
+              fontSize={[7, null, 9, 11]}
+            >
+              Typography
+            </Heading>
+            <Heading
+              as="h2"
+              mx={0}
+              my={4}
+              variant="primary"
+              fontSize={[4, null, 5, 6]}
+            >
+              Heading component
+            </Heading>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto, eligendi ducimus inventore autem sit dolores modi
+              tempora maxime sint consequatur itaque porro esse explicabo sunt a
+              placeat distinctio. Quasi, eveniet!
+            </p>
+            <pre>
+              {`
+              <Heading
+                as="h2"
+                mx={0}
+                my={4}
+                variant="primary"
+                fontSize={[4, null, 5, 6]}
+              >
+                Heading component
+              </Heading>`}
+            </pre>
+            <Spacer py={4} />
 
-                    <Navbar.DropdownGroup>
-                      <p>Another Header</p>
-                      <Link>An invalid link</Link>
-                      <Link primary href="https://www.microsoft.com">
-                        Some 3rd link with an absurdly long name for reals
-                      </Link>
-                      <Link href="https://www.microsoft.com">
-                        Some 4th link with long name
-                      </Link>
-                      <p>Some Label</p>
-                      <Link href="https://www.microsoft.com">
-                        Some 4th link with long name
-                      </Link>
-                    </Navbar.DropdownGroup>
-                  </Navbar.DropdownContainer>
-                </Navbar.Dropdown>
-              </Navbar.Item>
-            </Navbar.InnerContainer>
-            <Navbar.Border />
-          </Navbar.Container>
-        </Navbar>
-        <Spacer size={2} className=""/>
-        <div className="row">
-          <SelectForm />
-        </div>
-        <Breadcrumb
-          items={[
-            <Link primary href="/test" key="1">
-              Hello
-            </Link>,
-            <Link primary active href="/test" key="2">
-              Hello (Active)
-            </Link>,
-            <Link primary href="/test" key="3">
-              Hello
-            </Link>,
-            <span key="4">Test</span>
-          ]}
-        />
-        <div className="row">
-          <h2>Forms</h2>
-        </div>
-        <div className="row">
-          <Accordion isInverted allowZeroExpanded>
-            <Accordion.Item>
-              <Accordion.Header>
-                <h1>Gotta catch'em all</h1>
-              </Accordion.Header>
-              <Accordion.Content>
-                <p>hi check it</p>
-              </Accordion.Content>
-            </Accordion.Item>
-            <Accordion.Item>
-              <Accordion.Header>
-                <h1>Sample header 2</h1>
-              </Accordion.Header>
-              <Accordion.Content>
-                <p>hi check it 2</p>
-              </Accordion.Content>
-            </Accordion.Item>
-          </Accordion>
-        </div>
-        <div className="row">
-          <Link underline="hover" href="lucidchart.com">
-            Test Link <Icon type={IconType.ArrowRight} />
-          </Link>
-          <Link primary underline="hover" active href="lucidchart.com">
-            Active Link
-          </Link>
-        </div>
-        <div className="row">
-          <Button size="small" primary>
-            Small Button
-          </Button>
-          <Button size="regular" primary>
-            Regular Button
-          </Button>
-          <Link primary buttonSize="regular" asButton href="/">
-            <Icon type={IconType.RSS} />
-            &nbsp; RSS
-          </Link>
-          <Button size="large" primary>
-            Large Button
-          </Button>
-          <Link asButton buttonSize="large" primary>
-            Large Button
-          </Link>
-        </div>
-        <div className="row">
-          Hello
-          <Icon color="#F00" hoverColor="#0F0" type={IconType.Checkmark} />
-          <Icon
-            type={IconType.Checkmark}
-            color="#FF0000"
-            hoverColor="#000000"
-            sizing="responsive"
-          />
-        </div>
-        <div className="row">
-          <h2>Video</h2>
-        </div>
-        <div className="row">
-          <VideoPlayButton aria-label="Hello" />
-          <VideoPlayer
-            ratio="wide"
-            url="https://www.youtube.com/watch?v=G8KpPw303PY"
-            placeholder={() => (
-              <img
-                src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
-                alt="something good"
-              />
-            )}
-            playing={playing}
-          />
-        </div>
-        <div className="row">
-          <h2>Cards</h2>
-        </div>
-        <div className="row">
-          <Card isInteractive as="section" horizontal>
-            <Link href="http://lucidchart.com">
-              <Card.Image>
-                <img
-                  alt="Image"
-                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blogs/chart/aws-add-on-blog-post-image.png"
-                />
-              </Card.Image>
-              <Card.Content>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Subtitle>Card Subtitle</Card.Subtitle>
-                <Card.Actions>
-                  <Card.Action>Link</Card.Action>
-                </Card.Actions>
-              </Card.Content>
-            </Link>
-          </Card>
-        </div>
-        <div className="row">
-          <h2>Paper</h2>
-        </div>
-        <div className="row">
-          <Paper as="article" isRaised>
-            Paper
-          </Paper>
-        </div>
+            <Heading
+              as="h1"
+              m={0}
+              variant="primary"
+              fontSize={[7, null, 9, 10]}
+            >
+              Heading 1
+            </Heading>
+            <Heading as="h1" m={0} variant="primary" fontSize={[6, null, 8, 9]}>
+              Heading 2
+            </Heading>
+            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 8]}>
+              Heading 3
+            </Heading>
+            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 7]}>
+              Heading 4
+            </Heading>
+            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 6]}>
+              Heading 5
+            </Heading>
+            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 5]}>
+              Heading 6
+            </Heading>
+          </Box>
+          <Spacer py={2} />
+          <Box display="flex" flexDirection="column" bg="white" py={6}>
+            <Heading
+              as="h1"
+              m={0}
+              variant="subheading"
+              fontSize={[7, null, 9, 10]}
+            >
+              Subheading 1
+            </Heading>
+            <Heading
+              as="h1"
+              m={0}
+              variant="subheading"
+              fontSize={[6, null, 8, 9]}
+            >
+              Subheading 2
+            </Heading>
+            <Heading
+              as="h2"
+              m={0}
+              variant="subheading"
+              fontSize={[6, null, 8, 8]}
+            >
+              Subheading 3
+            </Heading>
+            <Heading
+              as="h2"
+              m={0}
+              variant="subheading"
+              fontSize={[6, null, 8, 7]}
+            >
+              Subheading 4
+            </Heading>
+            <Heading
+              as="h2"
+              m={0}
+              variant="subheading"
+              fontSize={[6, null, 8, 6]}
+            >
+              Subheading 5
+            </Heading>
+            <Heading
+              as="h2"
+              m={0}
+              variant="subheading"
+              fontSize={[6, null, 8, 5]}
+            >
+              Subheading 6
+            </Heading>
+          </Box>
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[4, null, 5, 6]}
+          >
+            Box component
+          </Heading>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            eligendi ducimus inventore autem sit dolores modi tempora maxime
+            sint consequatur itaque porro esse explicabo sunt a placeat
+            distinctio. Quasi, eveniet!
+          </p>
+          <Box
+            display="flex"
+            flexDirection="column"
+            color="white"
+            bg="primary"
+            p={6}
+          >
+            Hey I am BOX
+          </Box>
+        </Box>
       </ThemeProvider>
     </div>
   );
