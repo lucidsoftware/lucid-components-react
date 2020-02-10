@@ -1,68 +1,32 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
-import { ThemeProps } from '../../../theme/theme';
-
-import {
-  useState,
-  createContext,
-  ReactNode,
-  forwardRef,
-  useEffect
-} from 'react';
+import styled from '../../../theme/styled';
 
 import { Accordion as ReactAccordion } from 'react-accessible-accordion';
-
 import {
-  AccordionWrapper,
-  AccordionProps,
-  getWrapperStyles
-} from './accordion.styles';
+  layout,
+  LayoutProps,
+  BorderProps,
+  border,
+  space,
+  SpaceProps
+} from 'styled-system';
 
 import AccordionItem from './accordion-item';
-import AccordionHeader from './accordion-header';
-import AccordionContent from './accordion-content';
+import AccordionHeading from './accordion-heading';
+import AccordionPanel from './accordion-panel';
+import AccordionButton from './accordion-button';
 
-interface Props {
-  children?: ReactNode;
-}
+import { VariantProps } from '../../../types';
+import { withTheme } from 'emotion-theming';
 
-export const AccordionContext = createContext({
-  invertStyles: false
-});
+interface Props extends BorderProps, LayoutProps, SpaceProps, VariantProps {}
 
-const AccordionBase = forwardRef<
-  HTMLDivElement,
-  Props & ThemeProps & AccordionProps
->(({ isInverted, children, theme, ...rest }, ref) => {
-  const [invertStyles, setInvertStyles] = useState(false);
-
-  const context = {
-    invertStyles
-  };
-
-  useEffect(() => {
-    if (isInverted) {
-      setInvertStyles(isInverted);
-    }
-  }, []);
-
-  const baseCss = getWrapperStyles({ inverse: invertStyles, theme });
-
-  return (
-    <AccordionWrapper ref={ref} css={baseCss}>
-      <AccordionContext.Provider value={context}>
-        <ReactAccordion {...rest}>{children}</ReactAccordion>
-      </AccordionContext.Provider>
-    </AccordionWrapper>
-  );
-});
+const AccordionBase = styled(ReactAccordion)<Props>(border, layout, space);
 
 const Accordion = Object.assign(withTheme(AccordionBase), {
-  Wrapper: AccordionWrapper,
+  Panel: AccordionPanel,
   Item: AccordionItem,
-  Header: AccordionHeader,
-  Content: AccordionContent
+  Heading: AccordionHeading,
+  Button: AccordionButton
 });
 
 export default Accordion;
