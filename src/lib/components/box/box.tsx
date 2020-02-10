@@ -13,6 +13,10 @@ import {
   layout,
   LayoutProps,
   OpacityProps,
+  position,
+  PositionProps,
+  shadow,
+  ShadowProps,
   space,
   SpaceProps
 } from 'styled-system';
@@ -22,20 +26,24 @@ interface ColorProps extends BackgroundColorProps, OpacityProps {}
 interface Props
   extends BackgroundProps,
     BorderProps,
+    ShadowProps,
     SpaceProps,
     ColorProps,
     FlexboxProps,
     GridProps,
-    LayoutProps {}
+    LayoutProps,
+    PositionProps {}
 
 const Box = styled.div<Props>(
   background,
+  shadow,
   border,
   color,
   grid,
   space,
   flexbox,
   layout,
+  position,
   {}
 );
 
