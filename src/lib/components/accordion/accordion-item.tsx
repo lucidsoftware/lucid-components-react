@@ -1,25 +1,14 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { forwardRef } from 'react';
-import { ThemeProps } from '../../../theme/theme';
-import { withTheme } from 'emotion-theming';
-import { AccordionProps } from './accordion.styles';
 import { AccordionItem as ReactAccordionItem } from 'react-accessible-accordion';
 
-import { getItemStyles } from './accordion.styles';
+import styled from '../../../theme/styled';
+import { flexbox, layout, FlexboxProps, LayoutProps } from 'styled-system';
 
-const AccordionItemBase = forwardRef<
-  HTMLLIElement,
-  ThemeProps & AccordionProps
->(({ theme, children, ...rest }) => {
-  const baseCss = getItemStyles();
+interface Props extends FlexboxProps, LayoutProps {}
 
-  return (
-    <ReactAccordionItem {...rest} css={baseCss}>
-      {children}
-    </ReactAccordionItem>
-  );
+const AccordionItem = styled(ReactAccordionItem)<Props>(flexbox, layout, {
+  display: 'flex',
+  flex: '0 1 100%',
+  flexWrap: 'wrap'
 });
 
-const AccordionItem = withTheme(AccordionItemBase);
 export default AccordionItem;

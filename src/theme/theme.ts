@@ -40,40 +40,63 @@ const theme = {
     }
   },
   accordion: {
-    header: {
+    button: {
       default: {
-        backgroundColor: 'transparent',
-        activeBackgroundColor: 'transparent',
-        color: colors.blueSteel,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid #D4D5D7`,
-        interactiveBorder: `1px solid ${colors.primary}`
+        paddingTop: 3,
+        paddingBottom: 3,
+        paddingLeft: 2,
+        paddingRight: 2,
+        borderBottomWidth: '1px',
+        borderBottomColor: 'lightgrey',
+        borderBottomStyle: 'solid',
+        '&:hover, &:focus': {
+          borderBottomColor: 'primary'
+        },
+        '&[aria-expanded="true"]': {
+          borderBottomColor: 'lightgrey'
+        }
       },
       inverse: {
+        paddingTop: 3,
+        paddingBottom: 3,
+        paddingLeft: 2,
+        paddingRight: 2,
+        borderBottomWidth: '1px',
+        borderBottomColor: '#5358D5',
+        borderBottomStyle: 'solid',
+        '&:hover, &:focus': {
+          borderBottomColor: 'primary',
+          backgroundColor: '#323580'
+        },
+        '&[aria-expanded="true"]': {
+          borderBottomColor: 'white'
+        },
         backgroundColor: '#4247aa',
-        activeBackgroundColor: '#323580',
-        color: colors.white,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid #5358D5`,
-        interactiveBorder: `1px solid #FFFFFF`
+        color: 'white'
       }
     },
-    content: {
+    panel: {
       default: {
-        backgroundColor: '#F2F2F2',
-        color: colors.blueSteel,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid ${colors.primary}`
+        backgroundColor: 'hsl(0, 0%, 96%)',
+        paddingTop: 2,
+        paddingRight: 4,
+        paddingBottom: 2,
+        paddingLeft: 4,
+        borderBottomWidth: '1px',
+        borderBottomColor: 'primary',
+        borderBottomStyle: 'solid',
+        color: 'black'
       },
       inverse: {
-        backgroundColor: '#323580',
-        color: colors.white,
-        padding: '16px 8px',
-        margin: '16px',
-        bottomBorder: `1px solid ${colors.primary}`
+        paddingTop: 2,
+        paddingRight: 4,
+        paddingBottom: 2,
+        paddingLeft: 4,
+        borderBottomWidth: '1px',
+        borderBottomColor: 'primary',
+        borderBottomStyle: 'solid',
+        backgroundColor: 'primary',
+        color: 'white'
       }
     }
   },
