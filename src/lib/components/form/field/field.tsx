@@ -12,22 +12,22 @@ interface Props {
 }
 
 interface WrapperProps {
-  floating?: boolean;
+  enableFloating?: boolean;
 }
 
-const Wrapper = styled.div<WrapperProps>(({ floating, theme }) => ({
+const Wrapper = styled.div<WrapperProps>(({ enableFloating, theme }) => ({
   position: 'relative',
-  ...(floating && {
+  ...(enableFloating && {
     border: '1px solid lightgrey',
     padding: theme.space[2],
     borderRadius: '3px'
   })
 }));
 
-const FloatingFieldBase = ({ children, floating, ...rest }: Props) => {
+const FieldBase = ({ children, floating: enableFloating, ...rest }: Props) => {
   const [isFloating, setIsFloating] = useState(false);
   const context = {
-    enableFloating: floating,
+    enableFloating,
     isFloating,
     setIsFloating
   };
@@ -35,13 +35,13 @@ const FloatingFieldBase = ({ children, floating, ...rest }: Props) => {
   return (
     // @ts-ignore
     <FieldContext.Provider value={context}>
-      <Wrapper floating={floating} {...rest}>
+      <Wrapper enableFloating={enableFloating} {...rest}>
         {children}
       </Wrapper>
     </FieldContext.Provider>
   );
 };
 
-const FloatingField = styled(FloatingFieldBase)<Props & SpaceProps>(space);
+const Field = styled(FieldBase)<Props & SpaceProps>(space);
 
-export default FloatingField;
+export default Field;
