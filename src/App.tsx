@@ -8,6 +8,9 @@ import styled from './theme/styled';
 import Box from './lib/components/box/box';
 import Heading from './lib/components/heading/heading';
 import Spacer from './lib/components/spacer/spacer';
+import Label from './lib/components/form/label/label';
+import TextInput from './lib/components/form/text-input/text-input';
+import Field from './lib/components/form/field/field';
 
 import Accordion from './lib/components/accordion/accordion';
 
@@ -336,6 +339,29 @@ const App: React.FC = () => {
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
+
+          <Spacer my={10} borderBottom="1px solid lightgrey" />
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[7, null, 8, 9]}
+            id="accordion"
+          >
+            Input component
+          </Heading>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            eligendi ducimus inventore autem sit dolores modi tempora maxime
+            sint consequatur itaque porro esse explicabo sunt a placeat
+            distinctio. Quasi, eveniet!
+          </p>
+          <Field floating mt={7}>
+            <Label activeColor="#333">Input label</Label>
+            <TextInput placeholder="Hello" />
+          </Field>
         </Box>
       </ThemeProvider>
     </div>
