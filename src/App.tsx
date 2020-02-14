@@ -358,9 +358,23 @@ const App: React.FC = () => {
             sint consequatur itaque porro esse explicabo sunt a placeat
             distinctio. Quasi, eveniet!
           </p>
+          <Field mt={7}>
+            <Label>Email</Label>
+            <TextInput p={4} placeholder="Hello" />
+          </Field>
           <Field floating mt={7}>
-            <Label activeColor="#333">Input label</Label>
-            <TextInput placeholder="Hello" />
+            <Label>Username</Label>
+            <TextInput validate validator={(evt) => {
+              return evt.currentTarget.value.length > 5;
+            }} p={4} placeholder="Hello" />
+          </Field>
+          <Field disabled floating mt={7}>
+            <Label>Username</Label>
+            <TextInput disabled p={4} placeholder="Hello" />
+          </Field>
+          <Field floating mt={7}>
+            <Label>Password</Label>
+            <TextInput type="password" p={4} placeholder="Hello" />
           </Field>
         </Box>
       </ThemeProvider>

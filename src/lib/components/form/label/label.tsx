@@ -33,38 +33,38 @@ const LabelBase = styled.label<LabelBaseProps>(
         fontSize: 3,
         position: 'absolute',
         top: '0',
+        left: 2,
         color: 'lightgrey',
         height: '100%',
         transition: 'all .15s ease-out',
         display: 'flex',
         alignItems: 'center',
-        lineHeight: '1'
+        lineHeight: '1',
+        pointerEvents: 'none',
+        transform: 'translateX(1px)',
+        '&[data-floating="true"]': {
+          transform: 'translateY(-24%) scale(.65)',
+          transformOrigin: 'left center',
+          letterSpacing: '.04rem',
+          color: 'black',
+          pointerEvents: 'auto'
+        }
       }
     }
   })
 );
 
-const Label = styled(({ activeColor, variant = 'default', ...rest }) => {
+const Label = styled(({ variant = 'default', ...rest }) => {
   const { enableFloating, isFloating } = React.useContext(FieldContext);
-  let style = {};
 
-  if (enableFloating) {
-    variant = 'floating';
-  }
-
-  if (enableFloating && isFloating) {
-    style = {
-      transform: 'translateY(-100%)',
-      color: activeColor ?? 'black'
-    };
-  }
+  variant = enableFloating ? 'floating' : variant;
 
   return (
     <LabelBase
       {...rest}
       floating={enableFloating}
-      style={style}
       variant={variant}
+      data-floating={enableFloating && isFloating}
     />
   );
 })<Props>();

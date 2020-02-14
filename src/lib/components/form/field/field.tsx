@@ -9,20 +9,17 @@ import FieldContext from './field-context';
 interface Props {
   children: ReactNode;
   floating?: boolean;
+  disabled?: boolean;
 }
 
 interface WrapperProps {
   enableFloating?: boolean;
+  disabled?: boolean;
 }
 
-const Wrapper = styled.div<WrapperProps>(({ enableFloating, theme }) => ({
-  position: 'relative',
-  ...(enableFloating && {
-    border: '1px solid lightgrey',
-    padding: theme.space[2],
-    borderRadius: '3px'
-  })
-}));
+const Wrapper = styled.div<WrapperProps>({
+  position: 'relative'
+});
 
 const FieldBase = ({ children, floating: enableFloating, ...rest }: Props) => {
   const [isFloating, setIsFloating] = useState(false);
@@ -35,7 +32,7 @@ const FieldBase = ({ children, floating: enableFloating, ...rest }: Props) => {
   return (
     // @ts-ignore
     <FieldContext.Provider value={context}>
-      <Wrapper enableFloating={enableFloating} {...rest}>
+      <Wrapper {...rest} enableFloating={enableFloating}>
         {children}
       </Wrapper>
     </FieldContext.Provider>
