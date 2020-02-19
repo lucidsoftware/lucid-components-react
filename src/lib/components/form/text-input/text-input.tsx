@@ -5,7 +5,7 @@ import {
   TypographyProps,
   space,
   SpaceProps,
-  variant
+  variant as variants
 } from 'styled-system';
 
 import { VariantProps } from '../../../../types';
@@ -20,7 +20,7 @@ interface Props extends TypographyProps, SpaceProps, VariantProps {
 const TextInputBase = styled.input<Props>(
   space,
   typography,
-  variant({
+  variants({
     variants: {
       default: {
         fontSize: 3,
@@ -63,9 +63,13 @@ const TextInput = styled(
     variant = FloatingStatus.Default,
     ...rest
   }) => {
-    const { enableFloating, isFloating, setIsFloating } = React.useContext(
-      FieldContext
-    );
+    const {
+      hasFocus,
+      setHasFocus,
+      enableFloating,
+      isFloating,
+      setIsFloating
+    } = React.useContext(FieldContext);
     const [isValid, setIsValid] = React.useState();
 
     if (enableFloating) {
@@ -73,7 +77,7 @@ const TextInput = styled(
       placeholder = '';
     }
 
-    const onChange = (evt: any) => {
+    const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = evt.currentTarget;
       if (value.length) {
         setIsFloating(true);
@@ -85,10 +89,24 @@ const TextInput = styled(
       }
     };
 
+    const onFocus = () => {
+      if (!hasFocus) {
+        setHasFocus(true);
+      }
+    };
+
+    const onBlur = () => {
+      if (hasFocus) {
+        setHasFocus(false);
+      }
+    };
+
     return (
       <TextInputBase
         {...rest}
         onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
         variant={variant}
         placeholder={placeholder}
         data-valid={isValid}

@@ -5,7 +5,7 @@ import {
   TypographyProps,
   space,
   SpaceProps,
-  variant
+  variant as variants
 } from 'styled-system';
 
 import FieldContext from '../field/field-context';
@@ -22,7 +22,7 @@ interface LabelBaseProps extends Props {
 const LabelBase = styled.label<LabelBaseProps>(
   space,
   typography,
-  variant({
+  variants({
     variants: {
       default: {
         fontSize: 3,
@@ -49,6 +49,9 @@ const LabelBase = styled.label<LabelBaseProps>(
           letterSpacing: '.04rem',
           color: 'black',
           pointerEvents: 'auto'
+        },
+        '&[data-focus="true"][data-floating="true"]': {
+          color: 'primary'
         }
       }
     }
@@ -56,7 +59,9 @@ const LabelBase = styled.label<LabelBaseProps>(
 );
 
 const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
-  const { enableFloating, isFloating } = React.useContext(FieldContext);
+  const { hasFocus, enableFloating, isFloating } = React.useContext(
+    FieldContext
+  );
 
   variant = enableFloating ? FloatingStatus.Floating : variant;
 
@@ -66,6 +71,7 @@ const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
       floating={enableFloating}
       variant={variant}
       data-floating={enableFloating && isFloating}
+      data-focus={hasFocus}
     />
   );
 })<Props>();

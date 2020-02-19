@@ -31,11 +31,16 @@ const FieldBase = ({
   ...rest
 }: Props) => {
   const [isFloating, setIsFloating] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
   const context = {
+    hasFocus,
     enableFloating,
     isFloating,
     setIsFloating: (value: boolean) => {
       setIsFloating(value);
+    },
+    setHasFocus: (value: boolean) => {
+      setHasFocus(value);
     }
   };
 
