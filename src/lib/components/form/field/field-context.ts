@@ -1,10 +1,17 @@
 import * as React from 'react';
 
-const defaultContext = {
+interface Context {
+  enableFloating: boolean;
+  isFloating: boolean;
+  setIsFloating(value: boolean): void;
+}
+
+const defaultContext: Context = {
   enableFloating: true,
   isFloating: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setIsFloating: (isFloating: boolean) => isFloating
+  setIsFloating: () => {
+    throw new Error('setIsFloating() not implemented');
+  }
 };
 
 const FieldContext = React.createContext(defaultContext);

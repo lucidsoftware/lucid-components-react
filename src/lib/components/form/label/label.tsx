@@ -9,6 +9,7 @@ import {
 } from 'styled-system';
 
 import FieldContext from '../field/field-context';
+import { FloatingStatus } from '../field/field';
 
 interface Props extends TypographyProps, SpaceProps {
   activeColor?: string;
@@ -43,7 +44,7 @@ const LabelBase = styled.label<LabelBaseProps>(
         pointerEvents: 'none',
         transform: 'translateX(1px)',
         '&[data-floating="true"]': {
-          transform: 'translateY(-24%) scale(.65)',
+          transform: 'translateY(-24%) scale(.75)',
           transformOrigin: 'left center',
           letterSpacing: '.04rem',
           color: 'black',
@@ -54,10 +55,10 @@ const LabelBase = styled.label<LabelBaseProps>(
   })
 );
 
-const Label = styled(({ variant = 'default', ...rest }) => {
+const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
   const { enableFloating, isFloating } = React.useContext(FieldContext);
 
-  variant = enableFloating ? 'floating' : variant;
+  variant = enableFloating ? FloatingStatus.Floating : variant;
 
   return (
     <LabelBase

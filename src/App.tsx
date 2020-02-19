@@ -364,9 +364,14 @@ const App: React.FC = () => {
           </Field>
           <Field floating mt={7}>
             <Label>Username</Label>
-            <TextInput validate validator={(evt) => {
-              return evt.currentTarget.value.length > 5;
-            }} p={4} placeholder="Hello" />
+            <TextInput
+              validate
+              validator={evt => {
+                return evt.currentTarget.value.length > 5;
+              }}
+              p={4}
+              placeholder="Hello"
+            />
           </Field>
           <Field disabled floating mt={7}>
             <Label>Username</Label>
