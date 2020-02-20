@@ -79,11 +79,7 @@ const TextInput = styled(
 
     const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = evt.currentTarget;
-      if (value.length) {
-        setIsFloating(true);
-      } else {
-        setIsFloating(false);
-      }
+      setIsFloating(value.length > 0);
       if (validate && validator) {
         setIsValid(validator(evt));
       }
