@@ -27,8 +27,8 @@ const TextInputBase = styled.input<Props>(
         border: '1px solid lightgrey',
         padding: 2,
         borderRadius: '3px',
-        '[disabled]': {
-          background: 'purple'
+        '&[disabled]': {
+          background: 'lightgrey'
         }
       },
       floating: {
@@ -45,6 +45,9 @@ const TextInputBase = styled.input<Props>(
         '&[data-floating="true"]': {
           paddingTop: '20px',
           paddingBottom: '12px'
+        },
+        '&[data-error="true"]': {
+          background: 'rgba(255, 30, 0, .55)'
         }
       }
     }
@@ -57,6 +60,7 @@ const TextInputBase = styled.input<Props>(
 
 const TextInput = styled(
   ({
+    disabled,
     validator,
     validate,
     placeholder,
@@ -64,13 +68,15 @@ const TextInput = styled(
     ...rest
   }) => {
     const {
-      hasFocus,
-      setHasFocus,
+      disabled: contextDisabled,
       enableFloating,
+      hasError,
+      hasFocus,
       isFloating,
+      setHasError,
+      setHasFocus,
       setIsFloating
     } = React.useContext(FieldContext);
-    const [isValid, setIsValid] = React.useState();
 
     if (enableFloating) {
       variant = 'floating';
@@ -81,7 +87,8 @@ const TextInput = styled(
       const { value } = evt.currentTarget;
       setIsFloating(value.length > 0);
       if (validate && validator) {
-        setIsValid(validator(evt));
+        const isValid = validator(evt);
+        setHasError(!isValid);
       }
     };
 
@@ -100,12 +107,13 @@ const TextInput = styled(
     return (
       <TextInputBase
         {...rest}
+        disabled={contextDisabled ?? disabled}
         onChange={onChange}
         onBlur={onBlur}
         onFocus={onFocus}
         variant={variant}
         placeholder={placeholder}
-        data-valid={isValid}
+        data-error={hasError}
         data-floating={enableFloating && isFloating}
       />
     );

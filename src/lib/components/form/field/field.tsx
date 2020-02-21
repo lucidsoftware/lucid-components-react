@@ -27,21 +27,22 @@ const Wrapper = styled.div<WrapperProps>({
 
 const FieldBase = ({
   children,
+  disabled,
   floating: enableFloating = false,
   ...rest
 }: Props) => {
   const [isFloating, setIsFloating] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const context = {
-    hasFocus,
+    disabled,
     enableFloating,
+    hasError,
+    hasFocus,
     isFloating,
-    setIsFloating: (value: boolean) => {
-      setIsFloating(value);
-    },
-    setHasFocus: (value: boolean) => {
-      setHasFocus(value);
-    }
+    setIsFloating: (value: boolean) => setIsFloating(value),
+    setHasError: (value: boolean) => setHasError(value),
+    setHasFocus: (value: boolean) => setHasFocus(value)
   };
 
   return (

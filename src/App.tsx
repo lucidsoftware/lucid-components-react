@@ -358,7 +358,7 @@ const App: React.FC = () => {
             sint consequatur itaque porro esse explicabo sunt a placeat
             distinctio. Quasi, eveniet!
           </p>
-          <Field mt={7}>
+          {/* <Field disabled mt={7}>
             <Label>Email</Label>
             <TextInput p={4} placeholder="Hello" />
           </Field>
@@ -380,7 +380,9 @@ const App: React.FC = () => {
           <Field floating mt={7}>
             <Label>Password</Label>
             <TextInput type="password" p={4} placeholder="Hello" />
-          </Field>
+          </Field> */}
+
+          <Label variant="default">Password</Label>
         </Box>
       </ThemeProvider>
     </div>

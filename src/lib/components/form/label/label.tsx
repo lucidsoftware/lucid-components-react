@@ -52,6 +52,9 @@ const LabelBase = styled.label<LabelBaseProps>(
         },
         '&[data-focus="true"][data-floating="true"]': {
           color: 'primary'
+        },
+        '&[data-error="true"][data-floating="true"]': {
+          color: 'firebrick'
         }
       }
     }
@@ -59,7 +62,7 @@ const LabelBase = styled.label<LabelBaseProps>(
 );
 
 const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
-  const { hasFocus, enableFloating, isFloating } = React.useContext(
+  const { hasError, hasFocus, enableFloating, isFloating } = React.useContext(
     FieldContext
   );
 
@@ -72,6 +75,7 @@ const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
       variant={variant}
       data-floating={enableFloating && isFloating}
       data-focus={hasFocus}
+      data-error={hasError}
     />
   );
 })<Props>();
