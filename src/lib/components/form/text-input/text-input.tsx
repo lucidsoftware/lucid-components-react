@@ -12,7 +12,7 @@ import { VariantProps } from '../../../../types';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
-interface Props extends TypographyProps, SpaceProps, VariantProps {
+export interface Props extends TypographyProps, SpaceProps, VariantProps {
   validate?: boolean;
   validator?: (event: string) => boolean;
 }

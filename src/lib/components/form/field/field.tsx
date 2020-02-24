@@ -10,7 +10,7 @@ export enum FloatingStatus {
   Floating = 'floating'
 }
 
-interface Props {
+export interface Props {
   children: ReactNode;
   floating?: boolean;
   disabled?: boolean;

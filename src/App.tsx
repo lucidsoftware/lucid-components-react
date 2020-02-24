@@ -8,10 +8,7 @@ import styled from './theme/styled';
 import Box from './lib/components/box/box';
 import Heading from './lib/components/heading/heading';
 import Spacer from './lib/components/spacer/spacer';
-import Label from './lib/components/form/label/label';
-import TextInput from './lib/components/form/text-input/text-input';
-import Field from './lib/components/form/field/field';
-
+import Form from './lib/components/form/form/form';
 import Accordion from './lib/components/accordion/accordion';
 
 const StickyNav = styled.nav({
@@ -358,31 +355,38 @@ const App: React.FC = () => {
             sint consequatur itaque porro esse explicabo sunt a placeat
             distinctio. Quasi, eveniet!
           </p>
-          {/* <Field disabled mt={7}>
-            <Label>Email</Label>
-            <TextInput p={4} placeholder="Hello" />
-          </Field>
-          <Field floating mt={7}>
-            <Label>Username</Label>
-            <TextInput
-              validate
-              validator={evt => {
-                return evt.currentTarget.value.length > 5;
-              }}
-              p={4}
-              placeholder="Hello"
-            />
-          </Field>
-          <Field disabled floating mt={7}>
-            <Label>Username</Label>
-            <TextInput disabled p={4} placeholder="Hello" />
-          </Field>
-          <Field floating mt={7}>
-            <Label>Password</Label>
-            <TextInput type="password" p={4} placeholder="Hello" />
-          </Field> */}
 
-          <Label variant="default">Password</Label>
+          <Form pt={6}>
+            <Form.Field disabled mt={7}>
+              <Form.Label>Email</Form.Label>
+              <Form.TextInput p={4} placeholder="Hello" />
+            </Form.Field>
+          </Form>
+
+          <Form pt={6}>
+            <Form.Field floating mt={7}>
+              <Form.Label>Username</Form.Label>
+              <Form.TextInput
+                p={4}
+                validate
+                validator={evt => {
+                  return evt.currentTarget.value.length > 5;
+                }}
+              />
+            </Form.Field>
+
+            <Form.Field disabled floating mt={7}>
+              <Form.Label>Username</Form.Label>
+              <Form.TextInput disabled p={4} placeholder="Hello" />
+            </Form.Field>
+            <Form.Field floating mt={7}>
+              <Form.Label>Password</Form.Label>
+              <Form.TextInput type="password" p={4} placeholder="Hello" />
+            </Form.Field>
+
+            <Form.Label variant="default">Password</Form.Label>
+
+          </Form>
         </Box>
       </ThemeProvider>
     </div>

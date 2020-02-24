@@ -11,7 +11,7 @@ import {
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
-interface Props extends TypographyProps, SpaceProps {
+export interface Props extends TypographyProps, SpaceProps {
   activeColor?: string;
 }
 
