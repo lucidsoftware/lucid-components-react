@@ -6,3 +6,13 @@ body {
     padding: 0;
     margin: 0;
 }
+
+.row {
+  width: 100%;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.row > * {
+  margin: 0 20px;
+}

@@ -8,7 +8,7 @@ import styled from './theme/styled';
 import Box from './lib/components/box/box';
 import Heading from './lib/components/heading/heading';
 import Spacer from './lib/components/spacer/spacer';
-
+import Form from './lib/components/form/form/form';
 import Accordion from './lib/components/accordion/accordion';
 
 const StickyNav = styled.nav({
@@ -336,6 +336,57 @@ const App: React.FC = () => {
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
+
+          <Spacer my={10} borderBottom="1px solid lightgrey" />
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[7, null, 8, 9]}
+            id="accordion"
+          >
+            Input component
+          </Heading>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            eligendi ducimus inventore autem sit dolores modi tempora maxime
+            sint consequatur itaque porro esse explicabo sunt a placeat
+            distinctio. Quasi, eveniet!
+          </p>
+
+          <Form pt={6}>
+            <Form.Field disabled mt={7}>
+              <Form.Label>Email</Form.Label>
+              <Form.TextInput p={4} placeholder="Hello" />
+            </Form.Field>
+          </Form>
+
+          <Form pt={6}>
+            <Form.Field floating mt={7}>
+              <Form.Label>Username</Form.Label>
+              <Form.TextInput
+                p={4}
+                validate
+                validator={evt => {
+                  return evt.currentTarget.value.length > 5;
+                }}
+              />
+            </Form.Field>
+
+            <Form.Field disabled floating mt={7}>
+              <Form.Label>Username</Form.Label>
+              <Form.TextInput disabled p={4} placeholder="Hello" />
+            </Form.Field>
+            <Form.Field floating mt={7}>
+              <Form.Label>Password</Form.Label>
+              <Form.TextInput type="password" p={4} placeholder="Hello" />
+            </Form.Field>
+
+            <Form.Label variant="default">Password</Form.Label>
+
+          </Form>
         </Box>
       </ThemeProvider>
     </div>
