@@ -93,7 +93,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props>(
     ref
   ) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<
-      Array<Dispatch<SetStateAction<boolean>>>
+      Dispatch<SetStateAction<boolean>>[]
     >([]);
     const [expanded, setExpanded] = useState(false);
 
@@ -152,6 +152,8 @@ const NavbarComp = forwardRef<HTMLDivElement, Props>(
     );
   }
 );
+
+NavbarComp.displayName = 'NavbarComp';
 
 const Navbar = Object.assign(NavbarComp, {
   Brand: NavbarBrand,

@@ -23,10 +23,12 @@ const NavbarToggle = forwardRef<
   const { toggleExpanded } = useContext(NavbarContext);
 
   return (
-    <NavbarToggleButton ref={ref} {...rest} onClick={toggleExpanded}>
+    <NavbarToggleButton {...rest} ref={ref} onClick={toggleExpanded}>
       {children}
     </NavbarToggleButton>
   );
 });
+
+NavbarToggle.displayName = 'NavbarToggle';
 
 export default NavbarToggle;
