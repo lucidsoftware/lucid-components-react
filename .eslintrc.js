@@ -15,7 +15,7 @@ module.exports = {
     'emotion/styled-import': 'error',
     'emotion/syntax-preference': [2, 'object'],
     '@typescript-eslint/explicit-function-return-type': 0,
-    'react/prop-types': 0
+    'react/prop-types': 0,
   },
   parserOptions: {
     ecmaVersion: 2018,
