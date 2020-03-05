@@ -27,12 +27,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-components": "rm -rf dist && tsc -p src/lib/",
+    "build-components": "rm -rf dist && tsc -p src/lib/; git add ./dist; git commit -m \"[auto] Build component library.\"",
     "lint": "lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run build-components; git add ./dist; git commit -m \"[husky auto] Build component library.\"",
       "pre-commit": "lint-staged"
     }
   },
