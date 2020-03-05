@@ -1,17 +1,16 @@
-/// <reference types="react" />
 /// <reference types="@emotion/core" />
 export interface NavbarBorderProps {
     isHidden?: boolean;
 }
 declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, NavbarBorderProps, {
     colors: {
-        heading: string;
         text: string;
         background: string;
+        heading: string;
         primary: string;
-        primaryText: string;
         secondary: string;
-        secondaryText: string;
+        accent: string;
+        muted: string;
         grey: string;
         white: string;
         black: string;
@@ -37,49 +36,92 @@ declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<impor
             borderRadius: string;
         };
     };
+    accordion: {
+        button: {
+            default: {
+                paddingTop: number;
+                paddingBottom: number;
+                paddingLeft: number;
+                paddingRight: number;
+                borderBottomWidth: string;
+                borderBottomColor: string;
+                borderBottomStyle: string;
+                '&:hover, &:focus': {
+                    borderBottomColor: string;
+                };
+                '&[aria-expanded="true"]': {
+                    borderBottomColor: string;
+                };
+            };
+            inverse: {
+                paddingTop: number;
+                paddingBottom: number;
+                paddingLeft: number;
+                paddingRight: number;
+                borderBottomWidth: string;
+                borderBottomColor: string;
+                borderBottomStyle: string;
+                '&:hover, &:focus': {
+                    borderBottomColor: string;
+                    backgroundColor: string;
+                };
+                '&[aria-expanded="true"]': {
+                    borderBottomColor: string;
+                };
+                backgroundColor: string;
+                color: string;
+            };
+        };
+        panel: {
+            default: {
+                backgroundColor: string;
+                paddingTop: number;
+                paddingRight: number;
+                paddingBottom: number;
+                paddingLeft: number;
+                borderBottomWidth: string;
+                borderBottomColor: string;
+                borderBottomStyle: string;
+                color: string;
+            };
+            inverse: {
+                paddingTop: number;
+                paddingRight: number;
+                paddingBottom: number;
+                paddingLeft: number;
+                borderBottomWidth: string;
+                borderBottomColor: string;
+                borderBottomStyle: string;
+                backgroundColor: string;
+                color: string;
+            };
+        };
+    };
+    forms: {
+        select: {
+            backgroundColor: string;
+            border: string;
+            borderRadius: string;
+            color: string;
+            floatingLabel: {
+                paddingTop: string;
+            };
+            focus: {
+                borderColor: string;
+                labelColor: string;
+            };
+            fontSize: string;
+            fontSizeSmall: string;
+            height: string;
+            outline: string;
+            padding: string;
+        };
+    };
     breadcrumb: {
         color: string;
         inverseColor: string;
         margin: string;
         crumbOpacity: number;
-    };
-    links: {
-        default: {
-            default: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-            inverse: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-        };
-        primary: {
-            default: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-            inverse: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-        };
-        secondary: {
-            default: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-            inverse: {
-                color: string;
-                hover: string;
-                disabled: string;
-            };
-        };
     };
     buttons: {
         fontSize: string;
@@ -121,9 +163,6 @@ declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<impor
             activeTransform: number;
         };
     };
-    paper: {
-        padding: string;
-    };
     card: {
         padding: string;
         raised: {
@@ -134,6 +173,67 @@ declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<impor
             boxShadowHover: string;
         };
     };
+    links: {
+        default: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        primary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+        secondary: {
+            default: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+            inverse: {
+                color: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+    };
+    paper: {
+        padding: string;
+        default: {
+            background: string;
+            borderRadius: string;
+            border: string;
+            boxShadow: string;
+        };
+        raised: {
+            background: string;
+            borderRadius: string;
+            border: string;
+            boxShadow: string;
+        };
+    };
+    headings: {
+        heading: {
+            color: string;
+        };
+        subheading: {
+            color: string;
+        };
+    };
     fonts: {
         body: string;
         heading: string;
@@ -141,17 +241,23 @@ declare const NavbarBorder: import("@emotion/styled-base").StyledComponent<impor
     };
     fontWeights: {
         body: number;
+        heading: number;
         bold: number;
         bolder: number;
-        heading: number;
     };
     lineHeights: {
+        default: number;
         body: number;
         heading: number;
     };
+    letterSpacings: {
+        body: string;
+        heading: string;
+    };
     fontSizes: number[];
-    space: number[];
-    breakpoints: number[];
     borderRadius: number;
+    space: number[];
+    breakpoints: string[];
+    zIndices: number[];
 }>;
 export default NavbarBorder;

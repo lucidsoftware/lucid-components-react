@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare enum IconType {
     ArrowRight = 0,
     CarotRight = 1,

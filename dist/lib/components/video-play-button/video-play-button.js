@@ -10,12 +10,22 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
-const icon_1 = require("../icon/icon");
+const icon_1 = __importStar(require("../icon/icon"));
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = require("../../../theme/styled");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const PlayButton = styled_1.default.button(({ sizePx, sizePadding }) => ({
     display: 'flex',
     justifyContent: 'center',

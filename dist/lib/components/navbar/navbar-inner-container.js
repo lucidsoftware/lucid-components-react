@@ -10,12 +10,15 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const navbar_1 = require("./navbar");
-const styled_1 = require("../../../theme/styled");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarInnerContainerList = styled_1.default.ol(({ theme, expanded }) => ({
     display: 'flex',
     order: 2,
@@ -34,4 +37,5 @@ const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
     const { expanded } = react_1.useContext(navbar_1.NavbarContext);
     return (core_1.jsx(NavbarInnerContainerList, Object.assign({ ref: ref, expanded: expanded }, rest), children));
 });
+NavbarInnerContainer.displayName = 'NavbarInnerContainer';
 exports.default = NavbarInnerContainer;

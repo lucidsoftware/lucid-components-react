@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.primary = '#636AFF';
+exports.secondary = '#636AFF';
+exports.accent = '#636AFF';
+exports.muted = '#636AFF';
+exports.white = '#FFFFFF';
+exports.black = '#111111';
+exports.grey = '#EBEBEC';
+exports.lightGrey = '#A7A9AC';
+exports.text = '#3D4752';
+exports.background = '#FFFFFF';
+exports.blueSteel = '#3D4752';

@@ -1,5 +1,4 @@
 /// <reference types="@emotion/core" />
-/** @jsx jsx */
 import { RefAttributes, AnchorHTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 import { ButtonSize } from '../button/button';
@@ -23,11 +22,11 @@ export declare enum LinkVariant {
     Secondary = "secondary"
 }
 export declare const getLinkStyles: ({ active, block, inverse, theme, underline, variant }: {
-    active?: boolean;
-    block?: boolean;
-    inverse?: boolean;
-    underline?: string;
-    variant?: LinkVariant;
+    active?: boolean | undefined;
+    block?: boolean | undefined;
+    inverse?: boolean | undefined;
+    underline?: string | undefined;
+    variant?: LinkVariant | undefined;
 } & ThemeProps) => {
     color: string;
     display: string;
@@ -51,5 +50,5 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
         cursor: string;
     };
 };
-declare const Link: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<LinkProps>, "theme">>;
+declare const Link: import("react").SFC<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<LinkProps>, "theme">>;
 export default Link;

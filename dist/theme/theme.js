@@ -1,25 +1,28 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const primary = '#636AFF';
-const white = '#FFFFFF';
-const black = '#FFFFFF';
-const blueSteel = '#3D4752';
-const theme = {
-    colors: {
-        heading: blueSteel,
-        text: blueSteel,
-        background: white,
-        primary,
-        primaryText: primary,
-        secondary: blueSteel,
-        secondaryText: blueSteel,
-        grey: '#EBEBEC',
-        white,
-        black,
-        disabled: '#EBEBEC',
-        disabledBorder: '#A7A9AC'
-    },
-    navbar: {
+const colors = __importStar(require("./colors"));
+const base_1 = require("./base");
+const theme = Object.assign(Object.assign({}, base_1.base), { colors: {
+        text: colors.blueSteel,
+        background: colors.white,
+        heading: colors.blueSteel,
+        primary: colors.primary,
+        secondary: colors.blueSteel,
+        accent: colors.accent,
+        muted: colors.muted,
+        grey: colors.grey,
+        white: colors.white,
+        black: colors.black,
+        disabled: colors.grey,
+        disabledBorder: colors.lightGrey
+    }, navbar: {
         background: '#FFF',
         collapseAt: '1000px',
         minHeight: '40px',
@@ -34,55 +37,94 @@ const theme = {
             mobilePadding: '.5rem',
             background: '#FFF',
             backgroundHover: '#DDD',
-            border: `1px solid ${blueSteel}`,
+            border: `1px solid ${colors.blueSteel}`,
             borderRadius: '3px'
         }
-    },
-    breadcrumb: {
-        color: blueSteel,
-        inverseColor: white,
-        margin: '0 6px',
-        crumbOpacity: 0.45
-    },
-    links: {
-        default: {
+    }, accordion: {
+        button: {
             default: {
-                color: blueSteel,
-                hover: blueSteel,
-                disabled: blueSteel
+                paddingTop: 3,
+                paddingBottom: 3,
+                paddingLeft: 2,
+                paddingRight: 2,
+                borderBottomWidth: '1px',
+                borderBottomColor: 'lightgrey',
+                borderBottomStyle: 'solid',
+                '&:hover, &:focus': {
+                    borderBottomColor: 'primary'
+                },
+                '&[aria-expanded="true"]': {
+                    borderBottomColor: 'lightgrey'
+                }
             },
             inverse: {
-                color: white,
-                hover: white,
-                disabled: white
+                paddingTop: 3,
+                paddingBottom: 3,
+                paddingLeft: 2,
+                paddingRight: 2,
+                borderBottomWidth: '1px',
+                borderBottomColor: '#5358D5',
+                borderBottomStyle: 'solid',
+                '&:hover, &:focus': {
+                    borderBottomColor: 'primary',
+                    backgroundColor: '#323580'
+                },
+                '&[aria-expanded="true"]': {
+                    borderBottomColor: 'white'
+                },
+                backgroundColor: '#4247aa',
+                color: 'white'
             }
         },
-        primary: {
+        panel: {
             default: {
-                color: primary,
-                hover: primary,
-                disabled: primary
+                backgroundColor: 'hsl(0, 0%, 96%)',
+                paddingTop: 2,
+                paddingRight: 4,
+                paddingBottom: 2,
+                paddingLeft: 4,
+                borderBottomWidth: '1px',
+                borderBottomColor: 'primary',
+                borderBottomStyle: 'solid',
+                color: 'black'
             },
             inverse: {
-                color: white,
-                hover: white,
-                disabled: white
-            }
-        },
-        secondary: {
-            default: {
-                color: primary,
-                hover: primary,
-                disabled: primary
-            },
-            inverse: {
-                color: white,
-                hover: white,
-                disabled: white
+                paddingTop: 2,
+                paddingRight: 4,
+                paddingBottom: 2,
+                paddingLeft: 4,
+                borderBottomWidth: '1px',
+                borderBottomColor: 'primary',
+                borderBottomStyle: 'solid',
+                backgroundColor: 'primary',
+                color: 'white'
             }
         }
-    },
-    buttons: {
+    }, forms: {
+        select: {
+            backgroundColor: '#FFF',
+            border: '1px solid #a7a9ac',
+            borderRadius: '5px',
+            color: colors.white,
+            floatingLabel: {
+                paddingTop: '1.2em'
+            },
+            focus: {
+                borderColor: '#636aff',
+                labelColor: '#636aff'
+            },
+            fontSize: '1em',
+            fontSizeSmall: '.75em',
+            height: '50px',
+            outline: 'none',
+            padding: '.3375rem .75rem'
+        }
+    }, breadcrumb: {
+        color: colors.blueSteel,
+        inverseColor: colors.white,
+        margin: '0 6px',
+        crumbOpacity: 0.45
+    }, buttons: {
         fontSize: '1em',
         lineHeight: '1',
         boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
@@ -121,11 +163,7 @@ const theme = {
             hoverBorder: '1px solid #636AFF',
             activeTransform: 0.95
         }
-    },
-    paper: {
-        padding: '40px'
-    },
-    card: {
+    }, card: {
         padding: '40px',
         raised: {
             boxShadow: '20px 20px 0 0 rgba(0,0,0,.3)'
@@ -134,43 +172,63 @@ const theme = {
             boxShadow: '10px 10px 0 0 rgba(0,0,0,.2)',
             boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
         }
-    },
-    fonts: {
-        body: 'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
-        heading: 'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
-        monospace: 'monospace'
-    },
-    fontWeights: {
-        body: 400,
-        bold: 500,
-        bolder: 600,
-        heading: 700
-    },
-    lineHeights: {
-        body: 1.35,
-        heading: 1.125
-    },
-    fontSizes: [
-        18,
-        19,
-        21,
-        22,
-        24,
-        26,
-        28,
-        32,
-        36,
-        40,
-        46,
-        53,
-        56,
-        66,
-        48,
-        64,
-        72
-    ],
-    space: [0, 4, 8, 16, 24, 32, 64, 128, 256, 512],
-    breakpoints: [320, 500, 768, 900, 1024, 1220, 1440],
-    borderRadius: 5
-};
+    }, links: {
+        default: {
+            default: {
+                color: colors.blueSteel,
+                hover: colors.blueSteel,
+                disabled: colors.blueSteel
+            },
+            inverse: {
+                color: colors.white,
+                hover: colors.white,
+                disabled: colors.white
+            }
+        },
+        primary: {
+            default: {
+                color: colors.primary,
+                hover: colors.primary,
+                disabled: colors.primary
+            },
+            inverse: {
+                color: colors.white,
+                hover: colors.white,
+                disabled: colors.white
+            }
+        },
+        secondary: {
+            default: {
+                color: colors.primary,
+                hover: colors.primary,
+                disabled: colors.primary
+            },
+            inverse: {
+                color: colors.white,
+                hover: colors.white,
+                disabled: colors.white
+            }
+        }
+    }, paper: {
+        padding: '40px',
+        default: {
+            background: 'white',
+            borderRadius: '5px',
+            border: '1px solid lightgrey',
+            boxShadow: '10px 10px 0 0 rgba(0, 0, 0, .3)'
+        },
+        raised: {
+            background: 'white',
+            borderRadius: '5px',
+            border: '1px solid lightgrey',
+            boxShadow: '20px 20px 0 0 rgba(0, 0, 0, .3)'
+        }
+    }, headings: {
+        heading: {
+            color: 'heading'
+        },
+        subheading: {
+            color: '#555555'
+        }
+    } });
 exports.default = theme;

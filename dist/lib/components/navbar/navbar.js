@@ -1,19 +1,22 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
-const styled_1 = require("../../../theme/styled");
-const button_1 = require("../button/button");
-const navbar_item_1 = require("./navbar-item");
-const navbar_brand_1 = require("./navbar-brand");
-const navbar_border_1 = require("./navbar-border");
-const navbar_dropdown_1 = require("./navbar-dropdown");
-const navbar_dropdown_container_1 = require("./navbar-dropdown-container");
-const navbar_container_1 = require("./navbar-container");
-const navbar_inner_container_1 = require("./navbar-inner-container");
-const navbar_toggle_1 = require("./navbar-toggle");
-const navbar_dropdown_group_1 = require("./navbar-dropdown-group");
+const styled_1 = __importDefault(require("../../../theme/styled"));
+const button_1 = __importDefault(require("../button/button"));
+const navbar_item_1 = __importDefault(require("./navbar-item"));
+const navbar_brand_1 = __importDefault(require("./navbar-brand"));
+const navbar_border_1 = __importDefault(require("./navbar-border"));
+const navbar_dropdown_1 = __importDefault(require("./navbar-dropdown"));
+const navbar_dropdown_container_1 = __importDefault(require("./navbar-dropdown-container"));
+const navbar_container_1 = __importDefault(require("./navbar-container"));
+const navbar_inner_container_1 = __importDefault(require("./navbar-inner-container"));
+const navbar_toggle_1 = __importDefault(require("./navbar-toggle"));
+const navbar_dropdown_group_1 = __importDefault(require("./navbar-dropdown-group"));
 exports.NavbarContext = react_1.createContext({
     expanded: false,
     toggleExpanded: () => {
@@ -94,6 +97,7 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
                 core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
             core_1.jsx(NavbarChildren, null, children))));
 });
+NavbarComp.displayName = 'NavbarComp';
 const Navbar = Object.assign(NavbarComp, {
     Brand: navbar_brand_1.default,
     Border: navbar_border_1.default,
