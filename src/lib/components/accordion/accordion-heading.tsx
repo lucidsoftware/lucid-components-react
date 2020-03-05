@@ -13,7 +13,7 @@ import {
   background
 } from 'styled-system';
 
-interface Props
+export interface Props
   extends BackgroundProps,
     BorderProps,
     TypographyProps,

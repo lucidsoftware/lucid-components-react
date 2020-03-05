@@ -10,7 +10,7 @@ import {
 
 import { VariantProps } from '../../../types';
 
-interface Props extends TypographyProps, SpaceProps, VariantProps {}
+export interface Props extends TypographyProps, SpaceProps, VariantProps {}
 
 const AccordionButton = styled(AccordionItemButton)<Props>(
   typography,
