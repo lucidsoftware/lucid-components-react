@@ -4,7 +4,8 @@ import { jsx } from '@emotion/core';
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
 
-export interface NavbarInnerContainerProps {
+export interface NavbarInnerContainerProps
+  extends HTMLAttributes<HTMLOListElement> {
   background?: string;
 }
 
@@ -37,7 +38,7 @@ const NavbarInnerContainerList = styled.ol<{ expanded: boolean }>(
 
 const NavbarInnerContainer = forwardRef<
   HTMLOListElement,
-  NavbarInnerContainerProps & HTMLAttributes<HTMLOListElement>
+  NavbarInnerContainerProps
 >(({ children, ...rest }, ref) => {
   const { expanded } = useContext(NavbarContext);
 
@@ -47,5 +48,7 @@ const NavbarInnerContainer = forwardRef<
     </NavbarInnerContainerList>
   );
 });
+
+NavbarInnerContainer.displayName = 'NavbarInnerContainer';
 
 export default NavbarInnerContainer;

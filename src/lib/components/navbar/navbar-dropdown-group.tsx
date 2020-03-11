@@ -1,6 +1,6 @@
 import styled from '../../../theme/styled';
 
-const NavbarDropdownGroup = styled.div(({ theme, children }) => ({
+const NavbarDropdownGroup = styled.div(({ theme }) => ({
   flex: 1,
   display: 'flex',
   flexWrap: 'wrap',

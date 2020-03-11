@@ -10,13 +10,16 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 const react_1 = require("react");
-const react_player_1 = require("react-player");
-const video_play_button_1 = require("../video-play-button/video-play-button");
-const styled_1 = require("../../../theme/styled");
+const react_player_1 = __importDefault(require("react-player"));
+const video_play_button_1 = __importDefault(require("../video-play-button/video-play-button"));
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const VideoPlaceholder = styled_1.default('div') `
   position: absolute;
   top: 0;

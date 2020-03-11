@@ -24,10 +24,10 @@ export interface CoreButtonProps {
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
 export declare const getButtonStyles: ({ theme, variant, size, block, active }: {
-    variant?: string;
-    block?: boolean;
-    size?: ButtonSize;
-    active?: boolean;
+    variant?: string | undefined;
+    block?: boolean | undefined;
+    size?: "small" | "large" | "regular" | undefined;
+    active?: boolean | undefined;
 } & ThemeProps) => {
     display: string;
     width: string;
@@ -55,5 +55,5 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active }: 
         textDecoration: string;
     };
 };
-declare const Button: import("react").FunctionComponent<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<ButtonProps>, "theme">>;
+declare const Button: import("react").SFC<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<ButtonProps>, "theme">>;
 export default Button;

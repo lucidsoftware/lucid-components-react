@@ -1,6 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const styled_1 = require("../../../theme/styled");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const CardSubTitle = styled_1.default('h3') `
   display: block;
   margin: 0 0 ${props => props.theme.space[2]}px;

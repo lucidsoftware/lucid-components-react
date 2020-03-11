@@ -1,4 +1,5 @@
-import styled, { CreateStyled } from '@emotion/styled';
-import { ThemeProps } from './theme';
+import styledBase, { CreateStyled } from '@emotion/styled';
+import { Theme } from './theme';
 
-export default styled as CreateStyled<ThemeProps['theme']>;
+const styled: CreateStyled<Theme> = styledBase;
+export default styled;

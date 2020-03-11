@@ -10,12 +10,15 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const navbar_1 = require("./navbar");
-const styled_1 = require("../../../theme/styled");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarToggleButton = styled_1.default.button(({ theme }) => ({
     display: 'none',
     background: 'transparent',
@@ -29,6 +32,7 @@ const NavbarToggleButton = styled_1.default.button(({ theme }) => ({
 const NavbarToggle = react_1.forwardRef((_a, ref) => {
     var { children } = _a, rest = __rest(_a, ["children"]);
     const { toggleExpanded } = react_1.useContext(navbar_1.NavbarContext);
-    return (core_1.jsx(NavbarToggleButton, Object.assign({ ref: ref }, rest, { onClick: toggleExpanded }), children));
+    return (core_1.jsx(NavbarToggleButton, Object.assign({}, rest, { ref: ref, onClick: toggleExpanded }), children));
 });
+NavbarToggle.displayName = 'NavbarToggle';
 exports.default = NavbarToggle;

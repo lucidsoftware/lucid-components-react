@@ -1,11 +1,15 @@
 {
     "compilerOptions": {
         "outDir": "../../dist/",
-        "noImplicitAny": true,
-        "module": "commonjs",
         "declaration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "strict": true,
         "target": "es6",
-        "jsx": "react"
+        "types": ["node", "@emotion/core"]
     },
     "include": [
         "./index.ts"

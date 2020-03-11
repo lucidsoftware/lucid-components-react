@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React from 'react';
 import './App.css';
 
@@ -10,6 +12,9 @@ import Heading from './lib/components/heading/heading';
 import Spacer from './lib/components/spacer/spacer';
 import Form from './lib/components/form/form/form';
 import Accordion from './lib/components/accordion/accordion';
+import Navbar from './lib/components/navbar/navbar';
+import Button from './lib/components/button/button';
+import Link from './lib/components/link/link';
 
 const StickyNav = styled.nav({
   display: 'flex',
@@ -385,9 +390,115 @@ const App: React.FC = () => {
             </Form.Field>
 
             <Form.Label variant="default">Password</Form.Label>
-
           </Form>
         </Box>
+
+        <Navbar sticky>
+          <Navbar.Container className="nav-container">
+            <Navbar.Brand>
+              <Link href="https://www.google.com">
+                <img
+                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
+                  alt="Logo"
+                  style={{ width: '200px' }}
+                />
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle>Menu</Navbar.Toggle>
+            <Navbar.InnerContainer>
+              <Navbar.Item>
+                <Button secondary>Play Video</Button>
+              </Navbar.Item>
+              <Navbar.Item>I am just some text</Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Dropdown
+                  toggle={toggleHandler => (
+                    <Button primary onMouseOver={toggleHandler}>
+                      A Dropdown
+                    </Button>
+                  )}
+                >
+                  <Navbar.DropdownContainer>
+                    <Link href="https://www.microsoft.com">
+                      Some valid link
+                    </Link>
+                    <Link>An invalid link</Link>
+                    <Link primary href="https://www.microsoft.com">
+                      Some 3rd link with an absurdly long name for reals
+                    </Link>
+                    <Link href="https://www.microsoft.com">
+                      Some 4th link with long name
+                    </Link>
+                    <p>Some Label</p>
+                    <Link href="https://www.microsoft.com">
+                      Some 4th link with long name
+                    </Link>
+                  </Navbar.DropdownContainer>
+                </Navbar.Dropdown>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Dropdown
+                  style={{ position: 'static' }}
+                  toggle={toggleHandler => (
+                    <Button asLink onMouseOver={toggleHandler}>
+                      A Second Dropdown
+                    </Button>
+                  )}
+                >
+                  <Navbar.DropdownContainer
+                    css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
+                  >
+                    <div style={{ width: '50%' }}>
+                      <p>Hello</p>
+                      <span
+                        css={{
+                          display: 'inline-block',
+                          width: 'auto',
+                          padding: '0',
+                          marginBottom: '.5rem',
+                          fontWeight: 600
+                        }}
+                      >
+                        Howdy
+                      </span>
+                    </div>
+                    <Navbar.DropdownGroup>
+                      <p>Some Header</p>
+                      <Link
+                        css={{ display: 'flex', width: '20px' }}
+                        href="https://www.microsoft.com"
+                      >
+                        Some valid link
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some valid link
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some valid link
+                      </Link>
+                    </Navbar.DropdownGroup>
+
+                    <Navbar.DropdownGroup>
+                      <p>Another Header</p>
+                      <Link>An invalid link</Link>
+                      <Link primary href="https://www.microsoft.com">
+                        Some 3rd link with an absurdly long name for reals
+                      </Link>
+                      <Link href="https://www.microsoft.com">
+                        Some 4th link with long name
+                      </Link>
+                      <p>Some Label</p>
+                      <Link href="https://www.microsoft.com">
+                        Some 4th link with long name
+                      </Link>
+                    </Navbar.DropdownGroup>
+                  </Navbar.DropdownContainer>
+                </Navbar.Dropdown>
+              </Navbar.Item>
+            </Navbar.InnerContainer>
+            <Navbar.Border />
+          </Navbar.Container>
+        </Navbar>
       </ThemeProvider>
     </div>
   );

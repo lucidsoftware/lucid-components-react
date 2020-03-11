@@ -14,7 +14,7 @@ import {
 
 import { VariantProps } from '../../../types';
 
-interface Props
+export interface Props
   extends BackgroundProps,
     TypographyProps,
     SpaceProps,
