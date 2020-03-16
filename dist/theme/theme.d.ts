@@ -256,7 +256,7 @@ declare const theme: {
     breakpoints: string[];
     zIndices: number[];
 };
-interface Theme {
+export interface Theme {
     colors: {
         [key: string]: string;
     };

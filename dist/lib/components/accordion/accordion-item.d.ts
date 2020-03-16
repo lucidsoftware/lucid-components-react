@@ -9,5 +9,5 @@ declare const AccordionItem: import("@emotion/styled-base").StyledComponent<Pick
     uuid?: string | number | undefined;
 } & import("react").RefAttributes<ReactAccordionItem>, "className">> & Partial<Pick<{
     className: string;
-}, never>>, Props, object>;
+}, never>>, Props, import("../../../theme/theme").Theme>;
 export default AccordionItem;
