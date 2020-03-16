@@ -239,7 +239,39 @@ const theme = {
   }
 };
 
-export type Theme = typeof theme;
+// export type Theme = typeof theme;
+interface Theme {
+  colors: {
+    [key: string]: string;
+  };
+  fonts: {
+    [key: string]: string;
+  };
+  fontWeights: {
+    [key: string]: number;
+  };
+  lineHeights: {
+    [key: string]: number;
+  };
+  letterSpacings: {
+    [key: string]: string;
+  };
+  fontSizes: number[];
+  borderRadius: number;
+  space: number[];
+  breakpoints: number[] | string[];
+  zIndices: number[];
+  navbar?: any;
+  accordion?: any;
+  panel?: any;
+  forms?: any;
+  breadcrumb?: any;
+  buttons?: any;
+  card?: any;
+  links?: any;
+  paper?: any;
+  headings?: any;
+}
 export interface ThemeProps {
   theme: Theme;
 }
