@@ -240,7 +240,7 @@ const theme = {
 };
 
 // export type Theme = typeof theme;
-interface Theme {
+export interface Theme {
   colors: {
     [key: string]: string;
   };
