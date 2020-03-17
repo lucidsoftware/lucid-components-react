@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const styled_system_1 = require("styled-system");
-const HeadingBase = styled_1.default('h1')(styled_system_1.typography, styled_system_1.space, styled_system_1.color, styled_system_1.variant({
+const HeadingBase = styled_1.default('h1')(styled_system_1.variant({
     prop: 'variant',
     scale: 'headings',
     variants: {
@@ -32,7 +32,7 @@ const HeadingBase = styled_1.default('h1')(styled_system_1.typography, styled_sy
             fontWeight: 'heading'
         }
     }
-}));
+}), styled_system_1.color, styled_system_1.layout, styled_system_1.space, styled_system_1.typography);
 const Heading = styled_1.default((_a) => {
     var { as } = _a, rest = __rest(_a, ["as"]);
     return react_1.default.createElement(HeadingBase, Object.assign({ as: as }, rest));
