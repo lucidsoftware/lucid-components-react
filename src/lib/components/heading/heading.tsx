@@ -9,20 +9,24 @@ import {
   variant,
   TypographyProps,
   SpaceProps,
-  ColorProps
+  ColorProps,
+  layout,
+  LayoutProps
 } from 'styled-system';
 
 type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-interface Props extends ColorProps, SpaceProps, TypographyProps, VariantProps {
+interface Props
+  extends ColorProps,
+    LayoutProps,
+    SpaceProps,
+    TypographyProps,
+    VariantProps {
   as?: HeadingType;
   children: ReactNode;
 }
 
 const HeadingBase = styled('h1')(
-  typography,
-  space,
-  color,
   variant({
     prop: 'variant',
     scale: 'headings',
@@ -38,7 +42,11 @@ const HeadingBase = styled('h1')(
         fontWeight: 'heading'
       }
     }
-  })
+  }),
+  color,
+  layout,
+  space,
+  typography
 );
 
 const Heading = styled(({ as, ...rest }) => <HeadingBase as={as} {...rest} />)<
