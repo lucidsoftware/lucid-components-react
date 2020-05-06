@@ -4,5 +4,5 @@ export interface Props extends TypographyProps, SpaceProps, VariantProps {
     validate?: boolean;
     validator?: (event: string) => boolean;
 }
-declare const TextInput: import("@emotion/styled-base").StyledComponent<any, Props, import("../../../../theme/theme").Theme>;
+declare const TextInput: import("@emotion/styled-base").StyledComponent<any, Props, object>;
 export default TextInput;

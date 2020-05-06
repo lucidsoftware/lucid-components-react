@@ -86,6 +86,6 @@ const TextInput = styled_1.default((_a) => {
             setHasFocus(false);
         }
     };
-    return (React.createElement(TextInputBase, Object.assign({}, rest, { disabled: (contextDisabled !== null && contextDisabled !== void 0 ? contextDisabled : disabled), onChange: onChange, onBlur: onBlur, onFocus: onFocus, variant: variant, placeholder: placeholder, "data-error": hasError, "data-floating": enableFloating && isFloating })));
+    return (React.createElement(TextInputBase, Object.assign({}, rest, { disabled: contextDisabled !== null && contextDisabled !== void 0 ? contextDisabled : disabled, onChange: onChange, onBlur: onBlur, onFocus: onFocus, variant: variant, placeholder: placeholder, "data-error": hasError, "data-floating": enableFloating && isFloating })));
 })();
 exports.default = TextInput;

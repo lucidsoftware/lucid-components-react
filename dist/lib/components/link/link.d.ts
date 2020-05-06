@@ -28,7 +28,7 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
     underline?: string | undefined;
     variant?: LinkVariant | undefined;
 } & ThemeProps) => {
-    color: any;
+    color: string;
     display: string;
     border: string;
     fontSize: string;
@@ -36,17 +36,17 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
     textDecoration: string;
     cursor: string;
     ':visited': {
-        color: any;
+        color: string;
     };
     ':hover,:focus': {
-        color: any;
+        color: string;
         textDecoration: string;
         ':visited': {
-            color: any;
+            color: string;
         };
     };
     'a&:not([href])': {
-        color: any;
+        color: string;
         cursor: string;
     };
 };

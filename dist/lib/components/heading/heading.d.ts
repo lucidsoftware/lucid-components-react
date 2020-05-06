@@ -6,5 +6,5 @@ interface Props extends ColorProps, LayoutProps, SpaceProps, TypographyProps, Va
     as?: HeadingType;
     children: ReactNode;
 }
-declare const Heading: import("@emotion/styled-base").StyledComponent<any, Props, import("../../../theme/theme").Theme>;
+declare const Heading: import("@emotion/styled-base").StyledComponent<any, Props, object>;
 export default Heading;

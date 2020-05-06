@@ -34,21 +34,21 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active }: 
     textAlign: string;
     padding: any;
     fontSize: string;
-    fontWeight: number;
+    fontWeight: any;
     lineHeight: any;
     borderRadius: string;
     boxShadow: any;
     transition: any;
     textDecoration: string;
     color: string;
-    backgroundColor: string;
+    backgroundColor: any;
     border: any;
     '&:visited': {
         color: string;
     };
     ':hover,:focus': {
-        color: string;
-        backgroundColor: string;
+        color: any;
+        backgroundColor: any;
         border: any;
         cursor: string;
         boxShadow: any;

@@ -4,5 +4,5 @@ interface ColorProps extends BackgroundColorProps, OpacityProps {
 }
 interface Props extends BackgroundProps, BorderProps, ShadowProps, SpaceProps, ColorProps, FlexboxProps, GridProps, LayoutProps, PositionProps {
 }
-declare const Box: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, Props, import("../../../theme/theme").Theme>;
+declare const Box: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, Props, object>;
 export default Box;
