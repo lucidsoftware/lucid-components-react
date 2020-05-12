@@ -20,8 +20,17 @@ export declare const base: {
         heading: string;
     };
     fontSizes: number[];
-    borderRadius: number;
+    radii: {
+        button: string;
+        card: string;
+        paper: string;
+    };
     space: number[];
     breakpoints: string[];
+    shadows: {
+        0: string;
+        10: string;
+        20: string;
+    };
     zIndices: number[];
 };

@@ -145,13 +145,42 @@ export declare const buttons: {
     };
 };
 export declare const card: {
-    padding: string;
-    raised: {
-        boxShadow: string;
+    default: {
+        background: string;
+        flexDirection: string;
+        borderRadius: string;
+        border: string;
+        borderColor: string;
     };
     interactive: {
+        background: string;
+        flexDirection: string;
+        borderRadius: string;
+        border: string;
+        borderColor: string;
         boxShadow: string;
-        boxShadowHover: string;
+        transition: string;
+        cursor: string;
+        '&:hover, &:focus': {
+            textDecoration: string;
+            boxShadow: string;
+            borderColor: string;
+        };
+        '&:focus': {
+            outline: string;
+        };
+        '&:active': {
+            transform: string;
+            boxShadow: string;
+        };
+    };
+    raised: {
+        background: string;
+        flexDirection: string;
+        borderRadius: string;
+        border: string;
+        borderColor: string;
+        boxShadow: string;
     };
 };
 export declare const links: {
@@ -193,18 +222,20 @@ export declare const links: {
     };
 };
 export declare const paper: {
-    padding: string;
     default: {
         background: string;
-        borderRadius: string;
         border: string;
-        boxShadow: string;
+        borderColor: string;
+        borderRadius: string;
+        padding: number;
     };
     raised: {
         background: string;
-        borderRadius: string;
         border: string;
+        borderColor: string;
+        borderRadius: string;
         boxShadow: string;
+        padding: number;
     };
 };
 export declare const headings: {

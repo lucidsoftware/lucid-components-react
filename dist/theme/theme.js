@@ -23,13 +23,13 @@ const theme = Object.assign(Object.assign({}, base_1.base), { colors: {
         black: colors.black,
         disabled: colors.grey,
         disabledBorder: colors.lightGrey
-    }, navbar: components_1.navbar,
-    accordion: components_1.accordion,
-    forms: components_1.forms,
+    }, accordion: components_1.accordion,
     breadcrumb: components_1.breadcrumb,
     buttons: components_1.buttons,
     card: components_1.card,
+    forms: components_1.forms,
+    headings: components_1.headings,
     links: components_1.links,
-    paper: components_1.paper,
-    headings: components_1.headings });
+    navbar: components_1.navbar,
+    paper: components_1.paper });
 exports.default = theme;

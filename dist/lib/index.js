@@ -11,8 +11,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("@emotion/core");
-const theme_ts_1 = require("../theme/theme.ts");
-exports.DefaultTheme = theme_ts_1.Theme;
 const accordion_1 = __importDefault(require("./components/accordion/accordion"));
 exports.Accordion = accordion_1.default;
 const box_1 = __importDefault(require("./components/box/box"));

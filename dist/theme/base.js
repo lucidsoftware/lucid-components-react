@@ -37,7 +37,11 @@ exports.base = {
         95.4,
         119.2
     ],
-    borderRadius: 5,
+    radii: {
+        button: '5px',
+        card: '5px',
+        paper: '5px'
+    },
     space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 104],
     breakpoints: [
         '320px',
@@ -48,5 +52,10 @@ exports.base = {
         '1220px',
         '1440px' //
     ],
+    shadows: {
+        0: 'none',
+        10: '10px 10px 0 0 rgba(0,0,0,.3)',
+        20: '20px 20px 0 0 rgba(0,0,0,.3)'
+    },
     zIndices: [-1, 10, 100, 500, 1000, 1100, 1200, 1300, 1400, 1500, 999999999]
 };

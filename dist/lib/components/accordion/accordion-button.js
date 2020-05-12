@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_accessible_accordion_1 = require("react-accessible-accordion");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const styled_system_1 = require("styled-system");
-const AccordionButton = styled_1.default(react_accessible_accordion_1.AccordionItemButton)(styled_system_1.typography, styled_system_1.space, styled_system_1.variant({
+const AccordionButton = styled_1.default(react_accessible_accordion_1.AccordionItemButton)(styled_system_1.variant({
     scale: 'accordion.button',
     variants: {
         default: {
@@ -27,5 +27,8 @@ const AccordionButton = styled_1.default(react_accessible_accordion_1.AccordionI
     }
 }), {
     cursor: 'pointer'
-});
+}, styled_system_1.typography, styled_system_1.space);
+AccordionButton.defaultProps = {
+    variant: 'default'
+};
 exports.default = AccordionButton;

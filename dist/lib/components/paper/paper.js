@@ -16,9 +16,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
-const PaperContainer = styled_1.default.div(({ theme, isRaised, noPadding }) => (Object.assign({ display: 'block', background: theme.colors.white, borderRadius: `${theme.borderRadius}px`, border: `1px solid ${theme.colors.grey}`, textAlign: 'left', boxShadow: isRaised ? '20px 20px 0 0 rgba(0,0,0,.3)' : 'none' }, (!noPadding && {
-    padding: theme.paper.padding
-}))));
+const styled_system_1 = require("styled-system");
+const PaperContainer = styled_1.default.div({
+    display: 'block',
+    textAlign: 'left'
+}, styled_system_1.variant({
+    scale: 'paper',
+    variants: {
+        default: {
+            background: 'white',
+            border: `1px solid grey`,
+            borderColor: 'grey',
+            borderRadius: `paper`,
+            padding: 5
+        }
+    }
+}), styled_system_1.space, styled_system_1.layout);
+PaperContainer.defaultProps = {
+    variant: 'default'
+};
 const Paper = (_a) => {
     var { children } = _a, rest = __rest(_a, ["children"]);
     return core_1.jsx(PaperContainer, Object.assign({}, rest), children);

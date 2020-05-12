@@ -18,7 +18,6 @@ const react_1 = __importDefault(require("react"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const styled_system_1 = require("styled-system");
 const HeadingBase = styled_1.default('h1')(styled_system_1.variant({
-    prop: 'variant',
     scale: 'headings',
     variants: {
         heading: {
