@@ -1,6 +1,6 @@
 import '@emotion/core';
 
-import { Theme as DefaultTheme } from '../theme/theme.ts';
+import { Theme } from '../theme/theme';
 import Accordion from './components/accordion/accordion';
 import Box from './components/box/box';
 import Breadcrumb from './components/breadcrumb/breadcrumb';
@@ -16,8 +16,9 @@ import Spacer from './components/spacer/spacer';
 import VideoPlayButton from './components/video-play-button/video-play-button';
 import VideoPlayer from './components/video-player/video-player';
 
+export type DefaultTheme = Theme;
+
 export {
-  DefaultTheme,
   Accordion,
   Box,
   Breadcrumb,

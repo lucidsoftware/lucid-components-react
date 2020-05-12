@@ -22,10 +22,6 @@ export interface Props
     BorderProps {}
 
 const AccordionPanel = styled(AccordionItemPanel)<Props>(
-  background,
-  typography,
-  space,
-  border,
   variant({
     scale: 'accordion.panel',
     variants: {
@@ -41,6 +37,15 @@ const AccordionPanel = styled(AccordionItemPanel)<Props>(
         color: 'black'
       }
     }
-  })
+  }),
+  background,
+  typography,
+  space,
+  border
 );
+
+AccordionPanel.defaultProps = {
+  variant: 'default'
+};
+
 export default AccordionPanel;

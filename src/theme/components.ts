@@ -147,13 +147,43 @@ export const buttons = {
   }
 };
 export const card = {
-  padding: '40px',
-  raised: {
-    boxShadow: '20px 20px 0 0 rgba(0,0,0,.3)'
+  default: {
+    background: 'white',
+    flexDirection: 'row',
+    borderRadius: 'card',
+    border: `1px solid grey`,
+    borderColor: 'grey'
   },
   interactive: {
-    boxShadow: '10px 10px 0 0 rgba(0,0,0,.2)',
-    boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
+    background: 'white',
+    flexDirection: 'row',
+    borderRadius: 'card',
+    border: `1px solid grey`,
+    borderColor: 'grey',
+
+    boxShadow: '10',
+    transition: `box-shadow .3s ease, border-color .3s ease, transform .15s ease-out`,
+    cursor: 'pointer',
+    '&:hover, &:focus': {
+      textDecoration: 'none',
+      boxShadow: '20',
+      borderColor: 'primary'
+    },
+    '&:focus': {
+      outline: 'none'
+    },
+    '&:active': {
+      transform: 'scale(.97)',
+      boxShadow: 'none'
+    }
+  },
+  raised: {
+    background: 'white',
+    flexDirection: 'row',
+    borderRadius: 'card',
+    border: `1px solid grey`,
+    borderColor: 'grey',
+    boxShadow: '20'
   }
 };
 export const links = {
@@ -195,18 +225,20 @@ export const links = {
   }
 };
 export const paper = {
-  padding: '40px',
   default: {
     background: 'white',
-    borderRadius: '5px',
-    border: '1px solid lightgrey',
-    boxShadow: '10px 10px 0 0 rgba(0, 0, 0, .3)'
+    border: `1px solid lightgrey`,
+    borderColor: 'grey',
+    borderRadius: `paper`,
+    padding: 5
   },
   raised: {
     background: 'white',
-    borderRadius: '5px',
-    border: '1px solid lightgrey',
-    boxShadow: '20px 20px 0 0 rgba(0, 0, 0, .3)'
+    border: `1px solid lightgrey`,
+    borderColor: 'grey',
+    borderRadius: `paper`,
+    boxShadow: '20',
+    padding: 5
   }
 };
 export const headings = {

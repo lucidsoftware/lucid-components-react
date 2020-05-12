@@ -13,8 +13,6 @@ import { VariantProps } from '../../../types';
 export interface Props extends TypographyProps, SpaceProps, VariantProps {}
 
 const AccordionButton = styled(AccordionItemButton)<Props>(
-  typography,
-  space,
   variant({
     scale: 'accordion.button',
     variants: {
@@ -37,6 +35,13 @@ const AccordionButton = styled(AccordionItemButton)<Props>(
   }),
   {
     cursor: 'pointer'
-  }
+  },
+  typography,
+  space
 );
+
+AccordionButton.defaultProps = {
+  variant: 'default'
+};
+
 export default AccordionButton;
