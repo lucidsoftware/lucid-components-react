@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/core';
 import { FC, ReactNode } from 'react';
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
+import { ThemeProps } from '../../../theme/theme';
 
 interface Props {
   className?: string;
@@ -38,18 +40,21 @@ const BreadcrumbContent = styled.ul<{ inverse: boolean }>(
   })
 );
 
-const Breadcrumb: FC<Props> = ({
+const Breadcrumb: FC<Props & ThemeProps> = ({
+  theme,
   className,
   inverse = false,
   items,
-  seperator = <BreadcrumbSeparator>/</BreadcrumbSeparator>
+  seperator = <BreadcrumbSeparator theme={theme}>/</BreadcrumbSeparator>
 }) => {
   const getCrumbs = () => {
     const crumbs: ReactNode[] = [];
     for (let index = 0; index < items.length; index++) {
       const element = items[index];
       if (index !== items.length - 1) {
-        crumbs.push(<BreadcrumbWrapper>{element}</BreadcrumbWrapper>);
+        crumbs.push(
+          <BreadcrumbWrapper theme={theme}>{element}</BreadcrumbWrapper>
+        );
         crumbs.push(seperator);
       } else {
         crumbs.push(element);
@@ -65,4 +70,4 @@ const Breadcrumb: FC<Props> = ({
   );
 };
 
-export default Breadcrumb;
+export default withTheme(Breadcrumb);

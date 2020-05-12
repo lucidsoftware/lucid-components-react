@@ -76,7 +76,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
-    "react-scripts": "3.3.1",
+    "react-scripts": "3.4.1",
     "ts-loader": "^6.2.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",

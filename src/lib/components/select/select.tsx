@@ -19,9 +19,10 @@ import { FC, createRef, useEffect, useState } from 'react';
 // sent over (new SEO page), this isn't a traditional
 // form drop down (like the OG specs). Question being,
 // how do we reconcile this? Does that make sense?
-const SelectBase: FC<
-  ThemeProps & JSX.IntrinsicElements['select'] & SelectProps & SelectLabelProps
-> = ({
+const SelectBase: FC<ThemeProps &
+  JSX.IntrinsicElements['select'] &
+  SelectProps &
+  SelectLabelProps> = ({
   className,
   theme,
   focus,
@@ -49,7 +50,7 @@ const SelectBase: FC<
         )}
         <SelectField value={value} ref={ref} options={options}>
           {options.map((option: string) => (
-            <SelectOption key={option} value={option}>
+            <SelectOption theme={theme} key={option} value={option}>
               {option}
             </SelectOption>
           ))}
