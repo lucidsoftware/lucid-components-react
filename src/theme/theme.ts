@@ -14,14 +14,16 @@ import {
 } from './components';
 
 export interface Theme extends DefaultTheme {
+  colors: Record<string, string>;
+  radii: Record<string, string>;
   // components
-  navbar?: typeof navbar;
-  accordion?: typeof accordion;
-  forms?: typeof forms;
-  breadcrumb?: typeof breadcrumb;
-  buttons?: any;
+  navbar: typeof navbar;
+  accordion: typeof accordion;
+  forms: typeof forms;
+  breadcrumb: typeof breadcrumb;
+  buttons: any;
   card?: typeof card;
-  links?: typeof links;
+  links: typeof links;
   paper?: typeof paper;
   headings?: typeof headings;
 }
@@ -45,15 +47,15 @@ const theme: Theme = {
     disabled: colors.grey,
     disabledBorder: colors.lightGrey
   },
-  navbar,
   accordion,
-  forms,
   breadcrumb,
   buttons,
   card,
+  forms,
+  headings,
   links,
-  paper,
-  headings
+  navbar,
+  paper
 };
 
 export interface ThemeProps {
