@@ -60,7 +60,7 @@ CardContainer.defaultProps = {
   variant: 'default'
 };
 
-const Card = Object.assign(withTheme(CardContainer), {
+const Card = Object.assign(CardContainer, {
   Action: CardAction,
   Actions: CardActions,
   Content: CardContent,
@@ -69,4 +69,4 @@ const Card = Object.assign(withTheme(CardContainer), {
   Subtitle: CardSubtitle
 });
 
-export default Card;
+export default withTheme(Card);
