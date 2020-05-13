@@ -227,7 +227,7 @@ export declare const paper: {
         border: string;
         borderColor: string;
         borderRadius: string;
-        padding: number;
+        padding: string;
     };
     raised: {
         background: string;
@@ -235,7 +235,7 @@ export declare const paper: {
         borderColor: string;
         borderRadius: string;
         boxShadow: string;
-        padding: number;
+        padding: string;
     };
 };
 export declare const headings: {

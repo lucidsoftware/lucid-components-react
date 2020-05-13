@@ -237,7 +237,7 @@ exports.paper = {
         border: `1px solid lightgrey`,
         borderColor: 'grey',
         borderRadius: `paper`,
-        padding: 5
+        padding: '5'
     },
     raised: {
         background: 'white',
@@ -245,7 +245,7 @@ exports.paper = {
         borderColor: 'grey',
         borderRadius: `paper`,
         boxShadow: '20',
-        padding: 5
+        padding: '5'
     }
 };
 exports.headings = {

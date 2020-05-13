@@ -1,17 +1,18 @@
+import * as CSS from 'csstype';
 import { Theme as DefaultTheme } from 'styled-system';
-import { navbar, accordion, forms, breadcrumb, card, links, paper, headings } from './components';
+import { navbar, forms, breadcrumb } from './components';
 export interface Theme extends DefaultTheme {
     colors: Record<string, string>;
-    radii: Record<string, string>;
+    radii: Record<string, string | number>;
     navbar: typeof navbar;
-    accordion: typeof accordion;
+    accordion: Record<'button' | 'panel', Record<string, CSS.StandardProperties | object>>;
     forms: typeof forms;
     breadcrumb: typeof breadcrumb;
     buttons: any;
-    card?: typeof card;
-    links: typeof links;
-    paper?: typeof paper;
-    headings?: typeof headings;
+    card?: Record<string, CSS.StandardProperties | object>;
+    links: any;
+    paper?: Record<string, CSS.StandardProperties | object>;
+    headings?: Record<string, CSS.StandardProperties | object>;
 }
 declare const theme: Theme;
 export interface ThemeProps {
