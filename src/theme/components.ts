@@ -230,7 +230,7 @@ export const paper = {
     border: `1px solid lightgrey`,
     borderColor: 'grey',
     borderRadius: `paper`,
-    padding: 5
+    padding: '5'
   },
   raised: {
     background: 'white',
@@ -238,7 +238,7 @@ export const paper = {
     borderColor: 'grey',
     borderRadius: `paper`,
     boxShadow: '20',
-    padding: 5
+    padding: '5'
   }
 };
 export const headings = {

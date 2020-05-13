@@ -1,3 +1,5 @@
+import * as CSS from 'csstype';
+
 import * as colors from './colors';
 import { base } from './base';
 import { Theme as DefaultTheme } from 'styled-system';
@@ -15,17 +17,20 @@ import {
 
 export interface Theme extends DefaultTheme {
   colors: Record<string, string>;
-  radii: Record<string, string>;
+  radii: Record<string, string | number>;
   // components
   navbar: typeof navbar;
-  accordion: typeof accordion;
+  accordion: Record<
+    'button' | 'panel',
+    Record<string, CSS.StandardProperties | object>
+  >;
   forms: typeof forms;
   breadcrumb: typeof breadcrumb;
   buttons: any;
-  card?: typeof card;
-  links: typeof links;
-  paper?: typeof paper;
-  headings?: typeof headings;
+  card?: Record<string, CSS.StandardProperties | object>;
+  links: any;
+  paper?: Record<string, CSS.StandardProperties | object>;
+  headings?: Record<string, CSS.StandardProperties | object>;
 }
 
 const theme: Theme = {
