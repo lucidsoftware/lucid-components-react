@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const styled_system_1 = require("styled-system");
 const card_action_1 = __importDefault(require("./card-action"));
 const card_actions_1 = __importDefault(require("./card-actions"));
@@ -32,7 +33,7 @@ const CardContainer = styled_1.default.div({
 CardContainer.defaultProps = {
     variant: 'default'
 };
-const Card = Object.assign(CardContainer, {
+const Card = Object.assign(emotion_theming_1.withTheme(CardContainer), {
     Action: card_action_1.default,
     Actions: card_actions_1.default,
     Content: card_content_1.default,
