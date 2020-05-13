@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactNode } from 'react';
+import { ReactNode, FC, HTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
@@ -36,7 +36,10 @@ PaperContainer.defaultProps = {
   variant: 'default'
 };
 
-const Paper = ({ children, ...rest }: Props) => {
+const Paper: FC<HTMLAttributes<HTMLDivElement> & Props> = ({
+  children,
+  ...rest
+}) => {
   return <PaperContainer {...rest}>{children}</PaperContainer>;
 };
 
