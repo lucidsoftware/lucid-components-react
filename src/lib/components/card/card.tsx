@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 import {
   variant,
   space,
@@ -59,7 +60,7 @@ CardContainer.defaultProps = {
   variant: 'default'
 };
 
-const Card = Object.assign(CardContainer, {
+const Card = Object.assign(withTheme(CardContainer), {
   Action: CardAction,
   Actions: CardActions,
   Content: CardContent,
