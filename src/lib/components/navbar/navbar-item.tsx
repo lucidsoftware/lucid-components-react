@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 
 const NavbarItem = styled.li(({ theme }) => ({
   flex: '0 1 auto',
@@ -32,4 +33,4 @@ const NavbarItem = styled.li(({ theme }) => ({
   }
 }));
 
-export default NavbarItem;
+export default withTheme(NavbarItem);

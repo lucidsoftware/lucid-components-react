@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 
 const NavbarDropdownGroup = styled.div(({ theme }) => ({
   flex: 1,
@@ -13,4 +14,4 @@ const NavbarDropdownGroup = styled.div(({ theme }) => ({
   }
 }));
 
-export default NavbarDropdownGroup;
+export default withTheme(NavbarDropdownGroup);
