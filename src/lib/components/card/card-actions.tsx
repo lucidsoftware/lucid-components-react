@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { space, SpaceProps, layout, LayoutProps } from 'styled-system';
 
@@ -13,4 +14,4 @@ const CardActions = styled.div<CardActionsProps>(
   layout
 );
 
-export default CardActions;
+export default withTheme(CardActions);

@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 
 const CardImage = styled.div({
   flex: '1 1 auto',
@@ -6,4 +7,4 @@ const CardImage = styled.div({
   padding: 0
 });
 
-export default CardImage;
+export default withTheme(CardImage);

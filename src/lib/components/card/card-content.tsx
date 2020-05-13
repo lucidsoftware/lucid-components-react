@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import {
   display,
@@ -44,4 +45,4 @@ CardContent.defaultProps = {
   variant: 'default'
 };
 
-export default CardContent;
+export default withTheme(CardContent);
