@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const styled_system_1 = require("styled-system");
 const CardContent = styled_1.default.div(styled_system_1.variant({
     scale: 'card.content',
@@ -20,4 +21,4 @@ const CardContent = styled_1.default.div(styled_system_1.variant({
 CardContent.defaultProps = {
     variant: 'default'
 };
-exports.default = CardContent;
+exports.default = emotion_theming_1.withTheme(CardContent);

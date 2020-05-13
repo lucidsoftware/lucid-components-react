@@ -33,7 +33,7 @@ const CardContainer = styled_1.default.div({
 CardContainer.defaultProps = {
     variant: 'default'
 };
-const Card = Object.assign(CardContainer, {
+const Card = Object.assign(emotion_theming_1.withTheme(CardContainer), {
     Action: card_action_1.default,
     Actions: card_actions_1.default,
     Content: card_content_1.default,
@@ -41,4 +41,4 @@ const Card = Object.assign(CardContainer, {
     Title: card_title_1.default,
     Subtitle: card_subtitle_1.default
 });
-exports.default = emotion_theming_1.withTheme(Card);
+exports.default = Card;
