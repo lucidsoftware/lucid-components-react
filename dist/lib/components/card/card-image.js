@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const emotion_theming_1 = require("emotion-theming");
 const CardImage = styled_1.default.div({
-    flex: '1 1 auto',
+    flex: '1 1',
     margin: 0,
     padding: 0
 });

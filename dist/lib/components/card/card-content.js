@@ -12,7 +12,7 @@ const CardContent = styled_1.default.div(styled_system_1.variant({
         default: {
             color: 'text',
             display: 'flex',
-            flex: '1 1 auto',
+            flex: '1 1',
             flexDirection: 'column',
             justifyContent: 'space-between'
         }
