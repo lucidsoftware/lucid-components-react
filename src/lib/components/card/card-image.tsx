@@ -2,7 +2,7 @@ import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
 
 const CardImage = styled.div({
-  flex: '1 1 auto',
+  flex: '1 1',
   margin: 0,
   padding: 0
 });

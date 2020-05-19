@@ -29,7 +29,7 @@ const CardContent = styled.div<CardContentProps>(
       default: {
         color: 'text',
         display: 'flex',
-        flex: '1 1 auto',
+        flex: '1 1',
         flexDirection: 'column',
         justifyContent: 'space-between'
       }
