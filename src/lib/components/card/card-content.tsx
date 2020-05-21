@@ -1,16 +1,48 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
+import { ThemeProps } from '../../../theme/theme';
+import {
+  display,
+  DisplayProps,
+  flex,
+  FlexProps,
+  layout,
+  LayoutProps,
+  variant,
+  space,
+  SpaceProps
+} from 'styled-system';
 
-export interface CardContentProps {
-  noPadding?: boolean;
+export interface CardContentProps
+  extends ThemeProps,
+    DisplayProps,
+    FlexProps,
+    LayoutProps,
+    SpaceProps {
+  variant?: string;
 }
 
-const CardContent = styled('div')<CardContentProps>({}, props => ({
-  color: props.theme.colors.text,
-  display: 'flex',
-  flex: '1 1 auto',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  padding: `${props.noPadding ? 0 : props.theme.card.padding}`
-}));
+const CardContent = styled.div<CardContentProps>(
+  variant({
+    scale: 'card.content',
+    variants: {
+      default: {
+        color: 'text',
+        display: 'flex',
+        flex: '1 1',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }
+    }
+  }),
+  flex,
+  display,
+  layout,
+  space
+);
 
-export default CardContent;
+CardContent.defaultProps = {
+  variant: 'default'
+};
+
+export default withTheme(CardContent);

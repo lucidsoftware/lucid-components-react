@@ -33,10 +33,10 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active }: 
     width: string;
     textAlign: string;
     padding: any;
-    fontSize: string;
-    fontWeight: number;
+    fontSize: any;
+    fontWeight: string;
     lineHeight: any;
-    borderRadius: string;
+    borderRadius: string | number;
     boxShadow: any;
     transition: any;
     textDecoration: string;

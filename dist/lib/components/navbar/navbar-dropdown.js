@@ -19,6 +19,7 @@ const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
+const emotion_theming_1 = require("emotion-theming");
 const DropdownWrapper = styled_1.default.div(({ theme }) => ({
     position: 'relative',
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
@@ -67,4 +68,4 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
             children)));
 });
 NavbarDropdown.displayName = 'NavbarDropdown';
-exports.default = NavbarDropdown;
+exports.default = emotion_theming_1.withTheme(NavbarDropdown);

@@ -1,4 +1,5 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
 
 const NavbarBrand = styled.div(({ theme }) => ({
   display: 'inline-block',
@@ -12,4 +13,4 @@ const NavbarBrand = styled.div(({ theme }) => ({
   }
 }));
 
-export default NavbarBrand;
+export default withTheme(NavbarBrand);

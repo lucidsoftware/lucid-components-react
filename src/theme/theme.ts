@@ -1,7 +1,39 @@
+import * as CSS from 'csstype';
+
 import * as colors from './colors';
 import { base } from './base';
+import { Theme as DefaultTheme } from 'styled-system';
+import {
+  navbar,
+  accordion,
+  forms,
+  breadcrumb,
+  buttons,
+  card,
+  links,
+  paper,
+  headings
+} from './components';
 
-const theme = {
+export interface Theme extends DefaultTheme {
+  colors: Record<string, string>;
+  radii: Record<string, string | number>;
+  // components
+  navbar: typeof navbar;
+  accordion: Record<
+    'button' | 'panel',
+    Record<string, CSS.StandardProperties | object>
+  >;
+  forms: typeof forms;
+  breadcrumb: typeof breadcrumb;
+  buttons: any;
+  card?: Record<string, CSS.StandardProperties | object>;
+  links: any;
+  paper?: Record<string, CSS.StandardProperties | object>;
+  headings?: Record<string, CSS.StandardProperties | object>;
+}
+
+const theme: Theme = {
   ...base,
   colors: {
     text: colors.blueSteel,
@@ -20,258 +52,17 @@ const theme = {
     disabled: colors.grey,
     disabledBorder: colors.lightGrey
   },
-  navbar: {
-    background: '#FFF',
-    collapseAt: '1000px',
-    minHeight: '40px',
-    logoHeight: '25px',
-    itemSpacing: '1rem',
-    padding: '10px',
-    borderColor: 'lightgrey',
-    borderWidth: '2px',
-    borderOffset: '-10px',
-    dropdown: {
-      padding: '.5rem 1.5rem',
-      mobilePadding: '.5rem',
-      background: '#FFF',
-      backgroundHover: '#DDD',
-      border: `1px solid ${colors.blueSteel}`,
-      borderRadius: '3px'
-    }
-  },
-  accordion: {
-    button: {
-      default: {
-        paddingTop: 3,
-        paddingBottom: 3,
-        paddingLeft: 2,
-        paddingRight: 2,
-        borderBottomWidth: '1px',
-        borderBottomColor: 'lightgrey',
-        borderBottomStyle: 'solid',
-        '&:hover, &:focus': {
-          borderBottomColor: 'primary'
-        },
-        '&[aria-expanded="true"]': {
-          borderBottomColor: 'lightgrey'
-        }
-      },
-      inverse: {
-        paddingTop: 3,
-        paddingBottom: 3,
-        paddingLeft: 2,
-        paddingRight: 2,
-        borderBottomWidth: '1px',
-        borderBottomColor: '#5358D5',
-        borderBottomStyle: 'solid',
-        '&:hover, &:focus': {
-          borderBottomColor: 'primary',
-          backgroundColor: '#323580'
-        },
-        '&[aria-expanded="true"]': {
-          borderBottomColor: 'white'
-        },
-        backgroundColor: '#4247aa',
-        color: 'white'
-      }
-    },
-    panel: {
-      default: {
-        backgroundColor: 'hsl(0, 0%, 96%)',
-        paddingTop: 2,
-        paddingRight: 4,
-        paddingBottom: 2,
-        paddingLeft: 4,
-        borderBottomWidth: '1px',
-        borderBottomColor: 'primary',
-        borderBottomStyle: 'solid',
-        color: 'black'
-      },
-      inverse: {
-        paddingTop: 2,
-        paddingRight: 4,
-        paddingBottom: 2,
-        paddingLeft: 4,
-        borderBottomWidth: '1px',
-        borderBottomColor: 'primary',
-        borderBottomStyle: 'solid',
-        backgroundColor: 'primary',
-        color: 'white'
-      }
-    }
-  },
-  forms: {
-    select: {
-      backgroundColor: '#FFF',
-      border: '1px solid #a7a9ac',
-      borderRadius: '5px',
-      color: colors.white,
-      floatingLabel: {
-        paddingTop: '1.2em'
-      },
-      focus: {
-        borderColor: '#636aff',
-        labelColor: '#636aff'
-      },
-      fontSize: '1em',
-      fontSizeSmall: '.75em',
-      height: '50px',
-      outline: 'none',
-      padding: '.3375rem .75rem'
-    }
-  },
-  breadcrumb: {
-    color: colors.blueSteel,
-    inverseColor: colors.white,
-    margin: '0 6px',
-    crumbOpacity: 0.45
-  },
-  buttons: {
-    fontSize: '1em',
-    lineHeight: '1',
-    boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
-    hoverBoxShadow: 'none',
-    border: '1px solid #000',
-    transition: 'transform 0.15 ease-out',
-    sizes: {
-      small: {
-        padding: '6px 24px'
-      },
-      regular: {
-        padding: '10px 24px'
-      },
-      large: {
-        padding: '14px 24px'
-      }
-    },
-    primary: {
-      color: '#FFF',
-      border: '1px solid #636AFF',
-      backgroundColor: '#636AFF',
-      hoverColor: '#4247aa',
-      hoverBackgroundColor: '#B6B9FF',
-      hoverBorder: '1px solid #636AFF',
-      activeColor: '#4247aa',
-      activeBackgroundColor: '#B6B9FF',
-      activeBorder: '1px solid #636AFF',
-      activeTransform: 0.95
-    },
-    secondary: {
-      color: '#636AFF',
-      border: '1px solid #636AFF',
-      backgroundColor: '#FFF',
-      hoverColor: '#4247aa',
-      hoverBackgroundColor: '#B6B9FF',
-      hoverBorder: '1px solid #636AFF',
-      activeTransform: 0.95
-    }
-  },
-  card: {
-    padding: '40px',
-    raised: {
-      boxShadow: '20px 20px 0 0 rgba(0,0,0,.3)'
-    },
-    interactive: {
-      boxShadow: '10px 10px 0 0 rgba(0,0,0,.2)',
-      boxShadowHover: '20px 20px 0 0 rgba(0,0,0,.3)'
-    }
-  },
-  links: {
-    default: {
-      default: {
-        color: colors.blueSteel,
-        hover: colors.blueSteel,
-        disabled: colors.blueSteel
-      },
-      inverse: {
-        color: colors.white,
-        hover: colors.white,
-        disabled: colors.white
-      }
-    },
-    primary: {
-      default: {
-        color: colors.primary,
-        hover: colors.primary,
-        disabled: colors.primary
-      },
-      inverse: {
-        color: colors.white,
-        hover: colors.white,
-        disabled: colors.white
-      }
-    },
-    secondary: {
-      default: {
-        color: colors.primary,
-        hover: colors.primary,
-        disabled: colors.primary
-      },
-      inverse: {
-        color: colors.white,
-        hover: colors.white,
-        disabled: colors.white
-      }
-    }
-  },
-  paper: {
-    padding: '40px',
-    default: {
-      background: 'white',
-      borderRadius: '5px',
-      border: '1px solid lightgrey',
-      boxShadow: '10px 10px 0 0 rgba(0, 0, 0, .3)'
-    },
-    raised: {
-      background: 'white',
-      borderRadius: '5px',
-      border: '1px solid lightgrey',
-      boxShadow: '20px 20px 0 0 rgba(0, 0, 0, .3)'
-    }
-  },
-  headings: {
-    heading: {
-      color: 'heading'
-    },
-    subheading: {
-      color: '#555555'
-    }
-  }
+  accordion,
+  breadcrumb,
+  buttons,
+  card,
+  forms,
+  headings,
+  links,
+  navbar,
+  paper
 };
 
-// export type Theme = typeof theme;
-export interface Theme {
-  colors: {
-    [key: string]: string;
-  };
-  fonts: {
-    [key: string]: string;
-  };
-  fontWeights: {
-    [key: string]: number;
-  };
-  lineHeights: {
-    [key: string]: number;
-  };
-  letterSpacings: {
-    [key: string]: string;
-  };
-  fontSizes: number[];
-  borderRadius: number;
-  space: number[];
-  breakpoints: number[] | string[];
-  zIndices: number[];
-  navbar?: any;
-  accordion?: any;
-  panel?: any;
-  forms?: any;
-  breadcrumb?: any;
-  buttons?: any;
-  card?: any;
-  links?: any;
-  paper?: any;
-  headings?: any;
-}
 export interface ThemeProps {
   theme: Theme;
 }

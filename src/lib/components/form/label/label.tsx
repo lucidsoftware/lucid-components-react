@@ -54,7 +54,7 @@ const LabelBase = styled.label<LabelBaseProps>(
           color: 'primary'
         },
         '&[data-error="true"][data-floating="true"]': {
-          color: 'firebrick'
+          color: 'red.0'
         }
       }
     }

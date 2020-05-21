@@ -22,7 +22,6 @@ var LinkVariant;
     LinkVariant["Secondary"] = "secondary";
 })(LinkVariant = exports.LinkVariant || (exports.LinkVariant = {}));
 exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
-    console.log('link', theme);
     const linkUnderline = underline === 'always' ? 'underline' : 'none';
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';

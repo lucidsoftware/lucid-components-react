@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const NavbarDropdownGroup = styled_1.default.div(({ theme }) => ({
     flex: 1,
     display: 'flex',
@@ -15,4 +16,4 @@ const NavbarDropdownGroup = styled_1.default.div(({ theme }) => ({
         flex: '0 1 100%'
     }
 }));
-exports.default = NavbarDropdownGroup;
+exports.default = emotion_theming_1.withTheme(NavbarDropdownGroup);

@@ -58,7 +58,7 @@ const LabelBase = styled_1.default.label(styled_system_1.space, styled_system_1.
                 color: 'primary'
             },
             '&[data-error="true"][data-floating="true"]': {
-                color: 'firebrick'
+                color: 'red.0'
             }
         }
     }

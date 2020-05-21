@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const NavbarItem = styled_1.default.li(({ theme }) => ({
     flex: '0 1 auto',
     alignSelf: 'flex-start',
@@ -30,4 +31,4 @@ const NavbarItem = styled_1.default.li(({ theme }) => ({
         }
     }
 }));
-exports.default = NavbarItem;
+exports.default = emotion_theming_1.withTheme(NavbarItem);

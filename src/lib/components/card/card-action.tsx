@@ -1,7 +1,15 @@
 import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
+import { space, SpaceProps } from 'styled-system';
+import { ThemeProps } from '../../../theme/theme';
 
-const CardAction = styled('div')`
-  margin-right: ${props => props.theme.space[2]}px;
-`;
+export interface CardActionProps extends ThemeProps, SpaceProps {}
 
-export default CardAction;
+const CardAction = styled.div<CardActionProps>(
+  ({ theme }) => ({
+    marginRight: `${theme.space ? theme.space[2] : 0}px`
+  }),
+  space
+);
+
+export default withTheme(CardAction);

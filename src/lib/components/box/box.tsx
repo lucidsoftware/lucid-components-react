@@ -43,8 +43,7 @@ const Box = styled.div<Props>(
   space,
   flexbox,
   layout,
-  position,
-  {}
+  position
 );
 
 export default Box;

@@ -16,7 +16,7 @@ import {
 
 type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-interface Props
+export interface Props
   extends ColorProps,
     LayoutProps,
     SpaceProps,
@@ -28,7 +28,6 @@ interface Props
 
 const HeadingBase = styled('h1')(
   variant({
-    prop: 'variant',
     scale: 'headings',
     variants: {
       heading: {

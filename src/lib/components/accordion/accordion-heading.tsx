@@ -21,13 +21,13 @@ export interface Props
     FlexboxProps {}
 
 const AccordionHeading = styled(AccordionItemHeading)<Props>(
+  {
+    width: '100%'
+  },
   background,
   border,
   flexbox,
   typography,
-  space,
-  {
-    width: '100%'
-  }
+  space
 );
 export default AccordionHeading;

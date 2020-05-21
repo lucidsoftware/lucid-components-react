@@ -19,6 +19,7 @@ const react_1 = require("react");
 const core_1 = require("@emotion/core");
 const navbar_1 = require("./navbar");
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const NavbarToggleButton = styled_1.default.button(({ theme }) => ({
     display: 'none',
     background: 'transparent',
@@ -35,4 +36,4 @@ const NavbarToggle = react_1.forwardRef((_a, ref) => {
     return (core_1.jsx(NavbarToggleButton, Object.assign({}, rest, { ref: ref, onClick: toggleExpanded }), children));
 });
 NavbarToggle.displayName = 'NavbarToggle';
-exports.default = NavbarToggle;
+exports.default = emotion_theming_1.withTheme(NavbarToggle);

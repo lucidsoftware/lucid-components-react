@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
+const emotion_theming_1 = require("emotion-theming");
 const BreadcrumbWrapper = styled_1.default.li({
     padding: 0,
     margin: 0,
@@ -26,13 +27,13 @@ const BreadcrumbContent = styled_1.default.ul(({ theme, inverse }) => ({
     margin: 0,
     padding: 0
 }));
-const Breadcrumb = ({ className, inverse = false, items, seperator = core_1.jsx(BreadcrumbSeparator, null, "/") }) => {
+const Breadcrumb = ({ theme, className, inverse = false, items, seperator = core_1.jsx(BreadcrumbSeparator, { theme: theme }, "/") }) => {
     const getCrumbs = () => {
         const crumbs = [];
         for (let index = 0; index < items.length; index++) {
             const element = items[index];
             if (index !== items.length - 1) {
-                crumbs.push(core_1.jsx(BreadcrumbWrapper, null, element));
+                crumbs.push(core_1.jsx(BreadcrumbWrapper, { theme: theme }, element));
                 crumbs.push(seperator);
             }
             else {
@@ -44,4 +45,4 @@ const Breadcrumb = ({ className, inverse = false, items, seperator = core_1.jsx(
     return (core_1.jsx("nav", { className: className, "aria-label": "breadcrumbs" },
         core_1.jsx(BreadcrumbContent, { inverse: inverse }, getCrumbs())));
 };
-exports.default = Breadcrumb;
+exports.default = emotion_theming_1.withTheme(Breadcrumb);

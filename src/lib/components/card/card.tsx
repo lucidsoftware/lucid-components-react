@@ -1,17 +1,34 @@
-/** @jsx jsx */
+import styled from '../../../theme/styled';
+import { withTheme } from 'emotion-theming';
+
+import {
+  variant,
+  space,
+  display,
+  flex,
+  layout,
+  DisplayProps,
+  FlexProps,
+  LayoutProps,
+  SpaceProps
+} from 'styled-system';
+import { ThemeProps } from '../../../theme/theme';
+
 import CardAction from './card-action';
 import CardActions from './card-actions';
 import CardContent from './card-content';
 import CardImage from './card-image';
 import CardTitle from './card-title';
 import CardSubtitle from './card-subtitle';
-import styled from '../../../theme/styled';
 
-interface Props {
+interface Props
+  extends ThemeProps,
+    DisplayProps,
+    FlexProps,
+    LayoutProps,
+    SpaceProps {
   as?: 'div' | 'section' | 'article';
-  horizontal?: boolean;
-  isInteractive?: boolean;
-  isRaised?: boolean;
+  variant?: string;
 }
 
 const CardContainer = styled.div<Props>(
@@ -22,35 +39,29 @@ const CardContainer = styled.div<Props>(
     textDecoration: 'none',
     overflow: 'hidden'
   },
-
-  ({ theme, horizontal, isRaised, isInteractive }) => ({
-    background: theme.colors.white,
-    flexDirection: horizontal ? 'row' : 'column',
-    borderRadius: `${theme.borderRadius}px`,
-    border: `1px solid ${theme.colors.grey}`,
-    boxShadow: isRaised ? theme.card.raised.boxShadow : 'none',
-
-    ...(isInteractive && {
-      boxShadow: theme.card.interactive.boxShadow,
-      transition: `box-shadow .3s ease, border-color .3s ease, transform .15s ease-out`,
-      cursor: 'pointer',
-      '&:hover, &:focus': {
-        textDecoration: 'none',
-        boxShadow: theme.card.interactive.boxShadowHover,
-        borderColor: theme.colors.primary
-      },
-      '&:focus': {
-        outline: 'none'
-      },
-      '&:active': {
-        transform: 'scale(.97)',
-        boxShadow: 'none'
+  variant({
+    scale: 'card',
+    variants: {
+      default: {
+        background: 'white',
+        flexDirection: 'row',
+        borderRadius: 'card',
+        border: `1px solid grey`,
+        borderColor: 'grey'
       }
-    })
-  })
+    }
+  }),
+  space,
+  display,
+  layout,
+  flex
 );
 
-const Card = Object.assign(CardContainer, {
+CardContainer.defaultProps = {
+  variant: 'default'
+};
+
+const Card = Object.assign(withTheme(CardContainer), {
   Action: CardAction,
   Actions: CardActions,
   Content: CardContent,

@@ -1,30 +1,45 @@
 /** @jsx jsx */
-import { ReactNode } from 'react';
+import { ReactNode, FC, HTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
+import { space, variant, SpaceProps, LayoutProps, layout } from 'styled-system';
 
-interface Props {
-  className?: string;
-  children: ReactNode;
-  isRaised?: boolean;
-  noPadding?: boolean;
+interface Props extends SpaceProps, LayoutProps {
   as?: 'div' | 'section' | 'article';
+  children: ReactNode;
+  variant?: string;
 }
 
-const PaperContainer = styled.div<Props>(({ theme, isRaised, noPadding }) => ({
-  display: 'block',
-  background: theme.colors.white,
-  borderRadius: `${theme.borderRadius}px`,
-  border: `1px solid ${theme.colors.grey}`,
-  textAlign: 'left',
-  boxShadow: isRaised ? '20px 20px 0 0 rgba(0,0,0,.3)' : 'none',
-  ...(!noPadding && {
-    padding: theme.paper.padding
-  })
-}));
+const PaperContainer = styled.div<Props>(
+  {
+    display: 'block',
+    textAlign: 'left'
+  },
+  variant({
+    scale: 'paper',
+    variants: {
+      default: {
+        background: 'white',
+        border: `1px solid grey`,
+        borderColor: 'grey',
+        borderRadius: `paper`,
+        padding: 5
+      }
+    }
+  }),
+  space,
+  layout
+);
 
-const Paper = ({ children, ...rest }: Props) => {
+PaperContainer.defaultProps = {
+  variant: 'default'
+};
+
+const Paper: FC<HTMLAttributes<HTMLDivElement> & Props> = ({
+  children,
+  ...rest
+}) => {
   return <PaperContainer {...rest}>{children}</PaperContainer>;
 };
 

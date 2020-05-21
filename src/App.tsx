@@ -7,14 +7,16 @@ import { ThemeProvider } from 'emotion-theming';
 import theme from './theme/theme';
 import styled from './theme/styled';
 
-import Box from './lib/components/box/box';
-import Heading from './lib/components/heading/heading';
-import Spacer from './lib/components/spacer/spacer';
-import Form from './lib/components/form/form/form';
 import Accordion from './lib/components/accordion/accordion';
-import Navbar from './lib/components/navbar/navbar';
+import Box from './lib/components/box/box';
 import Button from './lib/components/button/button';
+import Card from './lib/components/card/card';
+import Form from './lib/components/form/form/form';
+import Heading from './lib/components/heading/heading';
 import Link from './lib/components/link/link';
+import Navbar from './lib/components/navbar/navbar';
+import Paper from './lib/components/paper/paper';
+import Spacer from './lib/components/spacer/spacer';
 
 const StickyNav = styled.nav({
   display: 'flex',
@@ -172,6 +174,41 @@ const App: React.FC = () => {
               Subheading 6
             </Heading>
           </Box>
+
+          <Spacer my={10} borderBottom="1px solid lightgrey" />
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[7, null, 8, 9]}
+            id="box"
+          >
+            Card component
+          </Heading>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            eligendi ducimus inventore autem sit dolores modi tempora maxime
+            sint consequatur itaque porro esse explicabo sunt a placeat
+            distinctio. Quasi, eveniet!
+          </p>
+
+          <Card variant="default">
+            <Card.Content p={5}>Default Card</Card.Content>
+          </Card>
+
+          <Card variant="raised" mt={5}>
+            <Card.Content p={5}>Raised Card</Card.Content>
+          </Card>
+
+          <Card variant="interactive" mt={5}>
+            <Card.Content p={5}>Interactive Card</Card.Content>
+          </Card>
+
+          <Paper variant="raised" mt={5}>
+            Paper
+          </Paper>
 
           <Spacer my={10} borderBottom="1px solid lightgrey" />
 
