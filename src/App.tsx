@@ -450,9 +450,13 @@ const App: React.FC = () => {
               <Navbar.Item>
                 <Navbar.Dropdown
                   toggle={toggleHandler => (
-                    <Button primary onMouseOver={toggleHandler}>
-                      A Dropdown
-                    </Button>
+                    <Navbar.DropdownContext.Consumer>
+                      {({ isOpen }) => (
+                        <Button primary onMouseOver={toggleHandler}>
+                          {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
+                        </Button>
+                      )}
+                    </Navbar.DropdownContext.Consumer>
                   )}
                 >
                   <Navbar.DropdownContainer>
@@ -477,9 +481,13 @@ const App: React.FC = () => {
                 <Navbar.Dropdown
                   style={{ position: 'static' }}
                   toggle={toggleHandler => (
-                    <Button asLink onMouseOver={toggleHandler}>
-                      A Second Dropdown
-                    </Button>
+                    <Navbar.DropdownContext.Consumer>
+                      {({ isOpen }) => (
+                        <Button asLink onMouseOver={toggleHandler}>
+                          {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
+                        </Button>
+                      )}
+                    </Navbar.DropdownContext.Consumer>
                   )}
                 >
                   <Navbar.DropdownContainer
