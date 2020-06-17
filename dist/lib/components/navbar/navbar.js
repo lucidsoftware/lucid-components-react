@@ -2,6 +2,13 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("react");
@@ -11,7 +18,7 @@ const button_1 = __importDefault(require("../button/button"));
 const navbar_item_1 = __importDefault(require("./navbar-item"));
 const navbar_brand_1 = __importDefault(require("./navbar-brand"));
 const navbar_border_1 = __importDefault(require("./navbar-border"));
-const navbar_dropdown_1 = __importDefault(require("./navbar-dropdown"));
+const navbar_dropdown_1 = __importStar(require("./navbar-dropdown"));
 const navbar_dropdown_container_1 = __importDefault(require("./navbar-dropdown-container"));
 const navbar_container_1 = __importDefault(require("./navbar-container"));
 const navbar_inner_container_1 = __importDefault(require("./navbar-inner-container"));
@@ -104,6 +111,7 @@ const Navbar = Object.assign(NavbarComp, {
     InnerContainer: navbar_inner_container_1.default,
     Container: navbar_container_1.default,
     Dropdown: navbar_dropdown_1.default,
+    DropdownContext: navbar_dropdown_1.NavbarDropdownContext,
     DropdownContainer: navbar_dropdown_container_1.default,
     DropdownGroup: navbar_dropdown_group_1.default,
     Item: navbar_item_1.default,

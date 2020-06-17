@@ -20,15 +20,8 @@ const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
 const emotion_theming_1 = require("emotion-theming");
-const DropdownWrapper = styled_1.default.div(({ theme }) => ({
-    position: 'relative',
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-        '> a, > button': {
-            '&::after': {
-                content: '":"'
-            }
-        }
-    }
+const DropdownWrapper = styled_1.default.div(() => ({
+    position: 'relative'
 }));
 const DROPDOWN_SAFETY_TIMER = 225;
 exports.NavbarDropdownContext = react_1.createContext({

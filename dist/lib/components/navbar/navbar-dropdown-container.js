@@ -25,7 +25,7 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
     visibility: isOpen ? 'visible' : 'hidden',
     position: 'absolute',
     background,
-    top: '110%',
+    top: 'calc(100% + 5px)',
     textAlign: 'left',
     minWidth: '225px',
     maxWidth: '300px',
@@ -52,8 +52,8 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
         position: 'absolute',
         left: 0,
         right: 0,
-        top: '-20px',
-        height: '20px'
+        top: '-5px',
+        height: '5px'
     },
     [`@media (max-width: ${collapseAt})`]: {
         top: '100%',
