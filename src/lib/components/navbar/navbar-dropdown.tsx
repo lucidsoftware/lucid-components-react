@@ -21,16 +21,8 @@ export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
   ) => ReactNode;
 }
 
-const DropdownWrapper = styled.div(({ theme }) => ({
-  position: 'relative',
-
-  [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-    '> a, > button': {
-      '&::after': {
-        content: '":"'
-      }
-    }
-  }
+const DropdownWrapper = styled.div(() => ({
+  position: 'relative'
 }));
 
 const DROPDOWN_SAFETY_TIMER = 225;
