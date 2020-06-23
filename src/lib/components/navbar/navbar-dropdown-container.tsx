@@ -5,10 +5,13 @@ import styled from '../../../theme/styled';
 import { FC, useContext } from 'react';
 import { NavbarDropdownContext } from './navbar-dropdown';
 
-const StyledDropdownContainer = styled.div<{
-  displayLeft: boolean;
-  isOpen: boolean;
-}>(
+export interface NavbarDropdownContainerProps {
+  mobileToggle?: boolean;
+}
+
+const StyledDropdownContainer = styled.div<
+  { displayLeft: boolean; isOpen: boolean } & NavbarDropdownContainerProps
+>(
   ({
     theme: {
       navbar: {
@@ -24,7 +27,8 @@ const StyledDropdownContainer = styled.div<{
       }
     },
     displayLeft,
-    isOpen
+    isOpen,
+    mobileToggle = false
   }) => ({
     display: 'flex',
     flexWrap: 'wrap',
@@ -66,7 +70,9 @@ const StyledDropdownContainer = styled.div<{
 
     [`@media (max-width: ${collapseAt})`]: {
       top: '100%',
-      visibility: 'visible',
+      visibility: mobileToggle ? (isOpen ? 'visible' : 'hidden') : 'visible',
+      height: mobileToggle ? (isOpen ? 'auto' : '0') : 'auto',
+      ...(mobileToggle && { transition: 'height ease-out 0.3s' }),
       maxWidth: '100%',
       padding: 0,
       position: 'relative',
@@ -93,7 +99,10 @@ const StyledDropdownContainer = styled.div<{
   })
 );
 
-const NavbarDropdownContainer: FC = ({ children, ...rest }) => {
+const NavbarDropdownContainer: FC<NavbarDropdownContainerProps> = ({
+  children,
+  ...rest
+}) => {
   const { isOpen, displayLeft } = useContext(NavbarDropdownContext);
 
   return (
