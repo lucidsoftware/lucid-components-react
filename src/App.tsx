@@ -452,14 +452,18 @@ const App: React.FC = () => {
                   toggle={toggleHandler => (
                     <Navbar.DropdownContext.Consumer>
                       {({ isOpen }) => (
-                        <Button primary onMouseOver={toggleHandler}>
+                        <Button
+                          primary
+                          onMouseOver={toggleHandler}
+                          onTouchEnd={toggleHandler}
+                        >
                           {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
                         </Button>
                       )}
                     </Navbar.DropdownContext.Consumer>
                   )}
                 >
-                  <Navbar.DropdownContainer>
+                  <Navbar.DropdownContainer mobileToggle>
                     <Link href="https://www.microsoft.com">
                       Some valid link
                     </Link>
@@ -483,7 +487,11 @@ const App: React.FC = () => {
                   toggle={toggleHandler => (
                     <Navbar.DropdownContext.Consumer>
                       {({ isOpen }) => (
-                        <Button asLink onMouseOver={toggleHandler}>
+                        <Button
+                          asLink
+                          onMouseOver={toggleHandler}
+                          onTouchEnd={toggleHandler}
+                        >
                           {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
                         </Button>
                       )}
@@ -491,6 +499,7 @@ const App: React.FC = () => {
                   )}
                 >
                   <Navbar.DropdownContainer
+                    mobileToggle
                     css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
                   >
                     <div style={{ width: '50%' }}>
