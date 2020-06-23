@@ -1,4 +1,7 @@
 /** @jsx jsx */
 import { FC } from 'react';
-declare const NavbarDropdownContainer: FC;
+interface Props {
+    mobileToggle?: boolean;
+}
+declare const NavbarDropdownContainer: FC<Props>;
 export default NavbarDropdownContainer;
