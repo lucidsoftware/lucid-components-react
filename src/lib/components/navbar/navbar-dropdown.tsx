@@ -35,13 +35,17 @@ export const NavbarDropdownContext = createContext({
 const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & ThemeProps
->(({ toggle, children, ...rest }, ref) => {
+>(({ theme, toggle, children, ...rest }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
   let timer: NodeJS.Timeout;
 
-  const handleMouseOver = (evt: SyntheticEvent) => {
+  const isDesktop = () => {
+    return window.innerWidth >= parseInt(theme.navbar.collapseAt);
+  };
+
+  const openDropdown = (evt: SyntheticEvent) => {
     setIsOpen(true);
     setActiveDropdownSetIsOpen([setIsOpen]);
 
@@ -57,8 +61,30 @@ const NavbarDropdown = forwardRef<
     clearTimeout(timer);
   };
 
-  const handleMouseLeave = () => {
+  const closeDropdown = () => {
     timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
+  };
+
+  const handleMouseOver = (evt: SyntheticEvent) => {
+    if (isDesktop()) {
+      openDropdown(evt);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isDesktop()) {
+      closeDropdown();
+    }
+  };
+
+  const handleClickToggle = (evt: SyntheticEvent) => {
+    if (!isDesktop()) {
+      if (!isOpen) {
+        openDropdown(evt);
+      } else {
+        closeDropdown();
+      }
+    }
   };
 
   const context = {
@@ -71,6 +97,7 @@ const NavbarDropdown = forwardRef<
       {...rest}
       role="navigation"
       onMouseOver={handleMouseOver}
+      onClick={handleClickToggle}
       onMouseLeave={handleMouseLeave}
       onFocus={handleMouseOver}
       onBlur={handleMouseLeave}

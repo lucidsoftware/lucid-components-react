@@ -449,14 +449,10 @@ const App: React.FC = () => {
               <Navbar.Item>I am just some text</Navbar.Item>
               <Navbar.Item>
                 <Navbar.Dropdown
-                  toggle={toggleHandler => (
+                  toggle={() => (
                     <Navbar.DropdownContext.Consumer>
                       {({ isOpen }) => (
-                        <Button
-                          primary
-                          onMouseOver={toggleHandler}
-                          onTouchEnd={toggleHandler}
-                        >
+                        <Button primary>
                           {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
                         </Button>
                       )}
@@ -490,7 +486,7 @@ const App: React.FC = () => {
                         <Button
                           asLink
                           onMouseOver={toggleHandler}
-                          onTouchEnd={toggleHandler}
+                          onClick={toggleHandler}
                         >
                           {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
                         </Button>
