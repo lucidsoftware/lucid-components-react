@@ -29,12 +29,15 @@ exports.NavbarDropdownContext = react_1.createContext({
     displayLeft: false
 });
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { toggle, children } = _a, rest = __rest(_a, ["toggle", "children"]);
+    var { theme, toggle, children } = _a, rest = __rest(_a, ["theme", "toggle", "children"]);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
     let timer;
-    const handleMouseOver = (evt) => {
+    const isDesktop = () => {
+        return window.innerWidth >= parseInt(theme.navbar.collapseAt);
+    };
+    const openDropdown = (evt) => {
         setIsOpen(true);
         setActiveDropdownSetIsOpen([setIsOpen]);
         const threshold = 400;
@@ -48,14 +51,34 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         }
         clearTimeout(timer);
     };
-    const handleMouseLeave = () => {
+    const closeDropdown = () => {
         timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
+    };
+    const handleMouseOver = (evt) => {
+        if (isDesktop()) {
+            openDropdown(evt);
+        }
+    };
+    const handleMouseLeave = () => {
+        if (isDesktop()) {
+            closeDropdown();
+        }
+    };
+    const handleClickToggle = (evt) => {
+        if (!isDesktop()) {
+            if (!isOpen) {
+                openDropdown(evt);
+            }
+            else {
+                closeDropdown();
+            }
+        }
     };
     const context = {
         isOpen,
         displayLeft
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
+    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onClick: handleClickToggle, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
         core_1.jsx(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));
