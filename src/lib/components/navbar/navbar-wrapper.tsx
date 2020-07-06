@@ -13,21 +13,23 @@ interface Props {
   children?: ReactNode;
 }
 
-const NavbarWrap = styled.nav<Props>(({ theme, sticky, stickyCollapsed }) => ({
-  display: 'block',
-  background: theme.navbar.background,
-  zIndex: 1000,
-  top: 0,
-  left: 0,
-  right: 0,
-  padding: `${theme.navbar.padding} 0`,
-  minHeight: theme.navbar.minHeight,
-  textAlign: 'left',
-  position: sticky ? ['fixed', 'sticky'] : 'relative',
-  [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-    position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
-  }
-}));
+const NavbarWrap = styled.nav<Props>(
+  ({ theme, sticky, stickyCollapsed, background }) => ({
+    display: 'block',
+    background: background || theme.navbar.background,
+    zIndex: 1000,
+    top: 0,
+    left: 0,
+    right: 0,
+    padding: `${theme.navbar.padding} 0`,
+    minHeight: theme.navbar.minHeight,
+    textAlign: 'left',
+    position: sticky ? ['fixed', 'sticky'] : 'relative',
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
+      position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
+    }
+  })
+);
 
 const isIE11 =
   typeof navigator !== 'undefined' &&
