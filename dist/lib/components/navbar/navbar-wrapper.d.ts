@@ -6,6 +6,8 @@ interface Props {
     sticky?: boolean;
     stickyCollapsed?: boolean;
     background?: string;
+    top?: number;
+    zIndex?: number;
     children?: ReactNode;
 }
 declare const NavbarWrapper: FC<HTMLDivElement & Props>;

@@ -6,11 +6,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
-const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, background }) => ({
+const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, background, top = 0, zIndex = 1000 }) => ({
     display: 'block',
     background: background || theme.navbar.background,
-    zIndex: 1000,
-    top: 0,
+    zIndex,
+    top,
     left: 0,
     right: 0,
     padding: `${theme.navbar.padding} 0`,
