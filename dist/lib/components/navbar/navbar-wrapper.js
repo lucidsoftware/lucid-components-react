@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
-const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, background, top = 0, zIndex = 1000 }) => ({
+const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, background, top, zIndex }) => ({
     display: 'block',
     background: background || theme.navbar.background,
     zIndex,
@@ -24,8 +24,8 @@ const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, backg
 const isIE11 = typeof navigator !== 'undefined' &&
     navigator.userAgent &&
     navigator.userAgent.indexOf('Trident/') !== -1;
-const NavbarWrapper = ({ as, sticky = false, stickyCollapsed = false, children }, ref) => {
-    return (core_1.jsx(NavbarWrap, { ref: ref, as: as, sticky: sticky, stickyCollapsed: stickyCollapsed },
+const NavbarWrapper = ({ as, sticky = false, stickyCollapsed = false, top = 0, zIndex = 1000, background, children }) => {
+    return (core_1.jsx(NavbarWrap, { as: as, sticky: sticky, stickyCollapsed: stickyCollapsed, top: top, zIndex: zIndex, background: background },
         sticky && isIE11 && (core_1.jsx(core_1.Global, { styles: {
                 body: {
                     marginTop: '60px'

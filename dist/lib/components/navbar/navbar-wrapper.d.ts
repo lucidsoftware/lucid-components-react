@@ -10,5 +10,5 @@ interface Props {
     zIndex?: number;
     children?: ReactNode;
 }
-declare const NavbarWrapper: FC<HTMLDivElement & Props>;
+declare const NavbarWrapper: FC<Props>;
 export default NavbarWrapper;
