@@ -10,15 +10,17 @@ interface Props {
   sticky?: boolean;
   stickyCollapsed?: boolean;
   background?: string;
+  top?: number;
+  zIndex?: number;
   children?: ReactNode;
 }
 
 const NavbarWrap = styled.nav<Props>(
-  ({ theme, sticky, stickyCollapsed, background }) => ({
+  ({ theme, sticky, stickyCollapsed, background, top = 0, zIndex = 1000 }) => ({
     display: 'block',
     background: background || theme.navbar.background,
-    zIndex: 1000,
-    top: 0,
+    zIndex,
+    top,
     left: 0,
     right: 0,
     padding: `${theme.navbar.padding} 0`,
