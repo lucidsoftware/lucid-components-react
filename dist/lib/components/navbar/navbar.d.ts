@@ -2,11 +2,7 @@
 /** @jsx jsx */
 import { ReactNode } from 'react';
 interface Props {
-    as?: 'nav' | 'header' | 'div';
     skipText?: string;
-    sticky?: boolean;
-    stickyCollapsed?: boolean;
-    background?: string;
     children?: ReactNode;
 }
 export declare const NavbarContext: import("react").Context<{
