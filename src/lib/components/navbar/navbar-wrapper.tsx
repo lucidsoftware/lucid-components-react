@@ -16,7 +16,7 @@ interface Props {
 }
 
 const NavbarWrap = styled.nav<Props>(
-  ({ theme, sticky, stickyCollapsed, background, top = 0, zIndex = 1000 }) => ({
+  ({ theme, sticky, stickyCollapsed, background, top, zIndex }) => ({
     display: 'block',
     background: background || theme.navbar.background,
     zIndex,
@@ -38,16 +38,23 @@ const isIE11 =
   navigator.userAgent &&
   navigator.userAgent.indexOf('Trident/') !== -1;
 
-const NavbarWrapper: FC<HTMLDivElement & Props> = (
-  { as, sticky = false, stickyCollapsed = false, children },
-  ref
-) => {
+const NavbarWrapper: FC<Props> = ({
+  as,
+  sticky = false,
+  stickyCollapsed = false,
+  top = 0,
+  zIndex = 1000,
+  background,
+  children
+}) => {
   return (
     <NavbarWrap
-      ref={ref}
       as={as}
       sticky={sticky}
       stickyCollapsed={stickyCollapsed}
+      top={top}
+      zIndex={zIndex}
+      background={background}
     >
       {sticky && isIE11 && (
         <Global
