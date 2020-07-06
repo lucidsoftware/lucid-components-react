@@ -7,7 +7,7 @@ import {
   Dispatch,
   SetStateAction
 } from 'react';
-import { Global, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import styled from '../../../theme/styled';
 
 import Button from '../button/button';
@@ -22,11 +22,7 @@ import NavbarToggle from './navbar-toggle';
 import NavbarDropdownGroup from './navbar-dropdown-group';
 
 interface Props {
-  as?: 'nav' | 'header' | 'div';
   skipText?: string;
-  sticky?: boolean;
-  stickyCollapsed?: boolean;
-  background?: string;
   children?: ReactNode;
 }
 
@@ -37,24 +33,6 @@ export const NavbarContext = createContext({
   },
   setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined
 });
-
-const NavbarWrapper = styled.nav<Props>(
-  ({ theme, sticky, stickyCollapsed }) => ({
-    display: 'block',
-    background: theme.navbar.background,
-    zIndex: 1000,
-    top: 0,
-    left: 0,
-    right: 0,
-    padding: `${theme.navbar.padding} 0`,
-    minHeight: theme.navbar.minHeight,
-    textAlign: 'left',
-    position: sticky ? ['fixed', 'sticky'] : 'relative',
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-      position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
-    }
-  })
-);
 
 const NavbarContents = styled.div({
   display: 'flex',
@@ -82,16 +60,7 @@ const NavbarSkip = styled(Button)({
 });
 
 const NavbarComp = forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      as = 'nav',
-      skipText = 'Skip to Content',
-      sticky = false,
-      stickyCollapsed = false,
-      children
-    },
-    ref
-  ) => {
+  ({ skipText = 'Skip to Content', children }) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<
       Dispatch<SetStateAction<boolean>>[]
     >([]);
@@ -120,35 +89,15 @@ const NavbarComp = forwardRef<HTMLDivElement, Props>(
       toggleExpanded: () => setExpanded(!expanded)
     };
 
-    const isIE11 =
-      typeof navigator !== 'undefined' &&
-      navigator.userAgent &&
-      navigator.userAgent.indexOf('Trident/') !== -1;
-
     return (
-      <NavbarWrapper
-        ref={ref}
-        sticky={sticky}
-        stickyCollapsed={stickyCollapsed}
-      >
-        {sticky && isIE11 && (
-          <Global
-            styles={{
-              body: {
-                marginTop: '60px'
-              }
-            }}
-          />
-        )}
-        <NavbarContext.Provider value={context}>
-          <NavbarContents>
-            <NavbarSkip primary onClick={skipHandler}>
-              {skipText}
-            </NavbarSkip>
-          </NavbarContents>
-          <NavbarChildren>{children}</NavbarChildren>
-        </NavbarContext.Provider>
-      </NavbarWrapper>
+      <NavbarContext.Provider value={context}>
+        <NavbarContents>
+          <NavbarSkip primary onClick={skipHandler}>
+            {skipText}
+          </NavbarSkip>
+        </NavbarContents>
+        <NavbarChildren>{children}</NavbarChildren>
+      </NavbarContext.Provider>
     );
   }
 );
