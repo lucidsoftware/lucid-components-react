@@ -40,13 +40,16 @@ const NavbarContents = styled.div({
   position: 'relative'
 });
 
-const NavbarChildren = styled.div({
+const NavbarChildren = styled.div(({ theme }) => ({
   display: 'flex',
   position: 'relative',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
-  width: '100%'
-});
+  width: '100%',
+  padding: `${theme.navbar.padding} 0`,
+  minHeight: theme.navbar.minHeight,
+  textAlign: 'left'
+}));
 
 const NavbarSkip = styled(Button)({
   position: 'absolute',
