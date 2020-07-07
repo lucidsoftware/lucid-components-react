@@ -36,13 +36,16 @@ const NavbarContents = styled_1.default.div({
     margin: '0 auto',
     position: 'relative'
 });
-const NavbarChildren = styled_1.default.div({
+const NavbarChildren = styled_1.default.div(({ theme }) => ({
     display: 'flex',
     position: 'relative',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    width: '100%'
-});
+    width: '100%',
+    padding: `${theme.navbar.padding} 0`,
+    minHeight: theme.navbar.minHeight,
+    textAlign: 'left'
+}));
 const NavbarSkip = styled_1.default(button_1.default)({
     position: 'absolute',
     top: 0,

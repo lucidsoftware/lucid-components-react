@@ -13,9 +13,6 @@ const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, backg
     top,
     left: 0,
     right: 0,
-    padding: `${theme.navbar.padding} 0`,
-    minHeight: theme.navbar.minHeight,
-    textAlign: 'left',
     position: sticky ? ['fixed', 'sticky'] : 'relative',
     [`@media (max-width: ${theme.navbar.collapseAt})`]: {
         position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
