@@ -1,5 +1,5 @@
 export const windowIsAboveWidth = (width: string) => {
-  return window.innerWidth <= parseInt(width);
+  return window.innerWidth >= parseInt(width);
 };
 
 export const isIE11 = () => {
