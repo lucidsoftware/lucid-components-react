@@ -20,6 +20,7 @@ const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
 const emotion_theming_1 = require("emotion-theming");
+const utils_1 = require("../../../utils/utils");
 const DropdownWrapper = styled_1.default.div(() => ({
     position: 'relative'
 }));
@@ -34,9 +35,6 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
     let timer;
-    const isDesktop = () => {
-        return window.innerWidth >= parseInt(theme.navbar.collapseAt);
-    };
     const openDropdown = (evt) => {
         setIsOpen(true);
         setActiveDropdownSetIsOpen([setIsOpen]);
@@ -55,17 +53,17 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
     };
     const handleMouseOver = (evt) => {
-        if (isDesktop()) {
+        if (utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
             openDropdown(evt);
         }
     };
     const handleMouseLeave = () => {
-        if (isDesktop()) {
+        if (utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
             closeDropdown();
         }
     };
     const handleClickToggle = (evt) => {
-        if (!isDesktop()) {
+        if (!utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
             if (!isOpen) {
                 openDropdown(evt);
             }
