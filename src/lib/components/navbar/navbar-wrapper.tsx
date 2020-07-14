@@ -3,6 +3,7 @@
 import { ReactNode, FC } from 'react';
 import { Global, jsx } from '@emotion/core';
 import styled from '../../../theme/styled';
+import { isIE11 } from '../../../utils/utils';
 
 interface Props {
   as?: 'nav' | 'header' | 'div';
@@ -30,10 +31,7 @@ const NavbarWrap = styled.nav<Props>(
   })
 );
 
-const isIE11 =
-  typeof navigator !== 'undefined' &&
-  navigator.userAgent &&
-  navigator.userAgent.indexOf('Trident/') !== -1;
+const IE11 = isIE11();
 
 const NavbarWrapper: FC<Props> = ({
   as,
@@ -53,7 +51,7 @@ const NavbarWrapper: FC<Props> = ({
       zIndex={zIndex}
       background={background}
     >
-      {sticky && isIE11 && (
+      {sticky && IE11 && (
         <Global
           styles={{
             body: {

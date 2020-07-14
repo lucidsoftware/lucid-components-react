@@ -14,6 +14,7 @@ import styled from '../../../theme/styled';
 import { NavbarContext } from './navbar';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
+import { windowIsAboveWidth } from '../../../utils/utils';
 
 export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
   toggle: (
@@ -41,10 +42,6 @@ const NavbarDropdown = forwardRef<
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
   let timer: NodeJS.Timeout;
 
-  const isDesktop = () => {
-    return window.innerWidth >= parseInt(theme.navbar.collapseAt);
-  };
-
   const openDropdown = (evt: SyntheticEvent) => {
     setIsOpen(true);
     setActiveDropdownSetIsOpen([setIsOpen]);
@@ -66,19 +63,19 @@ const NavbarDropdown = forwardRef<
   };
 
   const handleMouseOver = (evt: SyntheticEvent) => {
-    if (isDesktop()) {
+    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
       openDropdown(evt);
     }
   };
 
   const handleMouseLeave = () => {
-    if (isDesktop()) {
+    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
       closeDropdown();
     }
   };
 
   const handleClickToggle = (evt: SyntheticEvent) => {
-    if (!isDesktop()) {
+    if (!windowIsAboveWidth(theme.navbar.collapseAt)) {
       if (!isOpen) {
         openDropdown(evt);
       } else {
