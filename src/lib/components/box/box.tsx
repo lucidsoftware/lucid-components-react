@@ -31,7 +31,7 @@ interface Props
     LayoutProps,
     PositionProps {
   color?: string;
-  as?: 'div' | 'section' | 'main';
+  as?: 'div' | 'section' | 'main' | 'aside';
 }
 
 const Box = styled.div<Props>(
