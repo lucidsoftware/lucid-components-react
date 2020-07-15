@@ -20,6 +20,7 @@ const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
 const emotion_theming_1 = require("emotion-theming");
+const utils_1 = require("../../../utils/utils");
 const DropdownWrapper = styled_1.default.div(() => ({
     position: 'relative'
 }));
@@ -29,12 +30,12 @@ exports.NavbarDropdownContext = react_1.createContext({
     displayLeft: false
 });
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { toggle, children } = _a, rest = __rest(_a, ["toggle", "children"]);
+    var { theme, toggle, children } = _a, rest = __rest(_a, ["theme", "toggle", "children"]);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
     let timer;
-    const handleMouseOver = (evt) => {
+    const openDropdown = (evt) => {
         setIsOpen(true);
         setActiveDropdownSetIsOpen([setIsOpen]);
         const threshold = 400;
@@ -48,14 +49,34 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         }
         clearTimeout(timer);
     };
-    const handleMouseLeave = () => {
+    const closeDropdown = () => {
         timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
+    };
+    const handleMouseOver = (evt) => {
+        if (utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
+            openDropdown(evt);
+        }
+    };
+    const handleMouseLeave = () => {
+        if (utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
+            closeDropdown();
+        }
+    };
+    const handleClickToggle = (evt) => {
+        if (!utils_1.windowIsAboveWidth(theme.navbar.collapseAt)) {
+            if (!isOpen) {
+                openDropdown(evt);
+            }
+            else {
+                closeDropdown();
+            }
+        }
     };
     const context = {
         isOpen,
         displayLeft
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
+    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onClick: handleClickToggle, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
         core_1.jsx(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));

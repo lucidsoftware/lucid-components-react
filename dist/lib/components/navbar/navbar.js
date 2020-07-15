@@ -31,33 +31,21 @@ exports.NavbarContext = react_1.createContext({
     },
     setActiveDropdownSetIsOpen: (activeDropdown) => undefined
 });
-const NavbarWrapper = styled_1.default.nav(({ theme, sticky, stickyCollapsed }) => ({
-    display: 'block',
-    background: theme.navbar.background,
-    zIndex: 1000,
-    top: 0,
-    left: 0,
-    right: 0,
-    padding: `${theme.navbar.padding} 0`,
-    minHeight: theme.navbar.minHeight,
-    textAlign: 'left',
-    position: sticky ? ['fixed', 'sticky'] : 'relative',
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: {
-        position: stickyCollapsed ? ['fixed', 'sticky'] : 'relative'
-    }
-}));
 const NavbarContents = styled_1.default.div({
     display: 'flex',
     margin: '0 auto',
     position: 'relative'
 });
-const NavbarChildren = styled_1.default.div({
+const NavbarChildren = styled_1.default.div(({ theme }) => ({
     display: 'flex',
     position: 'relative',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    width: '100%'
-});
+    width: '100%',
+    padding: `${theme.navbar.padding} 0`,
+    minHeight: theme.navbar.minHeight,
+    textAlign: 'left'
+}));
 const NavbarSkip = styled_1.default(button_1.default)({
     position: 'absolute',
     top: 0,
@@ -67,7 +55,7 @@ const NavbarSkip = styled_1.default(button_1.default)({
         left: 0
     }
 });
-const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content', sticky = false, stickyCollapsed = false, children }, ref) => {
+const NavbarComp = react_1.forwardRef(({ skipText = 'Skip to Content', children }) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = react_1.useState([]);
     const [expanded, setExpanded] = react_1.useState(false);
     const skipHandler = () => {
@@ -90,19 +78,10 @@ const NavbarComp = react_1.forwardRef(({ as = 'nav', skipText = 'Skip to Content
         expanded,
         toggleExpanded: () => setExpanded(!expanded)
     };
-    const isIE11 = typeof navigator !== 'undefined' &&
-        navigator.userAgent &&
-        navigator.userAgent.indexOf('Trident/') !== -1;
-    return (core_1.jsx(NavbarWrapper, { ref: ref, sticky: sticky, stickyCollapsed: stickyCollapsed },
-        sticky && isIE11 && (core_1.jsx(core_1.Global, { styles: {
-                body: {
-                    marginTop: '60px'
-                }
-            } })),
-        core_1.jsx(exports.NavbarContext.Provider, { value: context },
-            core_1.jsx(NavbarContents, null,
-                core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
-            core_1.jsx(NavbarChildren, null, children))));
+    return (core_1.jsx(exports.NavbarContext.Provider, { value: context },
+        core_1.jsx(NavbarContents, null,
+            core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
+        core_1.jsx(NavbarChildren, null, children)));
 });
 NavbarComp.displayName = 'NavbarComp';
 const Navbar = Object.assign(NavbarComp, {

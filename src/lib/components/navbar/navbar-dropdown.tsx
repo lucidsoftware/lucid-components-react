@@ -14,6 +14,7 @@ import styled from '../../../theme/styled';
 import { NavbarContext } from './navbar';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
+import { windowIsAboveWidth } from '../../../utils/utils';
 
 export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
   toggle: (
@@ -35,13 +36,13 @@ export const NavbarDropdownContext = createContext({
 const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & ThemeProps
->(({ toggle, children, ...rest }, ref) => {
+>(({ theme, toggle, children, ...rest }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
   let timer: NodeJS.Timeout;
 
-  const handleMouseOver = (evt: SyntheticEvent) => {
+  const openDropdown = (evt: SyntheticEvent) => {
     setIsOpen(true);
     setActiveDropdownSetIsOpen([setIsOpen]);
 
@@ -57,8 +58,30 @@ const NavbarDropdown = forwardRef<
     clearTimeout(timer);
   };
 
-  const handleMouseLeave = () => {
+  const closeDropdown = () => {
     timer = setTimeout(() => setIsOpen(false), DROPDOWN_SAFETY_TIMER);
+  };
+
+  const handleMouseOver = (evt: SyntheticEvent) => {
+    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
+      openDropdown(evt);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
+      closeDropdown();
+    }
+  };
+
+  const handleClickToggle = (evt: SyntheticEvent) => {
+    if (!windowIsAboveWidth(theme.navbar.collapseAt)) {
+      if (!isOpen) {
+        openDropdown(evt);
+      } else {
+        closeDropdown();
+      }
+    }
   };
 
   const context = {
@@ -71,6 +94,7 @@ const NavbarDropdown = forwardRef<
       {...rest}
       role="navigation"
       onMouseOver={handleMouseOver}
+      onClick={handleClickToggle}
       onMouseLeave={handleMouseLeave}
       onFocus={handleMouseOver}
       onBlur={handleMouseLeave}

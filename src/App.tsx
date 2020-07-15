@@ -15,6 +15,7 @@ import Form from './lib/components/form/form/form';
 import Heading from './lib/components/heading/heading';
 import Link from './lib/components/link/link';
 import Navbar from './lib/components/navbar/navbar';
+import NavbarWrapper from './lib/components/navbar/navbar-wrapper';
 import Paper from './lib/components/paper/paper';
 import Spacer from './lib/components/spacer/spacer';
 
@@ -429,111 +430,40 @@ const App: React.FC = () => {
             <Form.Label variant="default">Password</Form.Label>
           </Form>
         </Box>
-
-        <Navbar sticky>
-          <Navbar.Container className="nav-container">
-            <Navbar.Brand>
-              <Link href="https://www.google.com">
-                <img
-                  src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
-                  alt="Logo"
-                  style={{ width: '200px' }}
-                />
-              </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle>Menu</Navbar.Toggle>
-            <Navbar.InnerContainer>
-              <Navbar.Item>
-                <Button secondary>Play Video</Button>
-              </Navbar.Item>
-              <Navbar.Item>I am just some text</Navbar.Item>
-              <Navbar.Item>
-                <Navbar.Dropdown
-                  toggle={toggleHandler => (
-                    <Navbar.DropdownContext.Consumer>
-                      {({ isOpen }) => (
-                        <Button
-                          primary
-                          onMouseOver={toggleHandler}
-                          onTouchEnd={toggleHandler}
-                        >
-                          {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
-                        </Button>
-                      )}
-                    </Navbar.DropdownContext.Consumer>
-                  )}
-                >
-                  <Navbar.DropdownContainer mobileToggle>
-                    <Link href="https://www.microsoft.com">
-                      Some valid link
-                    </Link>
-                    <Link>An invalid link</Link>
-                    <Link primary href="https://www.microsoft.com">
-                      Some 3rd link with an absurdly long name for reals
-                    </Link>
-                    <Link href="https://www.microsoft.com">
-                      Some 4th link with long name
-                    </Link>
-                    <p>Some Label</p>
-                    <Link href="https://www.microsoft.com">
-                      Some 4th link with long name
-                    </Link>
-                  </Navbar.DropdownContainer>
-                </Navbar.Dropdown>
-              </Navbar.Item>
-              <Navbar.Item>
-                <Navbar.Dropdown
-                  style={{ position: 'static' }}
-                  toggle={toggleHandler => (
-                    <Navbar.DropdownContext.Consumer>
-                      {({ isOpen }) => (
-                        <Button
-                          asLink
-                          onMouseOver={toggleHandler}
-                          onTouchEnd={toggleHandler}
-                        >
-                          {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
-                        </Button>
-                      )}
-                    </Navbar.DropdownContext.Consumer>
-                  )}
-                >
-                  <Navbar.DropdownContainer
-                    mobileToggle
-                    css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
+        <NavbarWrapper>
+          <Navbar>
+            <Navbar.Container className="nav-container">
+              <Navbar.Brand>
+                <Link href="https://www.google.com">
+                  <img
+                    src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
+                    alt="Logo"
+                    style={{ width: '200px' }}
+                  />
+                </Link>
+              </Navbar.Brand>
+              <Navbar.Toggle>Menu</Navbar.Toggle>
+              <Navbar.InnerContainer>
+                <Navbar.Item>
+                  <Button secondary>Play Video</Button>
+                </Navbar.Item>
+                <Navbar.Item>I am just some text</Navbar.Item>
+                <Navbar.Item>
+                  <Navbar.Dropdown
+                    toggle={() => (
+                      <Navbar.DropdownContext.Consumer>
+                        {({ isOpen }) => (
+                          <Button primary>
+                            {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
+                          </Button>
+                        )}
+                      </Navbar.DropdownContext.Consumer>
+                    )}
                   >
-                    <div style={{ width: '50%' }}>
-                      <p>Hello</p>
-                      <span
-                        css={{
-                          display: 'inline-block',
-                          width: 'auto',
-                          padding: '0',
-                          marginBottom: '.5rem',
-                          fontWeight: 600
-                        }}
-                      >
-                        Howdy
-                      </span>
-                    </div>
-                    <Navbar.DropdownGroup>
-                      <p>Some Header</p>
-                      <Link
-                        css={{ display: 'flex', width: '20px' }}
-                        href="https://www.microsoft.com"
-                      >
-                        Some valid link
-                      </Link>
+                    <Navbar.DropdownContainer mobileToggle>
                       <Link href="https://www.microsoft.com">
                         Some valid link
                       </Link>
-                      <Link href="https://www.microsoft.com">
-                        Some valid link
-                      </Link>
-                    </Navbar.DropdownGroup>
-
-                    <Navbar.DropdownGroup>
-                      <p>Another Header</p>
                       <Link>An invalid link</Link>
                       <Link primary href="https://www.microsoft.com">
                         Some 3rd link with an absurdly long name for reals
@@ -545,14 +475,82 @@ const App: React.FC = () => {
                       <Link href="https://www.microsoft.com">
                         Some 4th link with long name
                       </Link>
-                    </Navbar.DropdownGroup>
-                  </Navbar.DropdownContainer>
-                </Navbar.Dropdown>
-              </Navbar.Item>
-            </Navbar.InnerContainer>
-            <Navbar.Border />
-          </Navbar.Container>
-        </Navbar>
+                    </Navbar.DropdownContainer>
+                  </Navbar.Dropdown>
+                </Navbar.Item>
+                <Navbar.Item>
+                  <Navbar.Dropdown
+                    style={{ position: 'static' }}
+                    toggle={toggleHandler => (
+                      <Navbar.DropdownContext.Consumer>
+                        {({ isOpen }) => (
+                          <Button
+                            asLink
+                            onMouseOver={toggleHandler}
+                            onClick={toggleHandler}
+                          >
+                            {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
+                          </Button>
+                        )}
+                      </Navbar.DropdownContext.Consumer>
+                    )}
+                  >
+                    <Navbar.DropdownContainer
+                      mobileToggle
+                      css={{ maxWidth: '1000px', flexWrap: 'nowrap' }}
+                    >
+                      <div style={{ width: '50%' }}>
+                        <p>Hello</p>
+                        <span
+                          css={{
+                            display: 'inline-block',
+                            width: 'auto',
+                            padding: '0',
+                            marginBottom: '.5rem',
+                            fontWeight: 600
+                          }}
+                        >
+                          Howdy
+                        </span>
+                      </div>
+                      <Navbar.DropdownGroup>
+                        <p>Some Header</p>
+                        <Link
+                          css={{ display: 'flex', width: '20px' }}
+                          href="https://www.microsoft.com"
+                        >
+                          Some valid link
+                        </Link>
+                        <Link href="https://www.microsoft.com">
+                          Some valid link
+                        </Link>
+                        <Link href="https://www.microsoft.com">
+                          Some valid link
+                        </Link>
+                      </Navbar.DropdownGroup>
+
+                      <Navbar.DropdownGroup>
+                        <p>Another Header</p>
+                        <Link>An invalid link</Link>
+                        <Link primary href="https://www.microsoft.com">
+                          Some 3rd link with an absurdly long name for reals
+                        </Link>
+                        <Link href="https://www.microsoft.com">
+                          Some 4th link with long name
+                        </Link>
+                        <p>Some Label</p>
+                        <Link href="https://www.microsoft.com">
+                          Some 4th link with long name
+                        </Link>
+                      </Navbar.DropdownGroup>
+                    </Navbar.DropdownContainer>
+                  </Navbar.Dropdown>
+                </Navbar.Item>
+              </Navbar.InnerContainer>
+              <Navbar.Border />
+            </Navbar.Container>
+          </Navbar>
+        </NavbarWrapper>
       </ThemeProvider>
     </div>
   );
