@@ -103,7 +103,6 @@ export const getButtonStyles = ({
     boxShadow,
     transition,
     textDecoration: 'none',
-
     color,
     backgroundColor,
     border,
