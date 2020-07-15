@@ -2,17 +2,16 @@ import styled from '../../../theme/styled';
 import {
   background,
   BackgroundProps,
-  BackgroundColorProps,
   border,
   BorderProps,
   color,
+  ColorProps,
   flexbox,
   FlexboxProps,
   grid,
   GridProps,
   layout,
   LayoutProps,
-  OpacityProps,
   position,
   PositionProps,
   shadow,
@@ -20,8 +19,6 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
-
-interface ColorProps extends BackgroundColorProps, OpacityProps {}
 
 interface Props
   extends BackgroundProps,
@@ -32,7 +29,10 @@ interface Props
     FlexboxProps,
     GridProps,
     LayoutProps,
-    PositionProps {}
+    PositionProps {
+  color?: string;
+  as?: 'div' | 'section' | 'main';
+}
 
 const Box = styled.div<Props>(
   background,
