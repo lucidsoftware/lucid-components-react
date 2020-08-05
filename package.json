@@ -17,7 +17,7 @@
     "emotion-theming": "^10.0.27",
     "react": "^16.12.0",
     "react-accessible-accordion": "^3.0.1",
-    "react-app-polyfill": "^1.0.5",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.12.0",
     "react-player": "^1.14.2",
     "styled-system": "^5.1.4"
