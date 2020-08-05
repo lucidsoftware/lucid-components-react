@@ -12,7 +12,7 @@
     "url": "https://github.com/lbucio/lucid-components-react"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
+    "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
     "react": "^16.12.0",
