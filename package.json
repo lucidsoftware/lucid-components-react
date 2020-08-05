@@ -85,7 +85,7 @@
     "tslint-react": "^4.2.0",
     "tslint-react-a11y": "^1.1.0",
     "typescript": "^3.7.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "peerDependencies": {
     "emotion-theming": "~10.0.27"
