@@ -25,24 +25,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "yarn start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-components": "rm -rf dist && tsc -p src/lib/; git add ./dist; git commit -m \"[auto] Build component library.\"",
     "lint": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint",
-      "prettier --write"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

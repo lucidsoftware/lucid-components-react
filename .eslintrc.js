@@ -6,7 +6,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier/react',
     'prettier/@typescript-eslint',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'react-app'
   ],
   plugins: ['@typescript-eslint', 'react', 'emotion'],
   rules: {
@@ -32,6 +33,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
+    jsx: true
   }
 };
