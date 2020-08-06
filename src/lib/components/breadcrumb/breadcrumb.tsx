@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
@@ -48,18 +48,25 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
   seperator = <BreadcrumbSeparator theme={theme}>/</BreadcrumbSeparator>
 }) => {
   const getCrumbs = () => {
-    const crumbs: ReactNode[] = [];
-    for (let index = 0; index < items.length; index++) {
-      const element = items[index];
+    const crumbs: ReactNode[] = items.map((item, index) => {
       if (index !== items.length - 1) {
-        crumbs.push(
-          <BreadcrumbWrapper theme={theme}>{element}</BreadcrumbWrapper>
+        const crumb = (
+          <React.Fragment>
+            <BreadcrumbWrapper theme={theme} key={index}>
+              {item}
+            </BreadcrumbWrapper>
+            <React.Fragment key={`seperator-${index}`}>
+              {seperator}
+            </React.Fragment>
+          </React.Fragment>
         );
-        crumbs.push(seperator);
-      } else {
-        crumbs.push(element);
+
+        return crumb;
       }
-    }
+
+      return item;
+    });
+
     return crumbs;
   };
 
