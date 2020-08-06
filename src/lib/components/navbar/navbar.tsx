@@ -5,7 +5,7 @@ import {
   createContext,
   useState,
   Dispatch,
-  SetStateAction,
+  SetStateAction
 } from 'react';
 import { jsx } from '@emotion/core';
 import styled from '../../../theme/styled';
@@ -31,13 +31,13 @@ export const NavbarContext = createContext({
   toggleExpanded: () => {
     return;
   },
-  setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined,
+  setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined
 });
 
 const NavbarContents = styled.div({
   display: 'flex',
   margin: '0 auto',
-  position: 'relative',
+  position: 'relative'
 });
 
 const NavbarChildren = styled.div(({ theme }) => ({
@@ -48,7 +48,7 @@ const NavbarChildren = styled.div(({ theme }) => ({
   width: '100%',
   padding: `${theme.navbar.padding} 0`,
   minHeight: theme.navbar.minHeight,
-  textAlign: 'left',
+  textAlign: 'left'
 }));
 
 const NavbarSkip = styled(Button)({
@@ -58,8 +58,8 @@ const NavbarSkip = styled(Button)({
   zIndex: 9000,
 
   ':active, :focus': {
-    left: 0,
-  },
+    left: 0
+  }
 });
 
 const NavbarComp = forwardRef<HTMLDivElement, Props>(
@@ -89,7 +89,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props>(
         }
       },
       expanded,
-      toggleExpanded: () => setExpanded(!expanded),
+      toggleExpanded: () => setExpanded(!expanded)
     };
 
     return (
@@ -117,7 +117,7 @@ const Navbar = Object.assign(NavbarComp, {
   DropdownContainer: NavbarDropdownContainer,
   DropdownGroup: NavbarDropdownGroup,
   Item: NavbarItem,
-  Toggle: NavbarToggle,
+  Toggle: NavbarToggle
 });
 
 export default Navbar;

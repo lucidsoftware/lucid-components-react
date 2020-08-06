@@ -16,7 +16,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "types": ["node", "@emotion/core"]
+    "baseUrl": ".",
+    "paths": {
+      "*": [".", "src/*", "src/lib/*", "src/lib/components/**/*"]
+    }
   },
   "include": ["src/lib/"],
   "exclude": ["node_modules", "dist"]
