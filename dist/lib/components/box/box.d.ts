@@ -1,4 +1,4 @@
-/// <reference types="@emotion/core" />
+/// <reference types="react" />
 import { BackgroundProps, BorderProps, ColorProps, FlexboxProps, GridProps, LayoutProps, PositionProps, ShadowProps, SpaceProps } from 'styled-system';
 interface Props extends BackgroundProps, BorderProps, ShadowProps, SpaceProps, ColorProps, FlexboxProps, GridProps, LayoutProps, PositionProps {
     color?: string;

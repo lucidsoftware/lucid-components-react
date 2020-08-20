@@ -1,4 +1,3 @@
-/// <reference types="@emotion/core" />
 /** @jsx jsx */
 import { HTMLAttributes } from 'react';
 export interface NavbarInnerContainerProps extends HTMLAttributes<HTMLOListElement> {

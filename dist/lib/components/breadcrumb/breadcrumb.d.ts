@@ -1,4 +1,3 @@
-/// <reference types="@emotion/core" />
 import { ReactNode } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 interface Props {
