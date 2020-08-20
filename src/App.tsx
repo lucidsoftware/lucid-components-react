@@ -11,6 +11,7 @@ import Accordion from './lib/components/accordion/accordion';
 import Box from './lib/components/box/box';
 import Button from './lib/components/button/button';
 import Card from './lib/components/card/card';
+import Collection from './lib/components/collection/collection';
 import Form from './lib/components/form/form/form';
 import Heading from './lib/components/heading/heading';
 import Link from './lib/components/link/link';
@@ -206,6 +207,51 @@ const App: React.FC = () => {
           <Box mt={3}>
             <Button disabled>Disabled</Button>
           </Box>
+
+          <Spacer my={10} borderBottom="1px solid lightgrey" />
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[7, null, 8, 9]}
+            id="heading"
+          >
+            Collection component
+          </Heading>
+
+          <Spacer py={4} />
+
+          <Collection
+            space={3}
+            justify="full"
+            verticalJustify="center"
+            css={{ margin: `0 ${theme.space[8]}px` }}
+          >
+            <Button>Button</Button>
+            <Button primary>Primary button</Button>
+            <Card variant="interactive">
+              <Card.Content p={5}>Interactive card</Card.Content>
+            </Card>
+            <Button secondary>Secondary button</Button>
+            <Button disabled>Disabled button</Button>
+            <Link>Link</Link>
+            <Button>Button with a long string of text</Button>
+            <Box
+              display="flex"
+              flexDirection="column"
+              color="white"
+              bg="primary"
+              p={4}
+            >
+              Styled box
+            </Box>
+            <Button>+</Button>
+            <Card variant="raised">
+              <Card.Content p={5}>Card</Card.Content>
+            </Card>
+          </Collection>
 
           <Spacer my={10} borderBottom="1px solid lightgrey" />
 

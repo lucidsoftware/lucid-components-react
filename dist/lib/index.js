@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VideoPlayer = exports.VideoPlayButton = exports.Spacer = exports.Paper = exports.NavbarWrapper = exports.Navbar = exports.LinkVariant = exports.Link = exports.IconType = exports.Icon = exports.getLinkStyles = exports.getButtonStyles = exports.Form = exports.Heading = exports.Card = exports.Button = exports.Breadcrumb = exports.Box = exports.Accordion = void 0;
+exports.VideoPlayer = exports.VideoPlayButton = exports.Spacer = exports.Paper = exports.NavbarWrapper = exports.Navbar = exports.LinkVariant = exports.Link = exports.IconType = exports.Icon = exports.getLinkStyles = exports.getButtonStyles = exports.Form = exports.Heading = exports.Card = exports.Collection = exports.Button = exports.Breadcrumb = exports.Box = exports.Accordion = void 0;
 require("@emotion/core");
 const accordion_1 = __importDefault(require("./components/accordion/accordion"));
 exports.Accordion = accordion_1.default;
@@ -33,6 +33,8 @@ exports.Breadcrumb = breadcrumb_1.default;
 const button_1 = __importStar(require("./components/button/button"));
 exports.Button = button_1.default;
 Object.defineProperty(exports, "getButtonStyles", { enumerable: true, get: function () { return button_1.getButtonStyles; } });
+const collection_1 = __importDefault(require("./components/collection/collection"));
+exports.Collection = collection_1.default;
 const heading_1 = __importDefault(require("./components/heading/heading"));
 exports.Heading = heading_1.default;
 const card_1 = __importDefault(require("./components/card/card"));

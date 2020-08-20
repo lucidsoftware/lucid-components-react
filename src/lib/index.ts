@@ -5,6 +5,7 @@ import Accordion from './components/accordion/accordion';
 import Box from './components/box/box';
 import Breadcrumb from './components/breadcrumb/breadcrumb';
 import Button, { getButtonStyles } from './components/button/button';
+import Collection from './components/collection/collection';
 import Heading from './components/heading/heading';
 import Card from './components/card/card';
 import Icon, { IconType } from './components/icon/icon';
@@ -24,6 +25,7 @@ export {
   Box,
   Breadcrumb,
   Button,
+  Collection,
   Card,
   Heading,
   Form,
