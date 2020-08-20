@@ -27,7 +27,7 @@ Generic, themeable react components.
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the React app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -35,14 +35,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-## `npm run build-components`
+## `yarn build-components`
 
 Runs the components thru the TypeScript compiler and exports them.
 
 ## Create a release
 
 - Update package.json version
-- `npm run build-components`
+- `yarn build-components`
 - Commit new build files
 - Create a PR and merge
 - [Draft a new release](https://github.com/lbucio/lucid-components-react/releases)
@@ -57,7 +57,7 @@ If you are wanting to test changes before creating an official release, you can 
 
 - Change from using a tag (v1.0.0) to use your branch name.
 - Update your packages and it will pull in your changes.
-- Make sure to run `npm run build-components` first and then push your branch up.
+- Make sure to run `yarn build-components` first and then push your branch up.
 
 `lbucio/lucid-components-react.git#branch-name`
 

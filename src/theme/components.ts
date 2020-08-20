@@ -111,6 +111,7 @@ export const buttons = {
   lineHeight: '1',
   boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
   hoverBoxShadow: 'none',
+  disabledBoxShadow: 'none',
   border: '1px solid #000',
   transition: 'transform 0.15 ease-out',
   sizes: {
@@ -144,7 +145,10 @@ export const buttons = {
     hoverBackgroundColor: '#B6B9FF',
     hoverBorder: '1px solid #636AFF',
     activeTransform: 0.95
-  }
+  },
+  disabledColor: '#979EA8',
+  disabledBackgroundColor: '#F2F3F5',
+  disabledBorder: '1px solid #979EA8'
 };
 export const card = {
   default: {

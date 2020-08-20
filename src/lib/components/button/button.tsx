@@ -45,24 +45,32 @@ export const getButtonStyles = ({
   variant = '',
   size = 'regular',
   block,
-  active
+  active,
+  disabled
 }: {
   variant?: string;
   block?: boolean;
   size?: ButtonSize;
   active?: boolean;
+  disabled?: boolean;
 } & ThemeProps) => {
   color = theme.colors.black;
   let backgroundColor = theme.colors.white;
   let border = theme.buttons.border;
-  const boxShadow = theme.buttons.boxShadow;
+  const boxShadow = disabled
+    ? theme.buttons.disabledBoxShadow
+    : theme.buttons.boxShadow;
   let hoverColor = theme.colors.black;
   let hoverBackgroundColor = theme.colors.grey;
   let hoverBorder = theme.buttons.border;
   const hoverBoxShadow = theme.buttons.hoverBoxShadow;
   const transition = theme.buttons.transition;
 
-  if (variant === 'primary') {
+  if (disabled) {
+    color = theme.buttons.disabledColor;
+    backgroundColor = theme.buttons.disabledBackgroundColor;
+    border = theme.buttons.disabledBorder;
+  } else if (variant === 'primary') {
     color = theme.colors.white;
     backgroundColor = theme.buttons.primary.backgroundColor;
     border = theme.buttons.primary.border;
@@ -80,14 +88,16 @@ export const getButtonStyles = ({
     hoverBorder = theme.buttons.secondary.hoverBorder;
   }
 
-  const hoverCss = {
-    color: hoverColor,
-    backgroundColor: hoverBackgroundColor,
-    border: hoverBorder,
-    cursor: 'pointer',
-    boxShadow: hoverBoxShadow,
-    textDecoration: 'none'
-  };
+  const hoverCss = disabled
+    ? {}
+    : {
+        color: hoverColor,
+        backgroundColor: hoverBackgroundColor,
+        border: hoverBorder,
+        cursor: 'pointer',
+        boxShadow: hoverBoxShadow,
+        textDecoration: 'none'
+      };
 
   const { padding } = theme.buttons.sizes[size];
 
@@ -138,9 +148,9 @@ const ButtonBase: FC<ButtonProps> = ({
   onClick,
   onHover,
 
-  disabled,
   hover,
   active,
+  disabled,
 
   theme,
 
@@ -165,13 +175,13 @@ const ButtonBase: FC<ButtonProps> = ({
       padding: 0
     };
   } else {
-    css = getButtonStyles({ theme, variant, block, active, size });
+    css = getButtonStyles({ theme, variant, block, active, size, disabled });
   }
 
   const getClasses = () => {
-    return `${className}  ${hover ? 'is-hover' : ''} ${
-      active ? 'is-active' : ''
-    }  ${asLink ? 'is-link' : ''}  ${block ? 'block' : ''}`;
+    return `${className}${hover ? ' is-hover' : ''}${
+      active ? ' is-active' : ''
+    }${asLink ? ' is-link' : ''}${block ? ' block' : ''}`;
   };
 
   return (
@@ -183,6 +193,7 @@ const ButtonBase: FC<ButtonProps> = ({
       type={type}
       id={id}
       css={css}
+      disabled={disabled}
     >
       {children}
     </button>

@@ -116,7 +116,8 @@ const LinkBase: FC<LinkProps> = ({
       variant,
       block,
       active,
-      size: buttonSize
+      size: buttonSize,
+      disabled
     });
   } else {
     baseCss = getLinkStyles({

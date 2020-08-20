@@ -184,6 +184,37 @@ const App: React.FC = () => {
             my={4}
             variant="primary"
             fontSize={[7, null, 8, 9]}
+            id="heading"
+          >
+            Button component
+          </Heading>
+
+          <Spacer py={4} />
+
+          <Box>
+            <Button>Regular</Button>
+          </Box>
+
+          <Box mt={3}>
+            <Button primary>Primary</Button>
+          </Box>
+
+          <Box mt={3}>
+            <Button secondary>Secondary</Button>
+          </Box>
+
+          <Box mt={3}>
+            <Button disabled>Disabled</Button>
+          </Box>
+
+          <Spacer my={10} borderBottom="1px solid lightgrey" />
+
+          <Heading
+            as="h2"
+            mx={0}
+            my={4}
+            variant="primary"
+            fontSize={[7, null, 8, 9]}
             id="box"
           >
             Card component
