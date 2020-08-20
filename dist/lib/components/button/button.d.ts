@@ -1,4 +1,3 @@
-/// <reference types="@emotion/core" />
 import { ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 import { UnderlineType } from '../link/link';
@@ -23,11 +22,12 @@ export interface CoreButtonProps {
     mouseOver?: () => void;
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
-export declare const getButtonStyles: ({ theme, variant, size, block, active }: {
+export declare const getButtonStyles: ({ theme, variant, size, block, active, disabled }: {
     variant?: string | undefined;
     block?: boolean | undefined;
     size?: "small" | "large" | "regular" | undefined;
     active?: boolean | undefined;
+    disabled?: boolean | undefined;
 } & ThemeProps) => {
     display: string;
     width: string;
@@ -47,6 +47,13 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active }: 
         color: string;
     };
     ':hover,:focus': {
+        color?: undefined;
+        backgroundColor?: undefined;
+        border?: undefined;
+        cursor?: undefined;
+        boxShadow?: undefined;
+        textDecoration?: undefined;
+    } | {
         color: string;
         backgroundColor: string;
         border: any;

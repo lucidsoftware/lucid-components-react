@@ -1,4 +1,3 @@
-/// <reference types="@emotion/core" />
 import { RefAttributes, AnchorHTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 import { ButtonSize } from '../button/button';

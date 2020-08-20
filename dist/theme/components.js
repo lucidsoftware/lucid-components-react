@@ -1,12 +1,25 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.headings = exports.paper = exports.links = exports.card = exports.buttons = exports.breadcrumb = exports.forms = exports.accordion = exports.navbar = void 0;
 const colors = __importStar(require("./colors"));
 exports.navbar = {
     background: '#FFF',
@@ -119,6 +132,7 @@ exports.buttons = {
     lineHeight: '1',
     boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
     hoverBoxShadow: 'none',
+    disabledBoxShadow: 'none',
     border: '1px solid #000',
     transition: 'transform 0.15 ease-out',
     sizes: {
@@ -152,7 +166,10 @@ exports.buttons = {
         hoverBackgroundColor: '#B6B9FF',
         hoverBorder: '1px solid #636AFF',
         activeTransform: 0.95
-    }
+    },
+    disabledColor: '#979EA8',
+    disabledBackgroundColor: '#F2F3F5',
+    disabledBorder: '1px solid #979EA8'
 };
 exports.card = {
     default: {

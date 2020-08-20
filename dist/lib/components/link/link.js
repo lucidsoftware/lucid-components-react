@@ -11,6 +11,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getLinkStyles = exports.LinkVariant = void 0;
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
@@ -71,7 +72,8 @@ const LinkBase = (_a) => {
             variant,
             block,
             active,
-            size: buttonSize
+            size: buttonSize,
+            disabled
         });
     }
     else {

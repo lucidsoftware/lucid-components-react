@@ -109,6 +109,7 @@ export declare const buttons: {
     lineHeight: string;
     boxShadow: string;
     hoverBoxShadow: string;
+    disabledBoxShadow: string;
     border: string;
     transition: string;
     sizes: {
@@ -143,6 +144,9 @@ export declare const buttons: {
         hoverBorder: string;
         activeTransform: number;
     };
+    disabledColor: string;
+    disabledBackgroundColor: string;
+    disabledBorder: string;
 };
 export declare const card: {
     default: {

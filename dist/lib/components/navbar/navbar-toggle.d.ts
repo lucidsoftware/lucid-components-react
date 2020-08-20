@@ -1,4 +1,3 @@
-/// <reference types="@emotion/core" />
 /** @jsx jsx */
 import { HTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';

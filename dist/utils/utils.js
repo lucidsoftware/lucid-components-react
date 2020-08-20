@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isIE11 = exports.windowIsAboveWidth = void 0;
 exports.windowIsAboveWidth = (width) => {
     return window.innerWidth >= parseInt(width);
 };

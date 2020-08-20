@@ -1,4 +1,4 @@
-/// <reference types="@emotion/core" />
+/// <reference types="react" />
 export interface NavbarBorderProps {
     isHidden?: boolean;
 }

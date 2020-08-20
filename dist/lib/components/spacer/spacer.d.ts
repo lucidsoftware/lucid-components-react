@@ -1,4 +1,4 @@
-/// <reference types="@emotion/core" />
+/// <reference types="react" />
 import { LayoutProps, SpaceProps, BorderProps } from 'styled-system';
 interface Props extends LayoutProps, SpaceProps, BorderProps {
 }

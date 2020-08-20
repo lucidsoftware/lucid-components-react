@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IconType = void 0;
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 var IconType;
