@@ -1,0 +1,29 @@
+name: Build, version, and tag
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-version-and-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build, version, and tag
+        run: |
+          yarn install
+          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+          LAST_EMAIL=$(git log -1 --pretty=format:'%ae')
+          git config --global user.email $LAST_AUTHOR
+          git config --global user.name $LAST_EMAIL
+          rm -rf dist
+          tsc -p src/lib/
+          git add ./dist -f
+          yarn version --patch --no-git-tag-version
+          git add ./package.json
+          git commit --amend --no-edit
+          VERSION=$(node -pe "require('./package.json').version")
+          git tag -a -m "Tag for v${VERSION}" "v${VERSION}"
+          git push -f --follow-tags
