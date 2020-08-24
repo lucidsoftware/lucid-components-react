@@ -1,0 +1,58 @@
+name: Build and tag
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: |
+          rm -rf dist
+          tsc -p src/lib/
+
+      - name: Version
+        run: yarn version --patch --no-git-tag-version
+
+      - name: Commit
+        run: |
+          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+          LAST_EMAIL=$(git log -1 --pretty=format:'%ae')
+          git config user.name $LAST_AUTHOR
+          git config user.email $LAST_EMAIL
+          git add ./dist -f
+          git add ./package.json
+          git commit --amend --no-edit
+
+      - name: Tag
+        run: |
+          VERSION=$(node -pe "require('./package.json').version")
+          git tag --delete "v${VERSION}" || true
+          git push --delete origin "v${VERSION}" || true
+          git tag -a -m "Tag for v${VERSION}" "v${VERSION}"
+
+      - name: Push
+        run: git push -f --follow-tags
+
+      - name: Status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SHA1=$(git rev-parse HEAD)
+          curl --header "Content-Type: application/json" \
+            --request POST \
+            --data '{"state":"success","context":"build-complete"}' \
+            "https://api.github.com/repos/lucidsoftware/lucid-components-react/statuses/${SHA1}?access_token=${GITHUB_TOKEN}"
