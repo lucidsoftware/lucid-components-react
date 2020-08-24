@@ -11,16 +11,19 @@
     "type": "git",
     "url": "https://github.com/lbucio/lucid-components-react"
   },
+  "resolutions": {
+    "webpack-cli/webpack": "^4.x"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "babel-eslint": "10.x",
+    "babel-eslint": "^10.1.0",
     "emotion-theming": "^10.0.27",
-    "eslint": "6.x",
-    "eslint-plugin-flowtype": "4.x",
-    "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react-hooks": "2.x",
+    "eslint": "^6.x",
+    "eslint-plugin-flowtype": "^4.x",
+    "eslint-plugin-import": "^2.x",
+    "eslint-plugin-jsx-a11y": "^6.x",
+    "eslint-plugin-react-hooks": "^2.x",
     "react": "^16.13.1",
     "react-accessible-accordion": "^3.3.3",
     "react-app-polyfill": "^1.0.6",

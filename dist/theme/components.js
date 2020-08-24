@@ -37,8 +37,8 @@ exports.navbar = {
         background: '#FFFFFF',
         backgroundHover: '#DDDDDD',
         border: `1px solid ${colors.blueSteel}`,
-        borderRadius: '3px',
-    },
+        borderRadius: '3px'
+    }
 };
 exports.accordion = {
     button: {
@@ -51,11 +51,11 @@ exports.accordion = {
             borderBottomColor: 'lightgrey',
             borderBottomStyle: 'solid',
             '&:hover, &:focus': {
-                borderBottomColor: 'primary',
+                borderBottomColor: 'primary'
             },
             '&[aria-expanded="true"]': {
-                borderBottomColor: 'lightgrey',
-            },
+                borderBottomColor: 'lightgrey'
+            }
         },
         inverse: {
             paddingTop: 3,
@@ -67,14 +67,14 @@ exports.accordion = {
             borderBottomStyle: 'solid',
             '&:hover, &:focus': {
                 borderBottomColor: 'primary',
-                backgroundColor: '#323580',
+                backgroundColor: '#323580'
             },
             '&[aria-expanded="true"]': {
-                borderBottomColor: 'white',
+                borderBottomColor: 'white'
             },
             backgroundColor: '#4247AA',
-            color: 'white',
-        },
+            color: 'white'
+        }
     },
     panel: {
         default: {
@@ -86,7 +86,7 @@ exports.accordion = {
             borderBottomWidth: '1px',
             borderBottomColor: 'primary',
             borderBottomStyle: 'solid',
-            color: 'black',
+            color: 'black'
         },
         inverse: {
             paddingTop: 2,
@@ -97,9 +97,9 @@ exports.accordion = {
             borderBottomColor: 'primary',
             borderBottomStyle: 'solid',
             backgroundColor: 'primary',
-            color: 'white',
-        },
-    },
+            color: 'white'
+        }
+    }
 };
 exports.forms = {
     select: {
@@ -108,24 +108,24 @@ exports.forms = {
         borderRadius: '5px',
         color: colors.white,
         floatingLabel: {
-            paddingTop: '1.2em',
+            paddingTop: '1.2em'
         },
         focus: {
             borderColor: '#636AFF',
-            labelColor: '#636AFF',
+            labelColor: '#636AFF'
         },
         fontSize: '1em',
         fontSizeSmall: '0.75em',
         height: '50px',
         outline: 'none',
-        padding: '0.3375rem 0.75rem',
-    },
+        padding: '0.3375rem 0.75rem'
+    }
 };
 exports.breadcrumb = {
     color: colors.blueSteel,
     inverseColor: colors.white,
     margin: '0 6px',
-    crumbOpacity: 0.45,
+    crumbOpacity: 0.45
 };
 exports.buttons = {
     fontSize: '1em',
@@ -137,14 +137,14 @@ exports.buttons = {
     transition: 'transform 0.15 ease-out',
     sizes: {
         small: {
-            padding: '6px 24px',
+            padding: '6px 24px'
         },
         regular: {
-            padding: '10px 24px',
+            padding: '10px 24px'
         },
         large: {
-            padding: '14px 24px',
-        },
+            padding: '14px 24px'
+        }
     },
     primary: {
         color: '#FFF',
@@ -156,7 +156,7 @@ exports.buttons = {
         activeColor: '#4247AA',
         activeBackgroundColor: '#B6B9FF',
         activeBorder: '1px solid #636AFF',
-        activeTransform: 0.95,
+        activeTransform: 0.95
     },
     secondary: {
         color: '#636AFF',
@@ -177,7 +177,7 @@ exports.card = {
         flexDirection: 'row',
         borderRadius: 'card',
         border: '1px solid grey',
-        borderColor: 'grey',
+        borderColor: 'grey'
     },
     interactive: {
         background: 'white',
@@ -191,15 +191,15 @@ exports.card = {
         '&:hover, &:focus': {
             textDecoration: 'none',
             boxShadow: '20',
-            borderColor: 'primary',
+            borderColor: 'primary'
         },
         '&:focus': {
-            outline: 'none',
+            outline: 'none'
         },
         '&:active': {
             transform: 'scale(0.97)',
-            boxShadow: 'none',
-        },
+            boxShadow: 'none'
+        }
     },
     raised: {
         background: 'white',
@@ -207,46 +207,46 @@ exports.card = {
         borderRadius: 'card',
         border: '1px solid grey',
         borderColor: 'grey',
-        boxShadow: '20',
-    },
+        boxShadow: '20'
+    }
 };
 exports.links = {
     default: {
         default: {
             color: colors.blueSteel,
             hover: colors.blueSteel,
-            disabled: colors.blueSteel,
+            disabled: colors.blueSteel
         },
         inverse: {
             color: colors.white,
             hover: colors.white,
-            disabled: colors.white,
-        },
+            disabled: colors.white
+        }
     },
     primary: {
         default: {
             color: colors.primary,
             hover: colors.primary,
-            disabled: colors.primary,
+            disabled: colors.primary
         },
         inverse: {
             color: colors.white,
             hover: colors.white,
-            disabled: colors.white,
-        },
+            disabled: colors.white
+        }
     },
     secondary: {
         default: {
             color: colors.primary,
             hover: colors.primary,
-            disabled: colors.primary,
+            disabled: colors.primary
         },
         inverse: {
             color: colors.white,
             hover: colors.white,
-            disabled: colors.white,
-        },
-    },
+            disabled: colors.white
+        }
+    }
 };
 exports.paper = {
     default: {
@@ -254,7 +254,7 @@ exports.paper = {
         border: '1px solid lightgrey',
         borderColor: 'grey',
         borderRadius: 'paper',
-        padding: '5',
+        padding: '5'
     },
     raised: {
         background: 'white',
@@ -262,14 +262,14 @@ exports.paper = {
         borderColor: 'grey',
         borderRadius: 'paper',
         boxShadow: '20',
-        padding: '5',
-    },
+        padding: '5'
+    }
 };
 exports.headings = {
     heading: {
-        color: 'heading',
+        color: 'heading'
     },
     subheading: {
-        color: '#555555',
-    },
+        color: '#555555'
+    }
 };
