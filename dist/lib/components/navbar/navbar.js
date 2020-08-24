@@ -68,7 +68,7 @@ const NavbarSkip = styled_1.default(button_1.default)({
         left: 0
     }
 });
-const NavbarComp = react_1.forwardRef(({ skipText = 'Skip to Content', children }) => {
+const NavbarComp = react_1.forwardRef(({ skipText = 'Skip to Content', children }, forwardedRef) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = react_1.useState([]);
     const [expanded, setExpanded] = react_1.useState(false);
     const skipHandler = () => {
@@ -94,7 +94,7 @@ const NavbarComp = react_1.forwardRef(({ skipText = 'Skip to Content', children 
     return (core_1.jsx(exports.NavbarContext.Provider, { value: context },
         core_1.jsx(NavbarContents, null,
             core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
-        core_1.jsx(NavbarChildren, null, children)));
+        core_1.jsx(NavbarChildren, { ref: forwardedRef }, children)));
 });
 NavbarComp.displayName = 'NavbarComp';
 const Navbar = Object.assign(NavbarComp, {

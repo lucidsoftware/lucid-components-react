@@ -32,10 +32,10 @@ exports.navbar = {
     borderWidth: '2px',
     borderOffset: '-10px',
     dropdown: {
-        padding: '.5rem 1.5rem',
-        mobilePadding: '.5rem',
-        background: '#FFF',
-        backgroundHover: '#DDD',
+        padding: '0.5rem 1.5rem',
+        mobilePadding: '0.5rem',
+        background: '#FFFFFF',
+        backgroundHover: '#DDDDDD',
         border: `1px solid ${colors.blueSteel}`,
         borderRadius: '3px'
     }
@@ -72,7 +72,7 @@ exports.accordion = {
             '&[aria-expanded="true"]': {
                 borderBottomColor: 'white'
             },
-            backgroundColor: '#4247aa',
+            backgroundColor: '#4247AA',
             color: 'white'
         }
     },
@@ -103,22 +103,22 @@ exports.accordion = {
 };
 exports.forms = {
     select: {
-        backgroundColor: '#FFF',
-        border: '1px solid #a7a9ac',
+        backgroundColor: '#FFFFFF',
+        border: '1px solid #A7A9AC',
         borderRadius: '5px',
         color: colors.white,
         floatingLabel: {
             paddingTop: '1.2em'
         },
         focus: {
-            borderColor: '#636aff',
-            labelColor: '#636aff'
+            borderColor: '#636AFF',
+            labelColor: '#636AFF'
         },
         fontSize: '1em',
-        fontSizeSmall: '.75em',
+        fontSizeSmall: '0.75em',
         height: '50px',
         outline: 'none',
-        padding: '.3375rem .75rem'
+        padding: '0.3375rem 0.75rem'
     }
 };
 exports.breadcrumb = {
@@ -130,7 +130,7 @@ exports.breadcrumb = {
 exports.buttons = {
     fontSize: '1em',
     lineHeight: '1',
-    boxShadow: '2px 2px 0 0 rgba(0, 0, 0, .2)',
+    boxShadow: '2px 2px 0 0 rgba(0, 0, 0, 0.2)',
     hoverBoxShadow: 'none',
     disabledBoxShadow: 'none',
     border: '1px solid #000',
@@ -150,10 +150,10 @@ exports.buttons = {
         color: '#FFF',
         border: '1px solid #636AFF',
         backgroundColor: '#636AFF',
-        hoverColor: '#4247aa',
+        hoverColor: '#4247AA',
         hoverBackgroundColor: '#B6B9FF',
         hoverBorder: '1px solid #636AFF',
-        activeColor: '#4247aa',
+        activeColor: '#4247AA',
         activeBackgroundColor: '#B6B9FF',
         activeBorder: '1px solid #636AFF',
         activeTransform: 0.95
@@ -161,8 +161,8 @@ exports.buttons = {
     secondary: {
         color: '#636AFF',
         border: '1px solid #636AFF',
-        backgroundColor: '#FFF',
-        hoverColor: '#4247aa',
+        backgroundColor: '#FFFFFF',
+        hoverColor: '#4247AA',
         hoverBackgroundColor: '#B6B9FF',
         hoverBorder: '1px solid #636AFF',
         activeTransform: 0.95
@@ -176,17 +176,17 @@ exports.card = {
         background: 'white',
         flexDirection: 'row',
         borderRadius: 'card',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey'
     },
     interactive: {
         background: 'white',
         flexDirection: 'row',
         borderRadius: 'card',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey',
         boxShadow: '10',
-        transition: `box-shadow .3s ease, border-color .3s ease, transform .15s ease-out`,
+        transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.15s ease-out',
         cursor: 'pointer',
         '&:hover, &:focus': {
             textDecoration: 'none',
@@ -197,7 +197,7 @@ exports.card = {
             outline: 'none'
         },
         '&:active': {
-            transform: 'scale(.97)',
+            transform: 'scale(0.97)',
             boxShadow: 'none'
         }
     },
@@ -205,7 +205,7 @@ exports.card = {
         background: 'white',
         flexDirection: 'row',
         borderRadius: 'card',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey',
         boxShadow: '20'
     }
@@ -251,16 +251,16 @@ exports.links = {
 exports.paper = {
     default: {
         background: 'white',
-        border: `1px solid lightgrey`,
+        border: '1px solid lightgrey',
         borderColor: 'grey',
-        borderRadius: `paper`,
+        borderRadius: 'paper',
         padding: '5'
     },
     raised: {
         background: 'white',
-        border: `1px solid lightgrey`,
+        border: '1px solid lightgrey',
         borderColor: 'grey',
-        borderRadius: `paper`,
+        borderRadius: 'paper',
         boxShadow: '20',
         padding: '5'
     }

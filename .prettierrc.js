@@ -1,3 +1,6 @@
 module.exports = {
-  singleQuote: true
+  singleQuote: true,
+  trailingComma: 'none',
+  arrowParens: 'avoid',
+  proseWrap: 'preserve',
 };

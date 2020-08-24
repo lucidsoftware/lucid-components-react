@@ -12,13 +12,12 @@ import {
   card,
   links,
   paper,
-  headings
+  headings,
 } from './components';
 
 export interface Theme extends DefaultTheme {
   colors: Record<string, string>;
   radii: Record<string, string | number>;
-  // components
   navbar: typeof navbar;
   accordion: Record<
     'button' | 'panel',
@@ -39,18 +38,15 @@ const theme: Theme = {
     text: colors.blueSteel,
     background: colors.white,
     heading: colors.blueSteel,
-
     primary: colors.primary,
     secondary: colors.blueSteel,
     accent: colors.accent,
     muted: colors.muted,
-
     grey: colors.grey,
     white: colors.white,
     black: colors.black,
-
     disabled: colors.grey,
-    disabledBorder: colors.lightGrey
+    disabledBorder: colors.lightGrey,
   },
   accordion,
   breadcrumb,
@@ -60,7 +56,7 @@ const theme: Theme = {
   headings,
   links,
   navbar,
-  paper
+  paper,
 };
 
 export interface ThemeProps {

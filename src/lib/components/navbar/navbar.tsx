@@ -63,7 +63,7 @@ const NavbarSkip = styled(Button)({
 });
 
 const NavbarComp = forwardRef<HTMLDivElement, Props>(
-  ({ skipText = 'Skip to Content', children }) => {
+  ({ skipText = 'Skip to Content', children }, forwardedRef) => {
     const [[activeDropdownSetIsOpen], setActiveDropdownSetIsOpen] = useState<
       Dispatch<SetStateAction<boolean>>[]
     >([]);
@@ -99,7 +99,7 @@ const NavbarComp = forwardRef<HTMLDivElement, Props>(
             {skipText}
           </NavbarSkip>
         </NavbarContents>
-        <NavbarChildren>{children}</NavbarChildren>
+        <NavbarChildren ref={forwardedRef}>{children}</NavbarChildren>
       </NavbarContext.Provider>
     );
   }
