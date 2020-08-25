@@ -29,8 +29,9 @@ Explanation coming soon.
 # Example
 
 To run the example app:
-  - Run `yarn start`
-  - Navigate to [http://localhost:3000](http://localhost:3000)
+
+- Run `yarn start`
+- Navigate to [http://localhost:3000](http://localhost:3000)
 
 # Github release
 
@@ -58,10 +59,12 @@ In order to merge to `master`:
 ## Released version
 
 To use a released version of the components:
-- Run `yarn add lucidsoftware/lucid-components-react#v{VERSION}`
+
+- Run `yarn add https://github.com/lucidsoftware/lucid-components-react#v{VERSION}`
 - Do not forget the `v` in front of the version.
 
 ## Dev branch
 
 If you are wanting to test changes before creating an official release, you can use a branch ref. To use:
-- Run `yarn add lucidsoftware/lucid-components-react#{BRANCH_NAME}`
+
+- Run `yarn add https://github.com/lucidsoftware/lucid-components-react#{BRANCH_NAME}`
