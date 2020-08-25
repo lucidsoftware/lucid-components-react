@@ -1,7 +1,7 @@
 {
   "name": "lucid-components-react",
-  "version": "0.11.3",
-  "private": true,
+  "version": "0.11.4",
+  "license": "Apache-2.0",
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
   "files": [
