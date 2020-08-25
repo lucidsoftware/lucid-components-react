@@ -2,7 +2,7 @@
   Lucid Components React
 </h1>
 
-Generic, themeable React components
+Generic, themeable, React components.
 
 # Getting started
 
@@ -23,40 +23,41 @@ Generic, themeable React components
 
 # Theming
 
-## Available Scripts
+# Example
 
-In the project directory, you can run:
+To run the example app:
+  - Run `yarn start`
+  - Navigate to [http://localhost:3000](http://localhost:3000)
 
-### `yarn start`
+# Github release
 
-Runs the React app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Github Actions will automatically build the distribution, bump the **patch** level ([Semantic Versioning](https://semver.org/)), and tag the commit. A release is automatically created with a merge to `master`.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+In order to merge to `master`:
 
-## Create a release
+- Checkout a new branch
+  - `git checkout -b {BRANCH_NAME}`
+- If a **major** or **minor** version bump is needed, increment `version` in `package.json` by 1, and set lower levels to 0.
+  - Example: Bump the **minor** version from `1.2.3` by setting the **minor** version to 3, and **patch** level to 0 (leave **major** version alone): `1.3.0`.
+  - Example: Bump the **major** version from `1.2.3` by setting the **major** version to 2, and both **minor** version and **patch** level to 0: `2.0.0`.
+  - Note: The build always bumps the **patch** level, so the above would be released as `1.3.1` and `2.0.1`, respectively.
+- Commit (one or more) changes locally
+  - `git commit -m "{MESSAGE}"`
+- Push **with force**
+  - `git push -f`
+  - This is not necessary on the first push, but on subsequent pushes on the same PR. The reason is Github Actions amends your latest commit with the build (`./dist` directory) when it is built. Because of this, branch history has diverged and requires force to push.
+- Create a PR
+- Merge
+  - Build must finish, and PR must be reviewed and approved
 
-- Update package.json version
-- `yarn build-components`
-- Commit new build files
-- Create a PR and merge
-- [Draft a new release](https://github.com/lbucio/lucid-components-react/releases)
-  - Create a tag version matching package.json version targeting master branch
-- Use a descriptive and concise release title
-- List all changes and fixes in the release description
-- Follow [Semantic Versioning](https://semver.org/)
+# Install dependency in React app
 
-## Using a dev release
+## Released version
 
-If you are wanting to test changes before creating an official release, you can update the package.json in the repo consuming the component library to use your branch.
+To use a released version of the components:
+- Run `yarn add lucidsoftware/lucid-components-react#v{VERSION}`
 
-- Change from using a tag (v1.0.0) to use your branch name.
-- Update your packages and it will pull in your changes.
-- Make sure to run `yarn build-components` first and then push your branch up.
+## Dev branch
 
-`lbucio/lucid-components-react.git#branch-name`
-
-## Learn More
-
-https://styled-system.com/custom-props
+If you are wanting to test changes before creating an official release, you can use a branch ref. To use:
+- Run `yarn add lucidsoftware/lucid-components-react#{BRANCH_NAME}`
