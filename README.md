@@ -2,9 +2,9 @@
   Lucid Components React
 </h1>
 
-Generic, themeable react components.
+Generic, themeable React components
 
-## Getting started
+# Getting started
 
 ## Components
 
@@ -21,7 +21,7 @@ Generic, themeable react components.
 | Video Player      |             |
 | Video Play Button |             |
 
-## Theming
+# Theming
 
 ## Available Scripts
 
@@ -34,10 +34,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
-## `yarn build-components`
-
-Runs the components thru the TypeScript compiler and exports them.
 
 ## Create a release
 
