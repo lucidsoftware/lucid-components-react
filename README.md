@@ -13,6 +13,7 @@ Generic, themeable, React components.
 | Accordian         |             |
 | Button            |             |
 | Card              |             |
+| Collection        |             |
 | Icon              |             |
 | Input             |             |
 | Link              |             |
@@ -35,20 +36,20 @@ Github Actions will automatically build the distribution, bump the **patch** lev
 
 In order to merge to `master`:
 
-- Checkout a new branch
+- Checkout a new branch:
   - `git checkout -b {BRANCH_NAME}`
 - If a **major** or **minor** version bump is needed, increment `version` in `package.json` by 1, and set lower levels to 0.
   - Example: Bump the **minor** version from `1.2.3` by setting the **minor** version to 3, and **patch** level to 0 (leave **major** version alone): `1.3.0`.
   - Example: Bump the **major** version from `1.2.3` by setting the **major** version to 2, and both **minor** version and **patch** level to 0: `2.0.0`.
   - Note: The build always bumps the **patch** level, so the above would be released as `1.3.1` and `2.0.1`, respectively.
-- Commit (one or more) changes locally
+- Commit (one or more) changes locally:
   - `git commit -m "{MESSAGE}"`
-- Push **with force**
+- Push **with force**:
   - `git push -f`
   - This is not necessary on the first push, but on subsequent pushes on the same PR. The reason is Github Actions amends your latest commit with the build (`./dist` directory) when it is built. Because of this, branch history has diverged and requires force to push.
 - Create a PR
 - Merge
-  - Build must finish, and PR must be reviewed and approved
+  - Build must finish, and PR must be reviewed and approved.
 
 # Install dependency in React app
 
@@ -56,6 +57,7 @@ In order to merge to `master`:
 
 To use a released version of the components:
 - Run `yarn add lucidsoftware/lucid-components-react#v{VERSION}`
+- Do not forget the `v` in front of the version.
 
 ## Dev branch
 
