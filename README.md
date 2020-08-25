@@ -24,6 +24,8 @@ Generic, themeable, React components.
 
 # Theming
 
+Explanation coming soon.
+
 # Example
 
 To run the example app:
