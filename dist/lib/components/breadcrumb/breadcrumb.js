@@ -32,7 +32,7 @@ const Breadcrumb = ({ theme, className, inverse = false, items, seperator = core
     const getCrumbs = () => {
         const crumbs = items.map((item, index) => {
             if (index !== items.length - 1) {
-                const crumb = (core_1.jsx(react_1.default.Fragment, null,
+                const crumb = (core_1.jsx(react_1.default.Fragment, { key: `fragment-${index}` },
                     core_1.jsx(BreadcrumbWrapper, { theme: theme, key: index }, item),
                     core_1.jsx(react_1.default.Fragment, { key: `seperator-${index}` }, seperator)));
                 return crumb;

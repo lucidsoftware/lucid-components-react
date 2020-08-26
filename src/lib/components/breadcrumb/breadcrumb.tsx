@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { FC, ReactNode } from 'react';
 import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';

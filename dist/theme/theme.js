@@ -34,7 +34,7 @@ const theme = Object.assign(Object.assign({}, base_1.base), { colors: {
         white: colors.white,
         black: colors.black,
         disabled: colors.grey,
-        disabledBorder: colors.lightGrey,
+        disabledBorder: colors.lightGrey
     }, accordion: components_1.accordion,
     breadcrumb: components_1.breadcrumb,
     buttons: components_1.buttons,
