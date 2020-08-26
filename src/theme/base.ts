@@ -14,7 +14,6 @@ export const base = {
   },
   lineHeights: {
     default: 1,
-    // : 1.25,
     body: 1.5,
     heading: 1.1
   },
@@ -43,15 +42,7 @@ export const base = {
     paper: '5px'
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 104],
-  breakpoints: [
-    '320px', // figure out mobile
-    '500px',
-    '768px',
-    '900px',
-    '1024px', //
-    '1220px',
-    '1440px' //
-  ],
+  breakpoints: ['0', '500px', '768px', '900px', '1024px', '1220px', '1440px'],
   shadows: {
     0: 'none',
     10: '10px 10px 0 0 rgba(0,0,0,.3)',

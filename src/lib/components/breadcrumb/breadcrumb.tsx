@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
 import React, { FC, ReactNode } from 'react';
 import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
@@ -51,7 +49,7 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
     const crumbs: ReactNode[] = items.map((item, index) => {
       if (index !== items.length - 1) {
         const crumb = (
-          <React.Fragment>
+          <React.Fragment key={`fragment-${index}`}>
             <BreadcrumbWrapper theme={theme} key={index}>
               {item}
             </BreadcrumbWrapper>

@@ -3,20 +3,21 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier/react',
-    'prettier/@typescript-eslint',
     'plugin:react/recommended',
-    'react-app'
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react'
   ],
   plugins: ['@typescript-eslint', 'react', 'emotion'],
   rules: {
+    '@typescript-eslint/ban-types': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
     'emotion/jsx-import': 'error',
     'emotion/import-from-emotion': 'error',
     'emotion/styled-import': 'error',
     'emotion/syntax-preference': [2, 'object'],
-    '@typescript-eslint/explicit-function-return-type': 0,
-    'react/prop-types': 0,
+    'react/prop-types': 0
   },
   parserOptions: {
     ecmaVersion: 2018,

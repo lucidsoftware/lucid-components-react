@@ -12,7 +12,7 @@ import {
   card,
   links,
   paper,
-  headings,
+  headings
 } from './components';
 
 export interface Theme extends DefaultTheme {
@@ -46,7 +46,7 @@ const theme: Theme = {
     white: colors.white,
     black: colors.black,
     disabled: colors.grey,
-    disabledBorder: colors.lightGrey,
+    disabledBorder: colors.lightGrey
   },
   accordion,
   breadcrumb,
@@ -56,7 +56,7 @@ const theme: Theme = {
   headings,
   links,
   navbar,
-  paper,
+  paper
 };
 
 export interface ThemeProps {

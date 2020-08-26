@@ -1,17 +1,20 @@
 {
-    "compilerOptions": {
-        "outDir": "../../dist/",
-        "declaration": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "react",
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "strict": true,
-        "target": "es6",
-        "types": ["node", "@emotion/core"]
-    },
-    "include": [
-        "./index.ts"
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "../../dist/",
+    "strict": true,
+    "target": "es6",
+    "types": [
+      "node",
+      "@emotion/core"
     ]
+  },
+  "include": [
+    "./index.ts"
+  ]
 }
