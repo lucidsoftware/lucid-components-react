@@ -1,6 +1,6 @@
 {
   "name": "lucid-components-react",
-  "version": "0.11.6",
+  "version": "0.11.7",
   "license": "Apache-2.0",
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
@@ -38,19 +38,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "lint-staged"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "IE 11"
-    ]
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
