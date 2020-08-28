@@ -1,10 +1,8 @@
-<h1 align="center">
-  Lucid Components React
-</h1>
+# Lucid Components React
 
 Generic, themeable, React components.
 
-# Getting started
+## Getting started
 
 ## Components
 
@@ -22,18 +20,18 @@ Generic, themeable, React components.
 | Video Player      |             |
 | Video Play Button |             |
 
-# Theming
+## Theming
 
 Explanation coming soon.
 
-# Example
+## Example
 
 To run the example app:
 
 - Run `yarn start`
 - Navigate to [http://localhost:3000](http://localhost:3000)
 
-# Github release
+## Github release
 
 Github Actions will automatically build the distribution, bump the **patch** level ([Semantic Versioning](https://semver.org/)), and tag the commit. A release is automatically created with a merge to `master`.
 
@@ -54,16 +52,16 @@ In order to merge to `master`:
 - Merge
   - Build must finish, and PR must be reviewed and approved.
 
-# Install dependency in React app
+## Install dependency in React app
 
-## Released version
+### Released version
 
 To use a released version of the components:
 
 - Run `yarn add https://github.com/lucidsoftware/lucid-components-react#v{VERSION}`
 - Do not forget the `v` in front of the version.
 
-## Dev branch
+### Dev branch
 
 If you are wanting to test changes before creating an official release, you can use a branch ref. To use:
 
