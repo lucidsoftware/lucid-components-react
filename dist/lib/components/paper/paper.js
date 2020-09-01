@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @jsx jsx */
+const react_1 = __importDefault(require("react"));
 const core_1 = require("@emotion/core");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const styled_system_1 = require("styled-system");
@@ -25,9 +27,9 @@ const PaperContainer = styled_1.default.div({
     variants: {
         default: {
             background: 'white',
-            border: `1px solid grey`,
+            border: '1px solid grey',
             borderColor: 'grey',
-            borderRadius: `paper`,
+            borderRadius: 'paper',
             padding: 5
         }
     }
@@ -37,6 +39,7 @@ PaperContainer.defaultProps = {
 };
 const Paper = (_a) => {
     var { children } = _a, rest = __rest(_a, ["children"]);
-    return core_1.jsx(PaperContainer, Object.assign({}, rest), children);
+    return (core_1.jsx(PaperContainer, Object.assign({}, rest),
+        core_1.jsx(react_1.default.Fragment, null, children)));
 };
 exports.default = Paper;

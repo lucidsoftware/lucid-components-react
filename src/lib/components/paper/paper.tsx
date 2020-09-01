@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactNode, FC, HTMLAttributes } from 'react';
+import React, { ReactNode, FC, HTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
@@ -21,9 +21,9 @@ const PaperContainer = styled.div<Props>(
     variants: {
       default: {
         background: 'white',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey',
-        borderRadius: `paper`,
+        borderRadius: 'paper',
         padding: 5
       }
     }
@@ -40,7 +40,11 @@ const Paper: FC<HTMLAttributes<HTMLDivElement> & Props> = ({
   children,
   ...rest
 }) => {
-  return <PaperContainer {...rest}>{children}</PaperContainer>;
+  return (
+    <PaperContainer {...rest}>
+      <React.Fragment>{children}</React.Fragment>
+    </PaperContainer>
+  );
 };
 
 export default Paper;
