@@ -81,6 +81,7 @@ jobs:
           fi
 
           VERSION="v${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
+          echo "::set-env name=VERSION::${VERSION}"
 
       - name: Tag and release
         uses: actions/create-release@v1
