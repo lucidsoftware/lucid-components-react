@@ -24,9 +24,6 @@ jobs:
           rm -rf dist
           tsc -p src/lib/
 
-      - name: Version
-        run: yarn version --patch --no-git-tag-version
-
       - name: Commit
         run: |
           LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
@@ -37,15 +34,8 @@ jobs:
           git add ./package.json
           git commit --amend --no-edit
 
-      - name: Tag
-        run: |
-          VERSION=$(node -pe "require('./package.json').version")
-          git tag --delete "v${VERSION}" || true
-          git push --delete origin "v${VERSION}" || true
-          git tag -a -m "Tag for v${VERSION}" "v${VERSION}"
-
       - name: Push
-        run: git push -f --follow-tags
+        run: git push -f
 
       - name: Status
         env:
