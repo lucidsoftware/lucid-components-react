@@ -42,6 +42,7 @@ jobs:
             exit 1
           fi
 
+          git fetch --tags
           IFS=$'\n' TAGS=($(git tag))
           for i in "${TAGS[@]}"
           do
@@ -81,13 +82,14 @@ jobs:
           fi
 
           VERSION="v${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
+          echo "::set-env name=VERSION::${VERSION}"
 
       - name: Tag and release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.VERSION }}
-          release_name: v${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          release_name: ${{ env.VERSION }}
           draft: false
           prerelease: false
