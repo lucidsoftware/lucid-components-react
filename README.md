@@ -33,16 +33,14 @@ To run the example app:
 
 ## Github release
 
-Github Actions will automatically build the distribution, bump the **patch** level ([Semantic Versioning](https://semver.org/)), and tag the commit. A release is automatically created with a merge to `master`.
+When a non-`master` branch is pushed to, Github Actions will automatically build the distribution and add it to the branch. When the branch has PR approval and is merged to master, the **patch** level ([Semantic Versioning](https://semver.org/)) will automatically be bumped, and a tagged release created.
 
 In order to merge to `master`:
 
 - Checkout a new branch:
   - `git checkout -b {BRANCH_NAME}`
-- If a **major** or **minor** version bump is needed, increment `version` in `package.json` by 1, and set lower levels to 0.
-  - Example: Bump the **minor** version from `1.2.3` by setting the **minor** version to 3, and **patch** level to 0 (leave **major** version alone): `1.3.0`.
-  - Example: Bump the **major** version from `1.2.3` by setting the **major** version to 2, and both **minor** version and **patch** level to 0: `2.0.0`.
-  - Note: The build always bumps the **patch** level, so the above would be released as `1.3.1` and `2.0.1`, respectively.
+- Set `version` in `package.json` to the **major** and **minor** version you desire.
+  - Note: The build will always determine the correct **patch** level, so setting the **patch** level of `version` in `package.json` will do nothing.
 - Commit (one or more) changes locally:
   - `git commit -m "{MESSAGE}"`
 - Push **with force**:
