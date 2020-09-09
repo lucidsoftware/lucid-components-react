@@ -3,7 +3,8 @@ import React from 'react';
 export declare type Justify = 'start' | 'center' | 'end' | 'full';
 export declare type Space = string | number | React.ReactText[] | Record<string | number | symbol, React.ReactText>;
 export interface InnerCollectionProps {
-    space?: number;
+    hSpace?: number;
+    vSpace?: number;
     justify?: Justify;
 }
 export declare type CollectionProps = {

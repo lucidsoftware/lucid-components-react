@@ -11,7 +11,8 @@ export type Space =
   | Record<string | number | symbol, React.ReactText>;
 
 export interface InnerCollectionProps {
-  space?: number;
+  hSpace?: number;
+  vSpace?: number;
   justify?: Justify;
 }
 
@@ -24,11 +25,12 @@ export type CollectionProps = {
 
 const InnerCollection = styled.div<{
   justify?: Justify;
-  space: Space;
-}>(({ justify, space }) => ({
+  hSpace: Space;
+  vSpace: Space;
+}>(({ justify, hSpace, vSpace }) => ({
   display: 'flex',
   flexWrap: 'wrap',
-  margin: `-${space}px 0 0 -${space}px`,
+  margin: `-${vSpace}px 0 0 -${hSpace}px`,
   justifyContent: `${
     justify === 'start' || justify === 'full'
       ? 'flex-start'
@@ -38,13 +40,15 @@ const InnerCollection = styled.div<{
   }`
 }));
 
-const InnerItem = styled.div<{ space: Space; justify?: Justify }>(
-  ({ space, justify }) => ({
-    margin: `${space}px 0 0 ${space}px`,
-    flex: justify === 'full' ? 'auto' : 'initial',
-    display: 'flex'
-  })
-);
+const InnerItem = styled.div<{
+  hSpace: Space;
+  vSpace: Space;
+  justify?: Justify;
+}>(({ justify, hSpace, vSpace }) => ({
+  margin: `${vSpace}px 0 0 ${hSpace}px`,
+  flex: justify === 'full' ? 'auto' : 'initial',
+  display: 'flex'
+}));
 
 const JustifyInnerItem = styled.div<{ verticalJustify?: Justify }>(
   ({ verticalJustify = 'start' }) => ({
@@ -62,16 +66,26 @@ const Collection = ({
   className,
   children,
   theme,
-  space = 0,
+  hSpace = 0,
+  vSpace = 0,
   justify = 'start',
   verticalJustify
 }: CollectionProps) => {
-  const actualSpace = theme.space ? theme.space[space] : 0;
+  const actualHSpace = theme.space ? theme.space[hSpace] : 0;
+  const actualVSpace = theme.space ? theme.space[vSpace] : 0;
   return (
     <div className={className}>
-      <InnerCollection space={actualSpace} justify={justify}>
+      <InnerCollection
+        hSpace={actualHSpace}
+        vSpace={actualVSpace}
+        justify={justify}
+      >
         {React.Children.map(children, child => (
-          <InnerItem space={actualSpace} justify={justify}>
+          <InnerItem
+            hSpace={actualHSpace}
+            vSpace={actualVSpace}
+            justify={justify}
+          >
             <JustifyInnerItem verticalJustify={verticalJustify}>
               {child}
             </JustifyInnerItem>

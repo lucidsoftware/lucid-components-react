@@ -81,8 +81,9 @@ jobs:
             PATCH=$((PATCH + 1))
           fi
 
-          VERSION="v${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
-          echo "::set-env name=VERSION::${VERSION}"
+          VERSION="${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
+          yarn version --new-version "${VERSION}" --no-git-tag-version
+          echo "::set-env name=VERSION::v${VERSION}"
 
       - name: Tag and release
         uses: actions/create-release@v1

@@ -224,7 +224,8 @@ const App: React.FC = () => {
           <Spacer py={4} />
 
           <Collection
-            space={3}
+            hSpace={3}
+            vSpace={3}
             justify="full"
             verticalJustify="center"
             css={{ margin: `0 ${theme.space[8]}px` }}
