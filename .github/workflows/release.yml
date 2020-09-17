@@ -15,15 +15,82 @@ jobs:
 
       - name: Version
         run: |
-          VERSION=$(node -pe "require('./package.json').version")
-          echo "::set-env name=VERSION::${VERSION}"
+          IFS='.' PACKAGE_VERSION=($(node -pe "require('./package.json').version"))
+          if [ ! ${#PACKAGE_VERSION[@]} -eq 3 ]
+          then
+            echo "package.json version is not formatted correctly"
+            exit 1
+          fi
 
-      - name: Release
+          PACKAGE_MAJOR="${PACKAGE_VERSION[0]}"
+          PACKAGE_MINOR="${PACKAGE_VERSION[1]}"
+          PACKAGE_PATCH="${PACKAGE_VERSION[2]}"
+
+          if [ ! $PACKAGE_MAJOR -eq $PACKAGE_MAJOR ]
+          then
+            echo "package.json major version is not an integer"
+            exit 1
+          fi
+          if [ ! $PACKAGE_MINOR -eq $PACKAGE_MINOR ]
+          then
+            echo "package.json minor version is not an integer"
+            exit 1
+          fi
+          if [ ! $PACKAGE_PATCH -eq $PACKAGE_PATCH ]
+          then
+            echo "package.json patch level is not an integer"
+            exit 1
+          fi
+
+          git fetch --tags
+          IFS=$'\n' TAGS=($(git tag))
+          for i in "${TAGS[@]}"
+          do
+            if [ "${i::1}" = "v" ]
+            then
+              IFS='.' TAG_VERSION=(${i:1})
+
+              if [ ! ${#TAG_VERSION[@]} -eq 3 ]
+              then
+                continue
+              fi
+
+              TAG_MAJOR="${TAG_VERSION[0]}"
+              TAG_MINOR="${TAG_VERSION[1]}"
+              TAG_PATCH="${TAG_VERSION[2]}"
+
+              if [ ! $TAG_PATCH -eq $TAG_PATCH ]
+              then
+                continue
+              fi
+
+              if [[ $PACKAGE_MAJOR -eq $TAG_MAJOR && $PACKAGE_MINOR -eq $TAG_MINOR ]]
+              then
+                if [[ -z $PATCH || $TAG_PATCH -gt $PATCH ]]
+                then
+                  PATCH=$TAG_PATCH
+                fi
+              fi
+            fi
+          done
+
+          if [ -z $PATCH ]
+          then
+            PATCH=0
+          else
+            PATCH=$((PATCH + 1))
+          fi
+
+          VERSION="${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
+          yarn version --new-version "${VERSION}" --no-git-tag-version
+          echo "::set-env name=VERSION::v${VERSION}"
+
+      - name: Tag and release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.VERSION }}
-          release_name: v${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          release_name: ${{ env.VERSION }}
           draft: false
           prerelease: false
