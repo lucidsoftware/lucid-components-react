@@ -20,17 +20,29 @@ const core_1 = require("@emotion/core");
 const navbar_1 = require("./navbar");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarInnerContainerList = styled_1.default.ol(({ theme, expanded }) => ({
+    label: 'navbarInnerContainer',
     display: 'flex',
     order: 2,
     margin: `auto -${theme.navbar.itemSpacing}`,
     padding: 0,
-    [`@media (max-width: ${theme.navbar.collapseAt})`]: Object.assign({ display: 'none', flex: '0 1 100%', overflowY: 'scroll', overflowX: 'hidden', maxHeight: 'calc(100vh - 60px)', padding: '0 5px 80px 5px', margin: 'auto 0' }, (expanded && {
-        position: 'relative',
-        display: 'block',
-        border: theme.navbar.dropdown.border,
-        borderRadius: theme.navbar.dropdown.borderRadius,
-        padding: '0 0 3rem'
-    }))
+    [`@media (max-width: ${theme.navbar.collapseAt})`]: [
+        {
+            display: 'none',
+            flex: '0 1 100%',
+            overflowY: 'scroll',
+            overflowX: 'hidden',
+            maxHeight: 'calc(100vh - 60px)',
+            padding: '0 5px 80px 5px',
+            margin: 'auto 0'
+        },
+        expanded && {
+            position: 'relative',
+            display: 'block',
+            border: theme.navbar.dropdown.border,
+            borderRadius: theme.navbar.dropdown.borderRadius,
+            padding: '0 0 3rem'
+        }
+    ]
 }));
 const NavbarInnerContainer = react_1.forwardRef((_a, ref) => {
     var { children } = _a, rest = __rest(_a, ["children"]);

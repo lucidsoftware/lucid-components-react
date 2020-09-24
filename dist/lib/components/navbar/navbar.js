@@ -45,11 +45,13 @@ exports.NavbarContext = react_1.createContext({
     setActiveDropdownSetIsOpen: (activeDropdown) => undefined
 });
 const NavbarContents = styled_1.default.div({
+    label: 'navbarContents',
     display: 'flex',
     margin: '0 auto',
     position: 'relative'
 });
 const NavbarChildren = styled_1.default.div(({ theme }) => ({
+    label: 'navbarChildren',
     display: 'flex',
     position: 'relative',
     flexWrap: 'wrap',

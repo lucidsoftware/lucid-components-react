@@ -25,7 +25,12 @@ const NavbarToggle = forwardRef<
   const { toggleExpanded } = useContext(NavbarContext);
 
   return (
-    <NavbarToggleButton {...rest} ref={ref} onClick={toggleExpanded}>
+    <NavbarToggleButton
+      {...rest}
+      ref={ref}
+      onClick={toggleExpanded}
+      css={{ label: 'navbarToggle' }}
+    >
       {children}
     </NavbarToggleButton>
   );

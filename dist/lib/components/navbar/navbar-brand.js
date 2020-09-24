@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const emotion_theming_1 = require("emotion-theming");
 const NavbarBrand = styled_1.default.div(({ theme }) => ({
+    label: 'navbarBrand',
     display: 'inline-block',
     margin: 'auto 0',
     '& > img': {
