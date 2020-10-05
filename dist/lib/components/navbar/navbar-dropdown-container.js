@@ -20,6 +20,7 @@ const styled_1 = __importDefault(require("../../../theme/styled"));
 const react_1 = require("react");
 const navbar_dropdown_1 = require("./navbar-dropdown");
 const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { collapseAt, dropdown: { background, border, borderRadius, padding, backgroundHover, mobilePadding } } }, displayLeft, isOpen, mobileToggle = false }) => ({
+    label: 'navbarDropdownContainer',
     display: 'flex',
     flexWrap: 'wrap',
     visibility: isOpen ? 'visible' : 'hidden',
@@ -55,20 +56,35 @@ const StyledDropdownContainer = styled_1.default.div(({ theme: { navbar: { colla
         top: '-5px',
         height: '5px'
     },
-    [`@media (max-width: ${collapseAt})`]: Object.assign(Object.assign({ top: '100%', visibility: mobileToggle ? (isOpen ? 'visible' : 'hidden') : 'visible', height: mobileToggle ? (isOpen ? 'auto' : '0') : 'auto' }, (mobileToggle && { transition: 'height ease-out 0.3s' })), { maxWidth: '100%', padding: 0, position: 'relative', border: 'none', flexWrap: 'wrap', 'li, p': {
-            padding: mobilePadding,
-            paddingLeft: 0,
-            paddingRight: 0
-        }, 'a, button': {
-            padding: mobilePadding,
-            paddingLeft: 0,
-            paddingRight: 0,
-            '&:hover': {
-                background: 'transparent'
+    [`@media (max-width: ${collapseAt})`]: [
+        mobileToggle && { transition: 'height ease-out 0.3s' },
+        {
+            top: '100%',
+            visibility: mobileToggle ? (isOpen ? 'visible' : 'hidden') : 'visible',
+            height: mobileToggle ? (isOpen ? 'auto' : '0') : 'auto',
+            maxWidth: '100%',
+            padding: 0,
+            position: 'relative',
+            border: 'none',
+            flexWrap: 'wrap',
+            'li, p': {
+                padding: mobilePadding,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            'a, button': {
+                padding: mobilePadding,
+                paddingLeft: 0,
+                paddingRight: 0,
+                '&:hover': {
+                    background: 'transparent'
+                }
+            },
+            '&::before': {
+                display: 'none'
             }
-        }, '&::before': {
-            display: 'none'
-        } })
+        }
+    ]
 }));
 const NavbarDropdownContainer = (_a) => {
     var { children } = _a, rest = __rest(_a, ["children"]);

@@ -1,6 +1,6 @@
 {
   "name": "lucid-components-react",
-  "version": "0.11.11",
+  "version": "0.11.12",
   "license": "Apache-2.0",
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
@@ -34,6 +34,7 @@
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "rm -rf dist && tsc -p src/lib/",
     "dev": "yarn start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

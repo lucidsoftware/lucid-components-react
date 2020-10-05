@@ -33,7 +33,7 @@ const NavbarToggleButton = styled_1.default.button(({ theme }) => ({
 const NavbarToggle = react_1.forwardRef((_a, ref) => {
     var { children } = _a, rest = __rest(_a, ["children"]);
     const { toggleExpanded } = react_1.useContext(navbar_1.NavbarContext);
-    return (core_1.jsx(NavbarToggleButton, Object.assign({}, rest, { ref: ref, onClick: toggleExpanded }), children));
+    return (core_1.jsx(NavbarToggleButton, Object.assign({}, rest, { ref: ref, onClick: toggleExpanded, css: { label: 'navbarToggle' } }), children));
 });
 NavbarToggle.displayName = 'NavbarToggle';
 exports.default = emotion_theming_1.withTheme(NavbarToggle);

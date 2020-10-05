@@ -99,6 +99,7 @@ const NavbarDropdown = forwardRef<
       onFocus={handleMouseOver}
       onBlur={handleMouseLeave}
       ref={ref}
+      css={{ label: 'navbarDropdown' }}
     >
       <NavbarDropdownContext.Provider value={context}>
         {toggle(handleMouseOver)}

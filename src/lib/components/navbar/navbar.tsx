@@ -35,12 +35,14 @@ export const NavbarContext = createContext({
 });
 
 const NavbarContents = styled.div({
+  label: 'navbarContents',
   display: 'flex',
   margin: '0 auto',
   position: 'relative'
 });
 
 const NavbarChildren = styled.div(({ theme }) => ({
+  label: 'navbarChildren',
   display: 'flex',
   position: 'relative',
   flexWrap: 'wrap',
@@ -56,7 +58,6 @@ const NavbarSkip = styled(Button)({
   top: 0,
   left: '-9999px',
   zIndex: 9000,
-
   ':active, :focus': {
     left: 0
   }

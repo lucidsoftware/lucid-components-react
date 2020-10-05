@@ -50,6 +50,7 @@ const NavbarWrapper: FC<Props> = ({
       top={top}
       zIndex={zIndex}
       background={background}
+      css={{ label: 'navbarWrapper' }}
     >
       {sticky && IE11 && (
         <Global

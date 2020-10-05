@@ -30,6 +30,7 @@ const StyledDropdownContainer = styled.div<
     isOpen,
     mobileToggle = false
   }) => ({
+    label: 'navbarDropdownContainer',
     display: 'flex',
     flexWrap: 'wrap',
     visibility: isOpen ? 'visible' : 'hidden',
@@ -55,10 +56,8 @@ const StyledDropdownContainer = styled.div<
         background: backgroundHover
       }
     },
-
     right: displayLeft ? '' : '0',
     left: displayLeft ? '0' : '',
-
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -67,35 +66,35 @@ const StyledDropdownContainer = styled.div<
       top: '-5px',
       height: '5px'
     },
-
-    [`@media (max-width: ${collapseAt})`]: {
-      top: '100%',
-      visibility: mobileToggle ? (isOpen ? 'visible' : 'hidden') : 'visible',
-      height: mobileToggle ? (isOpen ? 'auto' : '0') : 'auto',
-      ...(mobileToggle && { transition: 'height ease-out 0.3s' }),
-      maxWidth: '100%',
-      padding: 0,
-      position: 'relative',
-      border: 'none',
-      flexWrap: 'wrap',
-      'li, p': {
-        padding: mobilePadding,
-        paddingLeft: 0,
-        paddingRight: 0
-      },
-      'a, button': {
-        padding: mobilePadding,
-        paddingLeft: 0,
-        paddingRight: 0,
-        '&:hover': {
-          background: 'transparent'
+    [`@media (max-width: ${collapseAt})`]: [
+      mobileToggle && { transition: 'height ease-out 0.3s' },
+      {
+        top: '100%',
+        visibility: mobileToggle ? (isOpen ? 'visible' : 'hidden') : 'visible',
+        height: mobileToggle ? (isOpen ? 'auto' : '0') : 'auto',
+        maxWidth: '100%',
+        padding: 0,
+        position: 'relative',
+        border: 'none',
+        flexWrap: 'wrap',
+        'li, p': {
+          padding: mobilePadding,
+          paddingLeft: 0,
+          paddingRight: 0
+        },
+        'a, button': {
+          padding: mobilePadding,
+          paddingLeft: 0,
+          paddingRight: 0,
+          '&:hover': {
+            background: 'transparent'
+          }
+        },
+        '&::before': {
+          display: 'none'
         }
-      },
-
-      '&::before': {
-        display: 'none'
       }
-    }
+    ]
   })
 );
 

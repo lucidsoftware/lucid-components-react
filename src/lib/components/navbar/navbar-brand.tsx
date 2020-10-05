@@ -2,6 +2,7 @@ import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
 
 const NavbarBrand = styled.div(({ theme }) => ({
+  label: 'navbarBrand',
   display: 'inline-block',
   margin: 'auto 0',
   '& > img': {

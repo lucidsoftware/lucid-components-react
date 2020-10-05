@@ -5,6 +5,7 @@ export interface NavbarContainerProps {
 }
 
 const NavbarContainer = styled.div({
+  label: 'navbarContainer',
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',

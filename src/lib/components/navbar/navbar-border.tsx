@@ -5,6 +5,7 @@ export interface NavbarBorderProps {
 }
 
 const NavbarBorder = styled.div<NavbarBorderProps>(({ theme, isHidden }) => ({
+  label: 'navbarBorder',
   flexBasis: '100%',
   order: 0,
   position: 'absolute',

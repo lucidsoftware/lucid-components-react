@@ -77,7 +77,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         isOpen,
         displayLeft
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onClick: handleClickToggle, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref }),
+    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onClick: handleClickToggle, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref, css: { label: 'navbarDropdown' } }),
         core_1.jsx(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));
