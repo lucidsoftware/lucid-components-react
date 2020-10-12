@@ -56,6 +56,10 @@ const VideoPlayer = (_a) => {
             setOverlayVisible(false);
             setIsPlaying(true);
         }
+        else {
+            setOverlayVisible(true);
+            setIsPlaying(false);
+        }
     }, [playing]);
     const reactPlayerCss = core_1.css({
         position: 'absolute',
