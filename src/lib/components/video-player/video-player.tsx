@@ -60,6 +60,9 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
     if (playing) {
       setOverlayVisible(false);
       setIsPlaying(true);
+    } else {
+      setOverlayVisible(true);
+      setIsPlaying(false)
     }
   }, [playing]);
 
