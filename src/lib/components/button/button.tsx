@@ -2,7 +2,8 @@ import React, {
   FC,
   ReactNode,
   ButtonHTMLAttributes,
-  RefAttributes
+  RefAttributes,
+  SyntheticEvent
 } from 'react';
 import * as CSS from 'csstype';
 import { withTheme } from 'emotion-theming';
@@ -27,10 +28,10 @@ export interface CoreButtonProps {
   hover?: boolean;
   active?: boolean;
   css?: CSS.Properties;
-  onClick?: () => void;
-  onHover?: () => void;
-  onFocus?: () => void;
-  mouseOver?: () => void;
+  onClick?: (evt: SyntheticEvent<Element, Event>) => void;
+  onHover?: (evt: SyntheticEvent<Element, Event>) => void;
+  onFocus?: (evt: SyntheticEvent<Element, Event>) => void;
+  mouseOver?: (evt: SyntheticEvent<Element, Event>) => void;
 }
 
 export type ButtonProps = CoreButtonProps &

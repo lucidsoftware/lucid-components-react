@@ -1,4 +1,4 @@
-import React, { ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
+import React, { ReactNode, ButtonHTMLAttributes, RefAttributes, SyntheticEvent } from 'react';
 import * as CSS from 'csstype';
 import { ThemeProps } from '../../../theme/theme';
 import { UnderlineType } from '../link/link';
@@ -18,10 +18,10 @@ export interface CoreButtonProps {
     hover?: boolean;
     active?: boolean;
     css?: CSS.Properties;
-    onClick?: () => void;
-    onHover?: () => void;
-    onFocus?: () => void;
-    mouseOver?: () => void;
+    onClick?: (evt: SyntheticEvent<Element, Event>) => void;
+    onHover?: (evt: SyntheticEvent<Element, Event>) => void;
+    onFocus?: (evt: SyntheticEvent<Element, Event>) => void;
+    mouseOver?: (evt: SyntheticEvent<Element, Event>) => void;
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
 export declare const getButtonStyles: ({ theme, variant, size, block, active, disabled }: {
