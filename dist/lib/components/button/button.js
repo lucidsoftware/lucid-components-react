@@ -10,10 +10,12 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getButtonStyles = void 0;
-/** @jsx jsx */
-const core_1 = require("@emotion/core");
+const react_1 = __importDefault(require("react"));
 const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
 let color = '';
@@ -34,7 +36,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
         backgroundColor = theme.buttons.disabledBackgroundColor;
         border = theme.buttons.disabledBorder;
     }
-    else if (variant === 'primary') {
+    if (variant === 'primary') {
         color = theme.colors.white;
         backgroundColor = theme.buttons.primary.backgroundColor;
         border = theme.buttons.primary.border;
@@ -42,7 +44,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
         hoverBackgroundColor = theme.buttons.primary.hoverBackgroundColor;
         hoverBorder = theme.buttons.primary.hoverBorder;
     }
-    else if (variant === 'secondary') {
+    if (variant === 'secondary') {
         color = theme.buttons.secondary.color;
         backgroundColor = theme.buttons.secondary.backgroundColor;
         border = theme.buttons.secondary.border;
@@ -87,7 +89,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
     return css;
 };
 const ButtonBase = (_a) => {
-    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, size = 'regular', onClick, onHover, hover, active, disabled, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "size", "onClick", "onHover", "hover", "active", "disabled", "theme", "type"]);
+    var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, size = 'regular', onClick, onHover, onFocus, hover, active, disabled, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "size", "onClick", "onHover", "onFocus", "hover", "active", "disabled", "theme", "type"]);
     let variant;
     if (primary) {
         variant = link_1.LinkVariant.Primary;
@@ -106,7 +108,7 @@ const ButtonBase = (_a) => {
     const getClasses = () => {
         return `${className}${hover ? ' is-hover' : ''}${active ? ' is-active' : ''}${asLink ? ' is-link' : ''}${block ? ' block' : ''}`;
     };
-    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), onClick: onClick, onMouseOver: onHover, type: type, id: id, css: css, disabled: disabled }), children));
+    return (react_1.default.createElement("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
 };
 const Button = emotion_theming_1.withTheme(ButtonBase);
 exports.default = Button;

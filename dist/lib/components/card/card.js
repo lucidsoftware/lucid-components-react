@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const styled_1 = __importDefault(require("../../../theme/styled"));
 const emotion_theming_1 = require("emotion-theming");
 const styled_system_1 = require("styled-system");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const card_action_1 = __importDefault(require("./card-action"));
 const card_actions_1 = __importDefault(require("./card-actions"));
 const card_content_1 = __importDefault(require("./card-content"));
@@ -25,7 +25,7 @@ const CardContainer = styled_1.default.div({
             background: 'white',
             flexDirection: 'row',
             borderRadius: 'card',
-            border: `1px solid grey`,
+            border: '1px solid grey',
             borderColor: 'grey'
         }
     }

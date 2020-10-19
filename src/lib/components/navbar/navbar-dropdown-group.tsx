@@ -1,5 +1,6 @@
-import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
+
+import styled from '../../../theme/styled';
 
 const NavbarDropdownGroup = styled.div(({ theme }) => ({
   label: 'navbarDropdownGroup',

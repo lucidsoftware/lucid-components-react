@@ -15,8 +15,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
-const styled_1 = __importDefault(require("../../../theme/styled"));
 const styled_system_1 = require("styled-system");
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const PaperContainer = styled_1.default.div({
     display: 'block',
     textAlign: 'left'
@@ -25,9 +25,9 @@ const PaperContainer = styled_1.default.div({
     variants: {
         default: {
             background: 'white',
-            border: `1px solid grey`,
+            border: '1px solid grey',
             borderColor: 'grey',
-            borderRadius: `paper`,
+            borderRadius: 'paper',
             padding: 5
         }
     }

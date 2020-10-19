@@ -1,4 +1,5 @@
-import { ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
+import React, { ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
+import * as CSS from 'csstype';
 import { ThemeProps } from '../../../theme/theme';
 import { UnderlineType } from '../link/link';
 export declare type ButtonSize = 'small' | 'regular' | 'large';
@@ -16,9 +17,10 @@ export interface CoreButtonProps {
     disabled?: boolean;
     hover?: boolean;
     active?: boolean;
-    css?: any;
+    css?: CSS.Properties;
     onClick?: () => void;
     onHover?: () => void;
+    onFocus?: () => void;
     mouseOver?: () => void;
 }
 export declare type ButtonProps = CoreButtonProps & ThemeProps & RefAttributes<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>;
@@ -62,5 +64,5 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active, di
         textDecoration: string;
     };
 };
-declare const Button: import("react").SFC<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<ButtonProps>, "theme">>;
+declare const Button: React.SFC<import("emotion-theming/types/helper").AddOptionalTo<React.PropsWithChildren<ButtonProps>, "theme">>;
 export default Button;

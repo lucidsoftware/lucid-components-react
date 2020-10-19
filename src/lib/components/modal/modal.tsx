@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
-import './modal.scss';
 
 interface Props {
-  className?: string;
   header: string | ReactNode;
   body: string | ReactNode;
   actions: string | ReactNode;
@@ -11,7 +9,7 @@ interface Props {
   onSuccess: () => {};
 }
 
-const Modal = ({ className, header, body }: Props) => {
+const Modal = ({ header, body }: Props) => {
   return (
     <div className="modal">
       {header}

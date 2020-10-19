@@ -20,31 +20,31 @@ const react_1 = require("react");
 const react_player_1 = __importDefault(require("react-player"));
 const video_play_button_1 = __importDefault(require("../video-play-button/video-play-button"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
-const VideoPlaceholder = styled_1.default('div') `
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-`;
-const VideoOverlay = styled_1.default('div') `
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-`;
+const VideoPlaceholder = styled_1.default('div')({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    zIndex: 1,
+    img: {
+        objectFit: 'cover',
+        width: '100%',
+        height: '100%'
+    }
+});
+const VideoOverlay = styled_1.default('div')({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    background: 'rgba(0, 0, 0, 0.35)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 2
+});
 const VideoPlayer = (_a) => {
     var { className, url, placeholder, playing, onClick = () => {
         return;
@@ -78,14 +78,14 @@ const VideoPlayer = (_a) => {
     });
     return (core_1.jsx("div", { className: className, css: videoContainerCss },
         overlayVisible && (core_1.jsx(VideoOverlay, null,
-            core_1.jsx(video_play_button_1.default, { size: "lg", onClick: () => {
+            core_1.jsx(video_play_button_1.default, { onClick: () => {
                     if (url) {
                         setOverlayVisible(false);
                         setIsPlaying(true);
                     }
                     onClick();
-                } }))),
+                }, size: "lg" }))),
         placeholder && overlayVisible && (core_1.jsx(VideoPlaceholder, null, placeholder())),
-        url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", width: "100%", url: url, playing: isPlaying })))));
+        url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
 };
 exports.default = VideoPlayer;

@@ -1,8 +1,7 @@
 import React, { ReactNode, useState } from 'react';
-import styled from '../../../../theme/styled';
-
 import { SpaceProps, space } from 'styled-system';
 
+import styled from '../../../../theme/styled';
 import FieldContext from './field-context';
 
 export enum FloatingStatus {

@@ -1,7 +1,4 @@
 import React, { ReactNode } from 'react';
-import styled from '../../../theme/styled';
-import { VariantProps } from '../../../types';
-
 import {
   typography,
   space,
@@ -13,6 +10,9 @@ import {
   layout,
   LayoutProps
 } from 'styled-system';
+
+import styled from '../../../theme/styled';
+import { VariantProps } from '../../../types';
 
 type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

@@ -1,4 +1,3 @@
-import styled from '../../../theme/styled';
 import {
   background,
   BackgroundProps,
@@ -19,6 +18,8 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
+
+import styled from '../../../theme/styled';
 
 interface Props
   extends BackgroundProps,

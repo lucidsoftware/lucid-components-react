@@ -1,5 +1,6 @@
-import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
+
+import styled from '../../../theme/styled';
 
 const NavbarItem = styled.li(({ theme }) => ({
   label: 'navbarItem',

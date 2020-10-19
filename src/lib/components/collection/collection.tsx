@@ -1,7 +1,8 @@
-import styled from '../../../theme/styled';
-import { ThemeProps } from '../../../theme/theme';
 import { withTheme } from 'emotion-theming';
 import React from 'react';
+
+import styled from '../../../theme/styled';
+import { ThemeProps } from '../../../theme/theme';
 
 export type Justify = 'start' | 'center' | 'end' | 'full';
 export type Space =
@@ -77,14 +78,14 @@ const Collection = ({
     <div className={className}>
       <InnerCollection
         hSpace={actualHSpace}
-        vSpace={actualVSpace}
         justify={justify}
+        vSpace={actualVSpace}
       >
         {React.Children.map(children, child => (
           <InnerItem
             hSpace={actualHSpace}
-            vSpace={actualVSpace}
             justify={justify}
+            vSpace={actualVSpace}
           >
             <JustifyInnerItem verticalJustify={verticalJustify}>
               {child}

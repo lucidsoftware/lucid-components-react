@@ -1,5 +1,3 @@
-import styled from '../../../theme/styled';
-
 import { Accordion as ReactAccordion } from 'react-accessible-accordion';
 import {
   layout,
@@ -9,14 +7,14 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
+import styled from '../../../theme/styled';
 import AccordionItem from './accordion-item';
 import AccordionHeading from './accordion-heading';
 import AccordionPanel from './accordion-panel';
 import AccordionButton from './accordion-button';
-
 import { VariantProps } from '../../../types';
-import { withTheme } from 'emotion-theming';
 
 interface Props extends BorderProps, LayoutProps, SpaceProps, VariantProps {}
 

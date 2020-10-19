@@ -1,4 +1,4 @@
-import { RefAttributes, AnchorHTMLAttributes } from 'react';
+import React, { RefAttributes, AnchorHTMLAttributes } from 'react';
 import { ThemeProps } from '../../../theme/theme';
 import { ButtonSize } from '../button/button';
 export declare type UnderlineType = 'none' | 'hover' | 'always';
@@ -49,5 +49,5 @@ export declare const getLinkStyles: ({ active, block, inverse, theme, underline,
         cursor: string;
     };
 };
-declare const Link: import("react").SFC<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<LinkProps>, "theme">>;
+declare const Link: React.SFC<import("emotion-theming/types/helper").AddOptionalTo<React.PropsWithChildren<LinkProps>, "theme">>;
 export default Link;

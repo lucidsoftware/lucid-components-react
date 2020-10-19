@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
+import React, { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
 import { withTheme } from 'emotion-theming';
+
 import { ThemeProps } from '../../../theme/theme';
 import { getButtonStyles, ButtonSize } from '../button/button';
 
@@ -106,9 +107,20 @@ const LinkBase: FC<LinkProps> = ({
   let baseCss = {};
   if (primary) {
     variant = LinkVariant.Primary;
-  } else if (secondary) {
+  }
+
+  if (secondary) {
     variant = LinkVariant.Secondary;
   }
+
+  baseCss = getLinkStyles({
+    theme,
+    variant,
+    underline,
+    inverse,
+    block,
+    active
+  });
 
   if (asButton) {
     baseCss = getButtonStyles({
@@ -119,23 +131,15 @@ const LinkBase: FC<LinkProps> = ({
       size: buttonSize,
       disabled
     });
-  } else {
-    baseCss = getLinkStyles({
-      theme,
-      variant,
-      underline,
-      inverse,
-      block,
-      active
-    });
   }
 
   return (
     <a
       {...rest}
       className={`${className}${asButton ? ' is-button' : ''}`}
-      href={disabled ? undefined : href}
       css={[baseCss, css]}
+      data-link-as-button={`${asButton ? 'true' : 'false'}`}
+      href={disabled ? undefined : href}
     >
       {children}
     </a>

@@ -35,8 +35,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FloatingStatus = void 0;
 const react_1 = __importStar(require("react"));
-const styled_1 = __importDefault(require("../../../../theme/styled"));
 const styled_system_1 = require("styled-system");
+const styled_1 = __importDefault(require("../../../../theme/styled"));
 const field_context_1 = __importDefault(require("./field-context"));
 var FloatingStatus;
 (function (FloatingStatus) {

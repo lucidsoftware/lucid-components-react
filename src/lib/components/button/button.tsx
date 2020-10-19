@@ -1,8 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { FC, ReactNode, ButtonHTMLAttributes, RefAttributes } from 'react';
-
+import React, {
+  FC,
+  ReactNode,
+  ButtonHTMLAttributes,
+  RefAttributes
+} from 'react';
+import * as CSS from 'csstype';
 import { withTheme } from 'emotion-theming';
+
 import { ThemeProps } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';
 
@@ -12,24 +16,20 @@ export interface CoreButtonProps {
   className?: string;
   id?: string;
   children?: ReactNode;
-
   primary?: boolean;
   secondary?: boolean;
   inverse?: boolean;
   asLink?: boolean;
   underline?: UnderlineType;
-
   block?: boolean;
   size?: ButtonSize;
-
   disabled?: boolean;
   hover?: boolean;
   active?: boolean;
-
-  css?: any;
-
+  css?: CSS.Properties;
   onClick?: () => void;
   onHover?: () => void;
+  onFocus?: () => void;
   mouseOver?: () => void;
 }
 
@@ -70,7 +70,9 @@ export const getButtonStyles = ({
     color = theme.buttons.disabledColor;
     backgroundColor = theme.buttons.disabledBackgroundColor;
     border = theme.buttons.disabledBorder;
-  } else if (variant === 'primary') {
+  }
+
+  if (variant === 'primary') {
     color = theme.colors.white;
     backgroundColor = theme.buttons.primary.backgroundColor;
     border = theme.buttons.primary.border;
@@ -78,11 +80,12 @@ export const getButtonStyles = ({
     hoverColor = theme.buttons.primary.hoverColor;
     hoverBackgroundColor = theme.buttons.primary.hoverBackgroundColor;
     hoverBorder = theme.buttons.primary.hoverBorder;
-  } else if (variant === 'secondary') {
+  }
+
+  if (variant === 'secondary') {
     color = theme.buttons.secondary.color;
     backgroundColor = theme.buttons.secondary.backgroundColor;
     border = theme.buttons.secondary.border;
-
     hoverColor = theme.buttons.secondary.hoverColor;
     hoverBackgroundColor = theme.buttons.secondary.hoverBackgroundColor;
     hoverBorder = theme.buttons.secondary.hoverBorder;
@@ -116,11 +119,9 @@ export const getButtonStyles = ({
     color,
     backgroundColor,
     border,
-
     '&:visited': {
       color
     },
-
     ':hover,:focus': hoverCss
   };
 
@@ -135,25 +136,20 @@ const ButtonBase: FC<ButtonProps> = ({
   className = '',
   id = '',
   children,
-
   primary,
   secondary,
   inverse,
   asLink,
   underline,
-
   block,
   size = 'regular',
-
   onClick,
   onHover,
-
+  onFocus,
   hover,
   active,
   disabled,
-
   theme,
-
   type = 'button',
   ...rest
 }) => {
@@ -188,12 +184,14 @@ const ButtonBase: FC<ButtonProps> = ({
     <button
       {...rest}
       className={getClasses()}
+      css={css}
+      data-button-as-link={`${asLink ? 'true' : 'false'}`}
+      disabled={disabled}
+      id={id}
       onClick={onClick}
+      onFocus={onFocus}
       onMouseOver={onHover}
       type={type}
-      id={id}
-      css={css}
-      disabled={disabled}
     >
       {children}
     </button>

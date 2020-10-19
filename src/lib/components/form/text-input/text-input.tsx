@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from '../../../../theme/styled';
 import {
   typography,
   TypographyProps,
@@ -8,6 +7,7 @@ import {
   variant as variants
 } from 'styled-system';
 
+import styled from '../../../../theme/styled';
 import { VariantProps } from '../../../../types';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
@@ -107,14 +107,14 @@ const TextInput = styled(
     return (
       <TextInputBase
         {...rest}
-        disabled={contextDisabled ?? disabled}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
-        variant={variant}
-        placeholder={placeholder}
         data-error={hasError}
         data-floating={enableFloating && isFloating}
+        disabled={contextDisabled ?? disabled}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        variant={variant}
       />
     );
   }

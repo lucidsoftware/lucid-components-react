@@ -6,31 +6,31 @@ import ReactPlayer, { ReactPlayerProps } from 'react-player';
 import VideoPlayButton from '../video-play-button/video-play-button';
 import styled from '../../../theme/styled';
 
-const VideoPlaceholder = styled('div')`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+const VideoPlaceholder = styled('div')({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  zIndex: 1,
+  img: {
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%'
   }
-`;
-const VideoOverlay = styled('div')`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-`;
+});
+const VideoOverlay = styled('div')({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  background: 'rgba(0, 0, 0, 0.35)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 2
+});
 
 interface Props {
   className?: string;
@@ -62,7 +62,7 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
       setIsPlaying(true);
     } else {
       setOverlayVisible(true);
-      setIsPlaying(false)
+      setIsPlaying(false);
     }
   }, [playing]);
 
@@ -88,7 +88,6 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
       {overlayVisible && (
         <VideoOverlay>
           <VideoPlayButton
-            size="lg"
             onClick={() => {
               if (url) {
                 setOverlayVisible(false);
@@ -96,6 +95,7 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
               }
               onClick();
             }}
+            size="lg"
           />
         </VideoOverlay>
       )}
@@ -107,9 +107,9 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
           {...rest}
           css={reactPlayerCss}
           height="100%"
-          width="100%"
-          url={url}
           playing={isPlaying}
+          url={url}
+          width="100%"
         />
       )}
     </div>

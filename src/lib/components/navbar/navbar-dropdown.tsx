@@ -9,10 +9,10 @@ import {
   createContext
 } from 'react';
 import { jsx } from '@emotion/core';
+import { withTheme } from 'emotion-theming';
 
 import styled from '../../../theme/styled';
 import { NavbarContext } from './navbar';
-import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 import { windowIsAboveWidth } from '../../../utils/utils';
 
@@ -92,14 +92,14 @@ const NavbarDropdown = forwardRef<
   return (
     <DropdownWrapper
       {...rest}
-      role="navigation"
-      onMouseOver={handleMouseOver}
-      onClick={handleClickToggle}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleMouseOver}
-      onBlur={handleMouseLeave}
       ref={ref}
       css={{ label: 'navbarDropdown' }}
+      onBlur={handleMouseLeave}
+      onClick={handleClickToggle}
+      onFocus={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      onMouseOver={handleMouseOver}
+      role="navigation"
     >
       <NavbarDropdownContext.Provider value={context}>
         {toggle(handleMouseOver)}

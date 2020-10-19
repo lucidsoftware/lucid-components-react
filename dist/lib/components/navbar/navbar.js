@@ -42,6 +42,7 @@ exports.NavbarContext = react_1.createContext({
     toggleExpanded: () => {
         return;
     },
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     setActiveDropdownSetIsOpen: (activeDropdown) => undefined
 });
 const NavbarContents = styled_1.default.div({

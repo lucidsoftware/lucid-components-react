@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-
-import Icon, { IconType } from '../icon/icon';
 import { FC } from 'react';
 import { useTheme } from 'emotion-theming';
+
+import Icon, { IconType } from '../icon/icon';
 import styled from '../../../theme/styled';
 
 type Sizing = 'lg' | 'reg' | 'sm';
@@ -64,15 +64,15 @@ const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
   const theme = useTheme<any>();
 
   return (
-    <PlayButton sizePx={sizePx} sizePadding={sizePadding} {...rest}>
+    <PlayButton sizePadding={sizePadding} sizePx={sizePx} {...rest}>
       <IconContainer
         sizePositionHorz={sizePositionHorz}
         sizePositionVert={sizePositionVert}
       >
         <Icon
-          type={IconType.Play}
           color={theme.colors.primary}
           sizing="responsive"
+          type={IconType.Play}
         />
       </IconContainer>
     </PlayButton>

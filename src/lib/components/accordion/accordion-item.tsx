@@ -1,7 +1,7 @@
 import { AccordionItem as ReactAccordionItem } from 'react-accessible-accordion';
+import { flexbox, layout, FlexboxProps, LayoutProps } from 'styled-system';
 
 import styled from '../../../theme/styled';
-import { flexbox, layout, FlexboxProps, LayoutProps } from 'styled-system';
 
 export interface Props extends FlexboxProps, LayoutProps {}
 

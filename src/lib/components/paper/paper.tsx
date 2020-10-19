@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { ReactNode, FC, HTMLAttributes } from 'react';
 import { jsx } from '@emotion/core';
+import { space, variant, SpaceProps, LayoutProps, layout } from 'styled-system';
 
 import styled from '../../../theme/styled';
-import { space, variant, SpaceProps, LayoutProps, layout } from 'styled-system';
 
 interface Props extends SpaceProps, LayoutProps {
   as?: 'div' | 'section' | 'article';
@@ -21,9 +21,9 @@ const PaperContainer = styled.div<Props>(
     variants: {
       default: {
         background: 'white',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey',
-        borderRadius: `paper`,
+        borderRadius: 'paper',
         padding: 5
       }
     }

@@ -1,8 +1,9 @@
 /** @jsx jsx */
 
 import { jsx } from '@emotion/core';
-import styled from '../../../theme/styled';
 import { FC, useContext } from 'react';
+
+import styled from '../../../theme/styled';
 import { NavbarDropdownContext } from './navbar-dropdown';
 
 export interface NavbarDropdownContainerProps {

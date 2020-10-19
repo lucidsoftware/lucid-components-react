@@ -34,8 +34,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __importStar(require("react"));
-const styled_1 = __importDefault(require("../../../../theme/styled"));
 const styled_system_1 = require("styled-system");
+const styled_1 = __importDefault(require("../../../../theme/styled"));
 const field_context_1 = __importDefault(require("../field/field-context"));
 const field_1 = require("../field/field");
 const LabelBase = styled_1.default.label(styled_system_1.space, styled_system_1.typography, styled_system_1.variant({
@@ -79,6 +79,6 @@ const Label = styled_1.default((_a) => {
     var { variant = field_1.FloatingStatus.Default } = _a, rest = __rest(_a, ["variant"]);
     const { hasError, hasFocus, enableFloating, isFloating } = React.useContext(field_context_1.default);
     variant = enableFloating ? field_1.FloatingStatus.Floating : variant;
-    return (React.createElement(LabelBase, Object.assign({}, rest, { floating: enableFloating, variant: variant, "data-floating": enableFloating && isFloating, "data-focus": hasFocus, "data-error": hasError })));
+    return (React.createElement(LabelBase, Object.assign({}, rest, { "data-error": hasError, "data-floating": enableFloating && isFloating, "data-focus": hasFocus, floating: enableFloating, variant: variant })));
 })();
 exports.default = Label;

@@ -1,4 +1,3 @@
-import styled from '../../../theme/styled';
 import {
   layout,
   LayoutProps,
@@ -7,6 +6,8 @@ import {
   BorderProps,
   border
 } from 'styled-system';
+
+import styled from '../../../theme/styled';
 
 interface Props extends LayoutProps, SpaceProps, BorderProps {}
 
