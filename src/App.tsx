@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React from 'react';
-import './App.css';
-
 import { ThemeProvider } from 'emotion-theming';
+
 import theme from './theme/theme';
 import styled from './theme/styled';
-
 import Accordion from './lib/components/accordion/accordion';
 import Box from './lib/components/box/box';
 import Button from './lib/components/button/button';
@@ -19,6 +17,7 @@ import Navbar from './lib/components/navbar/navbar';
 import NavbarWrapper from './lib/components/navbar/navbar-wrapper';
 import Paper from './lib/components/paper/paper';
 import Spacer from './lib/components/spacer/spacer';
+import './App.css';
 
 const StickyNav = styled.nav({
   display: 'flex',
@@ -35,7 +34,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Box width="300px" position="fixed" left="0" top="80px" pl={6}>
+        <Box left="0" pl={6} position="fixed" top="80px" width="300px">
           <StickyNav>
             <NavLink href="#heading">Heading</NavLink>
             <NavLink href="#box">Box</NavLink>
@@ -44,14 +43,14 @@ const App: React.FC = () => {
           </StickyNav>
         </Box>
 
-        <Box maxWidth={['100%', null, null, '800px']} margin="auto" pb={10}>
-          <Box display="flex" flexDirection="column" bg="white" py={6}>
+        <Box margin="auto" maxWidth={['100%', null, null, '800px']} pb={10}>
+          <Box bg="white" display="flex" flexDirection="column" py={6}>
             <Heading
               as="h1"
+              fontSize={[7, null, 9, 10]}
               mx={0}
               my={4}
               variant="primary"
-              fontSize={[7, null, 9, 10]}
             >
               Components
             </Heading>
@@ -68,15 +67,15 @@ const App: React.FC = () => {
               placeat distinctio. Quasi, eveniet!
             </p>
 
-            <Spacer my={10} borderBottom="1px solid lightgrey" />
+            <Spacer borderBottom="1px solid lightgrey" my={10} />
 
             <Heading
               as="h2"
+              fontSize={[7, null, 8, 9]}
+              id="heading"
               mx={0}
               my={4}
               variant="primary"
-              fontSize={[7, null, 8, 9]}
-              id="heading"
             >
               Heading component
             </Heading>
@@ -103,89 +102,89 @@ const App: React.FC = () => {
 
             <Heading
               as="h1"
+              fontSize={[7, null, 9, 10]}
               m={0}
               variant="primary"
-              fontSize={[7, null, 9, 10]}
             >
               Heading 1
             </Heading>
-            <Heading as="h1" m={0} variant="primary" fontSize={[6, null, 8, 9]}>
+            <Heading as="h1" fontSize={[6, null, 8, 9]} m={0} variant="primary">
               Heading 2
             </Heading>
-            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 8]}>
+            <Heading as="h2" fontSize={[6, null, 8, 8]} m={0} variant="primary">
               Heading 3
             </Heading>
-            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 7]}>
+            <Heading as="h2" fontSize={[6, null, 8, 7]} m={0} variant="primary">
               Heading 4
             </Heading>
-            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 6]}>
+            <Heading as="h2" fontSize={[6, null, 8, 6]} m={0} variant="primary">
               Heading 5
             </Heading>
-            <Heading as="h2" m={0} variant="primary" fontSize={[6, null, 8, 5]}>
+            <Heading as="h2" fontSize={[6, null, 8, 5]} m={0} variant="primary">
               Heading 6
             </Heading>
           </Box>
           <Spacer py={2} />
-          <Box display="flex" flexDirection="column" bg="white" py={6}>
+          <Box bg="white" display="flex" flexDirection="column" py={6}>
             <Heading
               as="h1"
+              fontSize={[7, null, 9, 10]}
               m={0}
               variant="subheading"
-              fontSize={[7, null, 9, 10]}
             >
               Subheading 1
             </Heading>
             <Heading
               as="h1"
+              fontSize={[6, null, 8, 9]}
               m={0}
               variant="subheading"
-              fontSize={[6, null, 8, 9]}
             >
               Subheading 2
             </Heading>
             <Heading
               as="h2"
+              fontSize={[6, null, 8, 8]}
               m={0}
               variant="subheading"
-              fontSize={[6, null, 8, 8]}
             >
               Subheading 3
             </Heading>
             <Heading
               as="h2"
+              fontSize={[6, null, 8, 7]}
               m={0}
               variant="subheading"
-              fontSize={[6, null, 8, 7]}
             >
               Subheading 4
             </Heading>
             <Heading
               as="h2"
+              fontSize={[6, null, 8, 6]}
               m={0}
               variant="subheading"
-              fontSize={[6, null, 8, 6]}
             >
               Subheading 5
             </Heading>
             <Heading
               as="h2"
+              fontSize={[6, null, 8, 5]}
               m={0}
               variant="subheading"
-              fontSize={[6, null, 8, 5]}
             >
               Subheading 6
             </Heading>
           </Box>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="heading"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="heading"
           >
             Button component
           </Heading>
@@ -208,15 +207,15 @@ const App: React.FC = () => {
             <Button disabled>Disabled</Button>
           </Box>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="heading"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="heading"
           >
             Collection component
           </Heading>
@@ -224,11 +223,11 @@ const App: React.FC = () => {
           <Spacer py={4} />
 
           <Collection
+            css={{ margin: `0 ${theme.space[8]}px` }}
             hSpace={3}
-            vSpace={3}
             justify="full"
             verticalJustify="center"
-            css={{ margin: `0 ${theme.space[8]}px` }}
+            vSpace={3}
           >
             <Button>Button</Button>
             <Button primary>Primary button</Button>
@@ -240,10 +239,10 @@ const App: React.FC = () => {
             <Link>Link</Link>
             <Button>Button with a long string of text</Button>
             <Box
+              bg="primary"
+              color="white"
               display="flex"
               flexDirection="column"
-              color="white"
-              bg="primary"
               p={4}
             >
               Styled box
@@ -254,15 +253,15 @@ const App: React.FC = () => {
             </Card>
           </Collection>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="box"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="box"
           >
             Card component
           </Heading>
@@ -277,27 +276,27 @@ const App: React.FC = () => {
             <Card.Content p={5}>Default Card</Card.Content>
           </Card>
 
-          <Card variant="raised" mt={5}>
+          <Card mt={5} variant="raised">
             <Card.Content p={5}>Raised Card</Card.Content>
           </Card>
 
-          <Card variant="interactive" mt={5}>
+          <Card mt={5} variant="interactive">
             <Card.Content p={5}>Interactive Card</Card.Content>
           </Card>
 
-          <Paper variant="raised" mt={5}>
+          <Paper mt={5} variant="raised">
             Paper
           </Paper>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="box"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="box"
           >
             Box component
           </Heading>
@@ -320,103 +319,103 @@ const App: React.FC = () => {
           </ul>
 
           <Box
-            display="flex"
-            flexDirection="column"
-            color="white"
             bg="primary"
+            color="white"
+            display="flex"
+            flexDirection="column"
             p={4}
           >
             Hey I am BOX
           </Box>
           <Box
+            bg="white"
+            border="1px solid lightgrey"
+            color="primary"
             display="flex"
             flexDirection="column"
-            color="primary"
-            bg="white"
-            p={4}
             my={2}
-            border="1px solid lightgrey"
+            p={4}
           >
             Hey I am BOX
           </Box>
           <Box
+            bg="white"
+            border="1px solid lightgrey"
+            color="primary"
             display="flex"
             flexDirection="column"
-            color="primary"
-            bg="white"
-            p={4}
             my={2}
-            border="1px solid lightgrey"
+            p={4}
           >
             Hey I am BOX
           </Box>
 
           <Box
+            bg="white"
+            border="1px solid lightgrey"
+            color="primary"
             display="flex"
             flexDirection="row"
             justifyContent="stretch"
-            color="primary"
-            bg="white"
-            p={3}
             my={2}
-            border="1px solid lightgrey"
+            p={3}
           >
             <Box
-              display="flex"
-              width="100%"
-              color="white"
               bg="black"
-              justifyContent="center"
+              border="1px solid lightgrey"
               borderRadius="4px"
               boxShadow="3px 3px 2px rgba(0, 0, 0, .15)"
-              p={4}
-              my={2}
+              color="white"
+              display="flex"
+              justifyContent="center"
               mx={2}
-              border="1px solid lightgrey"
+              my={2}
+              p={4}
+              width="100%"
             >
               Hey I am BOX
             </Box>
             <Box
-              display="flex"
-              width="100%"
-              color="white"
               bg="black"
-              justifyContent="center"
+              border="1px solid lightgrey"
               borderRadius="4px"
               boxShadow="3px 3px 2px rgba(0, 0, 0, .15)"
-              p={4}
-              my={2}
+              color="white"
+              display="flex"
+              justifyContent="center"
               mx={2}
-              border="1px solid lightgrey"
+              my={2}
+              p={4}
+              width="100%"
             >
               Hey I am BOX
             </Box>
             <Box
-              display="flex"
-              width="100%"
-              color="white"
               bg="black"
-              justifyContent="center"
+              border="1px solid lightgrey"
               borderRadius="4px"
               boxShadow="3px 3px 2px rgba(0, 0, 0, .15)"
-              p={4}
-              my={2}
+              color="white"
+              display="flex"
+              justifyContent="center"
               mx={2}
-              border="1px solid lightgrey"
+              my={2}
+              p={4}
+              width="100%"
             >
               Hey I am BOX
             </Box>
           </Box>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="accordion"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="accordion"
           >
             Accordion component
           </Heading>
@@ -458,15 +457,15 @@ const App: React.FC = () => {
             </Accordion.Item>
           </Accordion>
 
-          <Spacer my={10} borderBottom="1px solid lightgrey" />
+          <Spacer borderBottom="1px solid lightgrey" my={10} />
 
           <Heading
             as="h2"
+            fontSize={[7, null, 8, 9]}
+            id="accordion"
             mx={0}
             my={4}
             variant="primary"
-            fontSize={[7, null, 8, 9]}
-            id="accordion"
           >
             Input component
           </Heading>
@@ -488,8 +487,8 @@ const App: React.FC = () => {
             <Form.Field floating mt={7}>
               <Form.Label>Username</Form.Label>
               <Form.TextInput
-                p={4}
                 validate
+                p={4}
                 validator={evt => {
                   return evt.currentTarget.value.length > 5;
                 }}
@@ -502,7 +501,7 @@ const App: React.FC = () => {
             </Form.Field>
             <Form.Field floating mt={7}>
               <Form.Label>Password</Form.Label>
-              <Form.TextInput type="password" p={4} placeholder="Hello" />
+              <Form.TextInput p={4} placeholder="Hello" type="password" />
             </Form.Field>
 
             <Form.Label variant="default">Password</Form.Label>
@@ -514,8 +513,8 @@ const App: React.FC = () => {
               <Navbar.Brand>
                 <Link href="https://www.google.com">
                   <img
-                    src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
                     alt="Logo"
+                    src="https://d2slcw3kip6qmk.cloudfront.net/marketing/images/lucidchart-vector-logo.svg"
                     style={{ width: '200px' }}
                   />
                 </Link>
@@ -564,8 +563,8 @@ const App: React.FC = () => {
                         {({ isOpen }) => (
                           <Button
                             asLink
-                            onMouseOver={toggleHandler}
                             onClick={toggleHandler}
+                            onMouseOver={toggleHandler}
                           >
                             {`Dropdown is ${isOpen ? 'open' : 'closed'}`}
                           </Button>

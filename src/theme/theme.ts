@@ -1,8 +1,8 @@
 import * as CSS from 'csstype';
+import { Theme as DefaultTheme } from 'styled-system';
 
 import * as colors from './colors';
 import { base } from './base';
-import { Theme as DefaultTheme } from 'styled-system';
 import {
   navbar,
   accordion,

@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { forwardRef, HTMLAttributes, useContext } from 'react';
 import { jsx } from '@emotion/core';
+import { withTheme } from 'emotion-theming';
 
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
-import { withTheme } from 'emotion-theming';
 import { ThemeProps } from '../../../theme/theme';
 
 const NavbarToggleButton = styled.button(({ theme }) => ({
@@ -28,8 +28,8 @@ const NavbarToggle = forwardRef<
     <NavbarToggleButton
       {...rest}
       ref={ref}
-      onClick={toggleExpanded}
       css={{ label: 'navbarToggle' }}
+      onClick={toggleExpanded}
     >
       {children}
     </NavbarToggleButton>

@@ -1,5 +1,4 @@
 import { AccordionItemPanel } from 'react-accessible-accordion';
-import styled from '../../../theme/styled';
 import {
   TypographyProps,
   typography,
@@ -12,6 +11,7 @@ import {
   background
 } from 'styled-system';
 
+import styled from '../../../theme/styled';
 import { VariantProps } from '../../../types';
 
 export interface Props

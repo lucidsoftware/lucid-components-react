@@ -34,8 +34,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __importStar(require("react"));
-const styled_1 = __importDefault(require("../../../../theme/styled"));
 const styled_system_1 = require("styled-system");
+const styled_1 = __importDefault(require("../../../../theme/styled"));
 const field_context_1 = __importDefault(require("../field/field-context"));
 const field_1 = require("../field/field");
 const TextInputBase = styled_1.default.input(styled_system_1.space, styled_system_1.typography, styled_system_1.variant({
@@ -98,6 +98,6 @@ const TextInput = styled_1.default((_a) => {
             setHasFocus(false);
         }
     };
-    return (React.createElement(TextInputBase, Object.assign({}, rest, { disabled: contextDisabled !== null && contextDisabled !== void 0 ? contextDisabled : disabled, onChange: onChange, onBlur: onBlur, onFocus: onFocus, variant: variant, placeholder: placeholder, "data-error": hasError, "data-floating": enableFloating && isFloating })));
+    return (React.createElement(TextInputBase, Object.assign({}, rest, { "data-error": hasError, "data-floating": enableFloating && isFloating, disabled: contextDisabled !== null && contextDisabled !== void 0 ? contextDisabled : disabled, onBlur: onBlur, onChange: onChange, onFocus: onFocus, placeholder: placeholder, variant: variant })));
 })();
 exports.default = TextInput;

@@ -63,9 +63,17 @@ const LinkBase = (_a) => {
     if (primary) {
         variant = LinkVariant.Primary;
     }
-    else if (secondary) {
+    if (secondary) {
         variant = LinkVariant.Secondary;
     }
+    baseCss = exports.getLinkStyles({
+        theme,
+        variant,
+        underline,
+        inverse,
+        block,
+        active
+    });
     if (asButton) {
         baseCss = button_1.getButtonStyles({
             theme,
@@ -76,17 +84,7 @@ const LinkBase = (_a) => {
             disabled
         });
     }
-    else {
-        baseCss = exports.getLinkStyles({
-            theme,
-            variant,
-            underline,
-            inverse,
-            block,
-            active
-        });
-    }
-    return (core_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, href: disabled ? undefined : href, css: [baseCss, css] }), children));
+    return (core_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, css: [baseCss, css], "data-link-as-button": `${asButton ? 'true' : 'false'}`, href: disabled ? undefined : href }), children));
 };
 const Link = emotion_theming_1.withTheme(LinkBase);
 exports.default = Link;

@@ -1,6 +1,7 @@
-import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
 import { space, SpaceProps } from 'styled-system';
+
+import styled from '../../../theme/styled';
 import { ThemeProps } from '../../../theme/theme';
 
 export interface CardActionProps extends ThemeProps, SpaceProps {}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from '../../../../theme/styled';
 import {
   typography,
   TypographyProps,
@@ -8,6 +7,7 @@ import {
   variant as variants
 } from 'styled-system';
 
+import styled from '../../../../theme/styled';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
@@ -71,11 +71,11 @@ const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
   return (
     <LabelBase
       {...rest}
-      floating={enableFloating}
-      variant={variant}
+      data-error={hasError}
       data-floating={enableFloating && isFloating}
       data-focus={hasFocus}
-      data-error={hasError}
+      floating={enableFloating}
+      variant={variant}
     />
   );
 })<Props>();

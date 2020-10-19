@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { FC, ReactNode } from 'react';
-import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
+
+import styled from '../../../theme/styled';
 import { ThemeProps } from '../../../theme/theme';
 
 interface Props {
@@ -52,7 +53,7 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
       if (index !== items.length - 1) {
         const crumb = (
           <React.Fragment key={`fragment-${index}`}>
-            <BreadcrumbWrapper theme={theme} key={index}>
+            <BreadcrumbWrapper key={index} theme={theme}>
               {item}
             </BreadcrumbWrapper>
             <React.Fragment key={`seperator-${index}`}>
@@ -71,7 +72,7 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
   };
 
   return (
-    <nav className={className} aria-label="breadcrumbs">
+    <nav aria-label="breadcrumbs" className={className}>
       <BreadcrumbContent inverse={inverse}>{getCrumbs()}</BreadcrumbContent>
     </nav>
   );

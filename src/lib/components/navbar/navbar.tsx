@@ -8,8 +8,8 @@ import {
   SetStateAction
 } from 'react';
 import { jsx } from '@emotion/core';
-import styled from '../../../theme/styled';
 
+import styled from '../../../theme/styled';
 import Button from '../button/button';
 import NavbarItem from './navbar-item';
 import NavbarBrand from './navbar-brand';
@@ -31,6 +31,7 @@ export const NavbarContext = createContext({
   toggleExpanded: () => {
     return;
   },
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   setActiveDropdownSetIsOpen: (activeDropdown: any): void => undefined
 });
 

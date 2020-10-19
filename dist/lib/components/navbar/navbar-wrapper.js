@@ -21,7 +21,7 @@ const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, backg
 }));
 const IE11 = utils_1.isIE11();
 const NavbarWrapper = ({ as, sticky = false, stickyCollapsed = false, top = 0, zIndex = 1000, background, children }) => {
-    return (core_1.jsx(NavbarWrap, { as: as, sticky: sticky, stickyCollapsed: stickyCollapsed, top: top, zIndex: zIndex, background: background, css: { label: 'navbarWrapper' } },
+    return (core_1.jsx(NavbarWrap, { as: as, background: background, css: { label: 'navbarWrapper' }, sticky: sticky, stickyCollapsed: stickyCollapsed, top: top, zIndex: zIndex },
         sticky && IE11 && (core_1.jsx(core_1.Global, { styles: {
                 body: {
                     marginTop: '60px'

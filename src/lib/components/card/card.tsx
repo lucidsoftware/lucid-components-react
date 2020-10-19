@@ -1,6 +1,4 @@
-import styled from '../../../theme/styled';
 import { withTheme } from 'emotion-theming';
-
 import {
   variant,
   space,
@@ -12,8 +10,9 @@ import {
   LayoutProps,
   SpaceProps
 } from 'styled-system';
-import { ThemeProps } from '../../../theme/theme';
 
+import styled from '../../../theme/styled';
+import { ThemeProps } from '../../../theme/theme';
 import CardAction from './card-action';
 import CardActions from './card-actions';
 import CardContent from './card-content';
@@ -46,7 +45,7 @@ const CardContainer = styled.div<Props>(
         background: 'white',
         flexDirection: 'row',
         borderRadius: 'card',
-        border: `1px solid grey`,
+        border: '1px solid grey',
         borderColor: 'grey'
       }
     }

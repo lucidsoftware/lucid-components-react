@@ -18,9 +18,9 @@ exports.NavbarDropdownContext = void 0;
 /** @jsx jsx */
 const react_1 = require("react");
 const core_1 = require("@emotion/core");
+const emotion_theming_1 = require("emotion-theming");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
-const emotion_theming_1 = require("emotion-theming");
 const utils_1 = require("../../../utils/utils");
 const DropdownWrapper = styled_1.default.div(() => ({
     position: 'relative'
@@ -77,7 +77,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         isOpen,
         displayLeft
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { role: "navigation", onMouseOver: handleMouseOver, onClick: handleClickToggle, onMouseLeave: handleMouseLeave, onFocus: handleMouseOver, onBlur: handleMouseLeave, ref: ref, css: { label: 'navbarDropdown' } }),
+    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { ref: ref, css: { label: 'navbarDropdown' }, onBlur: handleMouseLeave, onClick: handleClickToggle, onFocus: handleMouseOver, onMouseLeave: handleMouseLeave, onMouseOver: handleMouseOver, role: "navigation" }),
         core_1.jsx(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));

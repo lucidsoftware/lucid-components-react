@@ -2,6 +2,7 @@
 
 import { ReactNode, FC } from 'react';
 import { Global, jsx } from '@emotion/core';
+
 import styled from '../../../theme/styled';
 import { isIE11 } from '../../../utils/utils';
 
@@ -45,12 +46,12 @@ const NavbarWrapper: FC<Props> = ({
   return (
     <NavbarWrap
       as={as}
+      background={background}
+      css={{ label: 'navbarWrapper' }}
       sticky={sticky}
       stickyCollapsed={stickyCollapsed}
       top={top}
       zIndex={zIndex}
-      background={background}
-      css={{ label: 'navbarWrapper' }}
     >
       {sticky && IE11 && (
         <Global
