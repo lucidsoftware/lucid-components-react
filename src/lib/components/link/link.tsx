@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
+import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
+import * as CSS from 'csstype';
 import { withTheme } from 'emotion-theming';
 
 import { ThemeProps } from '../../../theme/theme';
@@ -18,7 +19,7 @@ export interface CoreLinkProps {
   block?: boolean;
   buttonSize?: ButtonSize;
   underline?: UnderlineType;
-  css?: any;
+  css?: CSS.Properties;
 }
 
 export type LinkProps = ThemeProps &

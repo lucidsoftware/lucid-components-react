@@ -1,7 +1,4 @@
-/** @jsx jsx */
-
-import { jsx } from '@emotion/core';
-import { FC, useContext } from 'react';
+import React, { FC, useContext } from 'react';
 
 import styled from '../../../theme/styled';
 import { NavbarDropdownContext } from './navbar-dropdown';

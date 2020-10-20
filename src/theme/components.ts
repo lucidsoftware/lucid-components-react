@@ -109,6 +109,7 @@ export const breadcrumb = {
   margin: '0 6px',
   crumbOpacity: 0.45
 };
+
 export const buttons = {
   fontSize: '1em',
   lineHeight: '1',
@@ -168,7 +169,6 @@ export const card = {
     borderRadius: 'card',
     border: '1px solid grey',
     borderColor: 'grey',
-
     boxShadow: '10',
     transition:
       'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.15s ease-out',

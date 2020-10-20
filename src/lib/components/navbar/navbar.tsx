@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import {
+import React, {
   ReactNode,
   forwardRef,
   createContext,
@@ -7,7 +6,6 @@ import {
   Dispatch,
   SetStateAction
 } from 'react';
-import { jsx } from '@emotion/core';
 
 import styled from '../../../theme/styled';
 import Button from '../button/button';

@@ -1,7 +1,5 @@
-/** @jsx jsx */
-
-import { ReactNode, FC } from 'react';
-import { Global, jsx } from '@emotion/core';
+import React, { ReactNode, FC } from 'react';
+import { Global } from '@emotion/core';
 
 import styled from '../../../theme/styled';
 import { isIE11 } from '../../../utils/utils';

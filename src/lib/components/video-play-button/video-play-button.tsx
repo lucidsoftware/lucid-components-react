@@ -1,12 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useTheme } from 'emotion-theming';
 
 import Icon, { IconType } from '../icon/icon';
 import styled from '../../../theme/styled';
+import { Theme } from '../../../theme/theme';
 
 type Sizing = 'lg' | 'reg' | 'sm';
+
 interface Props {
   size?: Sizing;
 }
@@ -55,13 +55,15 @@ const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
     sizePadding = '24px';
     sizePositionHorz = '5px';
     sizePositionVert = '-1px';
-  } else if (size === 'sm') {
+  }
+
+  if (size === 'sm') {
     sizePx = '40px';
     sizePadding = '12px';
     sizePositionHorz = '3px';
   }
 
-  const theme = useTheme<any>();
+  const theme = useTheme<Theme>();
 
   return (
     <PlayButton sizePadding={sizePadding} sizePx={sizePx} {...rest}>

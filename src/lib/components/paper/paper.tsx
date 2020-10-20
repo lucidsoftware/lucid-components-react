@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { ReactNode, FC, HTMLAttributes } from 'react';
-import { jsx } from '@emotion/core';
+import React, { ReactNode, FC, HTMLAttributes } from 'react';
 import { space, variant, SpaceProps, LayoutProps, layout } from 'styled-system';
 
 import styled from '../../../theme/styled';
