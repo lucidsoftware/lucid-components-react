@@ -134,7 +134,7 @@ exports.buttons = {
     hoverBoxShadow: 'none',
     disabledBoxShadow: 'none',
     border: '1px solid #000',
-    transition: 'transform 0.15 ease-out',
+    transition: 'transform 0.15s ease-out',
     sizes: {
         small: {
             padding: '6px 24px'
