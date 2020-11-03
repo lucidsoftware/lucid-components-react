@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 

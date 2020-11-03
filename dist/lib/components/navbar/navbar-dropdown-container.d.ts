@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { FC } from 'react';
 export interface NavbarDropdownContainerProps {
     mobileToggle?: boolean;

@@ -57,20 +57,24 @@ const Icon = ({
   const verticalAlign = isResponsiveSizing ? { verticalAlign: '-.125em' } : {};
   const transform = getFlip(flip);
 
-  const iconCss = css({
-    ...verticalAlign,
-    display: 'inline-block',
-    height: isResponsiveSizing ? '100%' : '1em',
-    width: isResponsiveSizing ? '100%' : '1em',
-    position: 'relative',
-    ...transform,
-    path: {
-      fill: color ? color : 'currentColor'
+  const iconCss = css([
+    verticalAlign,
+    {
+      display: 'inline-block',
+      height: isResponsiveSizing ? '100%' : '1em',
+      width: isResponsiveSizing ? '100%' : '1em',
+      position: 'relative'
     },
-    '&:hover path': {
-      fill: hoverColor ? hoverColor : ''
+    transform,
+    {
+      path: {
+        fill: color ? color : 'currentColor'
+      },
+      '&:hover path': {
+        fill: hoverColor ? hoverColor : ''
+      }
     }
-  });
+  ]);
 
   let icon;
 
@@ -88,6 +92,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     case IconType.CarotRight:
       icon = (
         <svg height="100%" version="1.1" viewBox="0 0 12 22" width="100%">
@@ -103,6 +108,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     case IconType.CarotDown:
       icon = (
         <svg height="100%" version="1.1" viewBox="0 0 22 12" width="100%">
@@ -121,6 +127,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     case IconType.Checkmark:
       icon = (
         <svg height="100%" version="1.1" viewBox="0 0 13 10" width="100%">
@@ -134,6 +141,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     case IconType.Play:
       icon = (
         <svg height="100%" version="1.1" viewBox="0 0 9 10" width="100%">
@@ -147,6 +155,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     case IconType.RSS:
       icon = (
         <svg height="100%" version="1.1" viewBox="0 0 770.2 768.3" width="100%">
@@ -169,6 +178,7 @@ const Icon = ({
         </svg>
       );
       break;
+
     default:
       icon = <svg />;
       break;

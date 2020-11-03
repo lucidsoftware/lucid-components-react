@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { ReactNode, FC, HTMLAttributes } from 'react';
 import { SpaceProps, LayoutProps } from 'styled-system';
 interface Props extends SpaceProps, LayoutProps {

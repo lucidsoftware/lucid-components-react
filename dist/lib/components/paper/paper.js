@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@emotion/core");
+const react_1 = __importDefault(require("react"));
 const styled_system_1 = require("styled-system");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const PaperContainer = styled_1.default.div({
@@ -37,6 +37,6 @@ PaperContainer.defaultProps = {
 };
 const Paper = (_a) => {
     var { children } = _a, rest = __rest(_a, ["children"]);
-    return core_1.jsx(PaperContainer, Object.assign({}, rest), children);
+    return react_1.default.createElement(PaperContainer, Object.assign({}, rest), children);
 };
 exports.default = Paper;

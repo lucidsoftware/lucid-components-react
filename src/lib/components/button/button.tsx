@@ -1,4 +1,6 @@
-import React, {
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import {
   FC,
   ReactNode,
   ButtonHTMLAttributes,
@@ -77,7 +79,6 @@ export const getButtonStyles = ({
     color = theme.colors.white;
     backgroundColor = theme.buttons.primary.backgroundColor;
     border = theme.buttons.primary.border;
-
     hoverColor = theme.buttons.primary.hoverColor;
     hoverBackgroundColor = theme.buttons.primary.hoverBackgroundColor;
     hoverBorder = theme.buttons.primary.hoverBorder;
@@ -123,7 +124,7 @@ export const getButtonStyles = ({
     '&:visited': {
       color
     },
-    ':hover,:focus': hoverCss
+    ':hover, :focus': hoverCss
   };
 
   if (active) {

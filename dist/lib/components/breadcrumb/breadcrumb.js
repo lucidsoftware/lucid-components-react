@@ -3,8 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @jsx jsx */
-const core_1 = require("@emotion/core");
 const react_1 = __importDefault(require("react"));
 const emotion_theming_1 = require("emotion-theming");
 const styled_1 = __importDefault(require("../../../theme/styled"));
@@ -28,20 +26,20 @@ const BreadcrumbContent = styled_1.default.ul(({ theme, inverse }) => ({
     margin: 0,
     padding: 0
 }));
-const Breadcrumb = ({ theme, className, inverse = false, items, seperator = core_1.jsx(BreadcrumbSeparator, { theme: theme }, "/") }) => {
+const Breadcrumb = ({ theme, className, inverse = false, items, seperator = react_1.default.createElement(BreadcrumbSeparator, { theme: theme }, "/") }) => {
     const getCrumbs = () => {
         const crumbs = items.map((item, index) => {
             if (index !== items.length - 1) {
-                const crumb = (core_1.jsx(react_1.default.Fragment, { key: `fragment-${index}` },
-                    core_1.jsx(BreadcrumbWrapper, { key: index, theme: theme }, item),
-                    core_1.jsx(react_1.default.Fragment, { key: `seperator-${index}` }, seperator)));
+                const crumb = (react_1.default.createElement(react_1.default.Fragment, { key: `fragment-${index}` },
+                    react_1.default.createElement(BreadcrumbWrapper, { key: index, theme: theme }, item),
+                    react_1.default.createElement(react_1.default.Fragment, { key: `seperator-${index}` }, seperator)));
                 return crumb;
             }
             return item;
         });
         return crumbs;
     };
-    return (core_1.jsx("nav", { "aria-label": "breadcrumbs", className: className },
-        core_1.jsx(BreadcrumbContent, { inverse: inverse }, getCrumbs())));
+    return (react_1.default.createElement("nav", { "aria-label": "breadcrumbs", className: className },
+        react_1.default.createElement(BreadcrumbContent, { inverse: inverse }, getCrumbs())));
 };
 exports.default = emotion_theming_1.withTheme(Breadcrumb);

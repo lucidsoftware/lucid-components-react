@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { ReactNode, FC } from 'react';
 interface Props {
     as?: 'nav' | 'header' | 'div';

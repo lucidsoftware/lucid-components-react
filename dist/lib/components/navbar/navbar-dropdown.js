@@ -1,4 +1,23 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -15,9 +34,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarDropdownContext = void 0;
-/** @jsx jsx */
-const react_1 = require("react");
-const core_1 = require("@emotion/core");
+const react_1 = __importStar(require("react"));
 const emotion_theming_1 = require("emotion-theming");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
@@ -77,8 +94,8 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         isOpen,
         displayLeft
     };
-    return (core_1.jsx(DropdownWrapper, Object.assign({}, rest, { ref: ref, css: { label: 'navbarDropdown' }, onBlur: handleMouseLeave, onClick: handleClickToggle, onFocus: handleMouseOver, onMouseLeave: handleMouseLeave, onMouseOver: handleMouseOver, role: "navigation" }),
-        core_1.jsx(exports.NavbarDropdownContext.Provider, { value: context },
+    return (react_1.default.createElement(DropdownWrapper, Object.assign({}, rest, { ref: ref, css: { label: 'navbarDropdown' }, onBlur: handleMouseLeave, onClick: handleClickToggle, onFocus: handleMouseOver, onMouseLeave: handleMouseLeave, onMouseOver: handleMouseOver, role: "navigation" }),
+        react_1.default.createElement(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));
 });

@@ -10,12 +10,10 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getButtonStyles = void 0;
-const react_1 = __importDefault(require("react"));
+/** @jsx jsx */
+const core_1 = require("@emotion/core");
 const emotion_theming_1 = require("emotion-theming");
 const link_1 = require("../link/link");
 let color = '';
@@ -81,7 +79,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
         '&:visited': {
             color
         },
-        ':hover,:focus': hoverCss
+        ':hover, :focus': hoverCss
     };
     if (active) {
         css = Object.assign(Object.assign({}, css), hoverCss);
@@ -108,7 +106,7 @@ const ButtonBase = (_a) => {
     const getClasses = () => {
         return `${className}${hover ? ' is-hover' : ''}${active ? ' is-active' : ''}${asLink ? ' is-link' : ''}${block ? ' block' : ''}`;
     };
-    return (react_1.default.createElement("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
+    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
 };
 const Button = emotion_theming_1.withTheme(ButtonBase);
 exports.default = Button;

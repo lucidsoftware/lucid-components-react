@@ -1,4 +1,4 @@
-import React, { ReactNode, ButtonHTMLAttributes, RefAttributes, SyntheticEvent } from 'react';
+import { ReactNode, ButtonHTMLAttributes, RefAttributes, SyntheticEvent } from 'react';
 import * as CSS from 'csstype';
 import { ThemeProps } from '../../../theme/theme';
 import { UnderlineType } from '../link/link';
@@ -48,7 +48,7 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active, di
     '&:visited': {
         color: string;
     };
-    ':hover,:focus': {
+    ':hover, :focus': {
         color?: undefined;
         backgroundColor?: undefined;
         border?: undefined;
@@ -64,5 +64,5 @@ export declare const getButtonStyles: ({ theme, variant, size, block, active, di
         textDecoration: string;
     };
 };
-declare const Button: React.SFC<import("emotion-theming/types/helper").AddOptionalTo<React.PropsWithChildren<ButtonProps>, "theme">>;
+declare const Button: import("react").SFC<import("emotion-theming/types/helper").AddOptionalTo<import("react").PropsWithChildren<ButtonProps>, "theme">>;
 export default Button;

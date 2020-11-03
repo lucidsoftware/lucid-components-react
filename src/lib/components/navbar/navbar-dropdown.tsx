@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import {
+import React, {
   forwardRef,
   HTMLProps,
   ReactNode,
@@ -8,7 +7,6 @@ import {
   useState,
   createContext
 } from 'react';
-import { jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 
 import styled from '../../../theme/styled';

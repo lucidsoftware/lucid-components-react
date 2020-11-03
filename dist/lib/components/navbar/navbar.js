@@ -23,9 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarContext = void 0;
-/** @jsx jsx */
-const react_1 = require("react");
-const core_1 = require("@emotion/core");
+const react_1 = __importStar(require("react"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const button_1 = __importDefault(require("../button/button"));
 const navbar_item_1 = __importDefault(require("./navbar-item"));
@@ -94,10 +92,10 @@ const NavbarComp = react_1.forwardRef(({ skipText = 'Skip to Content', children 
         expanded,
         toggleExpanded: () => setExpanded(!expanded)
     };
-    return (core_1.jsx(exports.NavbarContext.Provider, { value: context },
-        core_1.jsx(NavbarContents, null,
-            core_1.jsx(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
-        core_1.jsx(NavbarChildren, { ref: forwardedRef }, children)));
+    return (react_1.default.createElement(exports.NavbarContext.Provider, { value: context },
+        react_1.default.createElement(NavbarContents, null,
+            react_1.default.createElement(NavbarSkip, { primary: true, onClick: skipHandler }, skipText)),
+        react_1.default.createElement(NavbarChildren, { ref: forwardedRef }, children)));
 });
 NavbarComp.displayName = 'NavbarComp';
 const Navbar = Object.assign(NavbarComp, {
