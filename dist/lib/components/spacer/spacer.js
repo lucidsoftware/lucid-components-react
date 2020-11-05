@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_system_1 = require("styled-system");
-const styled_1 = __importDefault(require("../../../theme/styled"));
+const styled_1 = __importDefault(require("../../theme/styled"));
 const Spacer = styled_1.default.div(styled_system_1.border, styled_system_1.layout, styled_system_1.space, {
     width: '100%'
 });

@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -35,7 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __importStar(require("react"));
 const styled_system_1 = require("styled-system");
-const styled_1 = __importDefault(require("../../../../theme/styled"));
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const field_context_1 = __importDefault(require("../field/field-context"));
 const field_1 = require("../field/field");
 const TextInputBase = styled_1.default.input(styled_system_1.space, styled_system_1.typography, styled_system_1.variant({
@@ -65,7 +65,7 @@ const TextInputBase = styled_1.default.input(styled_system_1.space, styled_syste
                 paddingBottom: '12px'
             },
             '&[data-error="true"]': {
-                background: 'rgba(255, 30, 0, .55)'
+                background: 'rgba(255, 30, 0, 0.55)'
             }
         }
     }

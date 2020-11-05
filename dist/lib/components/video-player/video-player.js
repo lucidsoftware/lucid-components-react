@@ -19,7 +19,7 @@ const core_1 = require("@emotion/core");
 const react_1 = require("react");
 const react_player_1 = __importDefault(require("react-player"));
 const video_play_button_1 = __importDefault(require("../video-play-button/video-play-button"));
-const styled_1 = __importDefault(require("../../../theme/styled"));
+const styled_1 = __importDefault(require("../../theme/styled"));
 const VideoPlaceholder = styled_1.default('div')({
     position: 'absolute',
     top: 0,

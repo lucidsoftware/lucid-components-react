@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './src/lib/index.ts',
+  entry: './src/components/index.ts',
   module: {
     rules: [
       {
@@ -18,7 +18,7 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist/lib'),
+    path: path.resolve(__dirname, 'dist/components'),
     library: 'lucid-components-react',
     libraryTarget: 'umd'
   }

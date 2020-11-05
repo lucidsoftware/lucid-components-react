@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const emotion_theming_1 = require("emotion-theming");
 const styled_system_1 = require("styled-system");
-const styled_1 = __importDefault(require("../../../theme/styled"));
+const styled_1 = __importDefault(require("../../theme/styled"));
 const card_action_1 = __importDefault(require("./card-action"));
 const card_actions_1 = __importDefault(require("./card-actions"));
 const card_content_1 = __importDefault(require("./card-content"));

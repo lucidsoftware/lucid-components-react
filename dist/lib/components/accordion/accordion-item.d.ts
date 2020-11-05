@@ -13,5 +13,5 @@ declare const AccordionItem: import("@emotion/styled-base").StyledComponent<Pick
     dangerouslySetExpanded?: boolean | undefined;
 } & import("react").RefAttributes<ReactAccordionItem>, "className">> & Partial<Pick<{
     className: string;
-}, never>>, Props, import("../../../theme/theme").Theme>;
+}, never>>, Props, import("../../theme/theme").Theme>;
 export default AccordionItem;

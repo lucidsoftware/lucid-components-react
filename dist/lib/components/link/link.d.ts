@@ -1,6 +1,6 @@
 import { RefAttributes, AnchorHTMLAttributes } from 'react';
 import * as CSS from 'csstype';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../theme/theme';
 import { ButtonSize } from '../button/button';
 export declare type UnderlineType = 'none' | 'hover' | 'always';
 export interface CoreLinkProps {

@@ -4,5 +4,5 @@ interface Props extends BackgroundProps, BorderProps, ShadowProps, SpaceProps, C
     color?: string;
     as?: 'div' | 'section' | 'main' | 'aside' | 'article' | 'header' | 'footer';
 }
-declare const Box: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, Props, import("../../../theme/theme").Theme>;
+declare const Box: import("@emotion/styled-base").StyledComponent<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, Props, import("../../theme/theme").Theme>;
 export default Box;

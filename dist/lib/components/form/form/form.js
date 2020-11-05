@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_system_1 = require("styled-system");
-const styled_1 = __importDefault(require("../../../../theme/styled"));
+const styled_1 = __importDefault(require("../../../theme/styled"));
 const text_input_1 = __importDefault(require("../text-input/text-input"));
 const label_1 = __importDefault(require("../label/label"));
 const field_1 = __importDefault(require("../field/field"));

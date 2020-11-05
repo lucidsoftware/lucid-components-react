@@ -1,6 +1,6 @@
 import { ReactNode, ButtonHTMLAttributes, RefAttributes, SyntheticEvent } from 'react';
 import * as CSS from 'csstype';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../theme/theme';
 import { UnderlineType } from '../link/link';
 export declare type ButtonSize = 'small' | 'regular' | 'large';
 export interface CoreButtonProps {

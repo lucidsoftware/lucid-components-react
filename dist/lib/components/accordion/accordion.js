@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_accessible_accordion_1 = require("react-accessible-accordion");
 const styled_system_1 = require("styled-system");
 const emotion_theming_1 = require("emotion-theming");
-const styled_1 = __importDefault(require("../../../theme/styled"));
+const styled_1 = __importDefault(require("../../theme/styled"));
 const accordion_item_1 = __importDefault(require("./accordion-item"));
 const accordion_heading_1 = __importDefault(require("./accordion-heading"));
 const accordion_panel_1 = __importDefault(require("./accordion-panel"));

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../theme/theme';
 interface Props {
     className?: string;
     inverse?: boolean;

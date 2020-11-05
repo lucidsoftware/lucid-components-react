@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const emotion_theming_1 = require("emotion-theming");
 const react_1 = __importDefault(require("react"));
-const styled_1 = __importDefault(require("../../../theme/styled"));
+const styled_1 = __importDefault(require("../../theme/styled"));
 const InnerCollection = styled_1.default.div(({ justify, hSpace, vSpace }) => ({
     display: 'flex',
     flexWrap: 'wrap',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../theme/theme';
 export declare type Justify = 'start' | 'center' | 'end' | 'full';
 export declare type Space = string | number | React.ReactText[] | Record<string | number | symbol, React.ReactText>;
 export interface InnerCollectionProps {

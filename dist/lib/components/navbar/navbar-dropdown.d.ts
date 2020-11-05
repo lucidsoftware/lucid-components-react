@@ -1,5 +1,5 @@
 import React, { HTMLProps, ReactNode, SyntheticEvent } from 'react';
-import { ThemeProps } from '../../../theme/theme';
+import { ThemeProps } from '../../theme/theme';
 export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
     toggle: (toggleHandler: (evt: SyntheticEvent<Element, Event>) => void) => ReactNode;
 }
