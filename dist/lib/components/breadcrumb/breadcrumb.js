@@ -27,6 +27,7 @@ const BreadcrumbContent = styled_1.default.ul(({ theme, inverse }) => ({
     padding: 0
 }));
 const Breadcrumb = ({ theme, className, inverse = false, items, seperator = react_1.default.createElement(BreadcrumbSeparator, { theme: theme }, "/") }) => {
+    console.log({ theme });
     const getCrumbs = () => {
         const crumbs = items.map((item, index) => {
             if (index !== items.length - 1) {

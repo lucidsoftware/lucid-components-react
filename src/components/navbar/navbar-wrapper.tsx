@@ -17,6 +17,7 @@ interface Props {
 
 const NavbarWrap = styled.nav<Props>(
   ({ theme, sticky, stickyCollapsed, background, top, zIndex }) => ({
+    label: 'navbarWrapper',
     display: 'block',
     background: background || theme.navbar.background,
     zIndex,
@@ -45,7 +46,6 @@ const NavbarWrapper: FC<Props> = ({
     <NavbarWrap
       as={as}
       background={background}
-      css={{ label: 'navbarWrapper' }}
       sticky={sticky}
       stickyCollapsed={stickyCollapsed}
       top={top}

@@ -1,6 +1,5 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['graphql.d.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,

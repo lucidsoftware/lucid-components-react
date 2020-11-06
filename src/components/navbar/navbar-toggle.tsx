@@ -1,11 +1,12 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
 import { withTheme } from 'emotion-theming';
 
-import { NavbarContext } from './navbar';
 import styled from '../../theme/styled';
+import { NavbarContext } from './navbar';
 import { ThemeProps } from '../../theme/theme';
 
 const NavbarToggleButton = styled.button(({ theme }) => ({
+  label: 'navbarToggle',
   display: 'none',
   background: 'transparent',
   border: 0,
@@ -23,12 +24,7 @@ const NavbarToggle = forwardRef<
   const { toggleExpanded } = useContext(NavbarContext);
 
   return (
-    <NavbarToggleButton
-      {...rest}
-      ref={ref}
-      css={{ label: 'navbarToggle' }}
-      onClick={toggleExpanded}
-    >
+    <NavbarToggleButton {...rest} ref={ref} onClick={toggleExpanded}>
       {children}
     </NavbarToggleButton>
   );

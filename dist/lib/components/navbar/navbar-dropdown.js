@@ -40,6 +40,7 @@ const styled_1 = __importDefault(require("../../theme/styled"));
 const navbar_1 = require("./navbar");
 const utils_1 = require("../../utils/utils");
 const DropdownWrapper = styled_1.default.div(() => ({
+    label: 'navbarDropdown',
     position: 'relative'
 }));
 const DROPDOWN_SAFETY_TIMER = 225;
@@ -48,7 +49,7 @@ exports.NavbarDropdownContext = react_1.createContext({
     displayLeft: false
 });
 const NavbarDropdown = react_1.forwardRef((_a, ref) => {
-    var { theme, toggle, children } = _a, rest = __rest(_a, ["theme", "toggle", "children"]);
+    var { theme, toggle, children, as } = _a, rest = __rest(_a, ["theme", "toggle", "children", "as"]);
     const [isOpen, setIsOpen] = react_1.useState(false);
     const [displayLeft, setDisplayLeft] = react_1.useState(true);
     const { setActiveDropdownSetIsOpen } = react_1.useContext(navbar_1.NavbarContext);
@@ -94,7 +95,7 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
         isOpen,
         displayLeft
     };
-    return (react_1.default.createElement(DropdownWrapper, Object.assign({}, rest, { ref: ref, css: { label: 'navbarDropdown' }, onBlur: handleMouseLeave, onClick: handleClickToggle, onFocus: handleMouseOver, onMouseLeave: handleMouseLeave, onMouseOver: handleMouseOver, role: "navigation" }),
+    return (react_1.default.createElement(DropdownWrapper, Object.assign({}, rest, { ref: ref, onBlur: handleMouseLeave, onClick: handleClickToggle, onFocus: handleMouseOver, onMouseLeave: handleMouseLeave, onMouseOver: handleMouseOver, role: "navigation" }),
         react_1.default.createElement(exports.NavbarDropdownContext.Provider, { value: context },
             toggle(handleMouseOver),
             children)));

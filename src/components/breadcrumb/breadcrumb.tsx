@@ -46,6 +46,7 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
   items,
   seperator = <BreadcrumbSeparator theme={theme}>/</BreadcrumbSeparator>
 }) => {
+  console.log({ theme });
   const getCrumbs = () => {
     const crumbs: ReactNode[] = items.map((item, index) => {
       if (index !== items.length - 1) {

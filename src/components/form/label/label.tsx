@@ -17,6 +17,7 @@ export interface Props extends TypographyProps, SpaceProps {
 
 interface LabelBaseProps extends Props {
   floating?: boolean;
+  variant?: FloatingStatus;
 }
 
 const LabelBase = styled.label<LabelBaseProps>(

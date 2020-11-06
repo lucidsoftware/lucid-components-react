@@ -50,6 +50,6 @@ const HeadingBase = styled('h1')(
 
 const Heading = styled(({ as, ...rest }) => <HeadingBase as={as} {...rest} />)<
   Props
->();
+>({});
 
 export default Heading;

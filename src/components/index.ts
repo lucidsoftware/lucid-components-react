@@ -1,6 +1,7 @@
-import '@emotion/core';
+import 'emotion-theming';
 
-import { Theme } from '../theme/theme';
+import { Theme, ThemeProps as DefaultThemeProps } from '../theme/theme';
+import colors from '../utils/colors';
 import Accordion from './accordion/accordion';
 import Box from './box/box';
 import Breadcrumb from './breadcrumb/breadcrumb';
@@ -11,22 +12,25 @@ import Card from './card/card';
 import Icon, { IconType } from './icon/icon';
 import Form from './form/form/form';
 import Link, { getLinkStyles, LinkVariant } from './link/link';
-import Navbar from './navbar/navbar';
+import Navbar, { NavbarContext } from './navbar/navbar';
 import NavbarWrapper from './navbar/navbar-wrapper';
 import Paper from './paper/paper';
 import Spacer from './spacer/spacer';
+import ThemeProvider from './theme-provider/theme-provider';
 import VideoPlayButton from './video-play-button/video-play-button';
 import VideoPlayer from './video-player/video-player';
 
 export type DefaultTheme = Theme;
+export type ThemeProps = DefaultThemeProps;
 
 export {
   Accordion,
   Box,
   Breadcrumb,
   Button,
-  Collection,
   Card,
+  Collection,
+  colors,
   Heading,
   Form,
   getButtonStyles,
@@ -36,9 +40,11 @@ export {
   Link,
   LinkVariant,
   Navbar,
+  NavbarContext,
   NavbarWrapper,
   Paper,
   Spacer,
+  ThemeProvider,
   VideoPlayButton,
   VideoPlayer
 };

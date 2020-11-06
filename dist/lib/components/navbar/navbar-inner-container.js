@@ -34,8 +34,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
-const navbar_1 = require("./navbar");
 const styled_1 = __importDefault(require("../../theme/styled"));
+const navbar_1 = require("./navbar");
 const NavbarInnerContainerList = styled_1.default.ol(({ theme, expanded }) => ({
     label: 'navbarInnerContainer',
     display: 'flex',

@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
 
-import { NavbarContext } from './navbar';
 import styled from '../../theme/styled';
+import { NavbarContext } from './navbar';
 
 export interface NavbarInnerContainerProps
   extends HTMLAttributes<HTMLOListElement> {

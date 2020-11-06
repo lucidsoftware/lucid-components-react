@@ -31,9 +31,11 @@
     "target": "es6"
   },
   "include": [
-    "src/components"
+    "src"
   ],
   "exclude": [
+    ".github",
+    ".yarn",
     "node_modules",
     "dist"
   ]

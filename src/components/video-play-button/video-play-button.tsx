@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useTheme } from 'emotion-theming';
 
-import Icon, { IconType } from '../icon/icon';
 import styled from '../../theme/styled';
+import Icon, { IconType } from '../icon/icon';
 import { Theme } from '../../theme/theme';
 
 type Sizing = 'lg' | 'reg' | 'sm';

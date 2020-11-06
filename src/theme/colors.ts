@@ -1,11 +1,30 @@
-export const primary = '#636AFF';
-export const secondary = '#636AFF';
-export const accent = '#636AFF';
-export const muted = '#636AFF';
-export const white = '#FFFFFF';
-export const black = '#111111';
-export const grey = '#EBEBEC';
-export const lightGrey = '#A7A9AC';
-export const text = '#3D4752';
-export const background = '#FFFFFF';
-export const blueSteel = '#3D4752';
+import defaultColors from '../utils/colors';
+
+const colors = {
+  accent: defaultColors.indigo[60],
+  background: defaultColors.white,
+  black: defaultColors.black,
+  blue: { ...defaultColors.blue },
+  blueSteel: '#3D4752',
+  coolGrey: { ...defaultColors.coolGrey },
+  earth: { ...defaultColors.earth },
+  fuchsia: { ...defaultColors.fuchsia },
+  grey: defaultColors.coolGrey[5],
+  green: { ...defaultColors.green },
+  indigo: { ...defaultColors.indigo },
+  lightGrey: defaultColors.coolGrey[30],
+  lime: { ...defaultColors.lime },
+  muted: defaultColors.indigo[60],
+  orange: { ...defaultColors.orange },
+  pink: { ...defaultColors.pink },
+  primary: defaultColors.indigo[60],
+  purple: { ...defaultColors.purple },
+  red: { ...defaultColors.red },
+  secondary: defaultColors.indigo[90],
+  teal: { ...defaultColors.teal },
+  text: defaultColors.coolGrey[90],
+  yellow: { ...defaultColors.yellow },
+  white: defaultColors.white
+};
+
+export default colors;

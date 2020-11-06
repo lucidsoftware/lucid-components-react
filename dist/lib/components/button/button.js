@@ -95,6 +95,7 @@ const ButtonBase = (_a) => {
     else if (secondary) {
         variant = link_1.LinkVariant.Secondary;
     }
+    console.log('button', { theme });
     let css = {};
     if (asLink) {
         css = link_1.getLinkStyles({ theme, variant, underline, inverse, block, active });

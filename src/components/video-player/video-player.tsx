@@ -3,8 +3,8 @@ import { css, jsx } from '@emotion/core';
 import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
 
-import VideoPlayButton from '../video-play-button/video-play-button';
 import styled from '../../theme/styled';
+import VideoPlayButton from '../video-play-button/video-play-button';
 
 const VideoPlaceholder = styled('div')({
   position: 'absolute',

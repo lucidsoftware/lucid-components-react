@@ -77,7 +77,7 @@ const TextInput = styled_1.default((_a) => {
     var { disabled, validator, validate, placeholder, variant = field_1.FloatingStatus.Default } = _a, rest = __rest(_a, ["disabled", "validator", "validate", "placeholder", "variant"]);
     const { disabled: contextDisabled, enableFloating, hasError, hasFocus, isFloating, setHasError, setHasFocus, setIsFloating } = React.useContext(field_context_1.default);
     if (enableFloating) {
-        variant = 'floating';
+        variant = field_1.FloatingStatus.Floating;
         placeholder = '';
     }
     const onChange = (evt) => {

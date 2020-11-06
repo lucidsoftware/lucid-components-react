@@ -13,8 +13,10 @@ import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
 export interface Props extends TypographyProps, SpaceProps, VariantProps {
+  disabled?: boolean;
+  placeholder?: string;
   validate?: boolean;
-  validator?: (event: string) => boolean;
+  validator?: (event: React.ChangeEvent<HTMLInputElement> | string) => boolean;
 }
 
 const TextInputBase = styled.input<Props>(
@@ -66,7 +68,7 @@ const TextInput = styled(
     placeholder,
     variant = FloatingStatus.Default,
     ...rest
-  }) => {
+  }: Props) => {
     const {
       disabled: contextDisabled,
       enableFloating,
@@ -79,7 +81,7 @@ const TextInput = styled(
     } = React.useContext(FieldContext);
 
     if (enableFloating) {
-      variant = 'floating';
+      variant = FloatingStatus.Floating;
       placeholder = '';
     }
 

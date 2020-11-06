@@ -21,6 +21,7 @@ export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
 }
 
 const DropdownWrapper = styled.div(() => ({
+  label: 'navbarDropdown',
   position: 'relative'
 }));
 
@@ -34,7 +35,7 @@ export const NavbarDropdownContext = createContext({
 const NavbarDropdown = forwardRef<
   HTMLDivElement,
   NavbarDropdownProps & ThemeProps
->(({ theme, toggle, children, ...rest }, ref) => {
+>(({ theme, toggle, children, as, ...rest }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayLeft, setDisplayLeft] = useState(true);
   const { setActiveDropdownSetIsOpen } = useContext(NavbarContext);
@@ -91,7 +92,6 @@ const NavbarDropdown = forwardRef<
     <DropdownWrapper
       {...rest}
       ref={ref}
-      css={{ label: 'navbarDropdown' }}
       onBlur={handleMouseLeave}
       onClick={handleClickToggle}
       onFocus={handleMouseOver}
