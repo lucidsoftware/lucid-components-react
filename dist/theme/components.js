@@ -30,7 +30,8 @@ exports.navbar = {
     padding: '10px',
     borderColor: 'lightgrey',
     borderWidth: '2px',
-    borderOffset: '-10px',
+    borderOffset: '14px',
+    boxShadow: '0px 3px 4px rgba(40, 44, 51, 0.2)',
     dropdown: {
         padding: '0.5rem 1.5rem',
         mobilePadding: '0.5rem',
