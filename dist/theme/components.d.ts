@@ -8,6 +8,7 @@ export declare const navbar: {
     borderColor: string;
     borderWidth: string;
     borderOffset: string;
+    boxShadow: string;
     dropdown: {
         padding: string;
         mobilePadding: string;

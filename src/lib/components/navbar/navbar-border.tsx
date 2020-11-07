@@ -8,12 +8,10 @@ const NavbarBorder = styled.div<NavbarBorderProps>(({ theme, isHidden }) => ({
   label: 'navbarBorder',
   flexBasis: '100%',
   order: 0,
-  position: 'absolute',
-  bottom: theme.navbar.borderOffset,
-  left: 0,
+  marginTop: theme.navbar.borderOffset,
   height: theme.navbar.borderWidth,
   width: '100%',
-  backgroundColor: theme.navbar.borderColor,
+  boxShadow: theme.navbar.boxShadow,
   visibility: isHidden ? 'hidden' : 'visible'
 }));
 
