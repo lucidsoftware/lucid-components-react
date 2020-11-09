@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import Button, { ButtonProps } from '../components/button/button';
+import NewButton from '../components/new-button/new-button';
 
 export default {
   title: 'Components/Button',
-  component: Button,
+  component: NewButton,
   args: {
     children: 'Button Child'
   },
@@ -260,10 +260,10 @@ export default {
   }
 } as Meta;
 
-const Template: Story<ButtonProps> = args => <Button {...args} />;
+const Template: Story = args => <NewButton {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
-  children: 'Button Label',
-  disabled: false
+  children: 'Button Label'
 };

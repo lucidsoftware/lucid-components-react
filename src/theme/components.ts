@@ -353,9 +353,9 @@ export const buttons = {
   },
   primary: {
     color: colors.white,
-    border: `1px solid ${colors.red[50]}`,
-    backgroundColor: colors.red[50],
-    hoverColor: colors.red[50],
+    border: `1px solid ${colors.primary}`,
+    backgroundColor: colors.primary,
+    hoverColor: colors.primary,
     hoverBackgroundColor: colors.red[10],
     hoverBorder: `1px solid ${colors.red[30]}`,
     activeColor: colors.red[60],

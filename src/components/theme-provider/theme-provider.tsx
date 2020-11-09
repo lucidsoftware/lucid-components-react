@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 
 import defaultTheme, { ThemeProps } from '../../theme/theme';
-import isEmpty from '../../utils/isEmpty';
 
 interface Props {
   children?: ReactNode | ReactNode[];
@@ -10,12 +9,7 @@ interface Props {
 }
 
 const ThemeProvider = ({ children, theme = defaultTheme }: Props) => {
-  console.log({ defaultTheme }, !isEmpty(theme));
-  return (
-    <EmotionThemeProvider theme={theme || defaultTheme}>
-      {children}
-    </EmotionThemeProvider>
-  );
+  return <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>;
 };
 
 export default ThemeProvider;

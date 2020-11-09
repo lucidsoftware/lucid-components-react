@@ -23,7 +23,7 @@ export interface Theme extends DefaultTheme {
   breadcrumb: typeof breadcrumb;
   buttons: any;
   card?: Record<string, CSS.StandardProperties | object>;
-  colors: typeof defaultColors;
+  colors: any;
   fonts: Record<string, any>;
   forms: typeof forms;
   headings?: Record<string, CSS.StandardProperties | object>;

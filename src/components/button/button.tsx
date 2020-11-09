@@ -162,8 +162,6 @@ const ButtonBase: FC<ButtonProps> = ({
     variant = LinkVariant.Secondary;
   }
 
-  console.log('button', { theme });
-
   let css = {};
 
   if (asLink) {

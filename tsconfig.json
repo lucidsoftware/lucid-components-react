@@ -31,6 +31,8 @@
     "target": "es6"
   },
   "include": [
+    ".",
+    ".storybook",
     "src"
   ],
   "exclude": [
