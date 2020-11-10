@@ -6,12 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarBorder = styled_1.default.div(({ theme, isHidden }) => ({
     label: 'navbarBorder',
-    flexBasis: '100%',
-    order: 0,
     marginTop: theme.navbar.borderOffset,
     height: theme.navbar.borderWidth,
     width: '100%',
     boxShadow: theme.navbar.boxShadow,
-    visibility: isHidden ? 'hidden' : 'visible'
+    transition: 'opacity 0.2s ease-out',
+    opacity: isHidden ? '0' : '1'
 }));
 exports.default = NavbarBorder;

@@ -10,7 +10,7 @@ const NavbarBorder = styled.div<NavbarBorderProps>(({ theme, isHidden }) => ({
   height: theme.navbar.borderWidth,
   width: '100%',
   boxShadow: theme.navbar.boxShadow,
-  transition: 'opacity 0.2s ease-out'
+  transition: 'opacity 0.2s ease-out',
   opacity: isHidden ? '0' : '1'
 }));
 
