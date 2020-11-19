@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { NavbarContext } from './navbar';
 import { ThemeProps } from '../../theme/theme';
 

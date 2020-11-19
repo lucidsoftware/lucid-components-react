@@ -1,49 +1,65 @@
-import defaultColors from '../utils/colors';
+import * as CSS from 'csstype';
+import { ObjectOrArray } from 'styled-system';
 
-export enum ColorModes {
-  chart = 'chart',
-  co = 'co',
-  edu = 'edu',
-  press = 'press',
-  spark = 'spark'
-}
+import defaultColors, { BaseColors } from '../utils/colors';
+import { ProductModes } from './theme';
 
-const baseColors = {
-  accent: defaultColors.indigo[60],
-  background: defaultColors.white,
-  black: defaultColors.black,
-  blue: { ...defaultColors.blue },
-  blueSteel: defaultColors.coolGrey[100],
-  coolGrey: { ...defaultColors.coolGrey },
-  disabled: defaultColors.coolGrey[10],
-  disabledBorder: defaultColors.coolGrey[30],
-  earth: { ...defaultColors.earth },
-  fuchsia: { ...defaultColors.fuchsia },
-  grey: defaultColors.coolGrey[10],
-  green: { ...defaultColors.green },
-  heading: defaultColors.coolGrey[100],
-  indigo: { ...defaultColors.indigo },
-  lightGrey: defaultColors.coolGrey[30],
-  lime: { ...defaultColors.lime },
-  muted: defaultColors.indigo[60],
-  orange: { ...defaultColors.orange },
-  pink: { ...defaultColors.pink },
-  purple: { ...defaultColors.purple },
-  red: { ...defaultColors.red },
-  subheading: defaultColors.coolGrey[100],
-  teal: { ...defaultColors.teal },
-  text: defaultColors.coolGrey[100],
-  yellow: { ...defaultColors.yellow },
-  white: defaultColors.white
+export type ColorSpecific = {
+  primary: CSS.Property.Color;
+  primaryText: CSS.Property.Color;
+  secondary: CSS.Property.Color;
+  secondaryText: CSS.Property.Color;
+  highlight?: CSS.Property.Color;
 };
 
-const colors = {
+export type ThemeColors = {
+  accent: CSS.Property.Color;
+  background: CSS.Property.Color;
+  blueSteel: CSS.Property.Color;
+  disabled: CSS.Property.Color;
+  disabledBorder: CSS.Property.Color;
+  grey: CSS.Property.Color;
+  heading: CSS.Property.Color;
+  lightGrey: CSS.Property.Color;
+  muted: CSS.Property.Color;
+  subheading: CSS.Property.Color;
+  text: CSS.Property.Color;
+};
+
+export type BaseThemeColors = BaseColors & ThemeColors & ColorSpecific;
+
+export type ColorMode = {
+  [k: string]: CSS.Property.Color | ObjectOrArray<CSS.Property.Color>;
+} & BaseThemeColors;
+
+export interface Colors extends BaseThemeColors {
+  products?: {
+    [Key in ProductModes]: ColorMode;
+  };
+}
+
+const baseColors: BaseColors & ThemeColors = {
+  ...defaultColors,
+  accent: defaultColors.indigo[60],
+  background: defaultColors.white,
+  blueSteel: defaultColors.coolGrey[100],
+  disabled: defaultColors.coolGrey[10],
+  disabledBorder: defaultColors.coolGrey[30],
+  grey: defaultColors.coolGrey[10],
+  heading: defaultColors.coolGrey[100],
+  lightGrey: defaultColors.coolGrey[30],
+  muted: defaultColors.indigo[60],
+  subheading: defaultColors.coolGrey[100],
+  text: defaultColors.coolGrey[100]
+};
+
+const colors: Colors = {
   ...baseColors,
   primary: defaultColors.coolGrey[90],
   primaryText: defaultColors.coolGrey[90],
   secondary: defaultColors.coolGrey[100],
   secondaryText: defaultColors.coolGrey[100],
-  modes: {
+  products: {
     chart: {
       ...baseColors,
       primary: defaultColors.coolGrey[90],

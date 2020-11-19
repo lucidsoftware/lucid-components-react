@@ -1,4 +1,4 @@
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 import {
   variant,
   space,
@@ -10,8 +10,8 @@ import {
   LayoutProps,
   SpaceProps
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { ThemeProps } from '../../theme/theme';
 import CardAction from './card-action';
 import CardActions from './card-actions';
@@ -20,7 +20,7 @@ import CardImage from './card-image';
 import CardTitle from './card-title';
 import CardSubtitle from './card-subtitle';
 
-interface Props
+export interface CardProps
   extends ThemeProps,
     DisplayProps,
     FlexProps,
@@ -30,7 +30,7 @@ interface Props
   variant?: string;
 }
 
-const CardContainer = styled.div<Props>(
+const CardContainer = styled.div<CardProps>(
   {
     display: 'flex',
     padding: 0,
@@ -39,16 +39,16 @@ const CardContainer = styled.div<Props>(
     overflow: 'hidden'
   },
   variant({
-    scale: 'card',
-    variants: {
-      default: {
-        background: 'white',
-        flexDirection: 'row',
-        borderRadius: 'card',
-        border: '1px solid grey',
-        borderColor: 'grey'
-      }
-    }
+    scale: 'card'
+    // variants: {
+    //   default: {
+    //     background: 'white',
+    //     flexDirection: 'row',
+    //     borderRadius: 'card',
+    //     border: '1px solid grey',
+    //     borderColor: 'grey'
+    //   }
+    // }
   }),
   space,
   display,

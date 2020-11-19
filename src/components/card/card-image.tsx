@@ -1,6 +1,5 @@
-import { withTheme } from 'emotion-theming';
-
-import styled from '../../theme/styled';
+import { withTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const CardImage = styled.div({
   flex: '1 1',

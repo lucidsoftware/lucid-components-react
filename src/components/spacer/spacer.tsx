@@ -6,8 +6,7 @@ import {
   BorderProps,
   border
 } from 'styled-system';
-
-import styled from '../../theme/styled';
+import styled from '@emotion/styled';
 
 interface Props extends LayoutProps, SpaceProps, BorderProps {}
 

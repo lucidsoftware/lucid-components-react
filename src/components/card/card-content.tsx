@@ -1,4 +1,4 @@
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 import {
   display,
   DisplayProps,
@@ -10,8 +10,8 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { ThemeProps } from '../../theme/theme';
 
 export interface CardContentProps
@@ -25,16 +25,16 @@ export interface CardContentProps
 
 const CardContent = styled.div<CardContentProps>(
   variant({
-    scale: 'card.content',
-    variants: {
-      default: {
-        color: 'text',
-        display: 'flex',
-        flex: '1 1',
-        flexDirection: 'column',
-        justifyContent: 'space-between'
-      }
-    }
+    scale: 'card.content'
+    // variants: {
+    //   default: {
+    //     color: 'text',
+    //     display: 'flex',
+    //     flex: '1 1',
+    //     flexDirection: 'column',
+    //     justifyContent: 'space-between'
+    //   }
+    // }
   }),
   flex,
   display,

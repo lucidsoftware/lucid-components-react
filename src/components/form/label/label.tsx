@@ -7,7 +7,7 @@ import {
   variant as variants
 } from 'styled-system';
 
-import styled from '../../../theme/styled';
+import styled from '../@emotion/styled';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 

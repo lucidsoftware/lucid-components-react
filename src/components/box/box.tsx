@@ -18,8 +18,7 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
-
-import styled from '../../theme/styled';
+import styled from '@emotion/styled';
 
 interface Props
   extends BackgroundProps,

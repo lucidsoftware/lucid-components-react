@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { NavbarDropdownContext } from './navbar-dropdown';
 
 export interface NavbarDropdownContainerProps {

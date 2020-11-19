@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { useTheme } from 'emotion-theming';
+import { useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import Icon, { IconType } from '../icon/icon';
 import { Theme } from '../../theme/theme';
 

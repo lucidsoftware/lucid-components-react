@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
 import * as CSS from 'csstype';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 
 import { ThemeProps } from '../../theme/theme';
 import { getButtonStyles, ButtonSize } from '../button/button';

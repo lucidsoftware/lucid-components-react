@@ -7,18 +7,26 @@ import {
   space,
   SpaceProps
 } from 'styled-system';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import AccordionItem from './accordion-item';
 import AccordionHeading from './accordion-heading';
 import AccordionPanel from './accordion-panel';
 import AccordionButton from './accordion-button';
 import { VariantProps } from '../../types/types';
 
-interface Props extends BorderProps, LayoutProps, SpaceProps, VariantProps {}
+export interface AccordionProps
+  extends BorderProps,
+    LayoutProps,
+    SpaceProps,
+    VariantProps {}
 
-const AccordionBase = styled(ReactAccordion)<Props>(border, layout, space);
+const AccordionBase = styled(ReactAccordion)<AccordionProps>(
+  border,
+  layout,
+  space
+);
 
 const Accordion = Object.assign(withTheme(AccordionBase), {
   Panel: AccordionPanel,

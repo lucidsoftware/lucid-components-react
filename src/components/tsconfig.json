@@ -8,10 +8,9 @@
     "noImplicitAny": true,
     "outDir": "../../dist/lib",
     "strict": true,
-    "target": "es6",
+    "target": "ES6",
     "types": [
-      "node",
-      "@emotion/core"
+      "@emotion/react/types/css-prop"
     ]
   },
   "include": [

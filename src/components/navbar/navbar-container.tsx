@@ -1,4 +1,4 @@
-import styled from '../../theme/styled';
+import styled from '@emotion/styled';
 
 export interface NavbarContainerProps {
   className?: string;

@@ -10,33 +10,20 @@ import {
   BackgroundProps,
   background
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { VariantProps } from '../../types/types';
 
-export interface Props
+export interface AccordionPanelProps
   extends BackgroundProps,
     TypographyProps,
     SpaceProps,
     VariantProps,
     BorderProps {}
 
-const AccordionPanel = styled(AccordionItemPanel)<Props>(
+const AccordionPanel = styled(AccordionItemPanel)<AccordionPanelProps>(
   variant({
-    scale: 'accordion.panel',
-    variants: {
-      default: {
-        backgroundColor: 'hsl(0, 0%, 96%)',
-        paddingTop: 2,
-        paddingRight: 4,
-        paddingBottom: 2,
-        paddingLeft: 4,
-        borderBottomWidth: '1px',
-        borderBottomColor: 'primary',
-        borderBottomStyle: 'solid',
-        color: 'black'
-      }
-    }
+    scale: 'accordion.panel'
   }),
   background,
   typography,

@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/react';
 import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import VideoPlayButton from '../video-play-button/video-play-button';
 
 const VideoPlaceholder = styled('div')({

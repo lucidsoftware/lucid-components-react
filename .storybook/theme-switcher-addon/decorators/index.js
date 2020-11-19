@@ -6,11 +6,12 @@ import get from 'lodash/get';
 // import addons from '@storybook/addons';
 
 const getTheme = ({
-  mode,
+  product,
   baseTheme
 }) =>
   merge({}, baseTheme, {
-    colors: get(baseTheme.colors.modes, mode, baseTheme.colors),
+    buttons: get(baseTheme.buttons.products, product, baseTheme.buttons),
+    colors: get(baseTheme.colors.products, product, baseTheme.colors),
   })
 
 export const withThemeProvider = ({
@@ -18,8 +19,9 @@ export const withThemeProvider = ({
   theme
 }) => (Story, context) => {
   const { value } = context.globals.withThemeSwitcher || 'chart';
-  const currentTheme = getTheme({ mode: value, baseTheme: theme });
-
+  console.log({value})
+  const currentTheme = getTheme({ product: value, baseTheme: theme });
+  console.log(currentTheme.buttons)
   return (
     <ThemeProvider theme={currentTheme}>
       <Story {...context} />

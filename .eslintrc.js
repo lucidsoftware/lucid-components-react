@@ -44,10 +44,10 @@ module.exports = {
   ],
   plugins: [
     '@typescript-eslint',
+    '@emotion',
     'react',
     'react-hooks',
     'import',
-    'emotion',
     'jest'
   ],
   rules: {
@@ -74,9 +74,10 @@ module.exports = {
     '@typescript-eslint/restrict-template-expressions': 0,
     '@typescript-eslint/semi': 2,
     '@typescript-eslint/unbound-method': 0,
-    'emotion/styled-import': 2,
-    'emotion/no-vanilla': 2,
-    'emotion/syntax-preference': [2, 'object'],
+    '@emotion/styled-import': 2,
+    '@emotion/no-vanilla': 2,
+    '@emotion/syntax-preference': [2, 'object'],
+    '@emotion/pkg-renaming': 2,
     'import/no-unresolved': 0,
     'import/newline-after-import': 2,
     'import/order': [2,

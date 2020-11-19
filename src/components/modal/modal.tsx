@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-interface Props {
+export interface ModalProps {
   header: string | ReactNode;
   body: string | ReactNode;
   actions: string | ReactNode;
@@ -9,7 +9,7 @@ interface Props {
   onSuccess: () => {};
 }
 
-const Modal = ({ header, body }: Props) => {
+const Modal: FC<ModalProps> = ({ header, body }) => {
   return (
     <div className="modal">
       {header}

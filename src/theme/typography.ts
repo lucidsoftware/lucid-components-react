@@ -1,47 +1,4 @@
-export const fonts = {
-  fonts: {
-    body:
-      'Graphik, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
-    heading:
-      'Graphik, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
-    monospace: 'monospace'
-  },
-  fontWeights: {
-    light: 300,
-    body: 400,
-    subheading: 800,
-    heading: 800,
-    bold: 500,
-    bolder: 700
-  },
-  lineHeights: {
-    default: 1,
-    body: 1.5,
-    heading: 1.1,
-    subheading: 1.1
-  },
-  letterSpacings: {
-    body: 'normal',
-    heading: 'normal'
-  },
-  fontSizes: [
-    8, // 0
-    10.2, // 1
-    12.8, // 2
-    16, // 3
-    20, // 4
-    25, // 5
-    31.3, // 6
-    39.1, // 7
-    48.8, // 8
-    61, // 9
-    76.3, // 10
-    95.4, // 11
-    119.2 // 12
-  ]
-};
-
-export const headings = {
+const headings = {
   headlineXL: {
     color: 'heading',
     fontSize: [9, 10, 11, 12],
@@ -163,7 +120,7 @@ export const headings = {
   }
 };
 
-export const textStyles = {
+const textStyles = {
   ...headings,
   body: {
     fontWeight: 'normal' as const,
@@ -238,3 +195,5 @@ export const textStyles = {
     fontFamily: 'body'
   }
 };
+
+export default textStyles;

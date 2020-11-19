@@ -6,8 +6,8 @@ import React, {
   Dispatch,
   SetStateAction
 } from 'react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import Button from '../button/button';
 import NavbarItem from './navbar-item';
 import NavbarBrand from './navbar-brand';

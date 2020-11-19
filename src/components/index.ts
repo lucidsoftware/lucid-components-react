@@ -1,4 +1,4 @@
-import 'emotion-theming';
+import '@emotion/react';
 
 import { Theme, ThemeProps as DefaultThemeProps } from '../theme/theme';
 import colors from '../utils/colors';

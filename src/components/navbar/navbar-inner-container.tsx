@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { NavbarContext } from './navbar';
 
 export interface NavbarInnerContainerProps

@@ -11,17 +11,16 @@ import {
   BackgroundProps,
   background
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
-
-export interface Props
+export interface AccordionHeadingProps
   extends BackgroundProps,
     BorderProps,
     TypographyProps,
     SpaceProps,
     FlexboxProps {}
 
-const AccordionHeading = styled(AccordionItemHeading)<Props>(
+const AccordionHeading = styled(AccordionItemHeading)<AccordionHeadingProps>(
   {
     width: '100%'
   },

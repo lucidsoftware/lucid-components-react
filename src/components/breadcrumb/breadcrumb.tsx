@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from 'react';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
 import { ThemeProps } from '../../theme/theme';
 
-interface Props {
+export interface BreadcrumbProps extends ThemeProps {
   className?: string;
   inverse?: boolean;
   items: ReactNode[];
@@ -21,8 +21,8 @@ const BreadcrumbWrapper = styled.li(
       opacity: 1
     }
   },
-  ({ theme: { breadcrumb } }) => ({
-    opacity: breadcrumb.crumbOpacity
+  ({ theme }) => ({
+    opacity: theme.breadcrumb.opacity
   })
 );
 
@@ -39,14 +39,13 @@ const BreadcrumbContent = styled.ul<{ inverse: boolean }>(
   })
 );
 
-const Breadcrumb: FC<Props & ThemeProps> = ({
+const Breadcrumb: FC<BreadcrumbProps> = ({
   theme,
   className,
   inverse = false,
   items,
   seperator = <BreadcrumbSeparator theme={theme}>/</BreadcrumbSeparator>
 }) => {
-  console.log({ theme });
   const getCrumbs = () => {
     const crumbs: ReactNode[] = items.map((item, index) => {
       if (index !== items.length - 1) {
@@ -71,7 +70,7 @@ const Breadcrumb: FC<Props & ThemeProps> = ({
   };
 
   return (
-    <nav aria-label="breadcrumbs" className={className}>
+    <nav aria-label="breadcrumb" className={className}>
       <BreadcrumbContent inverse={inverse}>{getCrumbs()}</BreadcrumbContent>
     </nav>
   );

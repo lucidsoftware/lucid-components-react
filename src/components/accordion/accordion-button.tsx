@@ -1,3 +1,4 @@
+import React from 'react';
 import { AccordionItemButton } from 'react-accessible-accordion';
 import {
   TypographyProps,
@@ -6,42 +7,35 @@ import {
   space,
   variant
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../../theme/styled';
+import Icon, { IconType } from '../icon/icon';
 import { VariantProps } from '../../types/types';
 
-export interface Props extends TypographyProps, SpaceProps, VariantProps {}
+export interface AccordionButtonProps
+  extends TypographyProps,
+    SpaceProps,
+    VariantProps {
+  hasArrow?: boolean;
+  className?: string;
+}
 
-const AccordionButton = styled(AccordionItemButton)<Props>(
-  variant({
-    scale: 'accordion.button',
-    variants: {
-      default: {
-        paddingTop: 3,
-        paddingBottom: 3,
-        paddingLeft: 2,
-        paddingRight: 2,
-        borderBottomWidth: '1px',
-        borderBottomColor: 'lightgrey',
-        borderBottomStyle: 'solid',
-        '&:hover, &:focus': {
-          borderBottomColor: 'primary'
-        },
-        '&[aria-expanded="true"]': {
-          borderBottomColor: 'lightgrey'
-        }
-      }
-    }
-  }),
-  {
-    cursor: 'pointer'
-  },
+const StyledAccordionButton = styled(AccordionItemButton)(
+  variant({ scale: 'accordion.button' }),
   typography,
   space
 );
 
-AccordionButton.defaultProps = {
-  variant: 'default'
-};
+const AccordionButton: React.FC<AccordionButtonProps> = ({
+  hasArrow,
+  variant = 'default',
+  children,
+  className
+}) => (
+  <StyledAccordionButton className={className} variant={variant}>
+    {children}
+    {hasArrow && <Icon type={IconType.CarotRight} />}
+  </StyledAccordionButton>
+);
 
 export default AccordionButton;
