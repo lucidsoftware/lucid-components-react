@@ -12,6 +12,7 @@ import {
 } from 'styled-system';
 import styled from '@emotion/styled';
 
+import { VariantProps } from '../../types/types';
 import { ThemeProps } from '../../theme/theme';
 import CardAction from './card-action';
 import CardActions from './card-actions';
@@ -25,13 +26,14 @@ export interface CardProps
     DisplayProps,
     FlexProps,
     LayoutProps,
-    SpaceProps {
+    SpaceProps,
+    VariantProps {
   as?: 'div' | 'section' | 'article';
-  variant?: string;
 }
 
 const CardContainer = styled.div<CardProps>(
   {
+    label: 'card',
     display: 'flex',
     padding: 0,
     textAlign: 'left',
@@ -40,15 +42,6 @@ const CardContainer = styled.div<CardProps>(
   },
   variant({
     scale: 'card'
-    // variants: {
-    //   default: {
-    //     background: 'white',
-    //     flexDirection: 'row',
-    //     borderRadius: 'card',
-    //     border: '1px solid grey',
-    //     borderColor: 'grey'
-    //   }
-    // }
   }),
   space,
   display,

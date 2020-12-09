@@ -6,20 +6,23 @@ import {
   SpaceProps,
   variant as variants
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../@emotion/styled';
 import { VariantProps } from '../../../types/types';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
-export interface Props extends TypographyProps, SpaceProps, VariantProps {
+export interface FormTextInputProps
+  extends TypographyProps,
+    SpaceProps,
+    VariantProps {
   disabled?: boolean;
   placeholder?: string;
   validate?: boolean;
   validator?: (event: React.ChangeEvent<HTMLInputElement> | string) => boolean;
 }
 
-const TextInputBase = styled.input<Props>(
+const TextInputBase = styled.input<FormTextInputProps>(
   space,
   typography,
   variants({
@@ -68,7 +71,7 @@ const TextInput = styled(
     placeholder,
     variant = FloatingStatus.Default,
     ...rest
-  }: Props) => {
+  }: FormTextInputProps) => {
     const {
       disabled: contextDisabled,
       enableFloating,
@@ -120,6 +123,6 @@ const TextInput = styled(
       />
     );
   }
-)<Props>();
+)<FormTextInputProps>();
 
 export default TextInput;

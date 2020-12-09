@@ -1,11 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-import { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
-import * as CSS from 'csstype';
+/** @jsxImportSource @emotion/react */
 import { withTheme } from '@emotion/react';
+import React, { FC, RefAttributes, AnchorHTMLAttributes } from 'react';
+import * as CSS from 'csstype';
 
 import { ThemeProps } from '../../theme/theme';
-import { getButtonStyles, ButtonSize } from '../button/button';
+// import { getButtonStyles, ButtonSize } from '../button/button';
 
 export type UnderlineType = 'none' | 'hover' | 'always';
 
@@ -17,7 +16,7 @@ export interface CoreLinkProps {
   inverse?: boolean;
   asButton?: boolean;
   block?: boolean;
-  buttonSize?: ButtonSize;
+  buttonSize?: any;
   underline?: UnderlineType;
   css?: CSS.Properties;
 }
@@ -92,7 +91,7 @@ const LinkBase: FC<LinkProps> = ({
   disabled,
   underline = 'none',
   children,
-  buttonSize = 'regular',
+  // buttonSize = 'regular',
   primary,
   secondary,
   inverse,
@@ -124,14 +123,14 @@ const LinkBase: FC<LinkProps> = ({
   });
 
   if (asButton) {
-    baseCss = getButtonStyles({
-      theme,
-      variant,
-      block,
-      active,
-      size: buttonSize,
-      disabled
-    });
+    // baseCss = getButtonStyles({
+    //   theme,
+    //   variant,
+    //   block,
+    //   active,
+    //   size: buttonSize,
+    //   disabled
+    // });
   }
 
   return (

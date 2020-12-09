@@ -22,7 +22,11 @@ const BreadcrumbWrapper = styled.li(
     }
   },
   ({ theme }) => ({
-    opacity: theme.breadcrumb.opacity
+    opacity: theme.breadcrumb.opacity,
+    '& > a': {
+      color: theme.breadcrumb.color,
+      textDecoration: 'none'
+    }
   })
 );
 
@@ -33,9 +37,12 @@ const BreadcrumbSeparator = styled.span(({ theme }) => ({
 
 const BreadcrumbContent = styled.ul<{ inverse: boolean }>(
   ({ theme, inverse }) => ({
-    color: inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color,
     margin: 0,
-    padding: 0
+    padding: 0,
+    '& > a': {
+      color: inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color,
+      textDecoration: 'none'
+    }
   })
 );
 
@@ -71,7 +78,9 @@ const Breadcrumb: FC<BreadcrumbProps> = ({
 
   return (
     <nav aria-label="breadcrumb" className={className}>
-      <BreadcrumbContent inverse={inverse}>{getCrumbs()}</BreadcrumbContent>
+      <BreadcrumbContent inverse={inverse} theme={theme}>
+        {getCrumbs()}
+      </BreadcrumbContent>
     </nav>
   );
 };

@@ -33,10 +33,20 @@ export default {
       control: {
         type: 'select',
         options: ['vertical', 'horizontal', 'both']
+      },
+      description: 'Flips the icon in a certain direction.',
+      table: {
+        type: {
+          summary: 'vertical | horizontal | both'
+        },
+        defaultValue: {
+          summary: 'null'
+        }
       }
     },
     hoverColor: {
-      control: 'color'
+      control: 'color',
+      description: 'The color of the icon when hovering.'
     },
     sizing: {
       control: {

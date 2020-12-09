@@ -20,7 +20,7 @@ import {
 } from 'styled-system';
 import styled from '@emotion/styled';
 
-interface Props
+export interface BoxProps
   extends BackgroundProps,
     BorderProps,
     ShadowProps,
@@ -34,7 +34,7 @@ interface Props
   as?: 'div' | 'section' | 'main' | 'aside' | 'article' | 'header' | 'footer';
 }
 
-const Box = styled.div<Props>(
+const Box = styled.div<BoxProps>(
   background,
   shadow,
   border,

@@ -16,21 +16,13 @@ export default {
   }
 } as Meta;
 
-const CardTemplate: Story<CardProps> = args => {
-  const { titleProps } = args;
-
-  return (
-    <CardComponent>
-      <CardComponent.Content>
-        <CardComponent.Title>{titleProps.children}</CardComponent.Title>
-      </CardComponent.Content>
-    </CardComponent>
-  );
-};
+const CardTemplate: Story<CardProps> = args => (
+  <CardComponent {...args}>
+    <CardComponent.Content>
+      <CardComponent.Title>Card Title</CardComponent.Title>
+    </CardComponent.Content>
+  </CardComponent>
+);
 
 export const Card = CardTemplate.bind({});
-Card.args = {
-  titleProps: {
-    children: 'Card Title'
-  }
-};
+Card.args = {};

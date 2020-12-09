@@ -5,7 +5,7 @@ import {
   default as HeadingComponent,
   HeadingProps
 } from '../components/heading/heading';
-import { headingAliases } from '../theme/headings';
+import { headingStyles } from '../theme/components/headings';
 
 export default {
   title: 'Components/Heading',
@@ -33,7 +33,7 @@ export default {
     variant: {
       control: {
         type: 'select',
-        options: headingAliases
+        options: Object.keys(headingStyles)
       }
     }
   },
@@ -52,5 +52,5 @@ export const Heading = HeadingTemplate.bind({});
 Heading.args = {
   as: 'h1',
   children: 'Heading Component',
-  variant: 'xxxs'
+  variant: 'headline3XL'
 };

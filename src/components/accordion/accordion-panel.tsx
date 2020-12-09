@@ -1,5 +1,6 @@
 import { AccordionItemPanel } from 'react-accessible-accordion';
 import {
+  compose,
   TypographyProps,
   typography,
   SpaceProps,
@@ -18,21 +19,16 @@ export interface AccordionPanelProps
   extends BackgroundProps,
     TypographyProps,
     SpaceProps,
-    VariantProps,
-    BorderProps {}
+    BorderProps,
+    VariantProps {}
+
+const panelStyleProps = compose(background, typography, space, border);
 
 const AccordionPanel = styled(AccordionItemPanel)<AccordionPanelProps>(
   variant({
     scale: 'accordion.panel'
   }),
-  background,
-  typography,
-  space,
-  border
+  panelStyleProps
 );
-
-AccordionPanel.defaultProps = {
-  variant: 'default'
-};
 
 export default AccordionPanel;

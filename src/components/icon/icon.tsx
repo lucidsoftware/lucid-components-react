@@ -26,7 +26,7 @@ export interface IconProps {
   type: IconType;
   color?: string;
   hoverColor?: string;
-  direction?: Flip;
+  flip?: Flip;
   rotation?: number;
   sizing?: Sizing;
 }

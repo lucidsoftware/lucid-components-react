@@ -2,7 +2,7 @@ import React, { ReactNode, FC } from 'react';
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { isIE11 } from '../../utils/utils';
+import { isIE11 } from '../../utils';
 
 interface Props {
   as?: 'nav' | 'header' | 'div';

@@ -1,8 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { default as AccordionComponent } from '../components/accordion/accordion';
-import { ThemeProps } from '../theme/theme';
+import {
+  default as AccordionComponent,
+  AccordionProps
+} from '../components/accordion/accordion';
+import { AccordionButtonProps } from '../components/accordion/accordion-button';
+import { AccordionPanelProps } from '../components/accordion/accordion-panel';
+import seeder from '../utils/seeder';
 
 export default {
   title: 'Components/Accordion',
@@ -15,39 +20,144 @@ export default {
   },
   args: {
     allowMultipleExpanded: true,
-    allowZeroExpanded: true
+    allowZeroExpanded: true,
+    className: 'accordion',
+    preExpanded: [''],
+    variant: 'default',
+    buttonClassName: 'accordionButton',
+    buttonHasArrow: true,
+    buttonVariant: 'default',
+    headingVariant: 'default',
+    itemVariant: 'default',
+    panelVariant: 'inverse'
+  },
+  argTypes: {
+    buttonClassName: {
+      name: 'className',
+      table: {
+        category: 'Button'
+      }
+    },
+    buttonHasArrow: {
+      name: 'hasArrow',
+      table: {
+        category: 'Button'
+      }
+    },
+    buttonVariant: {
+      name: 'variant',
+      table: {
+        category: 'Button'
+      }
+    },
+    headingVariant: {
+      name: 'variant',
+      table: {
+        category: 'Heading'
+      }
+    },
+    itemVariant: {
+      name: 'variant',
+      table: {
+        category: 'Item'
+      }
+    },
+    panelVariant: {
+      name: 'variant',
+      table: {
+        category: 'Panel'
+      }
+    }
   }
 } as Meta;
 
-const AccordionTemplate: Story = args => <AccordionComponent {...args} />;
-
-const AccordionItem = () => (
-  <AccordionComponent.Item
-    css={(theme: ThemeProps['theme']) => ({
-      backgroundColor: theme.colors.primary,
-      borderTop: `0.5px solid ${theme.colors.coolGrey[30]}`,
-      padding: `${theme.space[5]}px ${theme.space[0]}`,
-      '&:first-of-type': {
-        borderTop: `1px solid ${theme.colors.coolGrey[30]}`
-      },
-      '&:last-of-type': {
-        borderBottom: `1px solid ${theme.colors.coolGrey[30]}`
-      }
-    })}
+const Button = ({
+  className,
+  hasArrow,
+  variant,
+  suffix
+}: AccordionButtonProps & { suffix?: string }) => (
+  <AccordionComponent.Button
+    className={className}
+    hasArrow={hasArrow}
+    variant={variant}
   >
-    <AccordionComponent.Heading>
-      <AccordionComponent.Button variant="default">
-        Button
-      </AccordionComponent.Button>
-    </AccordionComponent.Heading>
-    <AccordionComponent.Panel variant="inverse">
-      Panel Content
-    </AccordionComponent.Panel>
-  </AccordionComponent.Item>
+    {seeder.title('Accordion Button', suffix)}
+  </AccordionComponent.Button>
 );
+
+const Panel = ({ variant }: AccordionPanelProps) => (
+  <AccordionComponent.Panel variant={variant}>
+    {seeder.text}
+  </AccordionComponent.Panel>
+);
+
+interface AccordionStoryProps extends AccordionProps {
+  buttonClassName?: string;
+  buttonHasArrow?: boolean;
+  buttonVariant?: string;
+  headingVariant?: string;
+  itemVariant?: string;
+  panelVariant?: string;
+}
+
+const AccordionTemplate: Story<AccordionStoryProps> = ({
+  allowMultipleExpanded,
+  allowZeroExpanded,
+  className,
+  preExpanded,
+  variant,
+  buttonClassName,
+  buttonHasArrow,
+  buttonVariant,
+  headingVariant,
+  itemVariant,
+  panelVariant,
+  ...args
+}) => {
+  return (
+    <div
+      css={{
+        label: 'storybookWrapper',
+        width: '75vw'
+      }}
+    >
+      <AccordionComponent
+        {...args}
+        allowMultipleExpanded={allowMultipleExpanded}
+        allowZeroExpanded={allowZeroExpanded}
+        className={className}
+        preExpanded={preExpanded}
+        variant={variant}
+      >
+        <AccordionComponent.Item variant={itemVariant}>
+          <AccordionComponent.Heading>
+            <Button
+              {...args}
+              className={buttonClassName}
+              hasArrow={buttonHasArrow}
+              suffix="1"
+              variant={buttonVariant}
+            />
+          </AccordionComponent.Heading>
+          <Panel variant={panelVariant} />
+        </AccordionComponent.Item>
+        <AccordionComponent.Item variant={itemVariant}>
+          <AccordionComponent.Heading>
+            <Button
+              {...args}
+              className={buttonClassName}
+              hasArrow={buttonHasArrow}
+              variant={buttonVariant}
+            />
+          </AccordionComponent.Heading>
+          <Panel variant={panelVariant} />
+        </AccordionComponent.Item>
+      </AccordionComponent>
+    </div>
+  );
+};
 
 export const Accordion = AccordionTemplate.bind({});
 
-Accordion.args = {
-  children: <AccordionItem />
-};
+Accordion.args = {};

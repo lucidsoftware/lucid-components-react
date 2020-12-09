@@ -8,9 +8,9 @@ import {
 } from 'styled-system';
 import styled from '@emotion/styled';
 
-interface Props extends LayoutProps, SpaceProps, BorderProps {}
+export interface SpacerProps extends LayoutProps, SpaceProps, BorderProps {}
 
-const Spacer = styled.div<Props>(border, layout, space, {
+const Spacer = styled.div<SpacerProps>(border, layout, space, {
   width: '100%'
 });
 

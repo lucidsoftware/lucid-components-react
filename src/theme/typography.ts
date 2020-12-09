@@ -1,199 +1,226 @@
-const headings = {
-  headlineXL: {
-    color: 'heading',
-    fontSize: [9, 10, 11, 12],
-    fontWeight: 'heading',
-    lineHeight: 'heading',
-    margin: 0,
-    marginBottom: 8
-  },
-  headlineL: {
-    color: 'heading',
-    fontSize: [8, 9, 10, 11],
-    fontWeight: 'heading',
-    lineHeight: 'heading',
-    margin: 0,
-    marginBottom: 8
-  },
-  headlineM: {
-    color: 'heading',
-    fontSize: [7, 8, 9, 10],
-    fontWeight: 'heading',
-    lineHeight: 'heading',
-    margin: 0,
+import headings from './components/headings';
+
+export const paragraphStyles = {
+  paragraph2XL400: {
+    color: 'paragraph',
+    fontSize: headings['2XL'],
+    fontWeight: 'regular',
+    lineHeight: 'paragraph',
+    marginTop: 0,
     marginBottom: 6
   },
-  headlineS: {
-    color: 'heading',
-    fontSize: [6, 7, 8, 9],
-    fontWeight: 'heading',
-    lineHeight: 'heading',
-    margin: 0,
+  paragraphXL400: {
+    color: 'paragraph',
+    fontSize: headings['XL'],
+    fontWeight: 'regular',
+    lineHeight: 'paragraph',
+    marginTop: 0,
     marginBottom: 6
   },
-  headlineXS: {
-    color: 'heading',
-    fontSize: [5, 6, 7, 8],
-    fontWeight: 'heading',
-    lineHeight: 'heading',
-    margin: 0,
-    marginBottom: 5
+  paragraphL400: {
+    color: 'paragraph',
+    fontSize: headings['L'],
+    fontWeight: 'regular',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: 6
   },
-  headlineXS700: {
-    color: 'heading',
-    fontSize: [7, 8],
+  paragraphM400: {
+    color: 'paragraph',
+    fontSize: headings['M'],
+    fontWeight: 'regular',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: '20px'
+  },
+  paragraphS400: {
+    color: 'paragraph',
+    fontSize: headings['S'],
+    fontWeight: 'regular',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: '20px'
+  },
+  paragraph2XL700: {
+    color: 'paragraph',
+    fontSize: headings['2XL'],
     fontWeight: 'bolder',
-    lineHeight: 'heading',
-    margin: 0,
-    marginBottom: 5
-  },
-  subheadXL: {
-    color: 'subheading',
-    fontSize: [6, 7, 8, 9],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 7
-  },
-  subheadL: {
-    color: 'subheading',
-    fontSize: [5, 6, 7, 8],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
+    lineHeight: 'paragraph',
+    marginTop: 0,
     marginBottom: 6
   },
-  subheadM: {
-    color: 'subheading',
-    fontSize: [4, 5, 6, 7],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 6
-  },
-  subheadS: {
-    color: 'subheading',
-    fontSize: [3, 4, 5, 6],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 5
-  },
-  subheadM700: {
-    color: 'subheading',
-    fontSize: [6, 7],
+  paragraphXL700: {
+    color: 'paragraph',
+    fontSize: headings['XL'],
     fontWeight: 'bolder',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 5
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: 6
   },
-  subheadXS: {
-    color: 'subheading',
-    fontSize: [2, 3, 4, 5],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 5
+  paragraphL700: {
+    color: 'paragraph',
+    fontSize: headings['L'],
+    fontWeight: 'bolder',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: 6
   },
-  subheadXXS: {
-    color: 'subheading',
-    fontSize: [2, 3, 3, 4],
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    marginBottom: 5
+  paragraphM700: {
+    color: 'paragraph',
+    fontSize: headings['M'],
+    fontWeight: 'bolder',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: '20px'
   },
-  blogInTextCtaHeader: {
-    color: 'primary',
-    fontSize: 3,
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0,
-    textTransform: 'uppercase'
+  paragraphS700: {
+    color: 'paragraph',
+    fontSize: headings['S'],
+    fontWeight: 'bolder',
+    lineHeight: 'paragraph',
+    marginTop: 0,
+    marginBottom: '20px'
+  }
+};
+
+export const labelStyles = {
+  labelS400: {
+    color: 'label',
+    fontSize: headings['S'],
+    fontWeight: 'regular',
+    lineHeight: 'label',
+    marginTop: 0,
+    marginBottom: 3
   },
-  cardTitle: {
-    color: 'heading',
-    fontSize: 4,
-    fontWeight: 'subheading',
-    lineHeight: 'subheading',
-    margin: 0
+  labelXS400: {
+    color: 'label',
+    fontSize: headings['XS'],
+    fontWeight: 'regular',
+    lineHeight: 'label',
+    marginTop: 0,
+    marginBottom: '12px'
+  },
+  label2XS400: {
+    color: 'label',
+    fontSize: headings['2XS'],
+    fontWeight: 'regular',
+    lineHeight: 'label',
+    marginTop: 0,
+    marginBottom: '12px'
+  },
+  label3XS400: {
+    color: 'label',
+    fontSize: headings['3XS'],
+    fontWeight: 'regular',
+    lineHeight: 'label',
+    marginTop: 0,
+    marginBottom: '12px'
+  }
+};
+
+export const interactiveStyles = {
+  interactiveL400: {
+    color: 'interactive',
+    fontSize: headings['L'],
+    fontWeight: 'regular',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 4
+  },
+  interactiveM400: {
+    color: 'interactive',
+    fontSize: headings['M'],
+    fontWeight: 'regular',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '20px'
+  },
+  interactiveS400: {
+    color: 'interactive',
+    fontSize: headings['S'],
+    fontWeight: 'regular',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 3
+  },
+  interactiveXS400: {
+    color: 'interactive',
+    fontSize: headings['XS'],
+    fontWeight: 'regular',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '12px'
+  },
+  interactiveL500: {
+    color: 'interactive',
+    fontSize: headings['L'],
+    fontWeight: 'bold',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 4
+  },
+  interactiveM500: {
+    color: 'interactive',
+    fontSize: headings['M'],
+    fontWeight: 'bold',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '20px'
+  },
+  interactiveS500: {
+    color: 'interactive',
+    fontSize: headings['S'],
+    fontWeight: 'bold',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 3
+  },
+  interactiveXS500: {
+    color: 'interactive',
+    fontSize: headings['XS'],
+    fontWeight: 'bold',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '12px'
+  },
+  interactiveL700: {
+    color: 'interactive',
+    fontSize: headings['L'],
+    fontWeight: 'bolder',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 4
+  },
+  interactiveM700: {
+    color: 'interactive',
+    fontSize: headings['M'],
+    fontWeight: 'bolder',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '20px'
+  },
+  interactiveS700: {
+    color: 'interactive',
+    fontSize: headings['S'],
+    fontWeight: 'bolder',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: 3
+  },
+  interactiveXS700: {
+    color: 'interactive',
+    fontSize: headings['XS'],
+    fontWeight: 'bolder',
+    lineHeight: 'interactive',
+    marginTop: 0,
+    marginBottom: '12px'
   }
 };
 
 const textStyles = {
-  ...headings,
-  body: {
-    fontWeight: 'normal' as const,
-    fontSize: 4,
-    marginBottom: 5,
-    color: 'text'
-  },
-  subhead: {
-    fontWeight: 'light',
-    fontSize: [4, 4, 5, 5],
-    marginBottom: 5
-  },
-  introL: {
-    fontWeight: 'light',
-    fontSize: [5, 5, 5, 6, 7],
-    lineHeight: 'body',
-    marginBottom: 6
-  },
-  introS: {
-    fontWeight: 'light',
-    fontSize: [4, 4, 4, 4, 5],
-    lineHeight: 'body',
-    marginBottom: 6
-  },
-  quoteL: {
-    fontWeight: 'light',
-    fontSize: [5, 5, 5, 5, 6],
-    lineHeight: 'body',
-    marginBottom: 6,
-    color: 'blueSteel'
-  },
-  quoteM: {
-    fontWeight: 'light',
-    fontSize: [4, 4, 4, 4, 5],
-    lineHeight: 'body',
-    marginBottom: 6,
-    color: 'blueSteel'
-  },
-  navLabel: {
-    fontWeight: 'normal',
-    fontSize: 2,
-    margin: 0,
-    padding: 0
-  },
-  navText: {
-    fontWeight: 'normal',
-    fontSize: 2,
-    margin: 0,
-    padding: '4px 0 0 !important'
-  },
-  navHeader: {
-    fontWeight: 'bold',
-    fontSize: 3,
-    margin: 0,
-    padding: '0 !important'
-  },
-  heroText: {
-    fontWeight: 'light',
-    fontSize: 4,
-    lineHeight: 'body',
-    marginBottom: 6,
-    color: 'blueSteel',
-    fontFamily: 'body'
-  },
-  bodyText: {
-    /* eslint-disable-next-line @typescript-eslint/prefer-as-const */
-    fontWeight: 'normal' as 'normal',
-    fontSize: 3,
-    lineHeight: 'body',
-    marginBottom: 5,
-    color: 'text',
-    fontFamily: 'body'
-  }
+  ...paragraphStyles,
+  ...labelStyles,
+  ...interactiveStyles
 };
 
 export default textStyles;

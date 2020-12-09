@@ -1,11 +1,13 @@
 import { Accordion as ReactAccordion } from 'react-accessible-accordion';
 import {
+  compose,
   layout,
   LayoutProps,
   BorderProps,
   border,
   space,
-  SpaceProps
+  SpaceProps,
+  variant
 } from 'styled-system';
 import { withTheme } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -20,12 +22,21 @@ export interface AccordionProps
   extends BorderProps,
     LayoutProps,
     SpaceProps,
-    VariantProps {}
+    VariantProps {
+  allowMultipleExpanded?: boolean;
+  allowZeroExpanded?: boolean;
+  preExpanded?: string[];
+  className?: string;
+  onChange?: (value: string[]) => void;
+}
+
+const accordionStyleProps = compose(border, layout, space);
 
 const AccordionBase = styled(ReactAccordion)<AccordionProps>(
-  border,
-  layout,
-  space
+  variant({
+    scale: 'accordion'
+  }),
+  accordionStyleProps
 );
 
 const Accordion = Object.assign(withTheme(AccordionBase), {

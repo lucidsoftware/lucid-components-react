@@ -4,10 +4,18 @@ import * as CSS from 'csstype';
 import breakpoints from './breakpoints';
 import colors, { Colors } from './colors';
 import fonts, { Fonts } from './fonts';
-import headings from './headings';
 import space, { Spaces } from './space';
 import zIndices, { ZIndices } from './z-indices';
-import { accordion, breadcrumb, buttons } from './components';
+import {
+  accordion,
+  breadcrumb,
+  buttons,
+  card,
+  headings,
+  links,
+  navbar,
+  paper
+} from './components';
 
 export interface Theme
   extends Fonts,
@@ -22,9 +30,8 @@ export interface Theme
       | 'letterSpacings'
     > {
   borderRadius: number;
-  breakpoints: ObjectOrArray<string>;
+  breakpoints: ObjectOrArray<string | number>;
   colors: Colors;
-  headings: ObjectOrArray<number>;
   radii: Record<string, string | number>;
   shadows: {
     0: string;
@@ -42,6 +49,11 @@ export interface Theme
   >;
   breadcrumb: typeof breadcrumb;
   buttons: typeof buttons;
+  card: typeof card;
+  headings: ObjectOrArray<string>;
+  links: typeof links;
+  navbar: typeof navbar;
+  paper: typeof paper;
 }
 
 export enum ProductModes {
@@ -57,7 +69,6 @@ const theme: Theme = {
   borderRadius: 5,
   breakpoints,
   colors,
-  headings,
   radii: {
     button: '5px',
     card: '5px',
@@ -75,7 +86,12 @@ const theme: Theme = {
   // components
   accordion,
   breadcrumb,
-  buttons
+  buttons,
+  card,
+  headings,
+  links,
+  navbar,
+  paper
 };
 
 export interface ThemeProps {

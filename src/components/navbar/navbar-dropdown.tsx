@@ -12,7 +12,7 @@ import styled from '@emotion/styled';
 
 import { NavbarContext } from './navbar';
 import { ThemeProps } from '../../theme/theme';
-import { windowIsAboveWidth } from '../../utils/utils';
+import { isWindowAboveWidth } from '../../utils';
 
 export interface NavbarDropdownProps extends HTMLProps<HTMLDivElement> {
   toggle: (
@@ -62,19 +62,19 @@ const NavbarDropdown = forwardRef<
   };
 
   const handleMouseOver = (evt: SyntheticEvent) => {
-    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
+    if (isWindowAboveWidth(theme.navbar.collapseAt)) {
       openDropdown(evt);
     }
   };
 
   const handleMouseLeave = () => {
-    if (windowIsAboveWidth(theme.navbar.collapseAt)) {
+    if (isWindowAboveWidth(theme.navbar.collapseAt)) {
       closeDropdown();
     }
   };
 
   const handleClickToggle = (evt: SyntheticEvent) => {
-    if (!windowIsAboveWidth(theme.navbar.collapseAt)) {
+    if (!isWindowAboveWidth(theme.navbar.collapseAt)) {
       if (!isOpen) {
         openDropdown(evt);
       } else {

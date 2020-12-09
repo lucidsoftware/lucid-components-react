@@ -13,6 +13,9 @@ const lineHeights = {
   default: 1,
   heading: 1.1,
   subheading: 1.1,
+  interactive: 1.1,
+  label: 1.2,
+  paragraph: 1.35,
   body: 1.5
 };
 

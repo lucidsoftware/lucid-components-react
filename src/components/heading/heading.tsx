@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import {
+  compose,
   typography,
   space,
   color,
@@ -13,8 +14,9 @@ import {
 import styled from '@emotion/styled';
 
 import { VariantProps } from '../../types/types';
+import { headingStyles } from '../../theme/components/headings';
 
-export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface HeadingProps
   extends ColorProps,
@@ -22,33 +24,22 @@ export interface HeadingProps
     SpaceProps,
     TypographyProps,
     VariantProps {
-  as?: HeadingType;
+  as?: HeadingTagType;
   children: ReactNode;
 }
 
+const headingStyleProps = compose(color, layout, space, typography);
+
 const HeadingBase = styled('h1')(
   variant({
-    scale: 'headings'
-    // variants: {
-    //   heading: {
-    //     color: 'heading',
-    //     lineHeight: 'heading',
-    //     fontWeight: 'heading'
-    //   },
-    //   subheading: {
-    //     color: 'grey',
-    //     lineHeight: 'heading',
-    //     fontWeight: 'heading'
-    //   }
-    // }
+    variants: {
+      ...headingStyles
+    }
   }),
-  color,
-  layout,
-  space,
-  typography
+  headingStyleProps
 );
 
-const Heading = styled(({ as, ...rest }: { as?: HeadingType }) => (
+const Heading = styled(({ as, ...rest }: { as?: HeadingTagType }) => (
   <HeadingBase as={as} {...rest} />
 ))<HeadingProps>();
 

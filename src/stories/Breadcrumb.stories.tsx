@@ -8,7 +8,12 @@ import {
 
 export default {
   title: 'Components/Breadcrumb',
-  component: BreadcrumbComponent
+  component: BreadcrumbComponent,
+  parameters: {
+    backgrounds: {
+      default: 'light'
+    }
+  }
 } as Meta;
 
 const BreadcrumbTemplate: Story<BreadcrumbProps> = args => (

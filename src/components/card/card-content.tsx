@@ -1,5 +1,6 @@
 import { withTheme } from '@emotion/react';
 import {
+  compose,
   display,
   DisplayProps,
   flex,
@@ -23,23 +24,16 @@ export interface CardContentProps
   variant?: string;
 }
 
+const contentStyleProps = compose(flex, display, layout, space);
+
 const CardContent = styled.div<CardContentProps>(
+  {
+    label: 'content'
+  },
   variant({
     scale: 'card.content'
-    // variants: {
-    //   default: {
-    //     color: 'text',
-    //     display: 'flex',
-    //     flex: '1 1',
-    //     flexDirection: 'column',
-    //     justifyContent: 'space-between'
-    //   }
-    // }
   }),
-  flex,
-  display,
-  layout,
-  space
+  contentStyleProps
 );
 
 CardContent.defaultProps = {

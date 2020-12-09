@@ -20,9 +20,11 @@ export type ThemeColors = {
   disabledBorder: CSS.Property.Color;
   grey: CSS.Property.Color;
   heading: CSS.Property.Color;
+  interactive: CSS.Property.Color;
+  label: CSS.Property.Color;
   lightGrey: CSS.Property.Color;
   muted: CSS.Property.Color;
-  subheading: CSS.Property.Color;
+  paragraph: CSS.Property.Color;
   text: CSS.Property.Color;
 };
 
@@ -47,9 +49,11 @@ const baseColors: BaseColors & ThemeColors = {
   disabledBorder: defaultColors.coolGrey[30],
   grey: defaultColors.coolGrey[10],
   heading: defaultColors.coolGrey[100],
+  interactive: defaultColors.coolGrey[100],
+  label: defaultColors.coolGrey[100],
   lightGrey: defaultColors.coolGrey[30],
   muted: defaultColors.indigo[60],
-  subheading: defaultColors.coolGrey[100],
+  paragraph: defaultColors.coolGrey[100],
   text: defaultColors.coolGrey[100]
 };
 

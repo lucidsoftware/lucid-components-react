@@ -8,6 +8,7 @@ export interface CardActionsProps extends ThemeProps, SpaceProps, LayoutProps {}
 
 const CardActions = styled.div<CardActionsProps>(
   ({ theme }) => ({
+    label: 'actions',
     display: 'flex',
     marginTop: `${theme.space ? theme.space[3] : 0}px`
   }),

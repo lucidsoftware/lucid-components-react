@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { SpaceProps, space } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../@emotion/styled';
 import FieldContext from './field-context';
 
 export enum FloatingStatus {
@@ -9,7 +9,7 @@ export enum FloatingStatus {
   Floating = 'floating'
 }
 
-export interface Props {
+export interface FormFieldProps {
   children: ReactNode;
   floating?: boolean;
   disabled?: boolean;
@@ -29,7 +29,7 @@ const FieldBase = ({
   disabled,
   floating: enableFloating = false,
   ...rest
-}: Props) => {
+}: FormFieldProps) => {
   const [isFloating, setIsFloating] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
@@ -53,6 +53,6 @@ const FieldBase = ({
   );
 };
 
-const Field = styled(FieldBase)<Props & SpaceProps>(space);
+const Field = styled(FieldBase)<FormFieldProps & SpaceProps>(space);
 
 export default Field;

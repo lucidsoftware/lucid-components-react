@@ -6,16 +6,16 @@ import {
   SpaceProps,
   variant as variants
 } from 'styled-system';
+import styled from '@emotion/styled';
 
-import styled from '../@emotion/styled';
 import FieldContext from '../field/field-context';
 import { FloatingStatus } from '../field/field';
 
-export interface Props extends TypographyProps, SpaceProps {
+export interface FormLabelProps extends TypographyProps, SpaceProps {
   activeColor?: string;
 }
 
-interface LabelBaseProps extends Props {
+interface LabelBaseProps extends FormLabelProps {
   floating?: boolean;
   variant?: FloatingStatus;
 }
@@ -79,6 +79,6 @@ const Label = styled(({ variant = FloatingStatus.Default, ...rest }) => {
       variant={variant}
     />
   );
-})<Props>();
+})<FormLabelProps>();
 
 export default Label;

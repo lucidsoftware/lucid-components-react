@@ -16,8 +16,8 @@ export interface AccordionButtonProps
   extends TypographyProps,
     SpaceProps,
     VariantProps {
-  hasArrow?: boolean;
   className?: string;
+  hasArrow?: boolean;
 }
 
 const StyledAccordionButton = styled(AccordionItemButton)(
@@ -27,14 +27,24 @@ const StyledAccordionButton = styled(AccordionItemButton)(
 );
 
 const AccordionButton: React.FC<AccordionButtonProps> = ({
-  hasArrow,
-  variant = 'default',
   children,
-  className
+  className,
+  hasArrow,
+  variant = 'default'
 }) => (
-  <StyledAccordionButton className={className} variant={variant}>
+  <StyledAccordionButton
+    className={className}
+    css={{
+      '& > .accordionButtonArrow': {
+        transition: 'transform 0.15s ease-out'
+      }
+    }}
+    variant={variant}
+  >
     {children}
-    {hasArrow && <Icon type={IconType.CarotRight} />}
+    {hasArrow && (
+      <Icon className="accordionButtonArrow" type={IconType.CarotRight} />
+    )}
   </StyledAccordionButton>
 );
 

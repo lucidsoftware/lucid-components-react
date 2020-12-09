@@ -1,7 +1,6 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react';
-import { useState, ReactNode, FC, useEffect } from 'react';
-import ReactPlayer, { ReactPlayerProps } from 'react-player';
+import { css } from '@emotion/react';
+import React, { useState, ReactNode, FC, useEffect } from 'react';
+import ReactPlayer, { ReactPlayerProps } from 'react-player/lazy';
 import styled from '@emotion/styled';
 
 import VideoPlayButton from '../video-play-button/video-play-button';
@@ -19,6 +18,7 @@ const VideoPlaceholder = styled('div')({
     height: '100%'
   }
 });
+
 const VideoOverlay = styled('div')({
   position: 'absolute',
   top: 0,
@@ -36,7 +36,7 @@ interface Props {
   className?: string;
   placeholder?: () => ReactNode;
   url?: string;
-  playing?: boolean;
+  shouldAutoPlay?: boolean;
   onClick?: () => void;
   ratio?: 'square' | 'wide';
   config?: any;
@@ -46,25 +46,25 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
   className,
   url,
   placeholder,
-  playing,
+  shouldAutoPlay,
   onClick = () => {
     return;
   },
   ratio = 'wide',
   ...rest
 }) => {
-  const [overlayVisible, setOverlayVisible] = useState(!playing);
-  const [isPlaying, setIsPlaying] = useState(playing);
+  const [overlayVisible, setOverlayVisible] = useState(!shouldAutoPlay);
+  const [isPlaying, setIsPlaying] = useState(shouldAutoPlay);
 
   useEffect(() => {
-    if (playing) {
+    if (shouldAutoPlay) {
       setOverlayVisible(false);
       setIsPlaying(true);
     } else {
       setOverlayVisible(true);
       setIsPlaying(false);
     }
-  }, [playing]);
+  }, [shouldAutoPlay]);
 
   const reactPlayerCss = css({
     position: 'absolute',
@@ -84,7 +84,8 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
   });
 
   return (
-    <div className={className} css={videoContainerCss}>
+    /* eslint-disable-next-line react/jsx-sort-props */
+    <div css={videoContainerCss} className={className}>
       {overlayVisible && (
         <VideoOverlay>
           <VideoPlayButton
