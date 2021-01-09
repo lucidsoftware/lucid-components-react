@@ -14,7 +14,9 @@ import { FloatingStatus } from '../field/field';
 
 export interface Props extends TypographyProps, SpaceProps, VariantProps {
   validate?: boolean;
-  validator?: (event: string) => boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  validator?: (event: React.ChangeEvent<HTMLInputElement>) => boolean;
 }
 
 const TextInputBase = styled.input<Props>(
@@ -66,7 +68,7 @@ const TextInput = styled(
     placeholder,
     variant = FloatingStatus.Default,
     ...rest
-  }) => {
+  }: Props) => {
     const {
       disabled: contextDisabled,
       enableFloating,

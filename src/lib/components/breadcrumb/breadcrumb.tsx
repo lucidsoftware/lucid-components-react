@@ -21,18 +21,18 @@ const BreadcrumbWrapper = styled.li(
       opacity: 1
     }
   },
-  ({ theme: { breadcrumb } }) => ({
+  ({ theme: { breadcrumb } }: ThemeProps) => ({
     opacity: breadcrumb.crumbOpacity
   })
 );
 
-const BreadcrumbSeparator = styled.span(({ theme }) => ({
+const BreadcrumbSeparator = styled.span(({ theme }: ThemeProps) => ({
   fontSize: '1em',
   margin: theme.breadcrumb.margin
 }));
 
 const BreadcrumbContent = styled.ul<{ inverse: boolean }>(
-  ({ theme, inverse }) => ({
+  ({ theme, inverse }: ThemeProps & { inverse: boolean }) => ({
     color: inverse ? theme.breadcrumb.inverseColor : theme.breadcrumb.color,
     margin: 0,
     padding: 0

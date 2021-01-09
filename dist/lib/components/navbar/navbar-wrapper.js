@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const core_1 = require("@emotion/core");
+const react_2 = require("@emotion/react");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const utils_1 = require("../../../utils/utils");
 const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, background, top, zIndex }) => ({
@@ -22,7 +22,7 @@ const NavbarWrap = styled_1.default.nav(({ theme, sticky, stickyCollapsed, backg
 const IE11 = utils_1.isIE11();
 const NavbarWrapper = ({ as, sticky = false, stickyCollapsed = false, top = 0, zIndex = 1000, background, children }) => {
     return (react_1.default.createElement(NavbarWrap, { as: as, background: background, css: { label: 'navbarWrapper' }, sticky: sticky, stickyCollapsed: stickyCollapsed, top: top, zIndex: zIndex },
-        sticky && IE11 && (react_1.default.createElement(core_1.Global, { styles: {
+        sticky && IE11 && (react_1.default.createElement(react_2.Global, { styles: {
                 body: {
                     marginTop: '60px'
                 }

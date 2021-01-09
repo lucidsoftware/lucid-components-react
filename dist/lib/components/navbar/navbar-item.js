@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const emotion_theming_1 = require("emotion-theming");
+const react_1 = require("@emotion/react");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarItem = styled_1.default.li(({ theme }) => ({
     label: 'navbarItem',
@@ -32,4 +32,4 @@ const NavbarItem = styled_1.default.li(({ theme }) => ({
         }
     }
 }));
-exports.default = emotion_theming_1.withTheme(NavbarItem);
+exports.default = react_1.withTheme(NavbarItem);

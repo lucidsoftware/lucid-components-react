@@ -12,13 +12,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "react-scripts build",
     "build:dev": "rm -rf dist && tsc -p src/lib/",
     "dev": "yarn start",
-    "eject": "react-scripts eject",
     "lint": "eslint ./ --ext .ts,.tsx,.js,.jsx",
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
-    "test": "react-scripts test",
     "tsc": "tsc"
   },
   "dependencies": {
@@ -41,7 +38,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@emotion/babel-plugin": "^11.0.0",
+    "@emotion/babel-plugin": "^11.1.2",
     "@emotion/eslint-plugin": "^11.0.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.20",

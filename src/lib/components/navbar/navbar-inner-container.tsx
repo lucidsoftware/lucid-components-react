@@ -1,5 +1,6 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
 
+import { ThemeProps } from '../../../theme/theme';
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
 
@@ -9,7 +10,7 @@ export interface NavbarInnerContainerProps
 }
 
 const NavbarInnerContainerList = styled.ol<{ expanded: boolean }>(
-  ({ theme, expanded }) => ({
+  ({ theme, expanded }: ThemeProps & { expanded: boolean }) => ({
     label: 'navbarInnerContainer',
     display: 'flex',
     order: 2,

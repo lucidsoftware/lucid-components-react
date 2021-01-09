@@ -13,8 +13,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLinkStyles = exports.LinkVariant = void 0;
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const emotion_theming_1 = require("emotion-theming");
+const react_1 = require("@emotion/react");
 const button_1 = require("../button/button");
 var LinkVariant;
 (function (LinkVariant) {
@@ -84,7 +83,7 @@ const LinkBase = (_a) => {
             disabled
         });
     }
-    return (core_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, css: [baseCss, css], "data-link-as-button": `${asButton ? 'true' : 'false'}`, href: disabled ? undefined : href }), children));
+    return (react_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, css: [baseCss, css], "data-link-as-button": `${asButton ? 'true' : 'false'}`, href: disabled ? undefined : href }), children));
 };
-const Link = emotion_theming_1.withTheme(LinkBase);
+const Link = react_1.withTheme(LinkBase);
 exports.default = Link;

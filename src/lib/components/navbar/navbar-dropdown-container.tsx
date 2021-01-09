@@ -1,5 +1,6 @@
 import React, { FC, useContext } from 'react';
 
+import { ThemeProps } from '../../../theme/theme';
 import styled from '../../../theme/styled';
 import { NavbarDropdownContext } from './navbar-dropdown';
 
@@ -27,6 +28,10 @@ const StyledDropdownContainer = styled.div<
     displayLeft,
     isOpen,
     mobileToggle = false
+  }: ThemeProps & {
+    displayLeft: boolean;
+    isOpen: boolean;
+    mobileToggle: boolean;
   }) => ({
     label: 'navbarDropdownContainer',
     display: 'flex',

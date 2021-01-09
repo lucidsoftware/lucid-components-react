@@ -1,8 +1,9 @@
 import { withTheme } from '@emotion/react';
 
+import { ThemeProps } from '../../../theme/theme';
 import styled from '../../../theme/styled';
 
-const NavbarBrand = styled.div(({ theme }) => ({
+const NavbarBrand = styled.div(({ theme }: ThemeProps) => ({
   label: 'navbarBrand',
   display: 'inline-block',
   margin: 'auto 0',

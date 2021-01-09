@@ -28,7 +28,7 @@ const InnerCollection = styled.div<{
   justify?: Justify;
   hSpace: Space;
   vSpace: Space;
-}>(({ justify, hSpace, vSpace }) => ({
+}>(({ justify, hSpace, vSpace }: InnerCollectionProps) => ({
   display: 'flex',
   flexWrap: 'wrap',
   margin: `-${vSpace}px 0 0 -${hSpace}px`,
@@ -45,7 +45,7 @@ const InnerItem = styled.div<{
   hSpace: Space;
   vSpace: Space;
   justify?: Justify;
-}>(({ justify, hSpace, vSpace }) => ({
+}>(({ justify, hSpace, vSpace }: InnerCollectionProps) => ({
   margin: `${vSpace}px 0 0 ${hSpace}px`,
   flex: justify === 'full' ? 'auto' : 'initial',
   display: 'flex'

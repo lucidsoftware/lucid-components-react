@@ -7,7 +7,7 @@ import { ThemeProps } from '../../../theme/theme';
 export interface CardActionProps extends ThemeProps, SpaceProps {}
 
 const CardAction = styled.div<CardActionProps>(
-  ({ theme }) => ({
+  ({ theme }: ThemeProps) => ({
     marginRight: `${theme.space ? theme.space[2] : 0}px`
   }),
   space

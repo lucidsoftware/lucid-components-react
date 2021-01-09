@@ -12,7 +12,7 @@ interface Props {
 }
 
 const PlayButton = styled.button<{ sizePx: string; sizePadding: string }>(
-  ({ sizePx, sizePadding }) => ({
+  ({ sizePx, sizePadding }: { sizePx: string; sizePadding: string }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -35,11 +35,19 @@ const PlayButton = styled.button<{ sizePx: string; sizePadding: string }>(
 const IconContainer = styled.div<{
   sizePositionHorz: string;
   sizePositionVert: string;
-}>(({ sizePositionHorz, sizePositionVert }) => ({
-  position: 'relative',
-  left: sizePositionHorz,
-  top: sizePositionVert
-}));
+}>(
+  ({
+    sizePositionHorz,
+    sizePositionVert
+  }: {
+    sizePositionHorz: string;
+    sizePositionVert: string;
+  }) => ({
+    position: 'relative',
+    left: sizePositionHorz,
+    top: sizePositionVert
+  })
+);
 
 const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
   size = 'reg',
@@ -62,7 +70,7 @@ const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
     sizePadding = '12px';
     sizePositionHorz = '3px';
   }
-
+  // @ts-ignore
   const theme = useTheme<Theme>();
 
   return (
@@ -72,6 +80,7 @@ const VideoPlayButton: FC<JSX.IntrinsicElements['button'] & Props> = ({
         sizePositionVert={sizePositionVert}
       >
         <Icon
+          // @ts-ignore
           color={theme.colors.primary}
           sizing="responsive"
           type={IconType.Play}

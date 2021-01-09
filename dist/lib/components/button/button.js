@@ -13,8 +13,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getButtonStyles = void 0;
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const emotion_theming_1 = require("emotion-theming");
+const react_1 = require("@emotion/react");
 const link_1 = require("../link/link");
 let color = '';
 exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, active, disabled }) => {
@@ -106,7 +105,7 @@ const ButtonBase = (_a) => {
     const getClasses = () => {
         return `${className}${hover ? ' is-hover' : ''}${active ? ' is-active' : ''}${asLink ? ' is-link' : ''}${block ? ' block' : ''}`;
     };
-    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
+    return (react_1.jsx("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
 };
-const Button = emotion_theming_1.withTheme(ButtonBase);
+const Button = react_1.withTheme(ButtonBase);
 exports.default = Button;
