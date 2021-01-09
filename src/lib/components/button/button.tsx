@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import {
   FC,
   ReactNode,
@@ -8,7 +8,7 @@ import {
   SyntheticEvent
 } from 'react';
 import * as CSS from 'csstype';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 
 import { ThemeProps } from '../../../theme/theme';
 import { getLinkStyles, LinkVariant, UnderlineType } from '../link/link';

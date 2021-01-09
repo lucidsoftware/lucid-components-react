@@ -45,10 +45,10 @@ module.exports = {
   ],
   plugins: [
     '@typescript-eslint',
+    '@emotion',
     'react',
     'react-hooks',
     'import',
-    'emotion',
     'jest'
   ],
   rules: {
@@ -74,9 +74,9 @@ module.exports = {
       { ignoreRestSiblings: true }
     ],
     '@typescript-eslint/camelcase': 0,
-    'emotion/styled-import': 2,
-    'emotion/no-vanilla': 2,
-    'emotion/syntax-preference': [2, 'object'],
+    '@emotion/styled-import': 2,
+    '@emotion/no-vanilla': 2,
+    '@emotion/syntax-preference': [2, 'object'],
     'import/no-unresolved': 0,
     'import/newline-after-import': 2,
     'import/order': [

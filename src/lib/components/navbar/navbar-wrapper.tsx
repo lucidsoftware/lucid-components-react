@@ -1,5 +1,5 @@
 import React, { ReactNode, FC } from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 
 import styled from '../../../theme/styled';
 import { isIE11 } from '../../../utils/utils';

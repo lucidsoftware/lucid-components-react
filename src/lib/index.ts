@@ -1,4 +1,4 @@
-import '@emotion/core';
+import '@emotion/react';
 
 import { Theme } from '../theme/theme';
 import Accordion from './components/accordion/accordion';

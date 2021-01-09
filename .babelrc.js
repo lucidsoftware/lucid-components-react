@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     '@babel/preset-env',
-    'emotion'
+    '@emotion'
   ],
     presets: [
       '@emotion/babel-preset-css-prop'

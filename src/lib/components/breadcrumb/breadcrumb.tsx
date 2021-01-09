@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 
 import styled from '../../../theme/styled';
 import { ThemeProps } from '../../../theme/theme';
