@@ -77,6 +77,7 @@ module.exports = {
     '@emotion/styled-import': 2,
     '@emotion/no-vanilla': 2,
     '@emotion/syntax-preference': [2, 'object'],
+    'import/no-named-as-default': 0,
     'import/no-unresolved': 0,
     'import/newline-after-import': 2,
     'import/order': [

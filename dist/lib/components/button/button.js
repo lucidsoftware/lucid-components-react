@@ -16,7 +16,7 @@ exports.getButtonStyles = void 0;
 const react_1 = require("@emotion/react");
 const link_1 = require("../link/link");
 let color = '';
-exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, active, disabled }) => {
+const getButtonStyles = ({ theme, variant = '', size = 'regular', block, active, disabled }) => {
     color = theme.colors.black;
     let backgroundColor = theme.colors.white;
     let border = theme.buttons.border;
@@ -85,6 +85,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
     }
     return css;
 };
+exports.getButtonStyles = getButtonStyles;
 const ButtonBase = (_a) => {
     var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, size = 'regular', onClick, onHover, onFocus, hover, active, disabled, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "size", "onClick", "onHover", "onFocus", "hover", "active", "disabled", "theme", "type"]);
     let variant;

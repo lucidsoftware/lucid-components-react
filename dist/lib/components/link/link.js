@@ -21,7 +21,7 @@ var LinkVariant;
     LinkVariant["Primary"] = "primary";
     LinkVariant["Secondary"] = "secondary";
 })(LinkVariant = exports.LinkVariant || (exports.LinkVariant = {}));
-exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
+const getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
     const linkUnderline = underline === 'always' ? 'underline' : 'none';
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';
@@ -55,6 +55,7 @@ exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'n
     }
     return css;
 };
+exports.getLinkStyles = getLinkStyles;
 const LinkBase = (_a) => {
     var { href, disabled, underline = 'none', children, buttonSize = 'regular', primary, secondary, inverse, asButton, block, theme, css, className = '', active } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "buttonSize", "primary", "secondary", "inverse", "asButton", "block", "theme", "css", "className", "active"]);
     let variant;

@@ -34,6 +34,6 @@ const HeadingBase = styled_1.default('h1')(styled_system_1.variant({
 }), styled_system_1.color, styled_system_1.layout, styled_system_1.space, styled_system_1.typography);
 const Heading = styled_1.default((_a) => {
     var { as } = _a, rest = __rest(_a, ["as"]);
-    return react_1.default.createElement(HeadingBase, Object.assign({ as: as }, rest));
+    return (react_1.default.createElement(HeadingBase, Object.assign({ as: as }, rest)));
 })();
 exports.default = Heading;
