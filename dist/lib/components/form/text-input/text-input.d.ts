@@ -1,8 +1,11 @@
+import * as React from 'react';
 import { TypographyProps, SpaceProps } from 'styled-system';
 import { VariantProps } from '../../../../types';
 export interface Props extends TypographyProps, SpaceProps, VariantProps {
     validate?: boolean;
-    validator?: (event: string) => boolean;
+    disabled?: boolean;
+    placeholder?: string;
+    validator?: (event: React.ChangeEvent<HTMLInputElement>) => boolean;
 }
-declare const TextInput: import("@emotion/styled-base").StyledComponent<any, Props, import("../../../../theme/theme").Theme>;
+declare const TextInput: any;
 export default TextInput;

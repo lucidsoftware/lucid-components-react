@@ -15,8 +15,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const react_1 = require("react");
+const react_1 = require("@emotion/react");
+const react_2 = require("react");
 const react_player_1 = __importDefault(require("react-player"));
 const video_play_button_1 = __importDefault(require("../video-play-button/video-play-button"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
@@ -49,9 +49,9 @@ const VideoPlayer = (_a) => {
     var { className, url, placeholder, playing, onClick = () => {
         return;
     }, ratio = 'wide' } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio"]);
-    const [overlayVisible, setOverlayVisible] = react_1.useState(!playing);
-    const [isPlaying, setIsPlaying] = react_1.useState(playing);
-    react_1.useEffect(() => {
+    const [overlayVisible, setOverlayVisible] = react_2.useState(!playing);
+    const [isPlaying, setIsPlaying] = react_2.useState(playing);
+    react_2.useEffect(() => {
         if (playing) {
             setOverlayVisible(false);
             setIsPlaying(true);
@@ -61,13 +61,13 @@ const VideoPlayer = (_a) => {
             setIsPlaying(false);
         }
     }, [playing]);
-    const reactPlayerCss = core_1.css({
+    const reactPlayerCss = react_1.css({
         position: 'absolute',
         left: 0,
         right: 0,
         top: 0
     });
-    const videoContainerCss = core_1.css({
+    const videoContainerCss = react_1.css({
         display: 'block',
         padding: 0,
         width: '100%',
@@ -76,16 +76,16 @@ const VideoPlayer = (_a) => {
         borderRadius: '5px',
         paddingTop: ratio === 'wide' ? '56.25%' : '100%'
     });
-    return (core_1.jsx("div", { className: className, css: videoContainerCss },
-        overlayVisible && (core_1.jsx(VideoOverlay, null,
-            core_1.jsx(video_play_button_1.default, { onClick: () => {
+    return (react_1.jsx("div", { className: className, css: videoContainerCss },
+        overlayVisible && (react_1.jsx(VideoOverlay, null,
+            react_1.jsx(video_play_button_1.default, { onClick: () => {
                     if (url) {
                         setOverlayVisible(false);
                         setIsPlaying(true);
                     }
                     onClick();
                 }, size: "lg" }))),
-        placeholder && overlayVisible && (core_1.jsx(VideoPlaceholder, null, placeholder())),
-        url && (core_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
+        placeholder && overlayVisible && (react_1.jsx(VideoPlaceholder, null, placeholder())),
+        url && (react_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
 };
 exports.default = VideoPlayer;

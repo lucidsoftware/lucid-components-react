@@ -1,6 +1,7 @@
 import React, { ReactNode, FC } from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 
+import { ThemeProps } from '../../../theme/theme';
 import styled from '../../../theme/styled';
 import { isIE11 } from '../../../utils/utils';
 
@@ -16,7 +17,14 @@ interface Props {
 }
 
 const NavbarWrap = styled.nav<Props>(
-  ({ theme, sticky, stickyCollapsed, background, top, zIndex }) => ({
+  ({
+    theme,
+    sticky,
+    stickyCollapsed,
+    background,
+    top,
+    zIndex
+  }: ThemeProps & Props) => ({
     display: 'block',
     background: background || theme.navbar.background,
     zIndex,

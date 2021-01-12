@@ -4,5 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const styled_1 = __importDefault(require("@emotion/styled"));
+// @ts-ignore
 const styled = styled_1.default;
 exports.default = styled;

@@ -23,7 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VideoPlayer = exports.VideoPlayButton = exports.Spacer = exports.Paper = exports.NavbarWrapper = exports.Navbar = exports.LinkVariant = exports.Link = exports.IconType = exports.Icon = exports.getLinkStyles = exports.getButtonStyles = exports.Form = exports.Heading = exports.Card = exports.Collection = exports.Button = exports.Breadcrumb = exports.Box = exports.Accordion = void 0;
-require("@emotion/core");
+require("@emotion/react");
 const accordion_1 = __importDefault(require("./components/accordion/accordion"));
 exports.Accordion = accordion_1.default;
 const box_1 = __importDefault(require("./components/box/box"));

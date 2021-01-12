@@ -1,11 +1,11 @@
 import React, { forwardRef, HTMLAttributes, useContext } from 'react';
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 
 import { NavbarContext } from './navbar';
 import styled from '../../../theme/styled';
 import { ThemeProps } from '../../../theme/theme';
 
-const NavbarToggleButton = styled.button(({ theme }) => ({
+const NavbarToggleButton = styled.button(({ theme }: ThemeProps) => ({
   display: 'none',
   background: 'transparent',
   border: 0,

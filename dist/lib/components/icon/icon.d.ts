@@ -1,4 +1,5 @@
-/// <reference types="react" />
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 export declare enum IconType {
     ArrowRight = 0,
     CarotRight = 1,
@@ -18,5 +19,5 @@ interface Props {
     rotation?: number;
     sizing?: Sizing;
 }
-declare const Icon: ({ className, type, color, hoverColor, sizing, flip }: Props) => JSX.Element;
+declare const Icon: ({ className, type, color, hoverColor, sizing, flip }: Props) => jsx.JSX.Element;
 export default Icon;

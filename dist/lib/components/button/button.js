@@ -13,11 +13,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getButtonStyles = void 0;
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const emotion_theming_1 = require("emotion-theming");
+const react_1 = require("@emotion/react");
 const link_1 = require("../link/link");
 let color = '';
-exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, active, disabled }) => {
+const getButtonStyles = ({ theme, variant = '', size = 'regular', block, active, disabled }) => {
     color = theme.colors.black;
     let backgroundColor = theme.colors.white;
     let border = theme.buttons.border;
@@ -86,6 +85,7 @@ exports.getButtonStyles = ({ theme, variant = '', size = 'regular', block, activ
     }
     return css;
 };
+exports.getButtonStyles = getButtonStyles;
 const ButtonBase = (_a) => {
     var { className = '', id = '', children, primary, secondary, inverse, asLink, underline, block, size = 'regular', onClick, onHover, onFocus, hover, active, disabled, theme, type = 'button' } = _a, rest = __rest(_a, ["className", "id", "children", "primary", "secondary", "inverse", "asLink", "underline", "block", "size", "onClick", "onHover", "onFocus", "hover", "active", "disabled", "theme", "type"]);
     let variant;
@@ -106,7 +106,7 @@ const ButtonBase = (_a) => {
     const getClasses = () => {
         return `${className}${hover ? ' is-hover' : ''}${active ? ' is-active' : ''}${asLink ? ' is-link' : ''}${block ? ' block' : ''}`;
     };
-    return (core_1.jsx("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
+    return (react_1.jsx("button", Object.assign({}, rest, { className: getClasses(), css: css, "data-button-as-link": `${asLink ? 'true' : 'false'}`, disabled: disabled, id: id, onClick: onClick, onFocus: onFocus, onMouseOver: onHover, type: type }), children));
 };
-const Button = emotion_theming_1.withTheme(ButtonBase);
+const Button = react_1.withTheme(ButtonBase);
 exports.default = Button;

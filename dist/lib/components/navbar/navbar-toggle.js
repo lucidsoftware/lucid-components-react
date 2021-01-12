@@ -34,7 +34,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
-const emotion_theming_1 = require("emotion-theming");
+const react_2 = require("@emotion/react");
 const navbar_1 = require("./navbar");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const NavbarToggleButton = styled_1.default.button(({ theme }) => ({
@@ -53,4 +53,4 @@ const NavbarToggle = react_1.forwardRef((_a, ref) => {
     return (react_1.default.createElement(NavbarToggleButton, Object.assign({}, rest, { ref: ref, css: { label: 'navbarToggle' }, onClick: toggleExpanded }), children));
 });
 NavbarToggle.displayName = 'NavbarToggle';
-exports.default = emotion_theming_1.withTheme(NavbarToggle);
+exports.default = react_2.withTheme(NavbarToggle);

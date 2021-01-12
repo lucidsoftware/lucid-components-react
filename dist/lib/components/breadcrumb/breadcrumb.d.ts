@@ -6,5 +6,7 @@ interface Props {
     items: ReactNode[];
     seperator?: ReactNode;
 }
-declare const _default: React.SFC<import("emotion-theming/types/helper").AddOptionalTo<React.PropsWithChildren<Props & ThemeProps>, "theme">>;
+declare const _default: React.FC<Pick<React.PropsWithChildren<Props & ThemeProps>, "inverse" | "children" | "className" | "items" | "seperator"> & {
+    theme?: import("@emotion/react").Theme | undefined;
+}>;
 export default _default;

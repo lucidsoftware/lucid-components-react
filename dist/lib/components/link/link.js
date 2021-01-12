@@ -13,8 +13,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLinkStyles = exports.LinkVariant = void 0;
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const emotion_theming_1 = require("emotion-theming");
+const react_1 = require("@emotion/react");
 const button_1 = require("../button/button");
 var LinkVariant;
 (function (LinkVariant) {
@@ -22,7 +21,7 @@ var LinkVariant;
     LinkVariant["Primary"] = "primary";
     LinkVariant["Secondary"] = "secondary";
 })(LinkVariant = exports.LinkVariant || (exports.LinkVariant = {}));
-exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
+const getLinkStyles = ({ active, block, inverse = false, theme, underline = 'none', variant = LinkVariant.Default }) => {
     const linkUnderline = underline === 'always' ? 'underline' : 'none';
     const linkUnderlineHover = underline === 'hover' || underline === 'always' ? 'underline' : 'none';
     const linkType = inverse ? 'inverse' : 'default';
@@ -56,6 +55,7 @@ exports.getLinkStyles = ({ active, block, inverse = false, theme, underline = 'n
     }
     return css;
 };
+exports.getLinkStyles = getLinkStyles;
 const LinkBase = (_a) => {
     var { href, disabled, underline = 'none', children, buttonSize = 'regular', primary, secondary, inverse, asButton, block, theme, css, className = '', active } = _a, rest = __rest(_a, ["href", "disabled", "underline", "children", "buttonSize", "primary", "secondary", "inverse", "asButton", "block", "theme", "css", "className", "active"]);
     let variant;
@@ -84,7 +84,7 @@ const LinkBase = (_a) => {
             disabled
         });
     }
-    return (core_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, css: [baseCss, css], "data-link-as-button": `${asButton ? 'true' : 'false'}`, href: disabled ? undefined : href }), children));
+    return (react_1.jsx("a", Object.assign({}, rest, { className: `${className}${asButton ? ' is-button' : ''}`, css: [baseCss, css], "data-link-as-button": `${asButton ? 'true' : 'false'}`, href: disabled ? undefined : href }), children));
 };
-const Link = emotion_theming_1.withTheme(LinkBase);
+const Link = react_1.withTheme(LinkBase);
 exports.default = Link;

@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const emotion_theming_1 = require("emotion-theming");
+const react_2 = require("@emotion/react");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const BreadcrumbWrapper = styled_1.default.li({
     padding: 0,
@@ -42,4 +42,4 @@ const Breadcrumb = ({ theme, className, inverse = false, items, seperator = reac
     return (react_1.default.createElement("nav", { "aria-label": "breadcrumbs", className: className },
         react_1.default.createElement(BreadcrumbContent, { inverse: inverse }, getCrumbs())));
 };
-exports.default = emotion_theming_1.withTheme(Breadcrumb);
+exports.default = react_2.withTheme(Breadcrumb);

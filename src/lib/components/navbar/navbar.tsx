@@ -18,6 +18,7 @@ import NavbarContainer from './navbar-container';
 import NavbarInnerContainer from './navbar-inner-container';
 import NavbarToggle from './navbar-toggle';
 import NavbarDropdownGroup from './navbar-dropdown-group';
+import { ThemeProps } from '../../../theme/theme';
 
 interface Props {
   skipText?: string;
@@ -40,7 +41,7 @@ const NavbarContents = styled.div({
   position: 'relative'
 });
 
-const NavbarChildren = styled.div(({ theme }) => ({
+const NavbarChildren = styled.div(({ theme }: ThemeProps) => ({
   label: 'navbarChildren',
   display: 'flex',
   position: 'relative',

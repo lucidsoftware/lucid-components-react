@@ -48,8 +48,8 @@ const HeadingBase = styled('h1')(
   typography
 );
 
-const Heading = styled(({ as, ...rest }) => <HeadingBase as={as} {...rest} />)<
-  Props
->();
+const Heading = styled(({ as, ...rest }: { as?: HeadingType }) => (
+  <HeadingBase as={as} {...rest} />
+))<Props>();
 
 export default Heading;

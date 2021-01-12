@@ -12,5 +12,7 @@ export declare type CollectionProps = {
     children: React.ReactNode;
     verticalJustify?: Justify;
 } & ThemeProps & InnerCollectionProps;
-declare const _default: React.SFC<import("emotion-theming/types/helper").AddOptionalTo<CollectionProps, "theme">>;
+declare const _default: React.FC<Pick<CollectionProps, "justify" | "children" | "className" | "hSpace" | "vSpace" | "verticalJustify"> & {
+    theme?: import("@emotion/react").Theme | undefined;
+}>;
 export default _default;

@@ -34,7 +34,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const emotion_theming_1 = require("emotion-theming");
+const react_2 = require("@emotion/react");
 const icon_1 = __importStar(require("../icon/icon"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const PlayButton = styled_1.default.button(({ sizePx, sizePadding }) => ({
@@ -77,9 +77,14 @@ const VideoPlayButton = (_a) => {
         sizePadding = '12px';
         sizePositionHorz = '3px';
     }
-    const theme = emotion_theming_1.useTheme();
+    // @ts-ignore
+    const theme = react_2.useTheme();
     return (react_1.default.createElement(PlayButton, Object.assign({ sizePadding: sizePadding, sizePx: sizePx }, rest),
         react_1.default.createElement(IconContainer, { sizePositionHorz: sizePositionHorz, sizePositionVert: sizePositionVert },
-            react_1.default.createElement(icon_1.default, { color: theme.colors.primary, sizing: "responsive", type: icon_1.IconType.Play }))));
+            react_1.default.createElement(icon_1.default
+            // @ts-ignore
+            , { 
+                // @ts-ignore
+                color: theme.colors.primary, sizing: "responsive", type: icon_1.IconType.Play }))));
 };
 exports.default = VideoPlayButton;

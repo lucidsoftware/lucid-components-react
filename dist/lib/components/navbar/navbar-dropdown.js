@@ -35,7 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarDropdownContext = void 0;
 const react_1 = __importStar(require("react"));
-const emotion_theming_1 = require("emotion-theming");
+const react_2 = require("@emotion/react");
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const navbar_1 = require("./navbar");
 const utils_1 = require("../../../utils/utils");
@@ -100,4 +100,4 @@ const NavbarDropdown = react_1.forwardRef((_a, ref) => {
             children)));
 });
 NavbarDropdown.displayName = 'NavbarDropdown';
-exports.default = emotion_theming_1.withTheme(NavbarDropdown);
+exports.default = react_2.withTheme(NavbarDropdown);

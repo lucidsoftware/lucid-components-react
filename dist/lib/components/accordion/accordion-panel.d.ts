@@ -2,7 +2,5 @@ import { TypographyProps, SpaceProps, BorderProps, BackgroundProps } from 'style
 import { VariantProps } from '../../../types';
 export interface Props extends BackgroundProps, TypographyProps, SpaceProps, VariantProps, BorderProps {
 }
-declare const AccordionPanel: import("@emotion/styled-base").StyledComponent<import("react-accessible-accordion/dist/types/helpers/types").DivAttributes & {
-    className?: string | undefined;
-}, Props, import("../../../theme/theme").Theme>;
+declare const AccordionPanel: any;
 export default AccordionPanel;

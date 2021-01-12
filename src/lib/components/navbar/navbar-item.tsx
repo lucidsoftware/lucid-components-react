@@ -1,8 +1,9 @@
-import { withTheme } from 'emotion-theming';
+import { withTheme } from '@emotion/react';
 
+import { ThemeProps } from '../../../theme/theme';
 import styled from '../../../theme/styled';
 
-const NavbarItem = styled.li(({ theme }) => ({
+const NavbarItem = styled.li(({ theme }: ThemeProps) => ({
   label: 'navbarItem',
   flex: '0 1 auto',
   alignSelf: 'flex-start',
