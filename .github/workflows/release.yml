@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   release:
@@ -83,7 +83,7 @@ jobs:
 
           VERSION="${PACKAGE_MAJOR}.${PACKAGE_MINOR}.${PATCH}"
           yarn version --new-version "${VERSION}" --no-git-tag-version
-          echo "::set-env name=VERSION::v${VERSION}"
+          echo "VERSION=v${VERSION}" >> $GITHUB_ENV
 
       - name: Tag and release
         uses: actions/create-release@v1
