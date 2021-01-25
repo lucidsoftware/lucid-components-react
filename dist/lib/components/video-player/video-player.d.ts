@@ -1,5 +1,5 @@
 import { ReactNode, FC } from 'react';
-import { ReactPlayerProps } from 'react-player';
+import { ReactPlayerProps } from 'react-player/lazy';
 interface Props {
     className?: string;
     placeholder?: () => ReactNode;
