@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const react_1 = require("@emotion/react");
 const react_2 = require("react");
-const react_player_1 = __importDefault(require("react-player"));
+const lazy_1 = __importDefault(require("react-player/lazy"));
 const video_play_button_1 = __importDefault(require("../video-play-button/video-play-button"));
 const styled_1 = __importDefault(require("../../../theme/styled"));
 const VideoPlaceholder = styled_1.default('div')({
@@ -86,6 +86,6 @@ const VideoPlayer = (_a) => {
                     onClick();
                 }, size: "lg" }))),
         placeholder && overlayVisible && (react_1.jsx(VideoPlaceholder, null, placeholder())),
-        url && (react_1.jsx(react_player_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
+        url && (react_1.jsx(lazy_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
 };
 exports.default = VideoPlayer;
