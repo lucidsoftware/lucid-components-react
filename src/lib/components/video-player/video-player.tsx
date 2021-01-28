@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react';
-import { useState, ReactNode, FC, useEffect } from 'react';
+import { css } from '@emotion/react';
+import React, { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player/lazy';
 
 import VideoPlayButton from '../video-play-button/video-play-button';
