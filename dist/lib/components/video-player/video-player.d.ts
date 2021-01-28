@@ -1,7 +1,8 @@
 import { ReactNode, FC } from 'react';
 import { ReactPlayerProps } from 'react-player/lazy';
-interface Props {
+interface VideoPlayerProps {
     className?: string;
+    containerClassName?: string;
     placeholder?: () => ReactNode;
     url?: string;
     playing?: boolean;
@@ -9,5 +10,5 @@ interface Props {
     ratio?: 'square' | 'wide';
     config?: any;
 }
-declare const VideoPlayer: FC<ReactPlayerProps & Props>;
+declare const VideoPlayer: FC<ReactPlayerProps & VideoPlayerProps>;
 export default VideoPlayer;
