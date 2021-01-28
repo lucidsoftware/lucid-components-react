@@ -18,6 +18,7 @@ const VideoPlaceholder = styled('div')({
     height: '100%'
   }
 });
+
 const VideoOverlay = styled('div')({
   position: 'absolute',
   top: 0,
@@ -31,8 +32,9 @@ const VideoOverlay = styled('div')({
   zIndex: 2
 });
 
-interface Props {
+interface VideoPlayerProps {
   className?: string;
+  containerClassName?: string;
   placeholder?: () => ReactNode;
   url?: string;
   playing?: boolean;
@@ -41,8 +43,9 @@ interface Props {
   config?: any;
 }
 
-const VideoPlayer: FC<ReactPlayerProps & Props> = ({
+const VideoPlayer: FC<ReactPlayerProps & VideoPlayerProps> = ({
   className,
+  containerClassName,
   url,
   placeholder,
   playing,
@@ -83,7 +86,7 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
   });
 
   return (
-    <div className={className} css={videoContainerCss}>
+    <div className={containerClassName} css={videoContainerCss}>
       {overlayVisible && (
         <VideoOverlay>
           <VideoPlayButton
@@ -105,6 +108,8 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
         <ReactPlayer
           {...rest}
           css={reactPlayerCss}
+          /* eslint-disable-next-line react/jsx-sort-props */
+          className={className}
           height="100%"
           playing={isPlaying}
           url={url}

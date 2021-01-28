@@ -64,9 +64,9 @@ const VideoOverlay = styled_1.default('div')({
     zIndex: 2
 });
 const VideoPlayer = (_a) => {
-    var { className, url, placeholder, playing, onClick = () => {
+    var { className, containerClassName, url, placeholder, playing, onClick = () => {
         return;
-    }, ratio = 'wide' } = _a, rest = __rest(_a, ["className", "url", "placeholder", "playing", "onClick", "ratio"]);
+    }, ratio = 'wide' } = _a, rest = __rest(_a, ["className", "containerClassName", "url", "placeholder", "playing", "onClick", "ratio"]);
     const [overlayVisible, setOverlayVisible] = react_2.useState(!playing);
     const [isPlaying, setIsPlaying] = react_2.useState(playing);
     react_2.useEffect(() => {
@@ -94,7 +94,7 @@ const VideoPlayer = (_a) => {
         borderRadius: '5px',
         paddingTop: ratio === 'wide' ? '56.25%' : '100%'
     });
-    return (react_2.default.createElement("div", { className: className, css: videoContainerCss },
+    return (react_2.default.createElement("div", { className: containerClassName, css: videoContainerCss },
         overlayVisible && (react_2.default.createElement(VideoOverlay, null,
             react_2.default.createElement(video_play_button_1.default, { onClick: () => {
                     if (url) {
@@ -104,6 +104,8 @@ const VideoPlayer = (_a) => {
                     onClick();
                 }, size: "lg" }))),
         placeholder && overlayVisible && (react_2.default.createElement(VideoPlaceholder, null, placeholder())),
-        url && (react_2.default.createElement(lazy_1.default, Object.assign({}, rest, { css: reactPlayerCss, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
+        url && (react_2.default.createElement(lazy_1.default, Object.assign({}, rest, { css: reactPlayerCss, 
+            /* eslint-disable-next-line react/jsx-sort-props */
+            className: className, height: "100%", playing: isPlaying, url: url, width: "100%" })))));
 };
 exports.default = VideoPlayer;
