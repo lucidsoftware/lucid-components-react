@@ -1,11 +1,12 @@
-import { css } from '@emotion/react';
-import React, { useState, ReactNode, FC, useEffect } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { useState, ReactNode, FC, useEffect } from 'react';
 import ReactPlayer, { ReactPlayerProps } from 'react-player/lazy';
 
 import VideoPlayButton from '../video-play-button/video-play-button';
 import styled from '../../../theme/styled';
 
-const VideoPlaceholder = styled('div')({
+const VideoPlaceholder = styled.div({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -18,7 +19,8 @@ const VideoPlaceholder = styled('div')({
     height: '100%'
   }
 });
-const VideoOverlay = styled('div')({
+
+const VideoOverlay = styled.div({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -31,8 +33,9 @@ const VideoOverlay = styled('div')({
   zIndex: 2
 });
 
-interface Props {
+interface VideoPlayerProps {
   className?: string;
+  containerClassName?: string;
   placeholder?: () => ReactNode;
   url?: string;
   playing?: boolean;
@@ -41,8 +44,9 @@ interface Props {
   config?: any;
 }
 
-const VideoPlayer: FC<ReactPlayerProps & Props> = ({
+const VideoPlayer: FC<ReactPlayerProps & VideoPlayerProps> = ({
   className,
+  containerClassName,
   url,
   placeholder,
   playing,
@@ -83,7 +87,11 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
   });
 
   return (
-    <div className={className} css={videoContainerCss}>
+    <div
+      css={videoContainerCss}
+      /* eslint-disable-next-line react/jsx-sort-props */
+      className={containerClassName}
+    >
       {overlayVisible && (
         <VideoOverlay>
           <VideoPlayButton
@@ -105,6 +113,8 @@ const VideoPlayer: FC<ReactPlayerProps & Props> = ({
         <ReactPlayer
           {...rest}
           css={reactPlayerCss}
+          /* eslint-disable-next-line react/jsx-sort-props */
+          className={className}
           height="100%"
           playing={isPlaying}
           url={url}
